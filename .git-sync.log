@@ -18,3 +18,18 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights
 and the repository exists.
 [2026-02-12 20:31:56] 检测到文件变更，开始同步...
+[master c537c0e] [2026-02-12 20:31] 自动同步文档更新
+ 9 files changed, 582 insertions(+), 2 deletions(-)
+ create mode 100644 quant/quant_template.py
+ create mode 100644 study/learning_roadmap.md
+ create mode 120000 venv/bin/python
+ create mode 120000 venv/bin/python3
+ create mode 120000 venv/bin/python3.12
+ create mode 120000 venv/lib64
+ create mode 100644 venv/pyvenv.cfg
+[2026-02-12 20:31:56] ⚠️ Push失败(可能未配置远程仓库): fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[2026-02-12 21:00:43] 检测到文件变更，开始同步...
