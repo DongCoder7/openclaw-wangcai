@@ -7,6 +7,25 @@
 - 确认 `ah-market-preopen` (9:15) 任务正常
 - 检查是否有任务运行失败
 
+### 2. Git同步检查（整点任务）
+**触发条件：分钟数为 00-09（整点）**
+
+**执行步骤**：
+1. 运行自动同步脚本：`bash tools/git_sync.sh`
+2. 脚本会自动检测变更、提交并push
+3. 查看日志确认同步状态：`tail -20 .git-sync.log`
+
+**说明**：
+- 所有 `.md` 文件变更会自动提交
+- 如配置了远程仓库，会自动push
+- 同步日志保存在 `.git-sync.log`
+
+**首次使用需配置远程仓库**（可选）：
+```bash
+git remote add origin https://github.com/yourusername/openclaw-workspace.git
+git push -u origin master
+```
+
 ### 2. 环境就绪检查
 - 检查 `.openclaw/workshop/data/` 目录可写
 - 检查网络连接（Yahoo Finance、AKShare 等数据源）
