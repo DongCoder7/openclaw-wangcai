@@ -140,7 +140,8 @@ def check_portfolio():
         code = pos['code']
         name = pos['name']
         buy_price = pos['buy_price']
-        stop_loss = pos['stop_loss']
+        stop_loss = buy_price * 0.92  # -8%止损
+        warning_price = buy_price * 0.95  # -5%预警
         buy_date = PORTFOLIO['start_date']
         
         # 检查T+1
