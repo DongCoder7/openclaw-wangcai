@@ -95,3 +95,24 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights
 and the repository exists.
 [2026-02-13 13:14:47] 检测到文件变更，开始同步...
+[master 445332c] [2026-02-13 13:14] 自动同步文档更新
+ 16 files changed, 3233 insertions(+), 9 deletions(-)
+ create mode 100644 lingyi_tech_analysis.py
+ create mode 100644 market_review/ah_market_2026-02-13.md
+ create mode 100644 market_review/us_pre_market_2026-02-13.md
+ create mode 100644 stock_analysis/lingyizhizao_002600_analysis.md
+ create mode 100644 stock_analysis/lingyizhizao_002600_full_sop.md
+ create mode 100644 study/quant/learning_notes_day2.md
+ create mode 100644 study/quant/learning_notes_day2_afternoon.md
+ create mode 100644 study/quant/learning_notes_day2_summary.md
+ create mode 100644 study/quant/learning_notes_day3.md
+ create mode 100644 study/quant/multi_factor_strategy_report.md
+ create mode 100644 study/quant/pe_factor_backtest_report.md
+ create mode 100644 study/quant/vqm_backtest_report.md
+ create mode 100644 tools/data_utils.py
+ create mode 100644 tools/simple_data_utils.py
+[2026-02-13 13:14:47] ⚠️ Push失败(可能未配置远程仓库): fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
