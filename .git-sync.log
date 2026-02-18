@@ -117,3 +117,29 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights
 and the repository exists.
 [2026-02-18 08:08:12] 检测到文件变更，开始同步...
+[master 547b614] [2026-02-18 08:08] 自动同步文档更新
+ 19 files changed, 4737 insertions(+)
+ create mode 100644 data/backtest/vqm_backtest.db
+ create mode 100644 docs/vqm_backtest_sop_strict.md
+ create mode 100644 docs/vqm_backtest_sop_v3.md
+ create mode 100644 quant/backtest_log.txt
+ create mode 100644 quant/backtest_realtime.log
+ create mode 100644 quant/data_download.log
+ create mode 100644 quant/quick_test.py
+ create mode 100644 quant/vqm_backtest_summary.json
+ create mode 100644 quant/vqm_case_studies.md
+ create mode 100644 quant/vqm_daily_trader.py
+ create mode 100644 quant/vqm_daily_trading_report.md
+ create mode 100644 quant/vqm_demo_quick.py
+ create mode 100644 quant/vqm_full_backtest_system.py
+ create mode 100644 quant/vqm_monthly_backtest_2018_2024.py
+ create mode 100644 quant/vqm_multi_period_backtest.py
+ create mode 100644 quant/vqm_real_data_demo.py
+ create mode 100644 quant/vqm_strict_backtest_real.py
+ create mode 100644 quant/vqm_validation_comparison.md
+[2026-02-18 08:08:13] ⚠️ Push失败(可能未配置远程仓库): fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[2026-02-18 12:11:52] 检测到文件变更，开始同步...
