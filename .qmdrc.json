@@ -1,0 +1,39 @@
+{
+  "compression": {
+    "removeExtraWhitespace": true,
+    "collapseEmptyLines": true,
+    "trimTrailingWhitespace": true,
+    "removeDuplicateSpaces": true
+  },
+  "content": {
+    "stripComments": true,
+    "stripHtmlTags": ["script", "style"],
+    "removeFootnotes": false,
+    "maxHeadingLevel": 4,
+    "removeEmojis": false,
+    "preserveTables": true
+  },
+  "code": {
+    "optimizeCodeBlocks": true,
+    "removeLineNumbers": true,
+    "collapseImports": true,
+    "simplifyCodeFences": true
+  },
+  "media": {
+    "replaceImagesWithPlaceholder": true,
+    "imagePlaceholder": "[图]",
+    "replaceLinksWithPlaceholder": false,
+    "shortenUrls": true
+  },
+  "output": {
+    "preserveStructure": true,
+    "addCompressionStats": true,
+    "minifyFrontmatter": true
+  },
+  "ignore": [
+    "node_modules/**",
+    ".git/**",
+    "*.min.md",
+    "dist/**"
+  ]
+}
