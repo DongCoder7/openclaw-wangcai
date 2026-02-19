@@ -167,3 +167,18 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights
 and the repository exists.
 [2026-02-19 08:01:08] 检测到文件变更，开始同步...
+[master cb91eff] [2026-02-19 08:01] 自动同步文档更新
+ 12 files changed, 736 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 .qmdrc.json
+ create mode 100644 docs/qmd_tool_guide.md
+ create mode 100644 docs/qmd_usage_guide.md
+ create mode 100755 tools/md_compress.py
+ create mode 100755 tools/qmd_compress.sh
+ create mode 120000 venv-qmd/bin/python
+ create mode 120000 venv-qmd/bin/python3
+ create mode 120000 venv-qmd/bin/python3.12
+ create mode 120000 venv-qmd/lib64
+ create mode 100644 venv-qmd/pyvenv.cfg
+[2026-02-19 08:01:11] ✅ 同步成功: [2026-02-19 08:01] 自动同步文档更新
+[2026-02-19 10:16:29] 检测到文件变更，开始同步...
