@@ -1,0 +1,36 @@
+# QMD 压缩文件（临时文件，不提交）
+*.min.md
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+.git-sync.log
+
+# Skill 打包文件（已打包的 .skill 文件）
+*.skill
