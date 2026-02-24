@@ -19,7 +19,7 @@ def send_message(message):
     """发送消息到Feishu"""
     try:
         result = subprocess.run(
-            ['openclaw', 'message', 'send', '--target', USER_ID, '--message', message],
+            ['openclaw', 'message', 'send', '--channel', 'feishu', '--target', USER_ID, '--message', message],
             capture_output=True, text=True, timeout=30
         )
         return result.returncode == 0
@@ -170,8 +170,21 @@ def git_sync():
     except Exception as e:
         return f"失败: {e}"
 
+def is_hour_start():
+    """检查是否为整点（0分）"""
+    return datetime.now().minute == 0
+
 def main():
-    print(f"🫘 Heartbeat检查 - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    now = datetime.now()
+    print(f"🫘 Heartbeat检查 - {now.strftime('%Y-%m-%d %H:%M:%S')}")
+    
+    # 判断是否为整点
+    if not is_hour_start():
+        print(f"⏱️ 非整点({now.minute}分)，跳过状态汇报")
+        print("✅ Heartbeat完成")
+        return
+    
+    print(f"🕐 整点汇报 - {now.hour}:00")
     
     # 获取状态
     status = get_current_status()
@@ -180,7 +193,7 @@ def main():
     report = generate_report(status)
     print(report)
     
-    # 发送报告（不管有没有变化都发送）
+    # 发送报告（整点才发送）
     send_message(report)
     
     # 自动修复问题
