@@ -1,0 +1,6506 @@
+{
+  "best_params": {
+    "p": 0.5,
+    "s": 0.15,
+    "rd": 30,
+    "momentum_weight": 0.7,
+    "reverse_weight": 0.2
+  },
+  "best_return": 8.36,
+  "full_result": {
+    "avg_return_pct": 8.36,
+    "yearly_results": [
+      {
+        "year": "2018",
+        "return_pct": -93.32,
+        "initial_capital": 1000000,
+        "final_value": 66848.22,
+        "trades": [
+          {
+            "date": "20180102",
+            "action": "BUY",
+            "stock": "000001.SZ",
+            "shares": 7883,
+            "price": 10.57,
+            "value": 83323.31
+          },
+          {
+            "date": "20180102",
+            "action": "BUY",
+            "stock": "000002.SZ",
+            "shares": 3122,
+            "price": 26.69,
+            "value": 83326.18
+          },
+          {
+            "date": "20180102",
+            "action": "BUY",
+            "stock": "000004.SZ",
+            "shares": 3730,
+            "price": 22.34,
+            "value": 83328.2
+          },
+          {
+            "date": "20180102",
+            "action": "BUY",
+            "stock": "000005.SZ",
+            "shares": 19290,
+            "price": 4.32,
+            "value": 83332.8
+          },
+          {
+            "date": "20180102",
+            "action": "BUY",
+            "stock": "000008.SZ",
+            "shares": 9578,
+            "price": 8.7,
+            "value": 83328.6
+          },
+          {
+            "date": "20180102",
+            "action": "BUY",
+            "stock": "000009.SZ",
+            "shares": 14367,
+            "price": 5.8,
+            "value": 83328.6
+          },
+          {
+            "date": "20180201",
+            "action": "SELL",
+            "stock": "000001.SZ",
+            "shares": 7883,
+            "price": 11.09,
+            "value": 87422.47
+          },
+          {
+            "date": "20180201",
+            "action": "SELL",
+            "stock": "000002.SZ",
+            "shares": 3122,
+            "price": 31.63,
+            "value": 98748.86
+          },
+          {
+            "date": "20180201",
+            "action": "SELL",
+            "stock": "000004.SZ",
+            "shares": 3730,
+            "price": 19.88,
+            "value": 74152.4
+          },
+          {
+            "date": "20180201",
+            "action": "SELL",
+            "stock": "000005.SZ",
+            "shares": 19290,
+            "price": 3.87,
+            "value": 74652.3
+          },
+          {
+            "date": "20180201",
+            "action": "SELL",
+            "stock": "000008.SZ",
+            "shares": 9578,
+            "price": 8.11,
+            "value": 77677.58
+          },
+          {
+            "date": "20180201",
+            "action": "SELL",
+            "stock": "000009.SZ",
+            "shares": 14367,
+            "price": 4.65,
+            "value": 66806.55
+          },
+          {
+            "date": "20180201",
+            "action": "BUY",
+            "stock": "300684.SZ",
+            "shares": 5478,
+            "price": 15.21,
+            "value": 83320.38
+          },
+          {
+            "date": "20180201",
+            "action": "BUY",
+            "stock": "601225.SH",
+            "shares": 48169,
+            "price": 1.73,
+            "value": 83332.37
+          },
+          {
+            "date": "20180201",
+            "action": "BUY",
+            "stock": "603655.SH",
+            "shares": 3181,
+            "price": 26.19,
+            "value": 83310.39
+          },
+          {
+            "date": "20180201",
+            "action": "BUY",
+            "stock": "600188.SH",
+            "shares": 46296,
+            "price": 1.8,
+            "value": 83332.8
+          },
+          {
+            "date": "20180201",
+            "action": "BUY",
+            "stock": "603058.SH",
+            "shares": 4041,
+            "price": 20.62,
+            "value": 83325.42
+          },
+          {
+            "date": "20180301",
+            "action": "SELL",
+            "stock": "300684.SZ",
+            "shares": 5478,
+            "price": 13.13,
+            "value": 71926.14
+          },
+          {
+            "date": "20180301",
+            "action": "SELL",
+            "stock": "601225.SH",
+            "shares": 48169,
+            "price": 0.5,
+            "value": 24084.5
+          },
+          {
+            "date": "20180301",
+            "action": "SELL",
+            "stock": "603655.SH",
+            "shares": 3181,
+            "price": 19.05,
+            "value": 60598.05
+          },
+          {
+            "date": "20180301",
+            "action": "SELL",
+            "stock": "600188.SH",
+            "shares": 46296,
+            "price": 0.68,
+            "value": 31481.28
+          },
+          {
+            "date": "20180301",
+            "action": "SELL",
+            "stock": "603058.SH",
+            "shares": 4041,
+            "price": 15.21,
+            "value": 61463.61
+          },
+          {
+            "date": "20180301",
+            "action": "BUY",
+            "stock": "600810.SH",
+            "shares": 14645,
+            "price": 5.69,
+            "value": 83330.05
+          },
+          {
+            "date": "20180301",
+            "action": "BUY",
+            "stock": "603056.SH",
+            "shares": 4145,
+            "price": 20.1,
+            "value": 83314.5
+          },
+          {
+            "date": "20180301",
+            "action": "BUY",
+            "stock": "300586.SZ",
+            "shares": 13123,
+            "price": 6.35,
+            "value": 83331.05
+          },
+          {
+            "date": "20180402",
+            "action": "SELL",
+            "stock": "600810.SH",
+            "shares": 14645,
+            "price": 4.53,
+            "value": 66341.85
+          },
+          {
+            "date": "20180402",
+            "action": "SELL",
+            "stock": "603056.SH",
+            "shares": 4145,
+            "price": 20.57,
+            "value": 85262.65
+          },
+          {
+            "date": "20180402",
+            "action": "BUY",
+            "stock": "603712.SH",
+            "shares": 2224,
+            "price": 37.46,
+            "value": 83311.04
+          },
+          {
+            "date": "20180402",
+            "action": "BUY",
+            "stock": "002864.SZ",
+            "shares": 1479,
+            "price": 56.34,
+            "value": 83326.86
+          },
+          {
+            "date": "20180502",
+            "action": "SELL",
+            "stock": "603712.SH",
+            "shares": 2224,
+            "price": 33.15,
+            "value": 73725.6
+          },
+          {
+            "date": "20180502",
+            "action": "BUY",
+            "stock": "300634.SZ",
+            "shares": 1672,
+            "price": 49.83,
+            "value": 83315.76
+          },
+          {
+            "date": "20180601",
+            "action": "SELL",
+            "stock": "002864.SZ",
+            "shares": 1479,
+            "price": 45.58,
+            "value": 67412.82
+          },
+          {
+            "date": "20180601",
+            "action": "SELL",
+            "stock": "300634.SZ",
+            "shares": 1672,
+            "price": 42.55,
+            "value": 71143.6
+          },
+          {
+            "date": "20180601",
+            "action": "BUY",
+            "stock": "300743.SZ",
+            "shares": 2179,
+            "price": 38.24,
+            "value": 83324.96
+          },
+          {
+            "date": "20180601",
+            "action": "BUY",
+            "stock": "002930.SZ",
+            "shares": 2659,
+            "price": 31.33,
+            "value": 83306.47
+          },
+          {
+            "date": "20180702",
+            "action": "SELL",
+            "stock": "300743.SZ",
+            "shares": 2179,
+            "price": 32.94,
+            "value": 71776.26
+          },
+          {
+            "date": "20180702",
+            "action": "SELL",
+            "stock": "002930.SZ",
+            "shares": 2659,
+            "price": 21.28,
+            "value": 56583.52
+          },
+          {
+            "date": "20180702",
+            "action": "BUY",
+            "stock": "300746.SZ",
+            "shares": 2475,
+            "price": 33.67,
+            "value": 83333.25
+          },
+          {
+            "date": "20180801",
+            "action": "SELL",
+            "stock": "300586.SZ",
+            "shares": 13123,
+            "price": 5.94,
+            "value": 77950.62
+          },
+          {
+            "date": "20180801",
+            "action": "SELL",
+            "stock": "300746.SZ",
+            "shares": 2475,
+            "price": 29.99,
+            "value": 74225.25
+          },
+          {
+            "date": "20180801",
+            "action": "BUY",
+            "stock": "300390.SZ",
+            "shares": 57471,
+            "price": 1.45,
+            "value": 83332.95
+          },
+          {
+            "date": "20180801",
+            "action": "BUY",
+            "stock": "600039.SH",
+            "shares": 185185,
+            "price": 0.45,
+            "value": 83333.25
+          },
+          {
+            "date": "20180903",
+            "action": "SELL",
+            "stock": "300390.SZ",
+            "shares": 57471,
+            "price": 0.67,
+            "value": 38505.57
+          },
+          {
+            "date": "20180903",
+            "action": "SELL",
+            "stock": "600039.SH",
+            "shares": 185185,
+            "price": 0.17,
+            "value": 31481.45
+          },
+          {
+            "date": "20180903",
+            "action": "BUY",
+            "stock": "601606.SH",
+            "shares": 4650,
+            "price": 17.92,
+            "value": 83328.0
+          },
+          {
+            "date": "20181008",
+            "action": "SELL",
+            "stock": "601606.SH",
+            "shares": 4650,
+            "price": 15.21,
+            "value": 70726.5
+          },
+          {
+            "date": "20181008",
+            "action": "BUY",
+            "stock": "601068.SH",
+            "shares": 11307,
+            "price": 7.37,
+            "value": 83332.59
+          },
+          {
+            "date": "20181101",
+            "action": "SELL",
+            "stock": "601068.SH",
+            "shares": 11307,
+            "price": 6.55,
+            "value": 74060.85
+          },
+          {
+            "date": "20181101",
+            "action": "BUY",
+            "stock": "300748.SZ",
+            "shares": 8012,
+            "price": 10.4,
+            "value": 83324.8
+          },
+          {
+            "date": "20181203",
+            "action": "SELL",
+            "stock": "300748.SZ",
+            "shares": 8012,
+            "price": 7.71,
+            "value": 61772.52
+          }
+        ],
+        "equity_curve": [
+          {
+            "date": "20180102",
+            "equity": 500000.0
+          },
+          {
+            "date": "20180201",
+            "equity": 479492.47000000003
+          },
+          {
+            "date": "20180301",
+            "equity": 312424.69000000006
+          },
+          {
+            "date": "20180402",
+            "equity": 214053.59000000008
+          },
+          {
+            "date": "20180502",
+            "equity": 201835.5300000001
+          },
+          {
+            "date": "20180601",
+            "equity": 176381.95000000007
+          },
+          {
+            "date": "20180702",
+            "equity": 138110.30000000005
+          },
+          {
+            "date": "20180801",
+            "equity": 206952.92000000004
+          },
+          {
+            "date": "20180903",
+            "equity": 110273.74000000003
+          },
+          {
+            "date": "20181008",
+            "equity": 97672.24000000002
+          },
+          {
+            "date": "20181101",
+            "equity": 88400.50000000001
+          },
+          {
+            "date": "20181203",
+            "equity": 66848.22
+          }
+        ]
+      },
+      {
+        "year": "2019",
+        "return_pct": -50.51,
+        "initial_capital": 1000000,
+        "final_value": 494936.4,
+        "trades": [
+          {
+            "date": "20190102",
+            "action": "BUY",
+            "stock": "002243.SZ",
+            "shares": 5676,
+            "price": 14.68,
+            "value": 83323.68
+          },
+          {
+            "date": "20190102",
+            "action": "BUY",
+            "stock": "600776.SH",
+            "shares": 7673,
+            "price": 10.86,
+            "value": 83328.78
+          },
+          {
+            "date": "20190102",
+            "action": "BUY",
+            "stock": "002927.SZ",
+            "shares": 3940,
+            "price": 21.15,
+            "value": 83331.0
+          },
+          {
+            "date": "20190102",
+            "action": "BUY",
+            "stock": "300752.SZ",
+            "shares": 3968,
+            "price": 21.0,
+            "value": 83328.0
+          },
+          {
+            "date": "20190201",
+            "action": "SELL",
+            "stock": "002243.SZ",
+            "shares": 5676,
+            "price": 12.18,
+            "value": 69133.68
+          },
+          {
+            "date": "20190201",
+            "action": "SELL",
+            "stock": "600776.SH",
+            "shares": 7673,
+            "price": 12.04,
+            "value": 92382.92
+          },
+          {
+            "date": "20190201",
+            "action": "SELL",
+            "stock": "002927.SZ",
+            "shares": 3940,
+            "price": 13.67,
+            "value": 53859.8
+          },
+          {
+            "date": "20190201",
+            "action": "SELL",
+            "stock": "300752.SZ",
+            "shares": 3968,
+            "price": 24.52,
+            "value": 97295.36
+          },
+          {
+            "date": "20190201",
+            "action": "BUY",
+            "stock": "601699.SH",
+            "shares": 112612,
+            "price": 0.74,
+            "value": 83332.88
+          },
+          {
+            "date": "20190201",
+            "action": "BUY",
+            "stock": "600438.SH",
+            "shares": 16339,
+            "price": 5.1,
+            "value": 83328.9
+          },
+          {
+            "date": "20190201",
+            "action": "BUY",
+            "stock": "603688.SH",
+            "shares": 30413,
+            "price": 2.74,
+            "value": 83331.62
+          },
+          {
+            "date": "20190201",
+            "action": "BUY",
+            "stock": "601088.SH",
+            "shares": 15605,
+            "price": 5.34,
+            "value": 83330.7
+          },
+          {
+            "date": "20190201",
+            "action": "BUY",
+            "stock": "600809.SH",
+            "shares": 7374,
+            "price": 11.3,
+            "value": 83326.2
+          },
+          {
+            "date": "20190301",
+            "action": "SELL",
+            "stock": "601699.SH",
+            "shares": 112612,
+            "price": 1.87,
+            "value": 210584.44
+          },
+          {
+            "date": "20190301",
+            "action": "SELL",
+            "stock": "600438.SH",
+            "shares": 16339,
+            "price": 6.55,
+            "value": 107020.45
+          },
+          {
+            "date": "20190301",
+            "action": "SELL",
+            "stock": "603688.SH",
+            "shares": 30413,
+            "price": 4.11,
+            "value": 124997.43
+          },
+          {
+            "date": "20190301",
+            "action": "SELL",
+            "stock": "601088.SH",
+            "shares": 15605,
+            "price": 5.86,
+            "value": 91445.3
+          },
+          {
+            "date": "20190301",
+            "action": "SELL",
+            "stock": "600809.SH",
+            "shares": 7374,
+            "price": 18.74,
+            "value": 138188.76
+          },
+          {
+            "date": "20190301",
+            "action": "BUY",
+            "stock": "600295.SH",
+            "shares": 122549,
+            "price": 0.68,
+            "value": 83333.32
+          },
+          {
+            "date": "20190301",
+            "action": "BUY",
+            "stock": "601225.SH",
+            "shares": 59523,
+            "price": 1.4,
+            "value": 83332.2
+          },
+          {
+            "date": "20190301",
+            "action": "BUY",
+            "stock": "002946.SZ",
+            "shares": 4553,
+            "price": 18.3,
+            "value": 83319.9
+          },
+          {
+            "date": "20190301",
+            "action": "BUY",
+            "stock": "600131.SH",
+            "shares": 5533,
+            "price": 15.06,
+            "value": 83326.98
+          },
+          {
+            "date": "20190301",
+            "action": "BUY",
+            "stock": "300390.SZ",
+            "shares": 193798,
+            "price": 0.43,
+            "value": 83333.14
+          },
+          {
+            "date": "20190301",
+            "action": "BUY",
+            "stock": "002458.SZ",
+            "shares": 7316,
+            "price": 11.39,
+            "value": 83329.24
+          },
+          {
+            "date": "20190401",
+            "action": "SELL",
+            "stock": "600295.SH",
+            "shares": 122549,
+            "price": 0.88,
+            "value": 107843.12
+          },
+          {
+            "date": "20190401",
+            "action": "SELL",
+            "stock": "601225.SH",
+            "shares": 59523,
+            "price": 1.75,
+            "value": 104165.25
+          },
+          {
+            "date": "20190401",
+            "action": "SELL",
+            "stock": "002946.SZ",
+            "shares": 4553,
+            "price": 17.16,
+            "value": 78129.48
+          },
+          {
+            "date": "20190401",
+            "action": "SELL",
+            "stock": "600131.SH",
+            "shares": 5533,
+            "price": 18.27,
+            "value": 101087.91
+          },
+          {
+            "date": "20190401",
+            "action": "SELL",
+            "stock": "002458.SZ",
+            "shares": 7316,
+            "price": 11.91,
+            "value": 87133.56
+          },
+          {
+            "date": "20190401",
+            "action": "BUY",
+            "stock": "000590.SZ",
+            "shares": 4399,
+            "price": 18.94,
+            "value": 83317.06
+          },
+          {
+            "date": "20190401",
+            "action": "BUY",
+            "stock": "002356.SZ",
+            "shares": 5287,
+            "price": 15.76,
+            "value": 83323.12
+          },
+          {
+            "date": "20190401",
+            "action": "BUY",
+            "stock": "600072.SH",
+            "shares": 5153,
+            "price": 16.17,
+            "value": 83324.01
+          },
+          {
+            "date": "20190401",
+            "action": "BUY",
+            "stock": "300536.SZ",
+            "shares": 7303,
+            "price": 11.41,
+            "value": 83327.23
+          },
+          {
+            "date": "20190401",
+            "action": "BUY",
+            "stock": "000159.SZ",
+            "shares": 8106,
+            "price": 10.28,
+            "value": 83329.68
+          },
+          {
+            "date": "20190506",
+            "action": "SELL",
+            "stock": "300390.SZ",
+            "shares": 193798,
+            "price": 0.56,
+            "value": 108526.88
+          },
+          {
+            "date": "20190506",
+            "action": "SELL",
+            "stock": "000590.SZ",
+            "shares": 4399,
+            "price": 12.97,
+            "value": 57055.03
+          },
+          {
+            "date": "20190506",
+            "action": "SELL",
+            "stock": "002356.SZ",
+            "shares": 5287,
+            "price": 8.36,
+            "value": 44199.32
+          },
+          {
+            "date": "20190506",
+            "action": "SELL",
+            "stock": "600072.SH",
+            "shares": 5153,
+            "price": 12.4,
+            "value": 63897.2
+          },
+          {
+            "date": "20190506",
+            "action": "SELL",
+            "stock": "300536.SZ",
+            "shares": 7303,
+            "price": 9.21,
+            "value": 67260.63
+          },
+          {
+            "date": "20190506",
+            "action": "SELL",
+            "stock": "000159.SZ",
+            "shares": 8106,
+            "price": 9.0,
+            "value": 72954.0
+          },
+          {
+            "date": "20190506",
+            "action": "BUY",
+            "stock": "300573.SZ",
+            "shares": 5555,
+            "price": 15.0,
+            "value": 83325.0
+          },
+          {
+            "date": "20190506",
+            "action": "BUY",
+            "stock": "603519.SH",
+            "shares": 10893,
+            "price": 7.65,
+            "value": 83331.45
+          },
+          {
+            "date": "20190506",
+            "action": "BUY",
+            "stock": "600758.SH",
+            "shares": 11837,
+            "price": 7.04,
+            "value": 83332.48
+          },
+          {
+            "date": "20190506",
+            "action": "BUY",
+            "stock": "002793.SZ",
+            "shares": 7227,
+            "price": 11.53,
+            "value": 83327.31
+          },
+          {
+            "date": "20190506",
+            "action": "BUY",
+            "stock": "300405.SZ",
+            "shares": 11170,
+            "price": 7.46,
+            "value": 83328.2
+          },
+          {
+            "date": "20190506",
+            "action": "BUY",
+            "stock": "300766.SZ",
+            "shares": 1636,
+            "price": 50.91,
+            "value": 83288.76
+          },
+          {
+            "date": "20190603",
+            "action": "SELL",
+            "stock": "300573.SZ",
+            "shares": 5555,
+            "price": 13.12,
+            "value": 72881.6
+          },
+          {
+            "date": "20190603",
+            "action": "SELL",
+            "stock": "603519.SH",
+            "shares": 10893,
+            "price": 8.74,
+            "value": 95204.82
+          },
+          {
+            "date": "20190603",
+            "action": "SELL",
+            "stock": "600758.SH",
+            "shares": 11837,
+            "price": 5.19,
+            "value": 61434.03
+          },
+          {
+            "date": "20190603",
+            "action": "SELL",
+            "stock": "002793.SZ",
+            "shares": 7227,
+            "price": 8.47,
+            "value": 61212.69
+          },
+          {
+            "date": "20190603",
+            "action": "SELL",
+            "stock": "300405.SZ",
+            "shares": 11170,
+            "price": 6.94,
+            "value": 77519.8
+          },
+          {
+            "date": "20190603",
+            "action": "SELL",
+            "stock": "300766.SZ",
+            "shares": 1636,
+            "price": 45.25,
+            "value": 74029.0
+          },
+          {
+            "date": "20190603",
+            "action": "BUY",
+            "stock": "300748.SZ",
+            "shares": 3943,
+            "price": 21.13,
+            "value": 83315.59
+          },
+          {
+            "date": "20190603",
+            "action": "BUY",
+            "stock": "002119.SZ",
+            "shares": 4928,
+            "price": 16.91,
+            "value": 83332.48
+          },
+          {
+            "date": "20190603",
+            "action": "BUY",
+            "stock": "002756.SZ",
+            "shares": 29342,
+            "price": 2.84,
+            "value": 83331.28
+          },
+          {
+            "date": "20190603",
+            "action": "BUY",
+            "stock": "000713.SZ",
+            "shares": 10016,
+            "price": 8.32,
+            "value": 83333.12
+          },
+          {
+            "date": "20190603",
+            "action": "BUY",
+            "stock": "000795.SZ",
+            "shares": 10879,
+            "price": 7.66,
+            "value": 83333.14
+          },
+          {
+            "date": "20190701",
+            "action": "SELL",
+            "stock": "300748.SZ",
+            "shares": 3943,
+            "price": 20.53,
+            "value": 80949.79
+          },
+          {
+            "date": "20190701",
+            "action": "SELL",
+            "stock": "002119.SZ",
+            "shares": 4928,
+            "price": 12.74,
+            "value": 62782.72
+          },
+          {
+            "date": "20190701",
+            "action": "SELL",
+            "stock": "002756.SZ",
+            "shares": 29342,
+            "price": 2.36,
+            "value": 69247.12
+          },
+          {
+            "date": "20190701",
+            "action": "SELL",
+            "stock": "000713.SZ",
+            "shares": 10016,
+            "price": 6.68,
+            "value": 66906.88
+          },
+          {
+            "date": "20190701",
+            "action": "SELL",
+            "stock": "000795.SZ",
+            "shares": 10879,
+            "price": 6.24,
+            "value": 67884.96
+          },
+          {
+            "date": "20190701",
+            "action": "BUY",
+            "stock": "300780.SZ",
+            "shares": 2826,
+            "price": 29.48,
+            "value": 83310.48
+          },
+          {
+            "date": "20190701",
+            "action": "BUY",
+            "stock": "603686.SH",
+            "shares": 6200,
+            "price": 13.44,
+            "value": 83328.0
+          },
+          {
+            "date": "20190701",
+            "action": "BUY",
+            "stock": "603738.SH",
+            "shares": 6047,
+            "price": 13.78,
+            "value": 83327.66
+          },
+          {
+            "date": "20190701",
+            "action": "BUY",
+            "stock": "603258.SH",
+            "shares": 3384,
+            "price": 24.62,
+            "value": 83314.08
+          },
+          {
+            "date": "20190701",
+            "action": "BUY",
+            "stock": "002463.SZ",
+            "shares": 7427,
+            "price": 11.22,
+            "value": 83330.94
+          },
+          {
+            "date": "20190701",
+            "action": "BUY",
+            "stock": "601330.SH",
+            "shares": 5264,
+            "price": 15.83,
+            "value": 83329.12
+          },
+          {
+            "date": "20190801",
+            "action": "SELL",
+            "stock": "300780.SZ",
+            "shares": 2826,
+            "price": 21.87,
+            "value": 61804.62
+          },
+          {
+            "date": "20190801",
+            "action": "SELL",
+            "stock": "603686.SH",
+            "shares": 6200,
+            "price": 10.23,
+            "value": 63426.0
+          },
+          {
+            "date": "20190801",
+            "action": "SELL",
+            "stock": "603738.SH",
+            "shares": 6047,
+            "price": 10.01,
+            "value": 60530.47
+          },
+          {
+            "date": "20190801",
+            "action": "SELL",
+            "stock": "603258.SH",
+            "shares": 3384,
+            "price": 22.7,
+            "value": 76816.8
+          },
+          {
+            "date": "20190801",
+            "action": "SELL",
+            "stock": "002463.SZ",
+            "shares": 7427,
+            "price": 12.89,
+            "value": 95734.03
+          },
+          {
+            "date": "20190801",
+            "action": "SELL",
+            "stock": "601330.SH",
+            "shares": 5264,
+            "price": 10.51,
+            "value": 55324.64
+          },
+          {
+            "date": "20190801",
+            "action": "BUY",
+            "stock": "600546.SH",
+            "shares": 47892,
+            "price": 1.74,
+            "value": 83332.08
+          },
+          {
+            "date": "20190801",
+            "action": "BUY",
+            "stock": "002201.SZ",
+            "shares": 10752,
+            "price": 7.75,
+            "value": 83328.0
+          },
+          {
+            "date": "20190801",
+            "action": "BUY",
+            "stock": "300585.SZ",
+            "shares": 3555,
+            "price": 23.44,
+            "value": 83329.2
+          },
+          {
+            "date": "20190801",
+            "action": "BUY",
+            "stock": "000408.SZ",
+            "shares": 20833,
+            "price": 4.0,
+            "value": 83332.0
+          },
+          {
+            "date": "20190801",
+            "action": "BUY",
+            "stock": "601698.SH",
+            "shares": 8106,
+            "price": 10.28,
+            "value": 83329.68
+          },
+          {
+            "date": "20190902",
+            "action": "SELL",
+            "stock": "600546.SH",
+            "shares": 47892,
+            "price": 1.52,
+            "value": 72795.84
+          },
+          {
+            "date": "20190902",
+            "action": "SELL",
+            "stock": "002201.SZ",
+            "shares": 10752,
+            "price": 12.21,
+            "value": 131281.92
+          },
+          {
+            "date": "20190902",
+            "action": "SELL",
+            "stock": "300585.SZ",
+            "shares": 3555,
+            "price": 25.13,
+            "value": 89337.15
+          },
+          {
+            "date": "20190902",
+            "action": "SELL",
+            "stock": "000408.SZ",
+            "shares": 20833,
+            "price": 2.81,
+            "value": 58540.73
+          },
+          {
+            "date": "20190902",
+            "action": "SELL",
+            "stock": "601698.SH",
+            "shares": 8106,
+            "price": 12.33,
+            "value": 99946.98
+          },
+          {
+            "date": "20190902",
+            "action": "BUY",
+            "stock": "603530.SH",
+            "shares": 3886,
+            "price": 21.44,
+            "value": 83315.84
+          },
+          {
+            "date": "20190902",
+            "action": "BUY",
+            "stock": "300526.SZ",
+            "shares": 2205,
+            "price": 37.78,
+            "value": 83304.9
+          },
+          {
+            "date": "20190902",
+            "action": "BUY",
+            "stock": "000058.SZ",
+            "shares": 8846,
+            "price": 9.42,
+            "value": 83329.32
+          },
+          {
+            "date": "20190902",
+            "action": "BUY",
+            "stock": "600812.SH",
+            "shares": 10615,
+            "price": 7.85,
+            "value": 83327.75
+          },
+          {
+            "date": "20190902",
+            "action": "BUY",
+            "stock": "002048.SZ",
+            "shares": 10907,
+            "price": 7.64,
+            "value": 83329.48
+          },
+          {
+            "date": "20190902",
+            "action": "BUY",
+            "stock": "600536.SH",
+            "shares": 1731,
+            "price": 48.14,
+            "value": 83330.34
+          },
+          {
+            "date": "20191008",
+            "action": "SELL",
+            "stock": "603530.SH",
+            "shares": 3886,
+            "price": 20.02,
+            "value": 77797.72
+          },
+          {
+            "date": "20191008",
+            "action": "SELL",
+            "stock": "300526.SZ",
+            "shares": 2205,
+            "price": 42.48,
+            "value": 93668.4
+          },
+          {
+            "date": "20191008",
+            "action": "SELL",
+            "stock": "000058.SZ",
+            "shares": 8846,
+            "price": 8.1,
+            "value": 71652.6
+          },
+          {
+            "date": "20191008",
+            "action": "SELL",
+            "stock": "600812.SH",
+            "shares": 10615,
+            "price": 7.18,
+            "value": 76215.7
+          },
+          {
+            "date": "20191008",
+            "action": "SELL",
+            "stock": "002048.SZ",
+            "shares": 10907,
+            "price": 9.08,
+            "value": 99035.56
+          },
+          {
+            "date": "20191008",
+            "action": "SELL",
+            "stock": "600536.SH",
+            "shares": 1731,
+            "price": 42.94,
+            "value": 74329.14
+          },
+          {
+            "date": "20191008",
+            "action": "BUY",
+            "stock": "603093.SH",
+            "shares": 3330,
+            "price": 25.02,
+            "value": 83316.6
+          },
+          {
+            "date": "20191008",
+            "action": "BUY",
+            "stock": "002552.SZ",
+            "shares": 4365,
+            "price": 19.09,
+            "value": 83327.85
+          },
+          {
+            "date": "20191008",
+            "action": "BUY",
+            "stock": "002756.SZ",
+            "shares": 29976,
+            "price": 2.78,
+            "value": 83333.28
+          },
+          {
+            "date": "20191008",
+            "action": "BUY",
+            "stock": "002819.SZ",
+            "shares": 2806,
+            "price": 29.69,
+            "value": 83310.14
+          },
+          {
+            "date": "20191008",
+            "action": "BUY",
+            "stock": "300379.SZ",
+            "shares": 3705,
+            "price": 22.49,
+            "value": 83325.45
+          },
+          {
+            "date": "20191008",
+            "action": "BUY",
+            "stock": "603129.SH",
+            "shares": 3637,
+            "price": 22.91,
+            "value": 83323.67
+          },
+          {
+            "date": "20191101",
+            "action": "SELL",
+            "stock": "603093.SH",
+            "shares": 3330,
+            "price": 20.18,
+            "value": 67199.4
+          },
+          {
+            "date": "20191101",
+            "action": "SELL",
+            "stock": "002552.SZ",
+            "shares": 4365,
+            "price": 17.77,
+            "value": 77566.05
+          },
+          {
+            "date": "20191101",
+            "action": "SELL",
+            "stock": "002756.SZ",
+            "shares": 29976,
+            "price": 2.12,
+            "value": 63549.12
+          },
+          {
+            "date": "20191101",
+            "action": "SELL",
+            "stock": "002819.SZ",
+            "shares": 2806,
+            "price": 24.33,
+            "value": 68269.98
+          },
+          {
+            "date": "20191101",
+            "action": "SELL",
+            "stock": "300379.SZ",
+            "shares": 3705,
+            "price": 20.34,
+            "value": 75359.7
+          },
+          {
+            "date": "20191101",
+            "action": "SELL",
+            "stock": "603129.SH",
+            "shares": 3637,
+            "price": 18.77,
+            "value": 68266.49
+          },
+          {
+            "date": "20191101",
+            "action": "BUY",
+            "stock": "300792.SZ",
+            "shares": 1341,
+            "price": 62.14,
+            "value": 83329.74
+          },
+          {
+            "date": "20191101",
+            "action": "BUY",
+            "stock": "300598.SZ",
+            "shares": 3011,
+            "price": 27.67,
+            "value": 83314.37
+          },
+          {
+            "date": "20191101",
+            "action": "BUY",
+            "stock": "600223.SH",
+            "shares": 16149,
+            "price": 5.16,
+            "value": 83328.84
+          },
+          {
+            "date": "20191101",
+            "action": "BUY",
+            "stock": "000676.SZ",
+            "shares": 7638,
+            "price": 10.91,
+            "value": 83330.58
+          },
+          {
+            "date": "20191101",
+            "action": "BUY",
+            "stock": "002351.SZ",
+            "shares": 12939,
+            "price": 6.44,
+            "value": 83327.16
+          },
+          {
+            "date": "20191202",
+            "action": "SELL",
+            "stock": "300792.SZ",
+            "shares": 1341,
+            "price": 58.66,
+            "value": 78663.06
+          },
+          {
+            "date": "20191202",
+            "action": "SELL",
+            "stock": "300598.SZ",
+            "shares": 3011,
+            "price": 41.31,
+            "value": 124384.41
+          },
+          {
+            "date": "20191202",
+            "action": "SELL",
+            "stock": "600223.SH",
+            "shares": 16149,
+            "price": 4.59,
+            "value": 74123.91
+          },
+          {
+            "date": "20191202",
+            "action": "SELL",
+            "stock": "000676.SZ",
+            "shares": 7638,
+            "price": 8.34,
+            "value": 63700.92
+          },
+          {
+            "date": "20191202",
+            "action": "SELL",
+            "stock": "002351.SZ",
+            "shares": 12939,
+            "price": 9.44,
+            "value": 122144.16
+          },
+          {
+            "date": "20191202",
+            "action": "BUY",
+            "stock": "300797.SZ",
+            "shares": 6065,
+            "price": 13.74,
+            "value": 83333.1
+          },
+          {
+            "date": "20191202",
+            "action": "BUY",
+            "stock": "300799.SZ",
+            "shares": 1145,
+            "price": 72.76,
+            "value": 83310.2
+          },
+          {
+            "date": "20191202",
+            "action": "BUY",
+            "stock": "300341.SZ",
+            "shares": 5727,
+            "price": 14.55,
+            "value": 83327.85
+          },
+          {
+            "date": "20191202",
+            "action": "BUY",
+            "stock": "002761.SZ",
+            "shares": 7751,
+            "price": 10.75,
+            "value": 83323.25
+          },
+          {
+            "date": "20191202",
+            "action": "BUY",
+            "stock": "002629.SZ",
+            "shares": 38226,
+            "price": 2.18,
+            "value": 83332.68
+          }
+        ],
+        "equity_curve": [
+          {
+            "date": "20190102",
+            "equity": 500000.0
+          },
+          {
+            "date": "20190201",
+            "equity": 479360.30000000005
+          },
+          {
+            "date": "20190301",
+            "equity": 734946.3800000001
+          },
+          {
+            "date": "20190401",
+            "equity": 980772.1600000001
+          },
+          {
+            "date": "20190506",
+            "equity": 710602.8800000001
+          },
+          {
+            "date": "20190603",
+            "equity": 652951.6200000003
+          },
+          {
+            "date": "20190701",
+            "equity": 584077.4800000002
+          },
+          {
+            "date": "20190801",
+            "equity": 497773.76000000024
+          },
+          {
+            "date": "20190902",
+            "equity": 533025.4200000002
+          },
+          {
+            "date": "20191008",
+            "equity": 525786.91
+          },
+          {
+            "date": "20191101",
+            "equity": 446060.6600000001
+          },
+          {
+            "date": "20191202",
+            "equity": 492446.43000000005
+          }
+        ]
+      },
+      {
+        "year": "2020",
+        "return_pct": 164.12,
+        "initial_capital": 1000000,
+        "final_value": 2641156.8,
+        "trades": [
+          {
+            "date": "20200102",
+            "action": "BUY",
+            "stock": "002291.SZ",
+            "shares": 3850,
+            "price": 21.64,
+            "value": 83314.0
+          },
+          {
+            "date": "20200102",
+            "action": "BUY",
+            "stock": "600712.SH",
+            "shares": 8827,
+            "price": 9.44,
+            "value": 83326.88
+          },
+          {
+            "date": "20200102",
+            "action": "BUY",
+            "stock": "603598.SH",
+            "shares": 4458,
+            "price": 18.69,
+            "value": 83320.02
+          },
+          {
+            "date": "20200102",
+            "action": "BUY",
+            "stock": "000955.SZ",
+            "shares": 10016,
+            "price": 8.32,
+            "value": 83333.12
+          },
+          {
+            "date": "20200102",
+            "action": "BUY",
+            "stock": "002323.SZ",
+            "shares": 50200,
+            "price": 1.66,
+            "value": 83332.0
+          },
+          {
+            "date": "20200102",
+            "action": "BUY",
+            "stock": "300787.SZ",
+            "shares": 3675,
+            "price": 22.67,
+            "value": 83312.25
+          },
+          {
+            "date": "20200203",
+            "action": "SELL",
+            "stock": "002291.SZ",
+            "shares": 3850,
+            "price": 26.34,
+            "value": 101409.0
+          },
+          {
+            "date": "20200203",
+            "action": "SELL",
+            "stock": "600712.SH",
+            "shares": 8827,
+            "price": 6.73,
+            "value": 59405.71
+          },
+          {
+            "date": "20200203",
+            "action": "SELL",
+            "stock": "603598.SH",
+            "shares": 4458,
+            "price": 15.57,
+            "value": 69411.06
+          },
+          {
+            "date": "20200203",
+            "action": "SELL",
+            "stock": "000955.SZ",
+            "shares": 10016,
+            "price": 7.35,
+            "value": 73617.6
+          },
+          {
+            "date": "20200203",
+            "action": "SELL",
+            "stock": "002323.SZ",
+            "shares": 50200,
+            "price": 1.44,
+            "value": 72288.0
+          },
+          {
+            "date": "20200203",
+            "action": "SELL",
+            "stock": "300787.SZ",
+            "shares": 3675,
+            "price": 13.63,
+            "value": 50090.25
+          },
+          {
+            "date": "20200203",
+            "action": "BUY",
+            "stock": "600546.SH",
+            "shares": 28153,
+            "price": 2.96,
+            "value": 83332.88
+          },
+          {
+            "date": "20200203",
+            "action": "BUY",
+            "stock": "000700.SZ",
+            "shares": 8468,
+            "price": 9.84,
+            "value": 83325.12
+          },
+          {
+            "date": "20200203",
+            "action": "BUY",
+            "stock": "600513.SH",
+            "shares": 5960,
+            "price": 13.98,
+            "value": 83320.8
+          },
+          {
+            "date": "20200203",
+            "action": "BUY",
+            "stock": "002030.SZ",
+            "shares": 13683,
+            "price": 6.09,
+            "value": 83329.47
+          },
+          {
+            "date": "20200302",
+            "action": "SELL",
+            "stock": "600546.SH",
+            "shares": 28153,
+            "price": 5.93,
+            "value": 166947.29
+          },
+          {
+            "date": "20200302",
+            "action": "SELL",
+            "stock": "000700.SZ",
+            "shares": 8468,
+            "price": 10.07,
+            "value": 85272.76
+          },
+          {
+            "date": "20200302",
+            "action": "SELL",
+            "stock": "600513.SH",
+            "shares": 5960,
+            "price": 12.51,
+            "value": 74559.6
+          },
+          {
+            "date": "20200302",
+            "action": "SELL",
+            "stock": "002030.SZ",
+            "shares": 13683,
+            "price": 4.93,
+            "value": 67457.19
+          },
+          {
+            "date": "20200302",
+            "action": "BUY",
+            "stock": "600295.SH",
+            "shares": 347222,
+            "price": 0.24,
+            "value": 83333.28
+          },
+          {
+            "date": "20200302",
+            "action": "BUY",
+            "stock": "300390.SZ",
+            "shares": 15206,
+            "price": 5.48,
+            "value": 83328.88
+          },
+          {
+            "date": "20200302",
+            "action": "BUY",
+            "stock": "002838.SZ",
+            "shares": 2470,
+            "price": 33.73,
+            "value": 83313.1
+          },
+          {
+            "date": "20200302",
+            "action": "BUY",
+            "stock": "002239.SZ",
+            "shares": 16469,
+            "price": 5.06,
+            "value": 83333.14
+          },
+          {
+            "date": "20200302",
+            "action": "BUY",
+            "stock": "300160.SZ",
+            "shares": 9167,
+            "price": 9.09,
+            "value": 83328.03
+          },
+          {
+            "date": "20200401",
+            "action": "SELL",
+            "stock": "600295.SH",
+            "shares": 347222,
+            "price": 0.02,
+            "value": 6944.44
+          },
+          {
+            "date": "20200401",
+            "action": "SELL",
+            "stock": "300390.SZ",
+            "shares": 15206,
+            "price": 2.7,
+            "value": 41056.2
+          },
+          {
+            "date": "20200401",
+            "action": "SELL",
+            "stock": "002838.SZ",
+            "shares": 2470,
+            "price": 33.92,
+            "value": 83782.4
+          },
+          {
+            "date": "20200401",
+            "action": "SELL",
+            "stock": "002239.SZ",
+            "shares": 16469,
+            "price": 3.8,
+            "value": 62582.2
+          },
+          {
+            "date": "20200401",
+            "action": "SELL",
+            "stock": "300160.SZ",
+            "shares": 9167,
+            "price": 6.08,
+            "value": 55735.36
+          },
+          {
+            "date": "20200401",
+            "action": "BUY",
+            "stock": "300526.SZ",
+            "shares": 625,
+            "price": 133.23,
+            "value": 83268.75
+          },
+          {
+            "date": "20200401",
+            "action": "BUY",
+            "stock": "300265.SZ",
+            "shares": 6025,
+            "price": 13.83,
+            "value": 83325.75
+          },
+          {
+            "date": "20200401",
+            "action": "BUY",
+            "stock": "002953.SZ",
+            "shares": 5435,
+            "price": 15.33,
+            "value": 83318.55
+          },
+          {
+            "date": "20200506",
+            "action": "SELL",
+            "stock": "300526.SZ",
+            "shares": 625,
+            "price": 93.67,
+            "value": 58543.75
+          },
+          {
+            "date": "20200506",
+            "action": "SELL",
+            "stock": "300265.SZ",
+            "shares": 6025,
+            "price": 11.15,
+            "value": 67178.75
+          },
+          {
+            "date": "20200506",
+            "action": "SELL",
+            "stock": "002953.SZ",
+            "shares": 5435,
+            "price": 10.12,
+            "value": 55002.2
+          },
+          {
+            "date": "20200506",
+            "action": "BUY",
+            "stock": "603109.SH",
+            "shares": 2929,
+            "price": 28.45,
+            "value": 83330.05
+          },
+          {
+            "date": "20200506",
+            "action": "BUY",
+            "stock": "600268.SH",
+            "shares": 12218,
+            "price": 6.82,
+            "value": 83326.76
+          },
+          {
+            "date": "20200506",
+            "action": "BUY",
+            "stock": "600350.SH",
+            "shares": 27144,
+            "price": 3.07,
+            "value": 83332.08
+          },
+          {
+            "date": "20200601",
+            "action": "SELL",
+            "stock": "603109.SH",
+            "shares": 2929,
+            "price": 19.41,
+            "value": 56851.89
+          },
+          {
+            "date": "20200601",
+            "action": "SELL",
+            "stock": "600268.SH",
+            "shares": 12218,
+            "price": 5.73,
+            "value": 70009.14
+          },
+          {
+            "date": "20200601",
+            "action": "SELL",
+            "stock": "600350.SH",
+            "shares": 27144,
+            "price": 3.01,
+            "value": 81703.44
+          },
+          {
+            "date": "20200601",
+            "action": "BUY",
+            "stock": "603392.SH",
+            "shares": 2911,
+            "price": 28.62,
+            "value": 83312.82
+          },
+          {
+            "date": "20200601",
+            "action": "BUY",
+            "stock": "002985.SZ",
+            "shares": 1857,
+            "price": 44.86,
+            "value": 83305.02
+          },
+          {
+            "date": "20200701",
+            "action": "SELL",
+            "stock": "002985.SZ",
+            "shares": 1857,
+            "price": 55.48,
+            "value": 103026.36
+          },
+          {
+            "date": "20200701",
+            "action": "BUY",
+            "stock": "600295.SH",
+            "shares": 2083333,
+            "price": 0.04,
+            "value": 83333.32
+          },
+          {
+            "date": "20200803",
+            "action": "SELL",
+            "stock": "603392.SH",
+            "shares": 2911,
+            "price": 100.33,
+            "value": 292060.63
+          },
+          {
+            "date": "20200803",
+            "action": "BUY",
+            "stock": "000408.SZ",
+            "shares": 33333,
+            "price": 2.5,
+            "value": 83332.5
+          },
+          {
+            "date": "20200803",
+            "action": "BUY",
+            "stock": "300846.SZ",
+            "shares": 2563,
+            "price": 32.51,
+            "value": 83323.13
+          },
+          {
+            "date": "20200803",
+            "action": "BUY",
+            "stock": "601216.SH",
+            "shares": 11720,
+            "price": 7.11,
+            "value": 83329.2
+          },
+          {
+            "date": "20200803",
+            "action": "BUY",
+            "stock": "002625.SZ",
+            "shares": 3906,
+            "price": 21.33,
+            "value": 83314.98
+          },
+          {
+            "date": "20200901",
+            "action": "SELL",
+            "stock": "600295.SH",
+            "shares": 2083333,
+            "price": 1.07,
+            "value": 2229166.31
+          },
+          {
+            "date": "20200901",
+            "action": "SELL",
+            "stock": "000408.SZ",
+            "shares": 33333,
+            "price": 2.36,
+            "value": 78665.88
+          },
+          {
+            "date": "20200901",
+            "action": "SELL",
+            "stock": "300846.SZ",
+            "shares": 2563,
+            "price": 30.56,
+            "value": 78325.28
+          },
+          {
+            "date": "20200901",
+            "action": "SELL",
+            "stock": "601216.SH",
+            "shares": 11720,
+            "price": 7.99,
+            "value": 93642.8
+          },
+          {
+            "date": "20200901",
+            "action": "SELL",
+            "stock": "002625.SZ",
+            "shares": 3906,
+            "price": 21.87,
+            "value": 85424.22
+          },
+          {
+            "date": "20200901",
+            "action": "BUY",
+            "stock": "601456.SH",
+            "shares": 5150,
+            "price": 16.18,
+            "value": 83327.0
+          },
+          {
+            "date": "20200901",
+            "action": "BUY",
+            "stock": "603167.SH",
+            "shares": 5926,
+            "price": 14.06,
+            "value": 83319.56
+          },
+          {
+            "date": "20200901",
+            "action": "BUY",
+            "stock": "002919.SZ",
+            "shares": 4614,
+            "price": 18.06,
+            "value": 83328.84
+          },
+          {
+            "date": "20200901",
+            "action": "BUY",
+            "stock": "002991.SZ",
+            "shares": 673,
+            "price": 123.69,
+            "value": 83243.37
+          },
+          {
+            "date": "20200901",
+            "action": "BUY",
+            "stock": "300368.SZ",
+            "shares": 3899,
+            "price": 21.37,
+            "value": 83321.63
+          },
+          {
+            "date": "20200901",
+            "action": "BUY",
+            "stock": "601666.SH",
+            "shares": 31446,
+            "price": 2.65,
+            "value": 83331.9
+          },
+          {
+            "date": "20201009",
+            "action": "SELL",
+            "stock": "603167.SH",
+            "shares": 5926,
+            "price": 8.63,
+            "value": 51141.38
+          },
+          {
+            "date": "20201009",
+            "action": "SELL",
+            "stock": "002919.SZ",
+            "shares": 4614,
+            "price": 20.04,
+            "value": 92464.56
+          },
+          {
+            "date": "20201009",
+            "action": "SELL",
+            "stock": "002991.SZ",
+            "shares": 673,
+            "price": 110.36,
+            "value": 74272.28
+          },
+          {
+            "date": "20201009",
+            "action": "SELL",
+            "stock": "300368.SZ",
+            "shares": 3899,
+            "price": 21.05,
+            "value": 82073.95
+          },
+          {
+            "date": "20201009",
+            "action": "SELL",
+            "stock": "601666.SH",
+            "shares": 31446,
+            "price": 1.93,
+            "value": 60690.78
+          },
+          {
+            "date": "20201009",
+            "action": "BUY",
+            "stock": "300313.SZ",
+            "shares": 4485,
+            "price": 18.58,
+            "value": 83331.3
+          },
+          {
+            "date": "20201009",
+            "action": "BUY",
+            "stock": "300722.SZ",
+            "shares": 2529,
+            "price": 32.94,
+            "value": 83305.26
+          },
+          {
+            "date": "20201009",
+            "action": "BUY",
+            "stock": "300064.SZ",
+            "shares": 17111,
+            "price": 4.87,
+            "value": 83330.57
+          },
+          {
+            "date": "20201009",
+            "action": "BUY",
+            "stock": "300208.SZ",
+            "shares": 5198,
+            "price": 16.03,
+            "value": 83323.94
+          },
+          {
+            "date": "20201009",
+            "action": "BUY",
+            "stock": "605006.SH",
+            "shares": 12236,
+            "price": 6.81,
+            "value": 83327.16
+          },
+          {
+            "date": "20201009",
+            "action": "BUY",
+            "stock": "300589.SZ",
+            "shares": 4256,
+            "price": 19.58,
+            "value": 83332.48
+          },
+          {
+            "date": "20201102",
+            "action": "SELL",
+            "stock": "601456.SH",
+            "shares": 5150,
+            "price": 14.58,
+            "value": 75087.0
+          },
+          {
+            "date": "20201102",
+            "action": "SELL",
+            "stock": "300313.SZ",
+            "shares": 4485,
+            "price": 21.0,
+            "value": 94185.0
+          },
+          {
+            "date": "20201102",
+            "action": "SELL",
+            "stock": "300722.SZ",
+            "shares": 2529,
+            "price": 35.82,
+            "value": 90588.78
+          },
+          {
+            "date": "20201102",
+            "action": "SELL",
+            "stock": "300064.SZ",
+            "shares": 17111,
+            "price": 5.6,
+            "value": 95821.6
+          },
+          {
+            "date": "20201102",
+            "action": "SELL",
+            "stock": "300208.SZ",
+            "shares": 5198,
+            "price": 12.19,
+            "value": 63363.62
+          },
+          {
+            "date": "20201102",
+            "action": "SELL",
+            "stock": "605006.SH",
+            "shares": 12236,
+            "price": 5.67,
+            "value": 69378.12
+          },
+          {
+            "date": "20201102",
+            "action": "SELL",
+            "stock": "300589.SZ",
+            "shares": 4256,
+            "price": 20.72,
+            "value": 88184.32
+          },
+          {
+            "date": "20201102",
+            "action": "BUY",
+            "stock": "003009.SZ",
+            "shares": 1339,
+            "price": 62.21,
+            "value": 83299.19
+          },
+          {
+            "date": "20201102",
+            "action": "BUY",
+            "stock": "300062.SZ",
+            "shares": 6979,
+            "price": 11.94,
+            "value": 83329.26
+          },
+          {
+            "date": "20201102",
+            "action": "BUY",
+            "stock": "605358.SH",
+            "shares": 2664,
+            "price": 31.28,
+            "value": 83329.92
+          },
+          {
+            "date": "20201102",
+            "action": "BUY",
+            "stock": "003010.SZ",
+            "shares": 5847,
+            "price": 14.25,
+            "value": 83319.75
+          },
+          {
+            "date": "20201102",
+            "action": "BUY",
+            "stock": "300549.SZ",
+            "shares": 3062,
+            "price": 27.21,
+            "value": 83317.02
+          },
+          {
+            "date": "20201102",
+            "action": "BUY",
+            "stock": "300581.SZ",
+            "shares": 6650,
+            "price": 12.53,
+            "value": 83324.5
+          },
+          {
+            "date": "20201201",
+            "action": "SELL",
+            "stock": "003009.SZ",
+            "shares": 1339,
+            "price": 63.27,
+            "value": 84718.53
+          },
+          {
+            "date": "20201201",
+            "action": "SELL",
+            "stock": "300062.SZ",
+            "shares": 6979,
+            "price": 8.71,
+            "value": 60787.09
+          },
+          {
+            "date": "20201201",
+            "action": "SELL",
+            "stock": "605358.SH",
+            "shares": 2664,
+            "price": 53.33,
+            "value": 142071.12
+          },
+          {
+            "date": "20201201",
+            "action": "SELL",
+            "stock": "003010.SZ",
+            "shares": 5847,
+            "price": 13.23,
+            "value": 77355.81
+          },
+          {
+            "date": "20201201",
+            "action": "SELL",
+            "stock": "300549.SZ",
+            "shares": 3062,
+            "price": 26.01,
+            "value": 79642.62
+          },
+          {
+            "date": "20201201",
+            "action": "SELL",
+            "stock": "300581.SZ",
+            "shares": 6650,
+            "price": 16.03,
+            "value": 106599.5
+          },
+          {
+            "date": "20201201",
+            "action": "BUY",
+            "stock": "601699.SH",
+            "shares": 96899,
+            "price": 0.86,
+            "value": 83333.14
+          },
+          {
+            "date": "20201201",
+            "action": "BUY",
+            "stock": "000933.SZ",
+            "shares": 15812,
+            "price": 5.27,
+            "value": 83329.24
+          },
+          {
+            "date": "20201201",
+            "action": "BUY",
+            "stock": "002756.SZ",
+            "shares": 5922,
+            "price": 14.07,
+            "value": 83322.54
+          },
+          {
+            "date": "20201201",
+            "action": "BUY",
+            "stock": "601127.SH",
+            "shares": 5244,
+            "price": 15.89,
+            "value": 83327.16
+          },
+          {
+            "date": "20201201",
+            "action": "BUY",
+            "stock": "688133.SH",
+            "shares": 1440,
+            "price": 57.86,
+            "value": 83318.4
+          },
+          {
+            "date": "20201201",
+            "action": "BUY",
+            "stock": "300727.SZ",
+            "shares": 2637,
+            "price": 31.6,
+            "value": 83329.2
+          }
+        ],
+        "equity_curve": [
+          {
+            "date": "20200102",
+            "equity": 500000.0
+          },
+          {
+            "date": "20200203",
+            "equity": 426283.35
+          },
+          {
+            "date": "20200302",
+            "equity": 487211.92000000004
+          },
+          {
+            "date": "20200401",
+            "equity": 320676.09
+          },
+          {
+            "date": "20200506",
+            "equity": 251487.74000000005
+          },
+          {
+            "date": "20200601",
+            "equity": 210063.32000000007
+          },
+          {
+            "date": "20200701",
+            "equity": 316095.81000000006
+          },
+          {
+            "date": "20200803",
+            "equity": 3521865.31
+          },
+          {
+            "date": "20200901",
+            "equity": 2587123.83
+          },
+          {
+            "date": "20201009",
+            "equity": 2447894.4800000004
+          },
+          {
+            "date": "20201102",
+            "equity": 2524552.210000001
+          },
+          {
+            "date": "20201201",
+            "equity": 2575807.24
+          }
+        ]
+      },
+      {
+        "year": "2021",
+        "return_pct": 13.13,
+        "initial_capital": 1000000,
+        "final_value": 1131264.25,
+        "trades": [
+          {
+            "date": "20210104",
+            "action": "BUY",
+            "stock": "601919.SH",
+            "shares": 35014,
+            "price": 2.38,
+            "value": 83333.32
+          },
+          {
+            "date": "20210104",
+            "action": "BUY",
+            "stock": "000995.SZ",
+            "shares": 2596,
+            "price": 32.1,
+            "value": 83331.6
+          },
+          {
+            "date": "20210104",
+            "action": "BUY",
+            "stock": "603025.SH",
+            "shares": 3836,
+            "price": 21.72,
+            "value": 83317.92
+          },
+          {
+            "date": "20210104",
+            "action": "BUY",
+            "stock": "002756.SZ",
+            "shares": 2321,
+            "price": 35.9,
+            "value": 83323.9
+          },
+          {
+            "date": "20210104",
+            "action": "BUY",
+            "stock": "001896.SZ",
+            "shares": 8827,
+            "price": 9.44,
+            "value": 83326.88
+          },
+          {
+            "date": "20210201",
+            "action": "SELL",
+            "stock": "601919.SH",
+            "shares": 35014,
+            "price": 1.79,
+            "value": 62675.06
+          },
+          {
+            "date": "20210201",
+            "action": "SELL",
+            "stock": "000995.SZ",
+            "shares": 2596,
+            "price": 18.8,
+            "value": 48804.8
+          },
+          {
+            "date": "20210201",
+            "action": "SELL",
+            "stock": "603025.SH",
+            "shares": 3836,
+            "price": 17.95,
+            "value": 68856.2
+          },
+          {
+            "date": "20210201",
+            "action": "SELL",
+            "stock": "002756.SZ",
+            "shares": 2321,
+            "price": 29.43,
+            "value": 68307.03
+          },
+          {
+            "date": "20210201",
+            "action": "SELL",
+            "stock": "001896.SZ",
+            "shares": 8827,
+            "price": 6.44,
+            "value": 56845.88
+          },
+          {
+            "date": "20210201",
+            "action": "BUY",
+            "stock": "003031.SZ",
+            "shares": 3803,
+            "price": 21.91,
+            "value": 83323.73
+          },
+          {
+            "date": "20210201",
+            "action": "BUY",
+            "stock": "003022.SZ",
+            "shares": 4137,
+            "price": 20.14,
+            "value": 83319.18
+          },
+          {
+            "date": "20210201",
+            "action": "BUY",
+            "stock": "000155.SZ",
+            "shares": 5986,
+            "price": 13.92,
+            "value": 83325.12
+          },
+          {
+            "date": "20210201",
+            "action": "BUY",
+            "stock": "600392.SH",
+            "shares": 5457,
+            "price": 15.27,
+            "value": 83328.39
+          },
+          {
+            "date": "20210301",
+            "action": "SELL",
+            "stock": "003031.SZ",
+            "shares": 3803,
+            "price": 17.69,
+            "value": 67275.07
+          },
+          {
+            "date": "20210301",
+            "action": "SELL",
+            "stock": "003022.SZ",
+            "shares": 4137,
+            "price": 21.91,
+            "value": 90641.67
+          },
+          {
+            "date": "20210301",
+            "action": "SELL",
+            "stock": "000155.SZ",
+            "shares": 5986,
+            "price": 11.52,
+            "value": 68958.72
+          },
+          {
+            "date": "20210301",
+            "action": "SELL",
+            "stock": "600392.SH",
+            "shares": 5457,
+            "price": 23.28,
+            "value": 127038.96
+          },
+          {
+            "date": "20210301",
+            "action": "BUY",
+            "stock": "600295.SH",
+            "shares": 12980,
+            "price": 6.42,
+            "value": 83331.6
+          },
+          {
+            "date": "20210301",
+            "action": "BUY",
+            "stock": "003035.SZ",
+            "shares": 13528,
+            "price": 6.16,
+            "value": 83332.48
+          },
+          {
+            "date": "20210301",
+            "action": "BUY",
+            "stock": "600722.SH",
+            "shares": 11307,
+            "price": 7.37,
+            "value": 83332.59
+          },
+          {
+            "date": "20210301",
+            "action": "BUY",
+            "stock": "600230.SH",
+            "shares": 5827,
+            "price": 14.3,
+            "value": 83326.1
+          },
+          {
+            "date": "20210401",
+            "action": "SELL",
+            "stock": "600295.SH",
+            "shares": 12980,
+            "price": 4.57,
+            "value": 59318.6
+          },
+          {
+            "date": "20210401",
+            "action": "SELL",
+            "stock": "003035.SZ",
+            "shares": 13528,
+            "price": 12.29,
+            "value": 166259.12
+          },
+          {
+            "date": "20210401",
+            "action": "SELL",
+            "stock": "600722.SH",
+            "shares": 11307,
+            "price": 6.71,
+            "value": 75869.97
+          },
+          {
+            "date": "20210401",
+            "action": "SELL",
+            "stock": "600230.SH",
+            "shares": 5827,
+            "price": 10.29,
+            "value": 59959.83
+          },
+          {
+            "date": "20210401",
+            "action": "BUY",
+            "stock": "601919.SH",
+            "shares": 26123,
+            "price": 3.19,
+            "value": 83332.37
+          },
+          {
+            "date": "20210401",
+            "action": "BUY",
+            "stock": "603098.SH",
+            "shares": 4710,
+            "price": 17.69,
+            "value": 83319.9
+          },
+          {
+            "date": "20210401",
+            "action": "BUY",
+            "stock": "000966.SZ",
+            "shares": 11353,
+            "price": 7.34,
+            "value": 83331.02
+          },
+          {
+            "date": "20210401",
+            "action": "BUY",
+            "stock": "002900.SZ",
+            "shares": 5747,
+            "price": 14.5,
+            "value": 83331.5
+          },
+          {
+            "date": "20210401",
+            "action": "BUY",
+            "stock": "002269.SZ",
+            "shares": 32552,
+            "price": 2.56,
+            "value": 83333.12
+          },
+          {
+            "date": "20210506",
+            "action": "SELL",
+            "stock": "601919.SH",
+            "shares": 26123,
+            "price": 7.76,
+            "value": 202714.48
+          },
+          {
+            "date": "20210506",
+            "action": "SELL",
+            "stock": "603098.SH",
+            "shares": 4710,
+            "price": 19.71,
+            "value": 92834.1
+          },
+          {
+            "date": "20210506",
+            "action": "SELL",
+            "stock": "000966.SZ",
+            "shares": 11353,
+            "price": 8.42,
+            "value": 95592.26
+          },
+          {
+            "date": "20210506",
+            "action": "SELL",
+            "stock": "002900.SZ",
+            "shares": 5747,
+            "price": 21.07,
+            "value": 121089.29
+          },
+          {
+            "date": "20210506",
+            "action": "SELL",
+            "stock": "002269.SZ",
+            "shares": 32552,
+            "price": 2.71,
+            "value": 88215.92
+          },
+          {
+            "date": "20210506",
+            "action": "BUY",
+            "stock": "601699.SH",
+            "shares": 25799,
+            "price": 3.23,
+            "value": 83330.77
+          },
+          {
+            "date": "20210506",
+            "action": "BUY",
+            "stock": "688068.SH",
+            "shares": 605,
+            "price": 137.65,
+            "value": 83278.25
+          },
+          {
+            "date": "20210506",
+            "action": "BUY",
+            "stock": "002762.SZ",
+            "shares": 5115,
+            "price": 16.29,
+            "value": 83323.35
+          },
+          {
+            "date": "20210506",
+            "action": "BUY",
+            "stock": "603518.SH",
+            "shares": 6251,
+            "price": 13.33,
+            "value": 83325.83
+          },
+          {
+            "date": "20210506",
+            "action": "BUY",
+            "stock": "601127.SH",
+            "shares": 1729,
+            "price": 48.19,
+            "value": 83320.51
+          },
+          {
+            "date": "20210506",
+            "action": "BUY",
+            "stock": "300061.SZ",
+            "shares": 11037,
+            "price": 7.55,
+            "value": 83329.35
+          },
+          {
+            "date": "20210601",
+            "action": "SELL",
+            "stock": "601699.SH",
+            "shares": 25799,
+            "price": 4.62,
+            "value": 119191.38
+          },
+          {
+            "date": "20210601",
+            "action": "SELL",
+            "stock": "688068.SH",
+            "shares": 605,
+            "price": 122.03,
+            "value": 73828.15
+          },
+          {
+            "date": "20210601",
+            "action": "SELL",
+            "stock": "002762.SZ",
+            "shares": 5115,
+            "price": 19.9,
+            "value": 101788.5
+          },
+          {
+            "date": "20210601",
+            "action": "SELL",
+            "stock": "601127.SH",
+            "shares": 1729,
+            "price": 56.83,
+            "value": 98259.07
+          },
+          {
+            "date": "20210601",
+            "action": "SELL",
+            "stock": "300061.SZ",
+            "shares": 11037,
+            "price": 9.88,
+            "value": 109045.56
+          },
+          {
+            "date": "20210601",
+            "action": "BUY",
+            "stock": "601567.SH",
+            "shares": 6127,
+            "price": 13.6,
+            "value": 83327.2
+          },
+          {
+            "date": "20210601",
+            "action": "BUY",
+            "stock": "002622.SZ",
+            "shares": 13333,
+            "price": 6.25,
+            "value": 83331.25
+          },
+          {
+            "date": "20210601",
+            "action": "BUY",
+            "stock": "000408.SZ",
+            "shares": 6087,
+            "price": 13.69,
+            "value": 83331.03
+          },
+          {
+            "date": "20210601",
+            "action": "BUY",
+            "stock": "002679.SZ",
+            "shares": 3325,
+            "price": 25.06,
+            "value": 83324.5
+          },
+          {
+            "date": "20210601",
+            "action": "BUY",
+            "stock": "605089.SH",
+            "shares": 1003,
+            "price": 83.02,
+            "value": 83269.06
+          },
+          {
+            "date": "20210701",
+            "action": "SELL",
+            "stock": "603518.SH",
+            "shares": 6251,
+            "price": 22.33,
+            "value": 139584.83
+          },
+          {
+            "date": "20210701",
+            "action": "SELL",
+            "stock": "601567.SH",
+            "shares": 6127,
+            "price": 17.12,
+            "value": 104894.24
+          },
+          {
+            "date": "20210701",
+            "action": "SELL",
+            "stock": "002622.SZ",
+            "shares": 13333,
+            "price": 4.67,
+            "value": 62265.11
+          },
+          {
+            "date": "20210701",
+            "action": "SELL",
+            "stock": "000408.SZ",
+            "shares": 6087,
+            "price": 16.39,
+            "value": 99765.93
+          },
+          {
+            "date": "20210701",
+            "action": "SELL",
+            "stock": "002679.SZ",
+            "shares": 3325,
+            "price": 17.41,
+            "value": 57888.25
+          },
+          {
+            "date": "20210701",
+            "action": "SELL",
+            "stock": "605089.SH",
+            "shares": 1003,
+            "price": 60.69,
+            "value": 60872.07
+          },
+          {
+            "date": "20210701",
+            "action": "BUY",
+            "stock": "605499.SH",
+            "shares": 484,
+            "price": 171.93,
+            "value": 83214.12
+          },
+          {
+            "date": "20210701",
+            "action": "BUY",
+            "stock": "300339.SZ",
+            "shares": 2263,
+            "price": 36.81,
+            "value": 83301.03
+          },
+          {
+            "date": "20210701",
+            "action": "BUY",
+            "stock": "300671.SZ",
+            "shares": 726,
+            "price": 114.7,
+            "value": 83272.2
+          },
+          {
+            "date": "20210701",
+            "action": "BUY",
+            "stock": "002772.SZ",
+            "shares": 5880,
+            "price": 14.17,
+            "value": 83319.6
+          },
+          {
+            "date": "20210701",
+            "action": "BUY",
+            "stock": "605117.SH",
+            "shares": 4499,
+            "price": 18.52,
+            "value": 83321.48
+          },
+          {
+            "date": "20210701",
+            "action": "BUY",
+            "stock": "603876.SH",
+            "shares": 5703,
+            "price": 14.61,
+            "value": 83320.83
+          },
+          {
+            "date": "20210802",
+            "action": "SELL",
+            "stock": "605499.SH",
+            "shares": 484,
+            "price": 129.62,
+            "value": 62736.08
+          },
+          {
+            "date": "20210802",
+            "action": "SELL",
+            "stock": "300339.SZ",
+            "shares": 2263,
+            "price": 34.23,
+            "value": 77462.49
+          },
+          {
+            "date": "20210802",
+            "action": "SELL",
+            "stock": "300671.SZ",
+            "shares": 726,
+            "price": 136.58,
+            "value": 99157.08
+          },
+          {
+            "date": "20210802",
+            "action": "SELL",
+            "stock": "002772.SZ",
+            "shares": 5880,
+            "price": 9.54,
+            "value": 56095.2
+          },
+          {
+            "date": "20210802",
+            "action": "SELL",
+            "stock": "605117.SH",
+            "shares": 4499,
+            "price": 33.03,
+            "value": 148601.97
+          },
+          {
+            "date": "20210802",
+            "action": "SELL",
+            "stock": "603876.SH",
+            "shares": 5703,
+            "price": 17.16,
+            "value": 97863.48
+          },
+          {
+            "date": "20210802",
+            "action": "BUY",
+            "stock": "300343.SZ",
+            "shares": 5948,
+            "price": 14.01,
+            "value": 83331.48
+          },
+          {
+            "date": "20210802",
+            "action": "BUY",
+            "stock": "300077.SZ",
+            "shares": 2252,
+            "price": 37.0,
+            "value": 83324.0
+          },
+          {
+            "date": "20210802",
+            "action": "BUY",
+            "stock": "300693.SZ",
+            "shares": 3248,
+            "price": 25.65,
+            "value": 83311.2
+          },
+          {
+            "date": "20210802",
+            "action": "BUY",
+            "stock": "002455.SZ",
+            "shares": 4655,
+            "price": 17.9,
+            "value": 83324.5
+          },
+          {
+            "date": "20210802",
+            "action": "BUY",
+            "stock": "600111.SH",
+            "shares": 1874,
+            "price": 44.46,
+            "value": 83318.04
+          },
+          {
+            "date": "20210802",
+            "action": "BUY",
+            "stock": "300752.SZ",
+            "shares": 2358,
+            "price": 35.33,
+            "value": 83308.14
+          },
+          {
+            "date": "20210901",
+            "action": "SELL",
+            "stock": "300343.SZ",
+            "shares": 5948,
+            "price": 19.7,
+            "value": 117175.6
+          },
+          {
+            "date": "20210901",
+            "action": "SELL",
+            "stock": "300077.SZ",
+            "shares": 2252,
+            "price": 25.48,
+            "value": 57380.96
+          },
+          {
+            "date": "20210901",
+            "action": "SELL",
+            "stock": "300693.SZ",
+            "shares": 3248,
+            "price": 25.6,
+            "value": 83148.8
+          },
+          {
+            "date": "20210901",
+            "action": "SELL",
+            "stock": "002455.SZ",
+            "shares": 4655,
+            "price": 17.86,
+            "value": 83138.3
+          },
+          {
+            "date": "20210901",
+            "action": "SELL",
+            "stock": "600111.SH",
+            "shares": 1874,
+            "price": 51.75,
+            "value": 96979.5
+          },
+          {
+            "date": "20210901",
+            "action": "SELL",
+            "stock": "300752.SZ",
+            "shares": 2358,
+            "price": 22.0,
+            "value": 51876.0
+          },
+          {
+            "date": "20210901",
+            "action": "BUY",
+            "stock": "000937.SZ",
+            "shares": 57077,
+            "price": 1.46,
+            "value": 83332.42
+          },
+          {
+            "date": "20210901",
+            "action": "BUY",
+            "stock": "000792.SZ",
+            "shares": 2197,
+            "price": 37.93,
+            "value": 83332.21
+          },
+          {
+            "date": "20210901",
+            "action": "BUY",
+            "stock": "600546.SH",
+            "shares": 14827,
+            "price": 5.62,
+            "value": 83327.74
+          },
+          {
+            "date": "20210901",
+            "action": "BUY",
+            "stock": "600188.SH",
+            "shares": 11720,
+            "price": 7.11,
+            "value": 83329.2
+          },
+          {
+            "date": "20210901",
+            "action": "BUY",
+            "stock": "300827.SZ",
+            "shares": 2554,
+            "price": 32.62,
+            "value": 83311.48
+          },
+          {
+            "date": "20210901",
+            "action": "BUY",
+            "stock": "600256.SH",
+            "shares": 24437,
+            "price": 3.41,
+            "value": 83330.17
+          },
+          {
+            "date": "20211008",
+            "action": "SELL",
+            "stock": "000792.SZ",
+            "shares": 2197,
+            "price": 28.82,
+            "value": 63317.54
+          },
+          {
+            "date": "20211008",
+            "action": "SELL",
+            "stock": "600546.SH",
+            "shares": 14827,
+            "price": 6.18,
+            "value": 91630.86
+          },
+          {
+            "date": "20211008",
+            "action": "SELL",
+            "stock": "600188.SH",
+            "shares": 11720,
+            "price": 8.29,
+            "value": 97158.8
+          },
+          {
+            "date": "20211008",
+            "action": "SELL",
+            "stock": "300827.SZ",
+            "shares": 2554,
+            "price": 27.12,
+            "value": 69264.48
+          },
+          {
+            "date": "20211008",
+            "action": "SELL",
+            "stock": "600256.SH",
+            "shares": 24437,
+            "price": 5.62,
+            "value": 137335.94
+          },
+          {
+            "date": "20211008",
+            "action": "BUY",
+            "stock": "000537.SZ",
+            "shares": 6246,
+            "price": 13.34,
+            "value": 83321.64
+          },
+          {
+            "date": "20211008",
+            "action": "BUY",
+            "stock": "300437.SZ",
+            "shares": 4082,
+            "price": 20.41,
+            "value": 83313.62
+          },
+          {
+            "date": "20211008",
+            "action": "BUY",
+            "stock": "002487.SZ",
+            "shares": 3648,
+            "price": 22.84,
+            "value": 83320.32
+          },
+          {
+            "date": "20211008",
+            "action": "BUY",
+            "stock": "600863.SH",
+            "shares": 22706,
+            "price": 3.67,
+            "value": 83331.02
+          },
+          {
+            "date": "20211008",
+            "action": "BUY",
+            "stock": "000993.SZ",
+            "shares": 4825,
+            "price": 17.27,
+            "value": 83327.75
+          },
+          {
+            "date": "20211101",
+            "action": "SELL",
+            "stock": "000937.SZ",
+            "shares": 57077,
+            "price": 3.0,
+            "value": 171231.0
+          },
+          {
+            "date": "20211101",
+            "action": "SELL",
+            "stock": "000537.SZ",
+            "shares": 6246,
+            "price": 15.77,
+            "value": 98499.42
+          },
+          {
+            "date": "20211101",
+            "action": "SELL",
+            "stock": "300437.SZ",
+            "shares": 4082,
+            "price": 29.75,
+            "value": 121439.5
+          },
+          {
+            "date": "20211101",
+            "action": "SELL",
+            "stock": "600863.SH",
+            "shares": 22706,
+            "price": 2.95,
+            "value": 66982.7
+          },
+          {
+            "date": "20211101",
+            "action": "SELL",
+            "stock": "000993.SZ",
+            "shares": 4825,
+            "price": 15.54,
+            "value": 74980.5
+          },
+          {
+            "date": "20211101",
+            "action": "BUY",
+            "stock": "600071.SH",
+            "shares": 2104,
+            "price": 39.6,
+            "value": 83318.4
+          },
+          {
+            "date": "20211101",
+            "action": "BUY",
+            "stock": "600995.SH",
+            "shares": 4556,
+            "price": 18.29,
+            "value": 83329.24
+          },
+          {
+            "date": "20211101",
+            "action": "BUY",
+            "stock": "300969.SZ",
+            "shares": 820,
+            "price": 101.54,
+            "value": 83262.8
+          },
+          {
+            "date": "20211101",
+            "action": "BUY",
+            "stock": "002922.SZ",
+            "shares": 3003,
+            "price": 27.75,
+            "value": 83333.25
+          },
+          {
+            "date": "20211101",
+            "action": "BUY",
+            "stock": "600382.SH",
+            "shares": 26624,
+            "price": 3.13,
+            "value": 83333.12
+          },
+          {
+            "date": "20211201",
+            "action": "SELL",
+            "stock": "002487.SZ",
+            "shares": 3648,
+            "price": 48.58,
+            "value": 177219.84
+          },
+          {
+            "date": "20211201",
+            "action": "SELL",
+            "stock": "600071.SH",
+            "shares": 2104,
+            "price": 51.5,
+            "value": 108356.0
+          },
+          {
+            "date": "20211201",
+            "action": "SELL",
+            "stock": "600995.SH",
+            "shares": 4556,
+            "price": 15.67,
+            "value": 71392.52
+          },
+          {
+            "date": "20211201",
+            "action": "SELL",
+            "stock": "300969.SZ",
+            "shares": 820,
+            "price": 89.81,
+            "value": 73644.2
+          },
+          {
+            "date": "20211201",
+            "action": "SELL",
+            "stock": "002922.SZ",
+            "shares": 3003,
+            "price": 26.76,
+            "value": 80360.28
+          },
+          {
+            "date": "20211201",
+            "action": "SELL",
+            "stock": "600382.SH",
+            "shares": 26624,
+            "price": 3.92,
+            "value": 104366.08
+          },
+          {
+            "date": "20211201",
+            "action": "BUY",
+            "stock": "002432.SZ",
+            "shares": 4839,
+            "price": 17.22,
+            "value": 83327.58
+          },
+          {
+            "date": "20211201",
+            "action": "BUY",
+            "stock": "688533.SH",
+            "shares": 1883,
+            "price": 44.24,
+            "value": 83303.92
+          },
+          {
+            "date": "20211201",
+            "action": "BUY",
+            "stock": "603917.SH",
+            "shares": 3296,
+            "price": 25.28,
+            "value": 83322.88
+          },
+          {
+            "date": "20211201",
+            "action": "BUY",
+            "stock": "002885.SZ",
+            "shares": 3609,
+            "price": 23.09,
+            "value": 83331.81
+          },
+          {
+            "date": "20211201",
+            "action": "BUY",
+            "stock": "300745.SZ",
+            "shares": 1035,
+            "price": 80.5,
+            "value": 83317.5
+          },
+          {
+            "date": "20211201",
+            "action": "BUY",
+            "stock": "605133.SH",
+            "shares": 3190,
+            "price": 26.12,
+            "value": 83322.8
+          }
+        ],
+        "equity_curve": [
+          {
+            "date": "20210104",
+            "equity": 500000.0
+          },
+          {
+            "date": "20210201",
+            "equity": 388855.35
+          },
+          {
+            "date": "20210301",
+            "equity": 409473.35000000003
+          },
+          {
+            "date": "20210401",
+            "equity": 437558.10000000003
+          },
+          {
+            "date": "20210506",
+            "equity": 621356.2400000001
+          },
+          {
+            "date": "20210601",
+            "equity": 757582.28
+          },
+          {
+            "date": "20210701",
+            "equity": 732248.2300000001
+          },
+          {
+            "date": "20210802",
+            "equity": 774415.27
+          },
+          {
+            "date": "20210901",
+            "equity": 764197.0700000001
+          },
+          {
+            "date": "20211008",
+            "equity": 992344.9099999999
+          },
+          {
+            "date": "20211101",
+            "equity": 982097.0399999998
+          },
+          {
+            "date": "20211201",
+            "equity": 1038222.3499999996
+          }
+        ]
+      }
+    ],
+    "total_trades": 391,
+    "all_trades": [
+      {
+        "date": "20180102",
+        "action": "BUY",
+        "stock": "000001.SZ",
+        "shares": 7883,
+        "price": 10.57,
+        "value": 83323.31
+      },
+      {
+        "date": "20180102",
+        "action": "BUY",
+        "stock": "000002.SZ",
+        "shares": 3122,
+        "price": 26.69,
+        "value": 83326.18
+      },
+      {
+        "date": "20180102",
+        "action": "BUY",
+        "stock": "000004.SZ",
+        "shares": 3730,
+        "price": 22.34,
+        "value": 83328.2
+      },
+      {
+        "date": "20180102",
+        "action": "BUY",
+        "stock": "000005.SZ",
+        "shares": 19290,
+        "price": 4.32,
+        "value": 83332.8
+      },
+      {
+        "date": "20180102",
+        "action": "BUY",
+        "stock": "000008.SZ",
+        "shares": 9578,
+        "price": 8.7,
+        "value": 83328.6
+      },
+      {
+        "date": "20180102",
+        "action": "BUY",
+        "stock": "000009.SZ",
+        "shares": 14367,
+        "price": 5.8,
+        "value": 83328.6
+      },
+      {
+        "date": "20180201",
+        "action": "SELL",
+        "stock": "000001.SZ",
+        "shares": 7883,
+        "price": 11.09,
+        "value": 87422.47
+      },
+      {
+        "date": "20180201",
+        "action": "SELL",
+        "stock": "000002.SZ",
+        "shares": 3122,
+        "price": 31.63,
+        "value": 98748.86
+      },
+      {
+        "date": "20180201",
+        "action": "SELL",
+        "stock": "000004.SZ",
+        "shares": 3730,
+        "price": 19.88,
+        "value": 74152.4
+      },
+      {
+        "date": "20180201",
+        "action": "SELL",
+        "stock": "000005.SZ",
+        "shares": 19290,
+        "price": 3.87,
+        "value": 74652.3
+      },
+      {
+        "date": "20180201",
+        "action": "SELL",
+        "stock": "000008.SZ",
+        "shares": 9578,
+        "price": 8.11,
+        "value": 77677.58
+      },
+      {
+        "date": "20180201",
+        "action": "SELL",
+        "stock": "000009.SZ",
+        "shares": 14367,
+        "price": 4.65,
+        "value": 66806.55
+      },
+      {
+        "date": "20180201",
+        "action": "BUY",
+        "stock": "300684.SZ",
+        "shares": 5478,
+        "price": 15.21,
+        "value": 83320.38
+      },
+      {
+        "date": "20180201",
+        "action": "BUY",
+        "stock": "601225.SH",
+        "shares": 48169,
+        "price": 1.73,
+        "value": 83332.37
+      },
+      {
+        "date": "20180201",
+        "action": "BUY",
+        "stock": "603655.SH",
+        "shares": 3181,
+        "price": 26.19,
+        "value": 83310.39
+      },
+      {
+        "date": "20180201",
+        "action": "BUY",
+        "stock": "600188.SH",
+        "shares": 46296,
+        "price": 1.8,
+        "value": 83332.8
+      },
+      {
+        "date": "20180201",
+        "action": "BUY",
+        "stock": "603058.SH",
+        "shares": 4041,
+        "price": 20.62,
+        "value": 83325.42
+      },
+      {
+        "date": "20180301",
+        "action": "SELL",
+        "stock": "300684.SZ",
+        "shares": 5478,
+        "price": 13.13,
+        "value": 71926.14
+      },
+      {
+        "date": "20180301",
+        "action": "SELL",
+        "stock": "601225.SH",
+        "shares": 48169,
+        "price": 0.5,
+        "value": 24084.5
+      },
+      {
+        "date": "20180301",
+        "action": "SELL",
+        "stock": "603655.SH",
+        "shares": 3181,
+        "price": 19.05,
+        "value": 60598.05
+      },
+      {
+        "date": "20180301",
+        "action": "SELL",
+        "stock": "600188.SH",
+        "shares": 46296,
+        "price": 0.68,
+        "value": 31481.28
+      },
+      {
+        "date": "20180301",
+        "action": "SELL",
+        "stock": "603058.SH",
+        "shares": 4041,
+        "price": 15.21,
+        "value": 61463.61
+      },
+      {
+        "date": "20180301",
+        "action": "BUY",
+        "stock": "600810.SH",
+        "shares": 14645,
+        "price": 5.69,
+        "value": 83330.05
+      },
+      {
+        "date": "20180301",
+        "action": "BUY",
+        "stock": "603056.SH",
+        "shares": 4145,
+        "price": 20.1,
+        "value": 83314.5
+      },
+      {
+        "date": "20180301",
+        "action": "BUY",
+        "stock": "300586.SZ",
+        "shares": 13123,
+        "price": 6.35,
+        "value": 83331.05
+      },
+      {
+        "date": "20180402",
+        "action": "SELL",
+        "stock": "600810.SH",
+        "shares": 14645,
+        "price": 4.53,
+        "value": 66341.85
+      },
+      {
+        "date": "20180402",
+        "action": "SELL",
+        "stock": "603056.SH",
+        "shares": 4145,
+        "price": 20.57,
+        "value": 85262.65
+      },
+      {
+        "date": "20180402",
+        "action": "BUY",
+        "stock": "603712.SH",
+        "shares": 2224,
+        "price": 37.46,
+        "value": 83311.04
+      },
+      {
+        "date": "20180402",
+        "action": "BUY",
+        "stock": "002864.SZ",
+        "shares": 1479,
+        "price": 56.34,
+        "value": 83326.86
+      },
+      {
+        "date": "20180502",
+        "action": "SELL",
+        "stock": "603712.SH",
+        "shares": 2224,
+        "price": 33.15,
+        "value": 73725.6
+      },
+      {
+        "date": "20180502",
+        "action": "BUY",
+        "stock": "300634.SZ",
+        "shares": 1672,
+        "price": 49.83,
+        "value": 83315.76
+      },
+      {
+        "date": "20180601",
+        "action": "SELL",
+        "stock": "002864.SZ",
+        "shares": 1479,
+        "price": 45.58,
+        "value": 67412.82
+      },
+      {
+        "date": "20180601",
+        "action": "SELL",
+        "stock": "300634.SZ",
+        "shares": 1672,
+        "price": 42.55,
+        "value": 71143.6
+      },
+      {
+        "date": "20180601",
+        "action": "BUY",
+        "stock": "300743.SZ",
+        "shares": 2179,
+        "price": 38.24,
+        "value": 83324.96
+      },
+      {
+        "date": "20180601",
+        "action": "BUY",
+        "stock": "002930.SZ",
+        "shares": 2659,
+        "price": 31.33,
+        "value": 83306.47
+      },
+      {
+        "date": "20180702",
+        "action": "SELL",
+        "stock": "300743.SZ",
+        "shares": 2179,
+        "price": 32.94,
+        "value": 71776.26
+      },
+      {
+        "date": "20180702",
+        "action": "SELL",
+        "stock": "002930.SZ",
+        "shares": 2659,
+        "price": 21.28,
+        "value": 56583.52
+      },
+      {
+        "date": "20180702",
+        "action": "BUY",
+        "stock": "300746.SZ",
+        "shares": 2475,
+        "price": 33.67,
+        "value": 83333.25
+      },
+      {
+        "date": "20180801",
+        "action": "SELL",
+        "stock": "300586.SZ",
+        "shares": 13123,
+        "price": 5.94,
+        "value": 77950.62
+      },
+      {
+        "date": "20180801",
+        "action": "SELL",
+        "stock": "300746.SZ",
+        "shares": 2475,
+        "price": 29.99,
+        "value": 74225.25
+      },
+      {
+        "date": "20180801",
+        "action": "BUY",
+        "stock": "300390.SZ",
+        "shares": 57471,
+        "price": 1.45,
+        "value": 83332.95
+      },
+      {
+        "date": "20180801",
+        "action": "BUY",
+        "stock": "600039.SH",
+        "shares": 185185,
+        "price": 0.45,
+        "value": 83333.25
+      },
+      {
+        "date": "20180903",
+        "action": "SELL",
+        "stock": "300390.SZ",
+        "shares": 57471,
+        "price": 0.67,
+        "value": 38505.57
+      },
+      {
+        "date": "20180903",
+        "action": "SELL",
+        "stock": "600039.SH",
+        "shares": 185185,
+        "price": 0.17,
+        "value": 31481.45
+      },
+      {
+        "date": "20180903",
+        "action": "BUY",
+        "stock": "601606.SH",
+        "shares": 4650,
+        "price": 17.92,
+        "value": 83328.0
+      },
+      {
+        "date": "20181008",
+        "action": "SELL",
+        "stock": "601606.SH",
+        "shares": 4650,
+        "price": 15.21,
+        "value": 70726.5
+      },
+      {
+        "date": "20181008",
+        "action": "BUY",
+        "stock": "601068.SH",
+        "shares": 11307,
+        "price": 7.37,
+        "value": 83332.59
+      },
+      {
+        "date": "20181101",
+        "action": "SELL",
+        "stock": "601068.SH",
+        "shares": 11307,
+        "price": 6.55,
+        "value": 74060.85
+      },
+      {
+        "date": "20181101",
+        "action": "BUY",
+        "stock": "300748.SZ",
+        "shares": 8012,
+        "price": 10.4,
+        "value": 83324.8
+      },
+      {
+        "date": "20181203",
+        "action": "SELL",
+        "stock": "300748.SZ",
+        "shares": 8012,
+        "price": 7.71,
+        "value": 61772.52
+      },
+      {
+        "date": "20190102",
+        "action": "BUY",
+        "stock": "002243.SZ",
+        "shares": 5676,
+        "price": 14.68,
+        "value": 83323.68
+      },
+      {
+        "date": "20190102",
+        "action": "BUY",
+        "stock": "600776.SH",
+        "shares": 7673,
+        "price": 10.86,
+        "value": 83328.78
+      },
+      {
+        "date": "20190102",
+        "action": "BUY",
+        "stock": "002927.SZ",
+        "shares": 3940,
+        "price": 21.15,
+        "value": 83331.0
+      },
+      {
+        "date": "20190102",
+        "action": "BUY",
+        "stock": "300752.SZ",
+        "shares": 3968,
+        "price": 21.0,
+        "value": 83328.0
+      },
+      {
+        "date": "20190201",
+        "action": "SELL",
+        "stock": "002243.SZ",
+        "shares": 5676,
+        "price": 12.18,
+        "value": 69133.68
+      },
+      {
+        "date": "20190201",
+        "action": "SELL",
+        "stock": "600776.SH",
+        "shares": 7673,
+        "price": 12.04,
+        "value": 92382.92
+      },
+      {
+        "date": "20190201",
+        "action": "SELL",
+        "stock": "002927.SZ",
+        "shares": 3940,
+        "price": 13.67,
+        "value": 53859.8
+      },
+      {
+        "date": "20190201",
+        "action": "SELL",
+        "stock": "300752.SZ",
+        "shares": 3968,
+        "price": 24.52,
+        "value": 97295.36
+      },
+      {
+        "date": "20190201",
+        "action": "BUY",
+        "stock": "601699.SH",
+        "shares": 112612,
+        "price": 0.74,
+        "value": 83332.88
+      },
+      {
+        "date": "20190201",
+        "action": "BUY",
+        "stock": "600438.SH",
+        "shares": 16339,
+        "price": 5.1,
+        "value": 83328.9
+      },
+      {
+        "date": "20190201",
+        "action": "BUY",
+        "stock": "603688.SH",
+        "shares": 30413,
+        "price": 2.74,
+        "value": 83331.62
+      },
+      {
+        "date": "20190201",
+        "action": "BUY",
+        "stock": "601088.SH",
+        "shares": 15605,
+        "price": 5.34,
+        "value": 83330.7
+      },
+      {
+        "date": "20190201",
+        "action": "BUY",
+        "stock": "600809.SH",
+        "shares": 7374,
+        "price": 11.3,
+        "value": 83326.2
+      },
+      {
+        "date": "20190301",
+        "action": "SELL",
+        "stock": "601699.SH",
+        "shares": 112612,
+        "price": 1.87,
+        "value": 210584.44
+      },
+      {
+        "date": "20190301",
+        "action": "SELL",
+        "stock": "600438.SH",
+        "shares": 16339,
+        "price": 6.55,
+        "value": 107020.45
+      },
+      {
+        "date": "20190301",
+        "action": "SELL",
+        "stock": "603688.SH",
+        "shares": 30413,
+        "price": 4.11,
+        "value": 124997.43
+      },
+      {
+        "date": "20190301",
+        "action": "SELL",
+        "stock": "601088.SH",
+        "shares": 15605,
+        "price": 5.86,
+        "value": 91445.3
+      },
+      {
+        "date": "20190301",
+        "action": "SELL",
+        "stock": "600809.SH",
+        "shares": 7374,
+        "price": 18.74,
+        "value": 138188.76
+      },
+      {
+        "date": "20190301",
+        "action": "BUY",
+        "stock": "600295.SH",
+        "shares": 122549,
+        "price": 0.68,
+        "value": 83333.32
+      },
+      {
+        "date": "20190301",
+        "action": "BUY",
+        "stock": "601225.SH",
+        "shares": 59523,
+        "price": 1.4,
+        "value": 83332.2
+      },
+      {
+        "date": "20190301",
+        "action": "BUY",
+        "stock": "002946.SZ",
+        "shares": 4553,
+        "price": 18.3,
+        "value": 83319.9
+      },
+      {
+        "date": "20190301",
+        "action": "BUY",
+        "stock": "600131.SH",
+        "shares": 5533,
+        "price": 15.06,
+        "value": 83326.98
+      },
+      {
+        "date": "20190301",
+        "action": "BUY",
+        "stock": "300390.SZ",
+        "shares": 193798,
+        "price": 0.43,
+        "value": 83333.14
+      },
+      {
+        "date": "20190301",
+        "action": "BUY",
+        "stock": "002458.SZ",
+        "shares": 7316,
+        "price": 11.39,
+        "value": 83329.24
+      },
+      {
+        "date": "20190401",
+        "action": "SELL",
+        "stock": "600295.SH",
+        "shares": 122549,
+        "price": 0.88,
+        "value": 107843.12
+      },
+      {
+        "date": "20190401",
+        "action": "SELL",
+        "stock": "601225.SH",
+        "shares": 59523,
+        "price": 1.75,
+        "value": 104165.25
+      },
+      {
+        "date": "20190401",
+        "action": "SELL",
+        "stock": "002946.SZ",
+        "shares": 4553,
+        "price": 17.16,
+        "value": 78129.48
+      },
+      {
+        "date": "20190401",
+        "action": "SELL",
+        "stock": "600131.SH",
+        "shares": 5533,
+        "price": 18.27,
+        "value": 101087.91
+      },
+      {
+        "date": "20190401",
+        "action": "SELL",
+        "stock": "002458.SZ",
+        "shares": 7316,
+        "price": 11.91,
+        "value": 87133.56
+      },
+      {
+        "date": "20190401",
+        "action": "BUY",
+        "stock": "000590.SZ",
+        "shares": 4399,
+        "price": 18.94,
+        "value": 83317.06
+      },
+      {
+        "date": "20190401",
+        "action": "BUY",
+        "stock": "002356.SZ",
+        "shares": 5287,
+        "price": 15.76,
+        "value": 83323.12
+      },
+      {
+        "date": "20190401",
+        "action": "BUY",
+        "stock": "600072.SH",
+        "shares": 5153,
+        "price": 16.17,
+        "value": 83324.01
+      },
+      {
+        "date": "20190401",
+        "action": "BUY",
+        "stock": "300536.SZ",
+        "shares": 7303,
+        "price": 11.41,
+        "value": 83327.23
+      },
+      {
+        "date": "20190401",
+        "action": "BUY",
+        "stock": "000159.SZ",
+        "shares": 8106,
+        "price": 10.28,
+        "value": 83329.68
+      },
+      {
+        "date": "20190506",
+        "action": "SELL",
+        "stock": "300390.SZ",
+        "shares": 193798,
+        "price": 0.56,
+        "value": 108526.88
+      },
+      {
+        "date": "20190506",
+        "action": "SELL",
+        "stock": "000590.SZ",
+        "shares": 4399,
+        "price": 12.97,
+        "value": 57055.03
+      },
+      {
+        "date": "20190506",
+        "action": "SELL",
+        "stock": "002356.SZ",
+        "shares": 5287,
+        "price": 8.36,
+        "value": 44199.32
+      },
+      {
+        "date": "20190506",
+        "action": "SELL",
+        "stock": "600072.SH",
+        "shares": 5153,
+        "price": 12.4,
+        "value": 63897.2
+      },
+      {
+        "date": "20190506",
+        "action": "SELL",
+        "stock": "300536.SZ",
+        "shares": 7303,
+        "price": 9.21,
+        "value": 67260.63
+      },
+      {
+        "date": "20190506",
+        "action": "SELL",
+        "stock": "000159.SZ",
+        "shares": 8106,
+        "price": 9.0,
+        "value": 72954.0
+      },
+      {
+        "date": "20190506",
+        "action": "BUY",
+        "stock": "300573.SZ",
+        "shares": 5555,
+        "price": 15.0,
+        "value": 83325.0
+      },
+      {
+        "date": "20190506",
+        "action": "BUY",
+        "stock": "603519.SH",
+        "shares": 10893,
+        "price": 7.65,
+        "value": 83331.45
+      },
+      {
+        "date": "20190506",
+        "action": "BUY",
+        "stock": "600758.SH",
+        "shares": 11837,
+        "price": 7.04,
+        "value": 83332.48
+      },
+      {
+        "date": "20190506",
+        "action": "BUY",
+        "stock": "002793.SZ",
+        "shares": 7227,
+        "price": 11.53,
+        "value": 83327.31
+      },
+      {
+        "date": "20190506",
+        "action": "BUY",
+        "stock": "300405.SZ",
+        "shares": 11170,
+        "price": 7.46,
+        "value": 83328.2
+      },
+      {
+        "date": "20190506",
+        "action": "BUY",
+        "stock": "300766.SZ",
+        "shares": 1636,
+        "price": 50.91,
+        "value": 83288.76
+      },
+      {
+        "date": "20190603",
+        "action": "SELL",
+        "stock": "300573.SZ",
+        "shares": 5555,
+        "price": 13.12,
+        "value": 72881.6
+      },
+      {
+        "date": "20190603",
+        "action": "SELL",
+        "stock": "603519.SH",
+        "shares": 10893,
+        "price": 8.74,
+        "value": 95204.82
+      },
+      {
+        "date": "20190603",
+        "action": "SELL",
+        "stock": "600758.SH",
+        "shares": 11837,
+        "price": 5.19,
+        "value": 61434.03
+      },
+      {
+        "date": "20190603",
+        "action": "SELL",
+        "stock": "002793.SZ",
+        "shares": 7227,
+        "price": 8.47,
+        "value": 61212.69
+      },
+      {
+        "date": "20190603",
+        "action": "SELL",
+        "stock": "300405.SZ",
+        "shares": 11170,
+        "price": 6.94,
+        "value": 77519.8
+      },
+      {
+        "date": "20190603",
+        "action": "SELL",
+        "stock": "300766.SZ",
+        "shares": 1636,
+        "price": 45.25,
+        "value": 74029.0
+      },
+      {
+        "date": "20190603",
+        "action": "BUY",
+        "stock": "300748.SZ",
+        "shares": 3943,
+        "price": 21.13,
+        "value": 83315.59
+      },
+      {
+        "date": "20190603",
+        "action": "BUY",
+        "stock": "002119.SZ",
+        "shares": 4928,
+        "price": 16.91,
+        "value": 83332.48
+      },
+      {
+        "date": "20190603",
+        "action": "BUY",
+        "stock": "002756.SZ",
+        "shares": 29342,
+        "price": 2.84,
+        "value": 83331.28
+      },
+      {
+        "date": "20190603",
+        "action": "BUY",
+        "stock": "000713.SZ",
+        "shares": 10016,
+        "price": 8.32,
+        "value": 83333.12
+      },
+      {
+        "date": "20190603",
+        "action": "BUY",
+        "stock": "000795.SZ",
+        "shares": 10879,
+        "price": 7.66,
+        "value": 83333.14
+      },
+      {
+        "date": "20190701",
+        "action": "SELL",
+        "stock": "300748.SZ",
+        "shares": 3943,
+        "price": 20.53,
+        "value": 80949.79
+      },
+      {
+        "date": "20190701",
+        "action": "SELL",
+        "stock": "002119.SZ",
+        "shares": 4928,
+        "price": 12.74,
+        "value": 62782.72
+      },
+      {
+        "date": "20190701",
+        "action": "SELL",
+        "stock": "002756.SZ",
+        "shares": 29342,
+        "price": 2.36,
+        "value": 69247.12
+      },
+      {
+        "date": "20190701",
+        "action": "SELL",
+        "stock": "000713.SZ",
+        "shares": 10016,
+        "price": 6.68,
+        "value": 66906.88
+      },
+      {
+        "date": "20190701",
+        "action": "SELL",
+        "stock": "000795.SZ",
+        "shares": 10879,
+        "price": 6.24,
+        "value": 67884.96
+      },
+      {
+        "date": "20190701",
+        "action": "BUY",
+        "stock": "300780.SZ",
+        "shares": 2826,
+        "price": 29.48,
+        "value": 83310.48
+      },
+      {
+        "date": "20190701",
+        "action": "BUY",
+        "stock": "603686.SH",
+        "shares": 6200,
+        "price": 13.44,
+        "value": 83328.0
+      },
+      {
+        "date": "20190701",
+        "action": "BUY",
+        "stock": "603738.SH",
+        "shares": 6047,
+        "price": 13.78,
+        "value": 83327.66
+      },
+      {
+        "date": "20190701",
+        "action": "BUY",
+        "stock": "603258.SH",
+        "shares": 3384,
+        "price": 24.62,
+        "value": 83314.08
+      },
+      {
+        "date": "20190701",
+        "action": "BUY",
+        "stock": "002463.SZ",
+        "shares": 7427,
+        "price": 11.22,
+        "value": 83330.94
+      },
+      {
+        "date": "20190701",
+        "action": "BUY",
+        "stock": "601330.SH",
+        "shares": 5264,
+        "price": 15.83,
+        "value": 83329.12
+      },
+      {
+        "date": "20190801",
+        "action": "SELL",
+        "stock": "300780.SZ",
+        "shares": 2826,
+        "price": 21.87,
+        "value": 61804.62
+      },
+      {
+        "date": "20190801",
+        "action": "SELL",
+        "stock": "603686.SH",
+        "shares": 6200,
+        "price": 10.23,
+        "value": 63426.0
+      },
+      {
+        "date": "20190801",
+        "action": "SELL",
+        "stock": "603738.SH",
+        "shares": 6047,
+        "price": 10.01,
+        "value": 60530.47
+      },
+      {
+        "date": "20190801",
+        "action": "SELL",
+        "stock": "603258.SH",
+        "shares": 3384,
+        "price": 22.7,
+        "value": 76816.8
+      },
+      {
+        "date": "20190801",
+        "action": "SELL",
+        "stock": "002463.SZ",
+        "shares": 7427,
+        "price": 12.89,
+        "value": 95734.03
+      },
+      {
+        "date": "20190801",
+        "action": "SELL",
+        "stock": "601330.SH",
+        "shares": 5264,
+        "price": 10.51,
+        "value": 55324.64
+      },
+      {
+        "date": "20190801",
+        "action": "BUY",
+        "stock": "600546.SH",
+        "shares": 47892,
+        "price": 1.74,
+        "value": 83332.08
+      },
+      {
+        "date": "20190801",
+        "action": "BUY",
+        "stock": "002201.SZ",
+        "shares": 10752,
+        "price": 7.75,
+        "value": 83328.0
+      },
+      {
+        "date": "20190801",
+        "action": "BUY",
+        "stock": "300585.SZ",
+        "shares": 3555,
+        "price": 23.44,
+        "value": 83329.2
+      },
+      {
+        "date": "20190801",
+        "action": "BUY",
+        "stock": "000408.SZ",
+        "shares": 20833,
+        "price": 4.0,
+        "value": 83332.0
+      },
+      {
+        "date": "20190801",
+        "action": "BUY",
+        "stock": "601698.SH",
+        "shares": 8106,
+        "price": 10.28,
+        "value": 83329.68
+      },
+      {
+        "date": "20190902",
+        "action": "SELL",
+        "stock": "600546.SH",
+        "shares": 47892,
+        "price": 1.52,
+        "value": 72795.84
+      },
+      {
+        "date": "20190902",
+        "action": "SELL",
+        "stock": "002201.SZ",
+        "shares": 10752,
+        "price": 12.21,
+        "value": 131281.92
+      },
+      {
+        "date": "20190902",
+        "action": "SELL",
+        "stock": "300585.SZ",
+        "shares": 3555,
+        "price": 25.13,
+        "value": 89337.15
+      },
+      {
+        "date": "20190902",
+        "action": "SELL",
+        "stock": "000408.SZ",
+        "shares": 20833,
+        "price": 2.81,
+        "value": 58540.73
+      },
+      {
+        "date": "20190902",
+        "action": "SELL",
+        "stock": "601698.SH",
+        "shares": 8106,
+        "price": 12.33,
+        "value": 99946.98
+      },
+      {
+        "date": "20190902",
+        "action": "BUY",
+        "stock": "603530.SH",
+        "shares": 3886,
+        "price": 21.44,
+        "value": 83315.84
+      },
+      {
+        "date": "20190902",
+        "action": "BUY",
+        "stock": "300526.SZ",
+        "shares": 2205,
+        "price": 37.78,
+        "value": 83304.9
+      },
+      {
+        "date": "20190902",
+        "action": "BUY",
+        "stock": "000058.SZ",
+        "shares": 8846,
+        "price": 9.42,
+        "value": 83329.32
+      },
+      {
+        "date": "20190902",
+        "action": "BUY",
+        "stock": "600812.SH",
+        "shares": 10615,
+        "price": 7.85,
+        "value": 83327.75
+      },
+      {
+        "date": "20190902",
+        "action": "BUY",
+        "stock": "002048.SZ",
+        "shares": 10907,
+        "price": 7.64,
+        "value": 83329.48
+      },
+      {
+        "date": "20190902",
+        "action": "BUY",
+        "stock": "600536.SH",
+        "shares": 1731,
+        "price": 48.14,
+        "value": 83330.34
+      },
+      {
+        "date": "20191008",
+        "action": "SELL",
+        "stock": "603530.SH",
+        "shares": 3886,
+        "price": 20.02,
+        "value": 77797.72
+      },
+      {
+        "date": "20191008",
+        "action": "SELL",
+        "stock": "300526.SZ",
+        "shares": 2205,
+        "price": 42.48,
+        "value": 93668.4
+      },
+      {
+        "date": "20191008",
+        "action": "SELL",
+        "stock": "000058.SZ",
+        "shares": 8846,
+        "price": 8.1,
+        "value": 71652.6
+      },
+      {
+        "date": "20191008",
+        "action": "SELL",
+        "stock": "600812.SH",
+        "shares": 10615,
+        "price": 7.18,
+        "value": 76215.7
+      },
+      {
+        "date": "20191008",
+        "action": "SELL",
+        "stock": "002048.SZ",
+        "shares": 10907,
+        "price": 9.08,
+        "value": 99035.56
+      },
+      {
+        "date": "20191008",
+        "action": "SELL",
+        "stock": "600536.SH",
+        "shares": 1731,
+        "price": 42.94,
+        "value": 74329.14
+      },
+      {
+        "date": "20191008",
+        "action": "BUY",
+        "stock": "603093.SH",
+        "shares": 3330,
+        "price": 25.02,
+        "value": 83316.6
+      },
+      {
+        "date": "20191008",
+        "action": "BUY",
+        "stock": "002552.SZ",
+        "shares": 4365,
+        "price": 19.09,
+        "value": 83327.85
+      },
+      {
+        "date": "20191008",
+        "action": "BUY",
+        "stock": "002756.SZ",
+        "shares": 29976,
+        "price": 2.78,
+        "value": 83333.28
+      },
+      {
+        "date": "20191008",
+        "action": "BUY",
+        "stock": "002819.SZ",
+        "shares": 2806,
+        "price": 29.69,
+        "value": 83310.14
+      },
+      {
+        "date": "20191008",
+        "action": "BUY",
+        "stock": "300379.SZ",
+        "shares": 3705,
+        "price": 22.49,
+        "value": 83325.45
+      },
+      {
+        "date": "20191008",
+        "action": "BUY",
+        "stock": "603129.SH",
+        "shares": 3637,
+        "price": 22.91,
+        "value": 83323.67
+      },
+      {
+        "date": "20191101",
+        "action": "SELL",
+        "stock": "603093.SH",
+        "shares": 3330,
+        "price": 20.18,
+        "value": 67199.4
+      },
+      {
+        "date": "20191101",
+        "action": "SELL",
+        "stock": "002552.SZ",
+        "shares": 4365,
+        "price": 17.77,
+        "value": 77566.05
+      },
+      {
+        "date": "20191101",
+        "action": "SELL",
+        "stock": "002756.SZ",
+        "shares": 29976,
+        "price": 2.12,
+        "value": 63549.12
+      },
+      {
+        "date": "20191101",
+        "action": "SELL",
+        "stock": "002819.SZ",
+        "shares": 2806,
+        "price": 24.33,
+        "value": 68269.98
+      },
+      {
+        "date": "20191101",
+        "action": "SELL",
+        "stock": "300379.SZ",
+        "shares": 3705,
+        "price": 20.34,
+        "value": 75359.7
+      },
+      {
+        "date": "20191101",
+        "action": "SELL",
+        "stock": "603129.SH",
+        "shares": 3637,
+        "price": 18.77,
+        "value": 68266.49
+      },
+      {
+        "date": "20191101",
+        "action": "BUY",
+        "stock": "300792.SZ",
+        "shares": 1341,
+        "price": 62.14,
+        "value": 83329.74
+      },
+      {
+        "date": "20191101",
+        "action": "BUY",
+        "stock": "300598.SZ",
+        "shares": 3011,
+        "price": 27.67,
+        "value": 83314.37
+      },
+      {
+        "date": "20191101",
+        "action": "BUY",
+        "stock": "600223.SH",
+        "shares": 16149,
+        "price": 5.16,
+        "value": 83328.84
+      },
+      {
+        "date": "20191101",
+        "action": "BUY",
+        "stock": "000676.SZ",
+        "shares": 7638,
+        "price": 10.91,
+        "value": 83330.58
+      },
+      {
+        "date": "20191101",
+        "action": "BUY",
+        "stock": "002351.SZ",
+        "shares": 12939,
+        "price": 6.44,
+        "value": 83327.16
+      },
+      {
+        "date": "20191202",
+        "action": "SELL",
+        "stock": "300792.SZ",
+        "shares": 1341,
+        "price": 58.66,
+        "value": 78663.06
+      },
+      {
+        "date": "20191202",
+        "action": "SELL",
+        "stock": "300598.SZ",
+        "shares": 3011,
+        "price": 41.31,
+        "value": 124384.41
+      },
+      {
+        "date": "20191202",
+        "action": "SELL",
+        "stock": "600223.SH",
+        "shares": 16149,
+        "price": 4.59,
+        "value": 74123.91
+      },
+      {
+        "date": "20191202",
+        "action": "SELL",
+        "stock": "000676.SZ",
+        "shares": 7638,
+        "price": 8.34,
+        "value": 63700.92
+      },
+      {
+        "date": "20191202",
+        "action": "SELL",
+        "stock": "002351.SZ",
+        "shares": 12939,
+        "price": 9.44,
+        "value": 122144.16
+      },
+      {
+        "date": "20191202",
+        "action": "BUY",
+        "stock": "300797.SZ",
+        "shares": 6065,
+        "price": 13.74,
+        "value": 83333.1
+      },
+      {
+        "date": "20191202",
+        "action": "BUY",
+        "stock": "300799.SZ",
+        "shares": 1145,
+        "price": 72.76,
+        "value": 83310.2
+      },
+      {
+        "date": "20191202",
+        "action": "BUY",
+        "stock": "300341.SZ",
+        "shares": 5727,
+        "price": 14.55,
+        "value": 83327.85
+      },
+      {
+        "date": "20191202",
+        "action": "BUY",
+        "stock": "002761.SZ",
+        "shares": 7751,
+        "price": 10.75,
+        "value": 83323.25
+      },
+      {
+        "date": "20191202",
+        "action": "BUY",
+        "stock": "002629.SZ",
+        "shares": 38226,
+        "price": 2.18,
+        "value": 83332.68
+      },
+      {
+        "date": "20200102",
+        "action": "BUY",
+        "stock": "002291.SZ",
+        "shares": 3850,
+        "price": 21.64,
+        "value": 83314.0
+      },
+      {
+        "date": "20200102",
+        "action": "BUY",
+        "stock": "600712.SH",
+        "shares": 8827,
+        "price": 9.44,
+        "value": 83326.88
+      },
+      {
+        "date": "20200102",
+        "action": "BUY",
+        "stock": "603598.SH",
+        "shares": 4458,
+        "price": 18.69,
+        "value": 83320.02
+      },
+      {
+        "date": "20200102",
+        "action": "BUY",
+        "stock": "000955.SZ",
+        "shares": 10016,
+        "price": 8.32,
+        "value": 83333.12
+      },
+      {
+        "date": "20200102",
+        "action": "BUY",
+        "stock": "002323.SZ",
+        "shares": 50200,
+        "price": 1.66,
+        "value": 83332.0
+      },
+      {
+        "date": "20200102",
+        "action": "BUY",
+        "stock": "300787.SZ",
+        "shares": 3675,
+        "price": 22.67,
+        "value": 83312.25
+      },
+      {
+        "date": "20200203",
+        "action": "SELL",
+        "stock": "002291.SZ",
+        "shares": 3850,
+        "price": 26.34,
+        "value": 101409.0
+      },
+      {
+        "date": "20200203",
+        "action": "SELL",
+        "stock": "600712.SH",
+        "shares": 8827,
+        "price": 6.73,
+        "value": 59405.71
+      },
+      {
+        "date": "20200203",
+        "action": "SELL",
+        "stock": "603598.SH",
+        "shares": 4458,
+        "price": 15.57,
+        "value": 69411.06
+      },
+      {
+        "date": "20200203",
+        "action": "SELL",
+        "stock": "000955.SZ",
+        "shares": 10016,
+        "price": 7.35,
+        "value": 73617.6
+      },
+      {
+        "date": "20200203",
+        "action": "SELL",
+        "stock": "002323.SZ",
+        "shares": 50200,
+        "price": 1.44,
+        "value": 72288.0
+      },
+      {
+        "date": "20200203",
+        "action": "SELL",
+        "stock": "300787.SZ",
+        "shares": 3675,
+        "price": 13.63,
+        "value": 50090.25
+      },
+      {
+        "date": "20200203",
+        "action": "BUY",
+        "stock": "600546.SH",
+        "shares": 28153,
+        "price": 2.96,
+        "value": 83332.88
+      },
+      {
+        "date": "20200203",
+        "action": "BUY",
+        "stock": "000700.SZ",
+        "shares": 8468,
+        "price": 9.84,
+        "value": 83325.12
+      },
+      {
+        "date": "20200203",
+        "action": "BUY",
+        "stock": "600513.SH",
+        "shares": 5960,
+        "price": 13.98,
+        "value": 83320.8
+      },
+      {
+        "date": "20200203",
+        "action": "BUY",
+        "stock": "002030.SZ",
+        "shares": 13683,
+        "price": 6.09,
+        "value": 83329.47
+      },
+      {
+        "date": "20200302",
+        "action": "SELL",
+        "stock": "600546.SH",
+        "shares": 28153,
+        "price": 5.93,
+        "value": 166947.29
+      },
+      {
+        "date": "20200302",
+        "action": "SELL",
+        "stock": "000700.SZ",
+        "shares": 8468,
+        "price": 10.07,
+        "value": 85272.76
+      },
+      {
+        "date": "20200302",
+        "action": "SELL",
+        "stock": "600513.SH",
+        "shares": 5960,
+        "price": 12.51,
+        "value": 74559.6
+      },
+      {
+        "date": "20200302",
+        "action": "SELL",
+        "stock": "002030.SZ",
+        "shares": 13683,
+        "price": 4.93,
+        "value": 67457.19
+      },
+      {
+        "date": "20200302",
+        "action": "BUY",
+        "stock": "600295.SH",
+        "shares": 347222,
+        "price": 0.24,
+        "value": 83333.28
+      },
+      {
+        "date": "20200302",
+        "action": "BUY",
+        "stock": "300390.SZ",
+        "shares": 15206,
+        "price": 5.48,
+        "value": 83328.88
+      },
+      {
+        "date": "20200302",
+        "action": "BUY",
+        "stock": "002838.SZ",
+        "shares": 2470,
+        "price": 33.73,
+        "value": 83313.1
+      },
+      {
+        "date": "20200302",
+        "action": "BUY",
+        "stock": "002239.SZ",
+        "shares": 16469,
+        "price": 5.06,
+        "value": 83333.14
+      },
+      {
+        "date": "20200302",
+        "action": "BUY",
+        "stock": "300160.SZ",
+        "shares": 9167,
+        "price": 9.09,
+        "value": 83328.03
+      },
+      {
+        "date": "20200401",
+        "action": "SELL",
+        "stock": "600295.SH",
+        "shares": 347222,
+        "price": 0.02,
+        "value": 6944.44
+      },
+      {
+        "date": "20200401",
+        "action": "SELL",
+        "stock": "300390.SZ",
+        "shares": 15206,
+        "price": 2.7,
+        "value": 41056.2
+      },
+      {
+        "date": "20200401",
+        "action": "SELL",
+        "stock": "002838.SZ",
+        "shares": 2470,
+        "price": 33.92,
+        "value": 83782.4
+      },
+      {
+        "date": "20200401",
+        "action": "SELL",
+        "stock": "002239.SZ",
+        "shares": 16469,
+        "price": 3.8,
+        "value": 62582.2
+      },
+      {
+        "date": "20200401",
+        "action": "SELL",
+        "stock": "300160.SZ",
+        "shares": 9167,
+        "price": 6.08,
+        "value": 55735.36
+      },
+      {
+        "date": "20200401",
+        "action": "BUY",
+        "stock": "300526.SZ",
+        "shares": 625,
+        "price": 133.23,
+        "value": 83268.75
+      },
+      {
+        "date": "20200401",
+        "action": "BUY",
+        "stock": "300265.SZ",
+        "shares": 6025,
+        "price": 13.83,
+        "value": 83325.75
+      },
+      {
+        "date": "20200401",
+        "action": "BUY",
+        "stock": "002953.SZ",
+        "shares": 5435,
+        "price": 15.33,
+        "value": 83318.55
+      },
+      {
+        "date": "20200506",
+        "action": "SELL",
+        "stock": "300526.SZ",
+        "shares": 625,
+        "price": 93.67,
+        "value": 58543.75
+      },
+      {
+        "date": "20200506",
+        "action": "SELL",
+        "stock": "300265.SZ",
+        "shares": 6025,
+        "price": 11.15,
+        "value": 67178.75
+      },
+      {
+        "date": "20200506",
+        "action": "SELL",
+        "stock": "002953.SZ",
+        "shares": 5435,
+        "price": 10.12,
+        "value": 55002.2
+      },
+      {
+        "date": "20200506",
+        "action": "BUY",
+        "stock": "603109.SH",
+        "shares": 2929,
+        "price": 28.45,
+        "value": 83330.05
+      },
+      {
+        "date": "20200506",
+        "action": "BUY",
+        "stock": "600268.SH",
+        "shares": 12218,
+        "price": 6.82,
+        "value": 83326.76
+      },
+      {
+        "date": "20200506",
+        "action": "BUY",
+        "stock": "600350.SH",
+        "shares": 27144,
+        "price": 3.07,
+        "value": 83332.08
+      },
+      {
+        "date": "20200601",
+        "action": "SELL",
+        "stock": "603109.SH",
+        "shares": 2929,
+        "price": 19.41,
+        "value": 56851.89
+      },
+      {
+        "date": "20200601",
+        "action": "SELL",
+        "stock": "600268.SH",
+        "shares": 12218,
+        "price": 5.73,
+        "value": 70009.14
+      },
+      {
+        "date": "20200601",
+        "action": "SELL",
+        "stock": "600350.SH",
+        "shares": 27144,
+        "price": 3.01,
+        "value": 81703.44
+      },
+      {
+        "date": "20200601",
+        "action": "BUY",
+        "stock": "603392.SH",
+        "shares": 2911,
+        "price": 28.62,
+        "value": 83312.82
+      },
+      {
+        "date": "20200601",
+        "action": "BUY",
+        "stock": "002985.SZ",
+        "shares": 1857,
+        "price": 44.86,
+        "value": 83305.02
+      },
+      {
+        "date": "20200701",
+        "action": "SELL",
+        "stock": "002985.SZ",
+        "shares": 1857,
+        "price": 55.48,
+        "value": 103026.36
+      },
+      {
+        "date": "20200701",
+        "action": "BUY",
+        "stock": "600295.SH",
+        "shares": 2083333,
+        "price": 0.04,
+        "value": 83333.32
+      },
+      {
+        "date": "20200803",
+        "action": "SELL",
+        "stock": "603392.SH",
+        "shares": 2911,
+        "price": 100.33,
+        "value": 292060.63
+      },
+      {
+        "date": "20200803",
+        "action": "BUY",
+        "stock": "000408.SZ",
+        "shares": 33333,
+        "price": 2.5,
+        "value": 83332.5
+      },
+      {
+        "date": "20200803",
+        "action": "BUY",
+        "stock": "300846.SZ",
+        "shares": 2563,
+        "price": 32.51,
+        "value": 83323.13
+      },
+      {
+        "date": "20200803",
+        "action": "BUY",
+        "stock": "601216.SH",
+        "shares": 11720,
+        "price": 7.11,
+        "value": 83329.2
+      },
+      {
+        "date": "20200803",
+        "action": "BUY",
+        "stock": "002625.SZ",
+        "shares": 3906,
+        "price": 21.33,
+        "value": 83314.98
+      },
+      {
+        "date": "20200901",
+        "action": "SELL",
+        "stock": "600295.SH",
+        "shares": 2083333,
+        "price": 1.07,
+        "value": 2229166.31
+      },
+      {
+        "date": "20200901",
+        "action": "SELL",
+        "stock": "000408.SZ",
+        "shares": 33333,
+        "price": 2.36,
+        "value": 78665.88
+      },
+      {
+        "date": "20200901",
+        "action": "SELL",
+        "stock": "300846.SZ",
+        "shares": 2563,
+        "price": 30.56,
+        "value": 78325.28
+      },
+      {
+        "date": "20200901",
+        "action": "SELL",
+        "stock": "601216.SH",
+        "shares": 11720,
+        "price": 7.99,
+        "value": 93642.8
+      },
+      {
+        "date": "20200901",
+        "action": "SELL",
+        "stock": "002625.SZ",
+        "shares": 3906,
+        "price": 21.87,
+        "value": 85424.22
+      },
+      {
+        "date": "20200901",
+        "action": "BUY",
+        "stock": "601456.SH",
+        "shares": 5150,
+        "price": 16.18,
+        "value": 83327.0
+      },
+      {
+        "date": "20200901",
+        "action": "BUY",
+        "stock": "603167.SH",
+        "shares": 5926,
+        "price": 14.06,
+        "value": 83319.56
+      },
+      {
+        "date": "20200901",
+        "action": "BUY",
+        "stock": "002919.SZ",
+        "shares": 4614,
+        "price": 18.06,
+        "value": 83328.84
+      },
+      {
+        "date": "20200901",
+        "action": "BUY",
+        "stock": "002991.SZ",
+        "shares": 673,
+        "price": 123.69,
+        "value": 83243.37
+      },
+      {
+        "date": "20200901",
+        "action": "BUY",
+        "stock": "300368.SZ",
+        "shares": 3899,
+        "price": 21.37,
+        "value": 83321.63
+      },
+      {
+        "date": "20200901",
+        "action": "BUY",
+        "stock": "601666.SH",
+        "shares": 31446,
+        "price": 2.65,
+        "value": 83331.9
+      },
+      {
+        "date": "20201009",
+        "action": "SELL",
+        "stock": "603167.SH",
+        "shares": 5926,
+        "price": 8.63,
+        "value": 51141.38
+      },
+      {
+        "date": "20201009",
+        "action": "SELL",
+        "stock": "002919.SZ",
+        "shares": 4614,
+        "price": 20.04,
+        "value": 92464.56
+      },
+      {
+        "date": "20201009",
+        "action": "SELL",
+        "stock": "002991.SZ",
+        "shares": 673,
+        "price": 110.36,
+        "value": 74272.28
+      },
+      {
+        "date": "20201009",
+        "action": "SELL",
+        "stock": "300368.SZ",
+        "shares": 3899,
+        "price": 21.05,
+        "value": 82073.95
+      },
+      {
+        "date": "20201009",
+        "action": "SELL",
+        "stock": "601666.SH",
+        "shares": 31446,
+        "price": 1.93,
+        "value": 60690.78
+      },
+      {
+        "date": "20201009",
+        "action": "BUY",
+        "stock": "300313.SZ",
+        "shares": 4485,
+        "price": 18.58,
+        "value": 83331.3
+      },
+      {
+        "date": "20201009",
+        "action": "BUY",
+        "stock": "300722.SZ",
+        "shares": 2529,
+        "price": 32.94,
+        "value": 83305.26
+      },
+      {
+        "date": "20201009",
+        "action": "BUY",
+        "stock": "300064.SZ",
+        "shares": 17111,
+        "price": 4.87,
+        "value": 83330.57
+      },
+      {
+        "date": "20201009",
+        "action": "BUY",
+        "stock": "300208.SZ",
+        "shares": 5198,
+        "price": 16.03,
+        "value": 83323.94
+      },
+      {
+        "date": "20201009",
+        "action": "BUY",
+        "stock": "605006.SH",
+        "shares": 12236,
+        "price": 6.81,
+        "value": 83327.16
+      },
+      {
+        "date": "20201009",
+        "action": "BUY",
+        "stock": "300589.SZ",
+        "shares": 4256,
+        "price": 19.58,
+        "value": 83332.48
+      },
+      {
+        "date": "20201102",
+        "action": "SELL",
+        "stock": "601456.SH",
+        "shares": 5150,
+        "price": 14.58,
+        "value": 75087.0
+      },
+      {
+        "date": "20201102",
+        "action": "SELL",
+        "stock": "300313.SZ",
+        "shares": 4485,
+        "price": 21.0,
+        "value": 94185.0
+      },
+      {
+        "date": "20201102",
+        "action": "SELL",
+        "stock": "300722.SZ",
+        "shares": 2529,
+        "price": 35.82,
+        "value": 90588.78
+      },
+      {
+        "date": "20201102",
+        "action": "SELL",
+        "stock": "300064.SZ",
+        "shares": 17111,
+        "price": 5.6,
+        "value": 95821.6
+      },
+      {
+        "date": "20201102",
+        "action": "SELL",
+        "stock": "300208.SZ",
+        "shares": 5198,
+        "price": 12.19,
+        "value": 63363.62
+      },
+      {
+        "date": "20201102",
+        "action": "SELL",
+        "stock": "605006.SH",
+        "shares": 12236,
+        "price": 5.67,
+        "value": 69378.12
+      },
+      {
+        "date": "20201102",
+        "action": "SELL",
+        "stock": "300589.SZ",
+        "shares": 4256,
+        "price": 20.72,
+        "value": 88184.32
+      },
+      {
+        "date": "20201102",
+        "action": "BUY",
+        "stock": "003009.SZ",
+        "shares": 1339,
+        "price": 62.21,
+        "value": 83299.19
+      },
+      {
+        "date": "20201102",
+        "action": "BUY",
+        "stock": "300062.SZ",
+        "shares": 6979,
+        "price": 11.94,
+        "value": 83329.26
+      },
+      {
+        "date": "20201102",
+        "action": "BUY",
+        "stock": "605358.SH",
+        "shares": 2664,
+        "price": 31.28,
+        "value": 83329.92
+      },
+      {
+        "date": "20201102",
+        "action": "BUY",
+        "stock": "003010.SZ",
+        "shares": 5847,
+        "price": 14.25,
+        "value": 83319.75
+      },
+      {
+        "date": "20201102",
+        "action": "BUY",
+        "stock": "300549.SZ",
+        "shares": 3062,
+        "price": 27.21,
+        "value": 83317.02
+      },
+      {
+        "date": "20201102",
+        "action": "BUY",
+        "stock": "300581.SZ",
+        "shares": 6650,
+        "price": 12.53,
+        "value": 83324.5
+      },
+      {
+        "date": "20201201",
+        "action": "SELL",
+        "stock": "003009.SZ",
+        "shares": 1339,
+        "price": 63.27,
+        "value": 84718.53
+      },
+      {
+        "date": "20201201",
+        "action": "SELL",
+        "stock": "300062.SZ",
+        "shares": 6979,
+        "price": 8.71,
+        "value": 60787.09
+      },
+      {
+        "date": "20201201",
+        "action": "SELL",
+        "stock": "605358.SH",
+        "shares": 2664,
+        "price": 53.33,
+        "value": 142071.12
+      },
+      {
+        "date": "20201201",
+        "action": "SELL",
+        "stock": "003010.SZ",
+        "shares": 5847,
+        "price": 13.23,
+        "value": 77355.81
+      },
+      {
+        "date": "20201201",
+        "action": "SELL",
+        "stock": "300549.SZ",
+        "shares": 3062,
+        "price": 26.01,
+        "value": 79642.62
+      },
+      {
+        "date": "20201201",
+        "action": "SELL",
+        "stock": "300581.SZ",
+        "shares": 6650,
+        "price": 16.03,
+        "value": 106599.5
+      },
+      {
+        "date": "20201201",
+        "action": "BUY",
+        "stock": "601699.SH",
+        "shares": 96899,
+        "price": 0.86,
+        "value": 83333.14
+      },
+      {
+        "date": "20201201",
+        "action": "BUY",
+        "stock": "000933.SZ",
+        "shares": 15812,
+        "price": 5.27,
+        "value": 83329.24
+      },
+      {
+        "date": "20201201",
+        "action": "BUY",
+        "stock": "002756.SZ",
+        "shares": 5922,
+        "price": 14.07,
+        "value": 83322.54
+      },
+      {
+        "date": "20201201",
+        "action": "BUY",
+        "stock": "601127.SH",
+        "shares": 5244,
+        "price": 15.89,
+        "value": 83327.16
+      },
+      {
+        "date": "20201201",
+        "action": "BUY",
+        "stock": "688133.SH",
+        "shares": 1440,
+        "price": 57.86,
+        "value": 83318.4
+      },
+      {
+        "date": "20201201",
+        "action": "BUY",
+        "stock": "300727.SZ",
+        "shares": 2637,
+        "price": 31.6,
+        "value": 83329.2
+      },
+      {
+        "date": "20210104",
+        "action": "BUY",
+        "stock": "601919.SH",
+        "shares": 35014,
+        "price": 2.38,
+        "value": 83333.32
+      },
+      {
+        "date": "20210104",
+        "action": "BUY",
+        "stock": "000995.SZ",
+        "shares": 2596,
+        "price": 32.1,
+        "value": 83331.6
+      },
+      {
+        "date": "20210104",
+        "action": "BUY",
+        "stock": "603025.SH",
+        "shares": 3836,
+        "price": 21.72,
+        "value": 83317.92
+      },
+      {
+        "date": "20210104",
+        "action": "BUY",
+        "stock": "002756.SZ",
+        "shares": 2321,
+        "price": 35.9,
+        "value": 83323.9
+      },
+      {
+        "date": "20210104",
+        "action": "BUY",
+        "stock": "001896.SZ",
+        "shares": 8827,
+        "price": 9.44,
+        "value": 83326.88
+      },
+      {
+        "date": "20210201",
+        "action": "SELL",
+        "stock": "601919.SH",
+        "shares": 35014,
+        "price": 1.79,
+        "value": 62675.06
+      },
+      {
+        "date": "20210201",
+        "action": "SELL",
+        "stock": "000995.SZ",
+        "shares": 2596,
+        "price": 18.8,
+        "value": 48804.8
+      },
+      {
+        "date": "20210201",
+        "action": "SELL",
+        "stock": "603025.SH",
+        "shares": 3836,
+        "price": 17.95,
+        "value": 68856.2
+      },
+      {
+        "date": "20210201",
+        "action": "SELL",
+        "stock": "002756.SZ",
+        "shares": 2321,
+        "price": 29.43,
+        "value": 68307.03
+      },
+      {
+        "date": "20210201",
+        "action": "SELL",
+        "stock": "001896.SZ",
+        "shares": 8827,
+        "price": 6.44,
+        "value": 56845.88
+      },
+      {
+        "date": "20210201",
+        "action": "BUY",
+        "stock": "003031.SZ",
+        "shares": 3803,
+        "price": 21.91,
+        "value": 83323.73
+      },
+      {
+        "date": "20210201",
+        "action": "BUY",
+        "stock": "003022.SZ",
+        "shares": 4137,
+        "price": 20.14,
+        "value": 83319.18
+      },
+      {
+        "date": "20210201",
+        "action": "BUY",
+        "stock": "000155.SZ",
+        "shares": 5986,
+        "price": 13.92,
+        "value": 83325.12
+      },
+      {
+        "date": "20210201",
+        "action": "BUY",
+        "stock": "600392.SH",
+        "shares": 5457,
+        "price": 15.27,
+        "value": 83328.39
+      },
+      {
+        "date": "20210301",
+        "action": "SELL",
+        "stock": "003031.SZ",
+        "shares": 3803,
+        "price": 17.69,
+        "value": 67275.07
+      },
+      {
+        "date": "20210301",
+        "action": "SELL",
+        "stock": "003022.SZ",
+        "shares": 4137,
+        "price": 21.91,
+        "value": 90641.67
+      },
+      {
+        "date": "20210301",
+        "action": "SELL",
+        "stock": "000155.SZ",
+        "shares": 5986,
+        "price": 11.52,
+        "value": 68958.72
+      },
+      {
+        "date": "20210301",
+        "action": "SELL",
+        "stock": "600392.SH",
+        "shares": 5457,
+        "price": 23.28,
+        "value": 127038.96
+      },
+      {
+        "date": "20210301",
+        "action": "BUY",
+        "stock": "600295.SH",
+        "shares": 12980,
+        "price": 6.42,
+        "value": 83331.6
+      },
+      {
+        "date": "20210301",
+        "action": "BUY",
+        "stock": "003035.SZ",
+        "shares": 13528,
+        "price": 6.16,
+        "value": 83332.48
+      },
+      {
+        "date": "20210301",
+        "action": "BUY",
+        "stock": "600722.SH",
+        "shares": 11307,
+        "price": 7.37,
+        "value": 83332.59
+      },
+      {
+        "date": "20210301",
+        "action": "BUY",
+        "stock": "600230.SH",
+        "shares": 5827,
+        "price": 14.3,
+        "value": 83326.1
+      },
+      {
+        "date": "20210401",
+        "action": "SELL",
+        "stock": "600295.SH",
+        "shares": 12980,
+        "price": 4.57,
+        "value": 59318.6
+      },
+      {
+        "date": "20210401",
+        "action": "SELL",
+        "stock": "003035.SZ",
+        "shares": 13528,
+        "price": 12.29,
+        "value": 166259.12
+      },
+      {
+        "date": "20210401",
+        "action": "SELL",
+        "stock": "600722.SH",
+        "shares": 11307,
+        "price": 6.71,
+        "value": 75869.97
+      },
+      {
+        "date": "20210401",
+        "action": "SELL",
+        "stock": "600230.SH",
+        "shares": 5827,
+        "price": 10.29,
+        "value": 59959.83
+      },
+      {
+        "date": "20210401",
+        "action": "BUY",
+        "stock": "601919.SH",
+        "shares": 26123,
+        "price": 3.19,
+        "value": 83332.37
+      },
+      {
+        "date": "20210401",
+        "action": "BUY",
+        "stock": "603098.SH",
+        "shares": 4710,
+        "price": 17.69,
+        "value": 83319.9
+      },
+      {
+        "date": "20210401",
+        "action": "BUY",
+        "stock": "000966.SZ",
+        "shares": 11353,
+        "price": 7.34,
+        "value": 83331.02
+      },
+      {
+        "date": "20210401",
+        "action": "BUY",
+        "stock": "002900.SZ",
+        "shares": 5747,
+        "price": 14.5,
+        "value": 83331.5
+      },
+      {
+        "date": "20210401",
+        "action": "BUY",
+        "stock": "002269.SZ",
+        "shares": 32552,
+        "price": 2.56,
+        "value": 83333.12
+      },
+      {
+        "date": "20210506",
+        "action": "SELL",
+        "stock": "601919.SH",
+        "shares": 26123,
+        "price": 7.76,
+        "value": 202714.48
+      },
+      {
+        "date": "20210506",
+        "action": "SELL",
+        "stock": "603098.SH",
+        "shares": 4710,
+        "price": 19.71,
+        "value": 92834.1
+      },
+      {
+        "date": "20210506",
+        "action": "SELL",
+        "stock": "000966.SZ",
+        "shares": 11353,
+        "price": 8.42,
+        "value": 95592.26
+      },
+      {
+        "date": "20210506",
+        "action": "SELL",
+        "stock": "002900.SZ",
+        "shares": 5747,
+        "price": 21.07,
+        "value": 121089.29
+      },
+      {
+        "date": "20210506",
+        "action": "SELL",
+        "stock": "002269.SZ",
+        "shares": 32552,
+        "price": 2.71,
+        "value": 88215.92
+      },
+      {
+        "date": "20210506",
+        "action": "BUY",
+        "stock": "601699.SH",
+        "shares": 25799,
+        "price": 3.23,
+        "value": 83330.77
+      },
+      {
+        "date": "20210506",
+        "action": "BUY",
+        "stock": "688068.SH",
+        "shares": 605,
+        "price": 137.65,
+        "value": 83278.25
+      },
+      {
+        "date": "20210506",
+        "action": "BUY",
+        "stock": "002762.SZ",
+        "shares": 5115,
+        "price": 16.29,
+        "value": 83323.35
+      },
+      {
+        "date": "20210506",
+        "action": "BUY",
+        "stock": "603518.SH",
+        "shares": 6251,
+        "price": 13.33,
+        "value": 83325.83
+      },
+      {
+        "date": "20210506",
+        "action": "BUY",
+        "stock": "601127.SH",
+        "shares": 1729,
+        "price": 48.19,
+        "value": 83320.51
+      },
+      {
+        "date": "20210506",
+        "action": "BUY",
+        "stock": "300061.SZ",
+        "shares": 11037,
+        "price": 7.55,
+        "value": 83329.35
+      },
+      {
+        "date": "20210601",
+        "action": "SELL",
+        "stock": "601699.SH",
+        "shares": 25799,
+        "price": 4.62,
+        "value": 119191.38
+      },
+      {
+        "date": "20210601",
+        "action": "SELL",
+        "stock": "688068.SH",
+        "shares": 605,
+        "price": 122.03,
+        "value": 73828.15
+      },
+      {
+        "date": "20210601",
+        "action": "SELL",
+        "stock": "002762.SZ",
+        "shares": 5115,
+        "price": 19.9,
+        "value": 101788.5
+      },
+      {
+        "date": "20210601",
+        "action": "SELL",
+        "stock": "601127.SH",
+        "shares": 1729,
+        "price": 56.83,
+        "value": 98259.07
+      },
+      {
+        "date": "20210601",
+        "action": "SELL",
+        "stock": "300061.SZ",
+        "shares": 11037,
+        "price": 9.88,
+        "value": 109045.56
+      },
+      {
+        "date": "20210601",
+        "action": "BUY",
+        "stock": "601567.SH",
+        "shares": 6127,
+        "price": 13.6,
+        "value": 83327.2
+      },
+      {
+        "date": "20210601",
+        "action": "BUY",
+        "stock": "002622.SZ",
+        "shares": 13333,
+        "price": 6.25,
+        "value": 83331.25
+      },
+      {
+        "date": "20210601",
+        "action": "BUY",
+        "stock": "000408.SZ",
+        "shares": 6087,
+        "price": 13.69,
+        "value": 83331.03
+      },
+      {
+        "date": "20210601",
+        "action": "BUY",
+        "stock": "002679.SZ",
+        "shares": 3325,
+        "price": 25.06,
+        "value": 83324.5
+      },
+      {
+        "date": "20210601",
+        "action": "BUY",
+        "stock": "605089.SH",
+        "shares": 1003,
+        "price": 83.02,
+        "value": 83269.06
+      },
+      {
+        "date": "20210701",
+        "action": "SELL",
+        "stock": "603518.SH",
+        "shares": 6251,
+        "price": 22.33,
+        "value": 139584.83
+      },
+      {
+        "date": "20210701",
+        "action": "SELL",
+        "stock": "601567.SH",
+        "shares": 6127,
+        "price": 17.12,
+        "value": 104894.24
+      },
+      {
+        "date": "20210701",
+        "action": "SELL",
+        "stock": "002622.SZ",
+        "shares": 13333,
+        "price": 4.67,
+        "value": 62265.11
+      },
+      {
+        "date": "20210701",
+        "action": "SELL",
+        "stock": "000408.SZ",
+        "shares": 6087,
+        "price": 16.39,
+        "value": 99765.93
+      },
+      {
+        "date": "20210701",
+        "action": "SELL",
+        "stock": "002679.SZ",
+        "shares": 3325,
+        "price": 17.41,
+        "value": 57888.25
+      },
+      {
+        "date": "20210701",
+        "action": "SELL",
+        "stock": "605089.SH",
+        "shares": 1003,
+        "price": 60.69,
+        "value": 60872.07
+      },
+      {
+        "date": "20210701",
+        "action": "BUY",
+        "stock": "605499.SH",
+        "shares": 484,
+        "price": 171.93,
+        "value": 83214.12
+      },
+      {
+        "date": "20210701",
+        "action": "BUY",
+        "stock": "300339.SZ",
+        "shares": 2263,
+        "price": 36.81,
+        "value": 83301.03
+      },
+      {
+        "date": "20210701",
+        "action": "BUY",
+        "stock": "300671.SZ",
+        "shares": 726,
+        "price": 114.7,
+        "value": 83272.2
+      },
+      {
+        "date": "20210701",
+        "action": "BUY",
+        "stock": "002772.SZ",
+        "shares": 5880,
+        "price": 14.17,
+        "value": 83319.6
+      },
+      {
+        "date": "20210701",
+        "action": "BUY",
+        "stock": "605117.SH",
+        "shares": 4499,
+        "price": 18.52,
+        "value": 83321.48
+      },
+      {
+        "date": "20210701",
+        "action": "BUY",
+        "stock": "603876.SH",
+        "shares": 5703,
+        "price": 14.61,
+        "value": 83320.83
+      },
+      {
+        "date": "20210802",
+        "action": "SELL",
+        "stock": "605499.SH",
+        "shares": 484,
+        "price": 129.62,
+        "value": 62736.08
+      },
+      {
+        "date": "20210802",
+        "action": "SELL",
+        "stock": "300339.SZ",
+        "shares": 2263,
+        "price": 34.23,
+        "value": 77462.49
+      },
+      {
+        "date": "20210802",
+        "action": "SELL",
+        "stock": "300671.SZ",
+        "shares": 726,
+        "price": 136.58,
+        "value": 99157.08
+      },
+      {
+        "date": "20210802",
+        "action": "SELL",
+        "stock": "002772.SZ",
+        "shares": 5880,
+        "price": 9.54,
+        "value": 56095.2
+      },
+      {
+        "date": "20210802",
+        "action": "SELL",
+        "stock": "605117.SH",
+        "shares": 4499,
+        "price": 33.03,
+        "value": 148601.97
+      },
+      {
+        "date": "20210802",
+        "action": "SELL",
+        "stock": "603876.SH",
+        "shares": 5703,
+        "price": 17.16,
+        "value": 97863.48
+      },
+      {
+        "date": "20210802",
+        "action": "BUY",
+        "stock": "300343.SZ",
+        "shares": 5948,
+        "price": 14.01,
+        "value": 83331.48
+      },
+      {
+        "date": "20210802",
+        "action": "BUY",
+        "stock": "300077.SZ",
+        "shares": 2252,
+        "price": 37.0,
+        "value": 83324.0
+      },
+      {
+        "date": "20210802",
+        "action": "BUY",
+        "stock": "300693.SZ",
+        "shares": 3248,
+        "price": 25.65,
+        "value": 83311.2
+      },
+      {
+        "date": "20210802",
+        "action": "BUY",
+        "stock": "002455.SZ",
+        "shares": 4655,
+        "price": 17.9,
+        "value": 83324.5
+      },
+      {
+        "date": "20210802",
+        "action": "BUY",
+        "stock": "600111.SH",
+        "shares": 1874,
+        "price": 44.46,
+        "value": 83318.04
+      },
+      {
+        "date": "20210802",
+        "action": "BUY",
+        "stock": "300752.SZ",
+        "shares": 2358,
+        "price": 35.33,
+        "value": 83308.14
+      },
+      {
+        "date": "20210901",
+        "action": "SELL",
+        "stock": "300343.SZ",
+        "shares": 5948,
+        "price": 19.7,
+        "value": 117175.6
+      },
+      {
+        "date": "20210901",
+        "action": "SELL",
+        "stock": "300077.SZ",
+        "shares": 2252,
+        "price": 25.48,
+        "value": 57380.96
+      },
+      {
+        "date": "20210901",
+        "action": "SELL",
+        "stock": "300693.SZ",
+        "shares": 3248,
+        "price": 25.6,
+        "value": 83148.8
+      },
+      {
+        "date": "20210901",
+        "action": "SELL",
+        "stock": "002455.SZ",
+        "shares": 4655,
+        "price": 17.86,
+        "value": 83138.3
+      },
+      {
+        "date": "20210901",
+        "action": "SELL",
+        "stock": "600111.SH",
+        "shares": 1874,
+        "price": 51.75,
+        "value": 96979.5
+      },
+      {
+        "date": "20210901",
+        "action": "SELL",
+        "stock": "300752.SZ",
+        "shares": 2358,
+        "price": 22.0,
+        "value": 51876.0
+      },
+      {
+        "date": "20210901",
+        "action": "BUY",
+        "stock": "000937.SZ",
+        "shares": 57077,
+        "price": 1.46,
+        "value": 83332.42
+      },
+      {
+        "date": "20210901",
+        "action": "BUY",
+        "stock": "000792.SZ",
+        "shares": 2197,
+        "price": 37.93,
+        "value": 83332.21
+      },
+      {
+        "date": "20210901",
+        "action": "BUY",
+        "stock": "600546.SH",
+        "shares": 14827,
+        "price": 5.62,
+        "value": 83327.74
+      },
+      {
+        "date": "20210901",
+        "action": "BUY",
+        "stock": "600188.SH",
+        "shares": 11720,
+        "price": 7.11,
+        "value": 83329.2
+      },
+      {
+        "date": "20210901",
+        "action": "BUY",
+        "stock": "300827.SZ",
+        "shares": 2554,
+        "price": 32.62,
+        "value": 83311.48
+      },
+      {
+        "date": "20210901",
+        "action": "BUY",
+        "stock": "600256.SH",
+        "shares": 24437,
+        "price": 3.41,
+        "value": 83330.17
+      },
+      {
+        "date": "20211008",
+        "action": "SELL",
+        "stock": "000792.SZ",
+        "shares": 2197,
+        "price": 28.82,
+        "value": 63317.54
+      },
+      {
+        "date": "20211008",
+        "action": "SELL",
+        "stock": "600546.SH",
+        "shares": 14827,
+        "price": 6.18,
+        "value": 91630.86
+      },
+      {
+        "date": "20211008",
+        "action": "SELL",
+        "stock": "600188.SH",
+        "shares": 11720,
+        "price": 8.29,
+        "value": 97158.8
+      },
+      {
+        "date": "20211008",
+        "action": "SELL",
+        "stock": "300827.SZ",
+        "shares": 2554,
+        "price": 27.12,
+        "value": 69264.48
+      },
+      {
+        "date": "20211008",
+        "action": "SELL",
+        "stock": "600256.SH",
+        "shares": 24437,
+        "price": 5.62,
+        "value": 137335.94
+      },
+      {
+        "date": "20211008",
+        "action": "BUY",
+        "stock": "000537.SZ",
+        "shares": 6246,
+        "price": 13.34,
+        "value": 83321.64
+      },
+      {
+        "date": "20211008",
+        "action": "BUY",
+        "stock": "300437.SZ",
+        "shares": 4082,
+        "price": 20.41,
+        "value": 83313.62
+      },
+      {
+        "date": "20211008",
+        "action": "BUY",
+        "stock": "002487.SZ",
+        "shares": 3648,
+        "price": 22.84,
+        "value": 83320.32
+      },
+      {
+        "date": "20211008",
+        "action": "BUY",
+        "stock": "600863.SH",
+        "shares": 22706,
+        "price": 3.67,
+        "value": 83331.02
+      },
+      {
+        "date": "20211008",
+        "action": "BUY",
+        "stock": "000993.SZ",
+        "shares": 4825,
+        "price": 17.27,
+        "value": 83327.75
+      },
+      {
+        "date": "20211101",
+        "action": "SELL",
+        "stock": "000937.SZ",
+        "shares": 57077,
+        "price": 3.0,
+        "value": 171231.0
+      },
+      {
+        "date": "20211101",
+        "action": "SELL",
+        "stock": "000537.SZ",
+        "shares": 6246,
+        "price": 15.77,
+        "value": 98499.42
+      },
+      {
+        "date": "20211101",
+        "action": "SELL",
+        "stock": "300437.SZ",
+        "shares": 4082,
+        "price": 29.75,
+        "value": 121439.5
+      },
+      {
+        "date": "20211101",
+        "action": "SELL",
+        "stock": "600863.SH",
+        "shares": 22706,
+        "price": 2.95,
+        "value": 66982.7
+      },
+      {
+        "date": "20211101",
+        "action": "SELL",
+        "stock": "000993.SZ",
+        "shares": 4825,
+        "price": 15.54,
+        "value": 74980.5
+      },
+      {
+        "date": "20211101",
+        "action": "BUY",
+        "stock": "600071.SH",
+        "shares": 2104,
+        "price": 39.6,
+        "value": 83318.4
+      },
+      {
+        "date": "20211101",
+        "action": "BUY",
+        "stock": "600995.SH",
+        "shares": 4556,
+        "price": 18.29,
+        "value": 83329.24
+      },
+      {
+        "date": "20211101",
+        "action": "BUY",
+        "stock": "300969.SZ",
+        "shares": 820,
+        "price": 101.54,
+        "value": 83262.8
+      },
+      {
+        "date": "20211101",
+        "action": "BUY",
+        "stock": "002922.SZ",
+        "shares": 3003,
+        "price": 27.75,
+        "value": 83333.25
+      },
+      {
+        "date": "20211101",
+        "action": "BUY",
+        "stock": "600382.SH",
+        "shares": 26624,
+        "price": 3.13,
+        "value": 83333.12
+      },
+      {
+        "date": "20211201",
+        "action": "SELL",
+        "stock": "002487.SZ",
+        "shares": 3648,
+        "price": 48.58,
+        "value": 177219.84
+      },
+      {
+        "date": "20211201",
+        "action": "SELL",
+        "stock": "600071.SH",
+        "shares": 2104,
+        "price": 51.5,
+        "value": 108356.0
+      },
+      {
+        "date": "20211201",
+        "action": "SELL",
+        "stock": "600995.SH",
+        "shares": 4556,
+        "price": 15.67,
+        "value": 71392.52
+      },
+      {
+        "date": "20211201",
+        "action": "SELL",
+        "stock": "300969.SZ",
+        "shares": 820,
+        "price": 89.81,
+        "value": 73644.2
+      },
+      {
+        "date": "20211201",
+        "action": "SELL",
+        "stock": "002922.SZ",
+        "shares": 3003,
+        "price": 26.76,
+        "value": 80360.28
+      },
+      {
+        "date": "20211201",
+        "action": "SELL",
+        "stock": "600382.SH",
+        "shares": 26624,
+        "price": 3.92,
+        "value": 104366.08
+      },
+      {
+        "date": "20211201",
+        "action": "BUY",
+        "stock": "002432.SZ",
+        "shares": 4839,
+        "price": 17.22,
+        "value": 83327.58
+      },
+      {
+        "date": "20211201",
+        "action": "BUY",
+        "stock": "688533.SH",
+        "shares": 1883,
+        "price": 44.24,
+        "value": 83303.92
+      },
+      {
+        "date": "20211201",
+        "action": "BUY",
+        "stock": "603917.SH",
+        "shares": 3296,
+        "price": 25.28,
+        "value": 83322.88
+      },
+      {
+        "date": "20211201",
+        "action": "BUY",
+        "stock": "002885.SZ",
+        "shares": 3609,
+        "price": 23.09,
+        "value": 83331.81
+      },
+      {
+        "date": "20211201",
+        "action": "BUY",
+        "stock": "300745.SZ",
+        "shares": 1035,
+        "price": 80.5,
+        "value": 83317.5
+      },
+      {
+        "date": "20211201",
+        "action": "BUY",
+        "stock": "605133.SH",
+        "shares": 3190,
+        "price": 26.12,
+        "value": 83322.8
+      }
+    ]
+  }
+}

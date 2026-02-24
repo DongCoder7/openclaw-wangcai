@@ -1,0 +1,1115 @@
+{
+  "timestamp": "20260223_004208",
+  "sim_date": "20190718",
+  "total_simulations": 100,
+  "best_params": {
+    "position": 0.8,
+    "stop_loss": 0.25,
+    "rebalance_days": 45,
+    "momentum_weight": 0.898199348741271,
+    "reverse_weight": 0.12453239062310834
+  },
+  "best_return": 0.30407188999999996,
+  "all_results": [
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.2,
+        "rebalance_days": 30,
+        "momentum_weight": 0.8785527279405283,
+        "reverse_weight": 0.4722635319796612
+      },
+      "avg_return": 0.2058197174999998,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.1,
+        "rebalance_days": 45,
+        "momentum_weight": 0.977962575224679,
+        "reverse_weight": 0.44100014096223106
+      },
+      "avg_return": 0.12511543499999978,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.2,
+        "rebalance_days": 30,
+        "momentum_weight": 0.6302439138712166,
+        "reverse_weight": 0.3469356817311709
+      },
+      "avg_return": 0.2058197174999998,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.25,
+        "rebalance_days": 15,
+        "momentum_weight": 0.525076220408656,
+        "reverse_weight": 0.3513961696316341
+      },
+      "avg_return": 0.18995258,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.1,
+        "rebalance_days": 30,
+        "momentum_weight": 0.5462087502537097,
+        "reverse_weight": 0.43351847476585537
+      },
+      "avg_return": 0.15014700000000009,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.25,
+        "rebalance_days": 15,
+        "momentum_weight": 0.8054523017472748,
+        "reverse_weight": 0.14897710275153248
+      },
+      "avg_return": 0.18995258,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.2,
+        "rebalance_days": 30,
+        "momentum_weight": 0.9190513753095693,
+        "reverse_weight": 0.12433258819917081
+      },
+      "avg_return": 0.24023065750000003,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.2,
+        "rebalance_days": 15,
+        "momentum_weight": 0.5783683314435524,
+        "reverse_weight": 0.3555643885029725
+      },
+      "avg_return": 0.24023065750000003,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.2,
+        "rebalance_days": 45,
+        "momentum_weight": 0.6007815019387341,
+        "reverse_weight": 0.08481937743843698
+      },
+      "avg_return": 0.24023065750000003,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.15,
+        "rebalance_days": 30,
+        "momentum_weight": 0.8424607848458499,
+        "reverse_weight": 0.2574867118274524
+      },
+      "avg_return": 0.0543190699999999,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.1,
+        "rebalance_days": 15,
+        "momentum_weight": 0.6067181792915533,
+        "reverse_weight": 0.07400959496368464
+      },
+      "avg_return": 0.1752806424999999,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.15,
+        "rebalance_days": 45,
+        "momentum_weight": 0.697541041503521,
+        "reverse_weight": 0.02025192033376444
+      },
+      "avg_return": 0.08705145749999993,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.15,
+        "rebalance_days": 45,
+        "momentum_weight": 0.6003928766286715,
+        "reverse_weight": 0.4201121029627425
+      },
+      "avg_return": 0.08705145749999993,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.25,
+        "rebalance_days": 15,
+        "momentum_weight": 0.6435602153739606,
+        "reverse_weight": 0.09174674144765743
+      },
+      "avg_return": 0.266055995,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.2,
+        "rebalance_days": 20,
+        "momentum_weight": 0.6502602028817823,
+        "reverse_weight": 0.20926009036202042
+      },
+      "avg_return": 0.24023065750000003,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.2,
+        "rebalance_days": 20,
+        "momentum_weight": 0.9053251847939534,
+        "reverse_weight": 0.04861331483795339
+      },
+      "avg_return": 0.2058197174999998,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.2,
+        "rebalance_days": 45,
+        "momentum_weight": 0.5492567352202652,
+        "reverse_weight": 0.2856333519487541
+      },
+      "avg_return": 0.2745547574999998,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.25,
+        "rebalance_days": 15,
+        "momentum_weight": 0.81547908835837,
+        "reverse_weight": 0.3913865130056367
+      },
+      "avg_return": 0.22795858499999994,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.15,
+        "rebalance_days": 45,
+        "momentum_weight": 0.930374673784045,
+        "reverse_weight": 0.3364967599588236
+      },
+      "avg_return": 0.0543190699999999,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.15,
+        "rebalance_days": 45,
+        "momentum_weight": 0.8531523025931842,
+        "reverse_weight": 0.258716089268566
+      },
+      "avg_return": 0.07616957250000013,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.25,
+        "rebalance_days": 45,
+        "momentum_weight": 0.5903997224434707,
+        "reverse_weight": 0.45521958282419994
+      },
+      "avg_return": 0.266055995,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.25,
+        "rebalance_days": 45,
+        "momentum_weight": 0.6410252169407037,
+        "reverse_weight": 0.3156343040361939
+      },
+      "avg_return": 0.18995258,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.25,
+        "rebalance_days": 45,
+        "momentum_weight": 0.6698948905097315,
+        "reverse_weight": 0.10983633467912851
+      },
+      "avg_return": 0.18995258,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.1,
+        "rebalance_days": 20,
+        "momentum_weight": 0.6004994581758114,
+        "reverse_weight": 0.49058144929772673
+      },
+      "avg_return": 0.20031756749999985,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.2,
+        "rebalance_days": 30,
+        "momentum_weight": 0.6203498887918807,
+        "reverse_weight": 0.06137778706166663
+      },
+      "avg_return": 0.17151083749999987,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.2,
+        "rebalance_days": 15,
+        "momentum_weight": 0.6952345481819826,
+        "reverse_weight": 0.34284475579124457
+      },
+      "avg_return": 0.2058197174999998,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.25,
+        "rebalance_days": 30,
+        "momentum_weight": 0.5383771289629541,
+        "reverse_weight": 0.3199054064760755
+      },
+      "avg_return": 0.266055995,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.25,
+        "rebalance_days": 15,
+        "momentum_weight": 0.9705611228105882,
+        "reverse_weight": 0.17513891402509768
+      },
+      "avg_return": 0.22795858499999994,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.2,
+        "rebalance_days": 45,
+        "momentum_weight": 0.9843094517443397,
+        "reverse_weight": 0.2445274039070398
+      },
+      "avg_return": 0.2058197174999998,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.15,
+        "rebalance_days": 45,
+        "momentum_weight": 0.8171839858943146,
+        "reverse_weight": 0.1311855752211054
+      },
+      "avg_return": 0.0543190699999999,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.15,
+        "rebalance_days": 30,
+        "momentum_weight": 0.7937556626557088,
+        "reverse_weight": 0.12331350277255393
+      },
+      "avg_return": 0.06519654000000001,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.15,
+        "rebalance_days": 45,
+        "momentum_weight": 0.6660710557003842,
+        "reverse_weight": 0.3489910793433448
+      },
+      "avg_return": 0.06519654000000001,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.2,
+        "rebalance_days": 20,
+        "momentum_weight": 0.6549553726081256,
+        "reverse_weight": 0.42348480725924437
+      },
+      "avg_return": 0.17151083749999987,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.2,
+        "rebalance_days": 30,
+        "momentum_weight": 0.8994494692787047,
+        "reverse_weight": 0.36162660770951777
+      },
+      "avg_return": 0.17151083749999987,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.25,
+        "rebalance_days": 45,
+        "momentum_weight": 0.898199348741271,
+        "reverse_weight": 0.12453239062310834
+      },
+      "avg_return": 0.30407188999999996,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.2,
+        "rebalance_days": 15,
+        "momentum_weight": 0.8481588553456847,
+        "reverse_weight": 0.0969824146719967
+      },
+      "avg_return": 0.2058197174999998,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.1,
+        "rebalance_days": 15,
+        "momentum_weight": 0.6625835104988251,
+        "reverse_weight": 0.379555167221173
+      },
+      "avg_return": 0.15014700000000009,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.25,
+        "rebalance_days": 30,
+        "momentum_weight": 0.8762059058709435,
+        "reverse_weight": 0.3492215010657267
+      },
+      "avg_return": 0.30407188999999996,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.1,
+        "rebalance_days": 20,
+        "momentum_weight": 0.864496684338466,
+        "reverse_weight": 0.460478328550999
+      },
+      "avg_return": 0.15014700000000009,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.2,
+        "rebalance_days": 30,
+        "momentum_weight": 0.8350145288747993,
+        "reverse_weight": 0.08653307125275916
+      },
+      "avg_return": 0.2745547574999998,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.15,
+        "rebalance_days": 20,
+        "momentum_weight": 0.7241653214189363,
+        "reverse_weight": 0.47655321227647146
+      },
+      "avg_return": 0.06519654000000001,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.15,
+        "rebalance_days": 15,
+        "momentum_weight": 0.7728533219112289,
+        "reverse_weight": 0.16927894275211947
+      },
+      "avg_return": 0.07616957250000013,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.25,
+        "rebalance_days": 20,
+        "momentum_weight": 0.7032259691791738,
+        "reverse_weight": 0.15448428544476006
+      },
+      "avg_return": 0.30407188999999996,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.2,
+        "rebalance_days": 45,
+        "momentum_weight": 0.8337050451968929,
+        "reverse_weight": 0.26909751539606463
+      },
+      "avg_return": 0.2058197174999998,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.25,
+        "rebalance_days": 30,
+        "momentum_weight": 0.5472292204350899,
+        "reverse_weight": 0.48548394214869434
+      },
+      "avg_return": 0.18995258,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.15,
+        "rebalance_days": 20,
+        "momentum_weight": 0.9384014323205558,
+        "reverse_weight": 0.23708757223911436
+      },
+      "avg_return": 0.08705145749999993,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.1,
+        "rebalance_days": 15,
+        "momentum_weight": 0.5108338165424626,
+        "reverse_weight": 0.017116538512805812
+      },
+      "avg_return": 0.15014700000000009,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.25,
+        "rebalance_days": 15,
+        "momentum_weight": 0.6135175809940306,
+        "reverse_weight": 0.35381669755631695
+      },
+      "avg_return": 0.22795858499999994,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.15,
+        "rebalance_days": 45,
+        "momentum_weight": 0.9428374028554569,
+        "reverse_weight": 0.47672018006118616
+      },
+      "avg_return": 0.08705145749999993,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.1,
+        "rebalance_days": 20,
+        "momentum_weight": 0.9837560641239504,
+        "reverse_weight": 0.3667715878546614
+      },
+      "avg_return": 0.12511543499999978,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.2,
+        "rebalance_days": 15,
+        "momentum_weight": 0.9258775577117548,
+        "reverse_weight": 0.4149553144723899
+      },
+      "avg_return": 0.2745547574999998,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.2,
+        "rebalance_days": 15,
+        "momentum_weight": 0.9005401551587074,
+        "reverse_weight": 0.21692301128482383
+      },
+      "avg_return": 0.24023065750000003,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.25,
+        "rebalance_days": 15,
+        "momentum_weight": 0.7588480237463529,
+        "reverse_weight": 0.4398976207796177
+      },
+      "avg_return": 0.18995258,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.15,
+        "rebalance_days": 15,
+        "momentum_weight": 0.7322348102065193,
+        "reverse_weight": 0.41922578332588045
+      },
+      "avg_return": 0.06519654000000001,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.1,
+        "rebalance_days": 20,
+        "momentum_weight": 0.5555274815733962,
+        "reverse_weight": 0.451130674357755
+      },
+      "avg_return": 0.20031756749999985,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.25,
+        "rebalance_days": 45,
+        "momentum_weight": 0.8140250503424604,
+        "reverse_weight": 0.3941068322815629
+      },
+      "avg_return": 0.266055995,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.25,
+        "rebalance_days": 45,
+        "momentum_weight": 0.5416265718680473,
+        "reverse_weight": 0.38510205010731713
+      },
+      "avg_return": 0.266055995,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.25,
+        "rebalance_days": 30,
+        "momentum_weight": 0.7090268090864253,
+        "reverse_weight": 0.3257763209455647
+      },
+      "avg_return": 0.18995258,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.1,
+        "rebalance_days": 20,
+        "momentum_weight": 0.8708198460700358,
+        "reverse_weight": 0.4717598861284016
+      },
+      "avg_return": 0.12511543499999978,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.1,
+        "rebalance_days": 20,
+        "momentum_weight": 0.884716662987951,
+        "reverse_weight": 0.4581122448815876
+      },
+      "avg_return": 0.1752806424999999,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.2,
+        "rebalance_days": 30,
+        "momentum_weight": 0.7784246764416172,
+        "reverse_weight": 0.2780079400609419
+      },
+      "avg_return": 0.17151083749999987,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.1,
+        "rebalance_days": 15,
+        "momentum_weight": 0.8458612188442862,
+        "reverse_weight": 0.0161836719948375
+      },
+      "avg_return": 0.1752806424999999,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.15,
+        "rebalance_days": 20,
+        "momentum_weight": 0.9193051741638703,
+        "reverse_weight": 0.4415865185491824
+      },
+      "avg_return": 0.07616957250000013,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.2,
+        "rebalance_days": 30,
+        "momentum_weight": 0.8251204816411265,
+        "reverse_weight": 0.4389981493902046
+      },
+      "avg_return": 0.17151083749999987,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.25,
+        "rebalance_days": 45,
+        "momentum_weight": 0.9688261443040131,
+        "reverse_weight": 0.29447850177989743
+      },
+      "avg_return": 0.18995258,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.1,
+        "rebalance_days": 20,
+        "momentum_weight": 0.9446786934561815,
+        "reverse_weight": 0.34040243909260315
+      },
+      "avg_return": 0.15014700000000009,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.1,
+        "rebalance_days": 20,
+        "momentum_weight": 0.9606808196047281,
+        "reverse_weight": 0.24384149770120905
+      },
+      "avg_return": 0.1752806424999999,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.15,
+        "rebalance_days": 30,
+        "momentum_weight": 0.5462139961941059,
+        "reverse_weight": 0.10180047440487278
+      },
+      "avg_return": 0.08705145749999993,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.1,
+        "rebalance_days": 30,
+        "momentum_weight": 0.6264888168741898,
+        "reverse_weight": 0.33537081738222635
+      },
+      "avg_return": 0.15014700000000009,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.15,
+        "rebalance_days": 30,
+        "momentum_weight": 0.611692440206016,
+        "reverse_weight": 0.13708258991493244
+      },
+      "avg_return": 0.08705145749999993,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.25,
+        "rebalance_days": 15,
+        "momentum_weight": 0.6283031507681152,
+        "reverse_weight": 0.414968932612852
+      },
+      "avg_return": 0.30407188999999996,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.15,
+        "rebalance_days": 15,
+        "momentum_weight": 0.567615179647154,
+        "reverse_weight": 0.305690832577524
+      },
+      "avg_return": 0.0543190699999999,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.25,
+        "rebalance_days": 45,
+        "momentum_weight": 0.9906631454650446,
+        "reverse_weight": 0.11582900093142978
+      },
+      "avg_return": 0.18995258,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.25,
+        "rebalance_days": 30,
+        "momentum_weight": 0.7276678748750943,
+        "reverse_weight": 0.028170254210874268
+      },
+      "avg_return": 0.266055995,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.25,
+        "rebalance_days": 20,
+        "momentum_weight": 0.9174114682425686,
+        "reverse_weight": 0.20574243213144794
+      },
+      "avg_return": 0.22795858499999994,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.1,
+        "rebalance_days": 30,
+        "momentum_weight": 0.8052083025048994,
+        "reverse_weight": 0.4083189799628732
+      },
+      "avg_return": 0.12511543499999978,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.15,
+        "rebalance_days": 45,
+        "momentum_weight": 0.5750227548102086,
+        "reverse_weight": 0.09003399175047927
+      },
+      "avg_return": 0.0543190699999999,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.7,
+        "stop_loss": 0.2,
+        "rebalance_days": 30,
+        "momentum_weight": 0.6484900850075948,
+        "reverse_weight": 0.3960057080091789
+      },
+      "avg_return": 0.24023065750000003,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.15,
+        "rebalance_days": 30,
+        "momentum_weight": 0.8713435577993611,
+        "reverse_weight": 0.1360237099849601
+      },
+      "avg_return": 0.08705145749999993,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.2,
+        "rebalance_days": 20,
+        "momentum_weight": 0.9629558022364941,
+        "reverse_weight": 0.2819574111155929
+      },
+      "avg_return": 0.17151083749999987,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.15,
+        "rebalance_days": 20,
+        "momentum_weight": 0.5843662274915347,
+        "reverse_weight": 0.17769264026469483
+      },
+      "avg_return": 0.08705145749999993,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.2,
+        "rebalance_days": 20,
+        "momentum_weight": 0.7388961480633838,
+        "reverse_weight": 0.11758443294108656
+      },
+      "avg_return": 0.2745547574999998,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.1,
+        "rebalance_days": 45,
+        "momentum_weight": 0.6988748651074177,
+        "reverse_weight": 0.46149378573118616
+      },
+      "avg_return": 0.15014700000000009,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.15,
+        "rebalance_days": 45,
+        "momentum_weight": 0.7991526621208983,
+        "reverse_weight": 0.3467177763877305
+      },
+      "avg_return": 0.06519654000000001,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.15,
+        "rebalance_days": 20,
+        "momentum_weight": 0.6430567483558793,
+        "reverse_weight": 0.4561846408582789
+      },
+      "avg_return": 0.0543190699999999,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.2,
+        "rebalance_days": 20,
+        "momentum_weight": 0.9105505544489969,
+        "reverse_weight": 0.3449866189720379
+      },
+      "avg_return": 0.2058197174999998,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.1,
+        "rebalance_days": 30,
+        "momentum_weight": 0.7904044702448831,
+        "reverse_weight": 0.14200004813614409
+      },
+      "avg_return": 0.20031756749999985,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.15,
+        "rebalance_days": 20,
+        "momentum_weight": 0.6037547863065382,
+        "reverse_weight": 0.3084065246575885
+      },
+      "avg_return": 0.06519654000000001,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.15,
+        "rebalance_days": 30,
+        "momentum_weight": 0.512253824847927,
+        "reverse_weight": 0.3401005654182247
+      },
+      "avg_return": 0.06519654000000001,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.15,
+        "rebalance_days": 30,
+        "momentum_weight": 0.5209274895184621,
+        "reverse_weight": 0.4866348375286609
+      },
+      "avg_return": 0.0543190699999999,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.25,
+        "rebalance_days": 30,
+        "momentum_weight": 0.889301615525038,
+        "reverse_weight": 0.3646524761151362
+      },
+      "avg_return": 0.30407188999999996,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.25,
+        "rebalance_days": 15,
+        "momentum_weight": 0.6297524337271876,
+        "reverse_weight": 0.18117911833443628
+      },
+      "avg_return": 0.22795858499999994,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.1,
+        "rebalance_days": 20,
+        "momentum_weight": 0.7135305440392495,
+        "reverse_weight": 0.03691858072000781
+      },
+      "avg_return": 0.20031756749999985,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.8,
+        "stop_loss": 0.1,
+        "rebalance_days": 15,
+        "momentum_weight": 0.7099755627607682,
+        "reverse_weight": 0.14404770892454444
+      },
+      "avg_return": 0.20031756749999985,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.25,
+        "rebalance_days": 20,
+        "momentum_weight": 0.7486134437263101,
+        "reverse_weight": 0.235999756418653
+      },
+      "avg_return": 0.22795858499999994,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.6,
+        "stop_loss": 0.1,
+        "rebalance_days": 30,
+        "momentum_weight": 0.7978380990997791,
+        "reverse_weight": 0.289157366122476
+      },
+      "avg_return": 0.15014700000000009,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.1,
+        "rebalance_days": 30,
+        "momentum_weight": 0.5489141331519323,
+        "reverse_weight": 0.19391284408899978
+      },
+      "avg_return": 0.12511543499999978,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.15,
+        "rebalance_days": 45,
+        "momentum_weight": 0.9816767135109737,
+        "reverse_weight": 0.2531849475838959
+      },
+      "avg_return": 0.0543190699999999,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.2,
+        "rebalance_days": 20,
+        "momentum_weight": 0.8683756726629399,
+        "reverse_weight": 0.4160400010124798
+      },
+      "avg_return": 0.17151083749999987,
+      "sim_date": "20190718"
+    },
+    {
+      "params": {
+        "position": 0.5,
+        "stop_loss": 0.25,
+        "rebalance_days": 30,
+        "momentum_weight": 0.8531914982071209,
+        "reverse_weight": 0.1399323585509803
+      },
+      "avg_return": 0.18995258,
+      "sim_date": "20190718"
+    }
+  ]
+}
