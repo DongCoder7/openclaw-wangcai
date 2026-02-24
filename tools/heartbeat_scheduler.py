@@ -408,10 +408,15 @@ def check_optimizer_report(state):
     mtime = os.path.getmtime(report_file)
     mtime_dt = datetime.fromtimestamp(mtime)
     
-    # 如果上次发送时间存在且文件未更新，则不发送
+    # 如果文件在30秒内更新过，认为是新报告
+    now = datetime.now()
+    seconds_ago = (now - mtime_dt).total_seconds()
+    
+    # 如果上次发送时间存在且文件在发送后未更新，则不发送
     if last_sent:
         last_sent_dt = datetime.fromisoformat(last_sent)
-        if mtime_dt <= last_sent_dt:
+        # 给5秒缓冲时间，避免竞态条件
+        if mtime_dt <= (last_sent_dt - timedelta(seconds=5)):
             return None
     
     # 读取报告内容
