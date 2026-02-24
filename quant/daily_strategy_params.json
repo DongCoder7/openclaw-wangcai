@@ -1,0 +1,32 @@
+{
+  "params": {
+    "position": 0.6,
+    "stop_loss": 0.08,
+    "take_profit": 0.15,
+    "add_position": 0.03,
+    "reduce_position": 0.02,
+    "rebalance_threshold": 0.1
+  },
+  "results": [
+    {
+      "year": "2018",
+      "return": -0.68575182,
+      "actions": 276
+    },
+    {
+      "year": "2019",
+      "return": -0.5602018500000003,
+      "actions": 416
+    },
+    {
+      "year": "2020",
+      "return": -0.5778579500000001,
+      "actions": 513
+    },
+    {
+      "year": "2021",
+      "return": -0.5945321699999999,
+      "actions": 916
+    }
+  ]
+}
