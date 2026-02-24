@@ -14,15 +14,43 @@ warnings.filterwarnings('ignore')
 class StockDataProvider:
     """
     股票数据获取工具类
-    支持多数据源：AKShare / 腾讯API / 新浪API
+    支持多数据源：长桥API / AKShare / 腾讯API / 新浪API
     自动切换机制：主数据源失败时自动切换到备用源
+    
+    优先级：
+    1. 长桥API（实时性最好，需配置API Key）
+    2. 腾讯API（免费，稳定性好）
+    3. AKShare（数据全面，但速度较慢）
+    4. 新浪API（备用）
     """
     
-    def __init__(self):
-        self.data_sources = ['akshare', 'tencent', 'sina']
-        self.current_source = 'akshare'
+    def __init__(self, use_longbridge: bool = False):
+        self.data_sources = ['tencent', 'akshare', 'sina']
+        self.current_source = 'tencent'
         self.cache = {}
         self.cache_timeout = 300  # 缓存5分钟
+        
+        # 长桥API支持
+        self.longbridge = None
+        if use_longbridge:
+            self._init_longbridge()
+    
+    def _init_longbridge(self):
+        """初始化长桥API（如配置可用）"""
+        try:
+            from longbridge_provider import LongbridgeDataProvider
+            self.longbridge = LongbridgeDataProvider()
+            # 测试连接
+            test = self.longbridge.get_realtime_quote('000001', market='CN')
+            if test:
+                print('✅ 长桥API已启用')
+                # 将长桥添加到数据源列表首位
+                self.data_sources.insert(0, 'longbridge')
+            else:
+                self.longbridge = None
+        except Exception as e:
+            print(f'⚠️ 长桥API未启用: {e}')
+            self.longbridge = None
         
     def _get_stock_code_format(self, code: str, source: str) -> str:
         """
@@ -181,13 +209,46 @@ class StockDataProvider:
         # 实际使用时可以实现更完整的数据获取
         return None  # 暂时返回None，使用其他数据源
     
+    def _get_realtime_longbridge(self, code: str) -> Dict:
+        """使用长桥API获取实时行情"""
+        if not self.longbridge:
+            return None
+        
+        try:
+            quote = self.longbridge.get_realtime_quote(code, market='CN')
+            if quote:
+                return {
+                    'code': quote['code'],
+                    'name': quote['name'],
+                    'price': quote['price'],
+                    'yesterday_close': quote['prev_close'],
+                    'open': quote['open'],
+                    'high': quote['high'],
+                    'low': quote['low'],
+                    'change': quote['change'],
+                    'change_pct': quote['change_pct'],
+                    'volume': quote['volume'],
+                    'turnover': quote['turnover']
+                }
+        except Exception as e:
+            print(f'⚠️ 长桥API获取失败 {code}: {e}')
+        return None
+    
     def get_realtime_quote(self, code: str) -> Dict:
         """
         获取实时行情
+        优先使用长桥API（如已启用），否则使用腾讯API
         
         Returns:
             dict: {code, name, price, change, change_pct, volume, turnover}
         """
+        # 1. 优先尝试长桥API
+        if self.longbridge:
+            result = self._get_realtime_longbridge(code)
+            if result:
+                return result
+        
+        # 2. 回退到腾讯API
         try:
             # 使用腾讯实时行情API
             tencent_code = self._get_stock_code_format(code, 'tencent')

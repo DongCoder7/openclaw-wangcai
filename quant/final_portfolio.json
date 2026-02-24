@@ -1,0 +1,72 @@
+{
+  "strategy": "VQM_Final_v3",
+  "params": {
+    "position": 0.6,
+    "stop_loss": 0.15,
+    "rebalance": "monthly",
+    "daily_monitor": true,
+    "factors": [
+      "momentum_20",
+      "momentum_60",
+      "volume_ratio"
+    ]
+  },
+  "positions": [
+    {
+      "code": "300166.SZ",
+      "industry": "创业板",
+      "price": 14.38,
+      "shares": 7301,
+      "amount": 105000
+    },
+    {
+      "code": "688680.SH",
+      "industry": "科创",
+      "price": 62.16,
+      "shares": 1447,
+      "amount": 90000
+    },
+    {
+      "code": "688625.SH",
+      "industry": "科创",
+      "price": 71.1,
+      "shares": 1265,
+      "amount": 90000
+    },
+    {
+      "code": "600519.SH",
+      "industry": "消费",
+      "price": 1485.3,
+      "shares": 40,
+      "amount": 60000
+    },
+    {
+      "code": "300750.SZ",
+      "industry": "创业板",
+      "price": 365.34,
+      "shares": 287,
+      "amount": 105000
+    },
+    {
+      "code": "601888.SH",
+      "industry": "消费",
+      "price": 94.64,
+      "shares": 633,
+      "amount": 60000
+    },
+    {
+      "code": "600016.SH",
+      "industry": "金融",
+      "price": 3.93,
+      "shares": 11450,
+      "amount": 45000
+    },
+    {
+      "code": "600030.SH",
+      "industry": "金融",
+      "price": 27.62,
+      "shares": 1629,
+      "amount": 45000
+    }
+  ]
+}

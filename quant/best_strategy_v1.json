@@ -1,0 +1,81 @@
+{
+  "strategy_name": "VQM_AlphaBeta_Strategy_v1",
+  "version": "1.0",
+  "created_at": "2026-02-21T14:15:00",
+  "description": "VQM Alpha-Beta多因子策略 - 保守版",
+  
+  "performance": {
+    "best_return": 0.102,
+    "best_drawdown": 0.066,
+    "best_round": 8,
+    "sharpe_ratio": 0.8,
+    "investment_period": "3 years (2018-2021)",
+    "initial_capital": 1000000,
+    "final_value": 1102000
+  },
+  
+  "parameters": {
+    "position_sizing": {
+      "num_stocks": 4,
+      "base_position": 0.25,
+      "volatility_adjustment": {
+        "low_vol": 1.0,
+        "medium_vol": 0.65,
+        "high_vol": 0.45,
+        "extreme_vol": 0.25
+      }
+    },
+    "risk_management": {
+      "stop_loss": 0.03,
+      "max_drawdown_limit": 0.075
+    },
+    "rebalancing": {
+      "frequency": "daily",
+      "trigger": "signal_change"
+    }
+  },
+  
+  "factors": {
+    "alpha_factor": {
+      "name": "动量因子",
+      "description": "10日价格动量",
+      "weight": 0.50,
+      "direction": "higher_is_better"
+    },
+    "beta_factor": {
+      "name": "波动率因子",
+      "description": "10日波动率，低波动优先",
+      "weight": 0.30,
+      "direction": "lower_is_better"
+    },
+    "quality_factor": {
+      "name": "质量因子",
+      "description": "20日动量，长期强势",
+      "weight": 0.20,
+      "direction": "higher_is_better"
+    }
+  },
+  
+  "trading_rules": {
+    "entry": {
+      "condition": "每月首次建仓",
+      "stock_selection": "按综合因子评分选前N只",
+      "position": "等权重分配，按波动率调整仓位"
+    },
+    "exit": {
+      "stop_loss": "个股亏损达3%止损",
+      "rebalance": "每日检查，因子排名变化时调仓"
+    }
+  },
+  
+  "backtest_summary": {
+    "total_rounds": 20,
+    "total_iterations": 1000,
+    "success_rate": "85%",
+    "best_iterations": [
+      {"round": 8, "return": 0.102, "drawdown": 0.066},
+      {"round": 4, "return": 0.101, "drawdown": 0.069},
+      {"round": 18, "return": 0.095, "drawdown": 0.073}
+    ]
+  }
+}

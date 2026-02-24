@@ -1,0 +1,14 @@
+{
+  "position": 0.6,
+  "stop_loss": 0.2,
+  "take_profit": 0.3,
+  "rebalance": "monthly",
+  "momentum_weight": 0.7,
+  "momentum60_weight": 0.3,
+  "bear_market_reverse": 1.2,
+  "allocation": {
+    "\u521b\u4e1a\u677f": 0.35,
+    "\u6d88\u8d39": 0.35,
+    "\u91d1\u878d": 0.3
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "params": {
+    "position": 0.6,
+    "stop_loss": 0.25,
+    "rebalance": 20,
+    "factors": {
+      "momentum_20": 40,
+      "momentum_10": 20,
+      "relative_strength": 20,
+      "volume_ratio": 15,
+      "low_volatility": 10,
+      "industry": 5
+    },
+    "market_adaptive": true,
+    "bear_market_reverse": true
+  },
+  "yearly": [
+    -0.8532310299999999,
+    -0.6536428000000001,
+    -0.69711618,
+    -0.59225836
+  ],
+  "avg": -0.6990620925
+}

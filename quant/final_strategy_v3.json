@@ -1,0 +1,38 @@
+{
+  "params": {
+    "position": 0.6,
+    "cash_ratio": 0.4,
+    "rebalance": "monthly",
+    "stop_loss": 0.15,
+    "factors": {
+      "bull_market": "momentum_20 + momentum_60",
+      "bear_market": "reverse_60 + weak_20",
+      "range_market": "momentum_20 - volume"
+    },
+    "allocation": {
+      "\u521b\u4e1a\u677f": 0.35,
+      "\u79d1\u521b": 0.3,
+      "\u6d88\u8d39": 0.2,
+      "\u91d1\u878d": 0.15
+    }
+  },
+  "yearly": [
+    {
+      "year": "2018",
+      "return": -0.68487999
+    },
+    {
+      "year": "2019",
+      "return": -0.5585316599999999
+    },
+    {
+      "year": "2020",
+      "return": -0.62575123
+    },
+    {
+      "year": "2021",
+      "return": -0.6341163999999999
+    }
+  ],
+  "avg": -0.6258198199999999
+}

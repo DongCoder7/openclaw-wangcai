@@ -1,0 +1,39 @@
+{
+  "strategy": "VQM_1year",
+  "params": {
+    "num_industries": 2,
+    "num_stocks": 4,
+    "position": 0.4,
+    "stop_loss": 0.05
+  },
+  "positions": [
+    {
+      "code": "600519.SH",
+      "name": "贵州茅台",
+      "price": 1485.3,
+      "shares": 67,
+      "stop_loss": 1411.03
+    },
+    {
+      "code": "601888.SH",
+      "name": "中国中免",
+      "price": 94.64,
+      "shares": 1056,
+      "stop_loss": 89.91
+    },
+    {
+      "code": "600016.SH",
+      "name": "民生银行",
+      "price": 3.93,
+      "shares": 25445,
+      "stop_loss": 3.73
+    },
+    {
+      "code": "000333.SZ",
+      "name": "美的集团",
+      "price": 79.05,
+      "shares": 1265,
+      "stop_loss": 75.1
+    }
+  ]
+}

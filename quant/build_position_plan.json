@@ -1,0 +1,58 @@
+{
+  "strategy": "VQM_v3_Advanced_Timing_Tech",
+  "generated_at": "2026-02-22",
+  "initial_capital": 1000000,
+  "position_capital": 350000.0,
+  "total_position": 0.35,
+  "stop_loss": 0.03,
+  "positions": [
+    {
+      "code": "600519.SH",
+      "name": "贵州茅台",
+      "industry": "消费",
+      "price": 1485.3,
+      "shares": 58,
+      "amount": 86147.4,
+      "stop_loss_price": 1440.74,
+      "momentum_20": 6.563768115942015,
+      "volatility_20": 1.6361950329763613,
+      "vqm_score": 12.30943871539585
+    },
+    {
+      "code": "601888.SH",
+      "name": "中国中免",
+      "industry": "消费",
+      "price": 94.64,
+      "shares": 924,
+      "amount": 87447.36,
+      "stop_loss_price": 91.8,
+      "momentum_20": 6.159090909090903,
+      "volatility_20": 1.949330422544422,
+      "vqm_score": 11.813516606909596
+    },
+    {
+      "code": "600016.SH",
+      "name": "民生银行",
+      "industry": "金融",
+      "price": 3.93,
+      "shares": 22264,
+      "amount": 87497.52,
+      "stop_loss_price": 3.81,
+      "momentum_20": 4.533333333333323,
+      "volatility_20": 0.7434579975639944,
+      "vqm_score": 8.694937667884648
+    },
+    {
+      "code": "600036.SH",
+      "name": "招商银行",
+      "industry": "金融",
+      "price": 38.71,
+      "shares": 2260,
+      "amount": 87484.6,
+      "stop_loss_price": 37.55,
+      "momentum_20": -0.05174644243207682,
+      "volatility_20": 0.9589307182274079,
+      "vqm_score": -0.5829582439778576
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "strategy": "VQM_v3_Advanced_Timing_Tech",
+  "timestamp": "2026-02-22T00:10:00",
+  "drawdown_limit": "7.5%",
+  "best_result": {
+    "return": 0.891,
+    "drawdown": 0.075,
+    "empty_periods": 42,
+    "params": {
+      "num_industries": 2,
+      "num_stocks": 4,
+      "position": 0.35,
+      "stop_loss": 0.03
+    }
+  },
+  "all_success_results": [
+    {"return": 0.266, "drawdown": 0.073},
+    {"return": 0.806, "drawdown": 0.072},
+    {"return": 0.817, "drawdown": 0.075},
+    {"return": 0.837, "drawdown": 0.075},
+    {"return": 0.889, "drawdown": 0.075},
+    {"return": 0.891, "drawdown": 0.075}
+  ],
+  "comparison": {
+    "v1_conservative": {"return": 0.102, "drawdown": 0.066},
+    "v3_advanced": {"return": 0.891, "drawdown": 0.075}
+  },
+  "improvement": "8.7x better return with same drawdown limit"
+}

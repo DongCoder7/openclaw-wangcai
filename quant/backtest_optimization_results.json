@@ -1,0 +1,621 @@
+{
+  "timestamp": "2026-02-21T11:59:34.068646",
+  "best_result": {
+    "iteration": 41,
+    "params": {
+      "alpha_weight": 0.3519372881171163,
+      "beta_weight": 0.14837395782464474,
+      "volume_weight": 0.29376493735411435,
+      "low_volatility": 0.20592381670412466
+    },
+    "metrics": {
+      "total_return": -0.184544,
+      "annual_return": -0.06800200436083204,
+      "max_drawdown": 0.46892469323781427,
+      "sharpe": -63.95561825720892,
+      "final_value": 815456.0
+    }
+  },
+  "all_results": [
+    {
+      "iteration": 1,
+      "params": {
+        "alpha_weight": 0.6118072863049216,
+        "beta_weight": 0.0971380100866644,
+        "volume_weight": 0.1591833136906534,
+        "low_volatility": 0.13187138991776062
+      },
+      "total_return": -0.468068,
+      "max_drawdown": 0.5399827535506228,
+      "success": "False"
+    },
+    {
+      "iteration": 2,
+      "params": {
+        "alpha_weight": 0.12384102809134594,
+        "beta_weight": 0.2644885012535329,
+        "volume_weight": 0.2902189426176557,
+        "low_volatility": 0.32145152803746546
+      },
+      "total_return": -0.353752,
+      "max_drawdown": 0.5560271823530752,
+      "success": "False"
+    },
+    {
+      "iteration": 3,
+      "params": {
+        "alpha_weight": 0.2183518080306189,
+        "beta_weight": 0.22285780132256827,
+        "volume_weight": 0.3683511695333991,
+        "low_volatility": 0.1904392211134138
+      },
+      "total_return": -0.233755,
+      "max_drawdown": 0.5122860058926612,
+      "success": "False"
+    },
+    {
+      "iteration": 4,
+      "params": {
+        "alpha_weight": 0.4534472325266654,
+        "beta_weight": 0.3132272439875224,
+        "volume_weight": 0.053466917058110075,
+        "low_volatility": 0.1798586064277021
+      },
+      "total_return": -0.415529,
+      "max_drawdown": 0.6098401635125796,
+      "success": "False"
+    },
+    {
+      "iteration": 5,
+      "params": {
+        "alpha_weight": 0.5190976417932684,
+        "beta_weight": 0.3058340116223488,
+        "volume_weight": 0.11498776249446437,
+        "low_volatility": 0.06008058408991834
+      },
+      "total_return": -0.469849,
+      "max_drawdown": 0.5863555828574701,
+      "success": "False"
+    },
+    {
+      "iteration": 6,
+      "params": {
+        "alpha_weight": 0.45484692280950384,
+        "beta_weight": 0.3773155386279595,
+        "volume_weight": 0.13024310644041445,
+        "low_volatility": 0.03759443212212224
+      },
+      "total_return": -0.320883,
+      "max_drawdown": 0.585919,
+      "success": "False"
+    },
+    {
+      "iteration": 7,
+      "params": {
+        "alpha_weight": 0.4670075614948174,
+        "beta_weight": 0.34828114246966324,
+        "volume_weight": 0.15249427402301532,
+        "low_volatility": 0.032217022012503906
+      },
+      "total_return": -0.314112,
+      "max_drawdown": 0.5324386024120689,
+      "success": "False"
+    },
+    {
+      "iteration": 8,
+      "params": {
+        "alpha_weight": 0.16000109594372605,
+        "beta_weight": 0.5834054569398337,
+        "volume_weight": 0.07482019899355494,
+        "low_volatility": 0.18177324812288523
+      },
+      "total_return": -0.531908,
+      "max_drawdown": 0.6491295317388862,
+      "success": "False"
+    },
+    {
+      "iteration": 9,
+      "params": {
+        "alpha_weight": 0.2602960154771034,
+        "beta_weight": 0.3939808536964737,
+        "volume_weight": 0.24102287878710935,
+        "low_volatility": 0.10470025203931366
+      },
+      "total_return": -0.395327,
+      "max_drawdown": 0.6013555634747898,
+      "success": "False"
+    },
+    {
+      "iteration": 10,
+      "params": {
+        "alpha_weight": 0.33619582758459554,
+        "beta_weight": 0.22595574808900093,
+        "volume_weight": 0.18333039245992103,
+        "low_volatility": 0.2545180318664826
+      },
+      "total_return": -0.433711,
+      "max_drawdown": 0.6078051441174872,
+      "success": "False"
+    },
+    {
+      "iteration": 11,
+      "params": {
+        "alpha_weight": 0.18220039554685266,
+        "beta_weight": 0.4551649697524871,
+        "volume_weight": 0.3475475257937831,
+        "low_volatility": 0.01508710890687712
+      },
+      "total_return": -0.315242,
+      "max_drawdown": 0.5431143711270813,
+      "success": "False"
+    },
+    {
+      "iteration": 12,
+      "params": {
+        "alpha_weight": 0.4483083066056566,
+        "beta_weight": 0.41121902438432884,
+        "volume_weight": 0.10127093722978044,
+        "low_volatility": 0.039201731780234284
+      },
+      "total_return": -0.469904,
+      "max_drawdown": 0.6145001723084094,
+      "success": "False"
+    },
+    {
+      "iteration": 13,
+      "params": {
+        "alpha_weight": 0.24471810060429236,
+        "beta_weight": 0.36382314753571693,
+        "volume_weight": 0.2476923025182254,
+        "low_volatility": 0.1437664493417653
+      },
+      "total_return": -0.40272,
+      "max_drawdown": 0.5893413063822192,
+      "success": "False"
+    },
+    {
+      "iteration": 14,
+      "params": {
+        "alpha_weight": 0.2512202793220058,
+        "beta_weight": 0.2828722524066984,
+        "volume_weight": 0.39748238963568855,
+        "low_volatility": 0.0684250786356074
+      },
+      "total_return": -0.247418,
+      "max_drawdown": 0.497961912090026,
+      "success": "False"
+    },
+    {
+      "iteration": 15,
+      "params": {
+        "alpha_weight": 0.16311761562207494,
+        "beta_weight": 0.47657538357779183,
+        "volume_weight": 0.282879337034772,
+        "low_volatility": 0.07742766376536118
+      },
+      "total_return": -0.320912,
+      "max_drawdown": 0.5459482400306039,
+      "success": "False"
+    },
+    {
+      "iteration": 16,
+      "params": {
+        "alpha_weight": 0.4155917705811471,
+        "beta_weight": 0.39816076539165357,
+        "volume_weight": 0.011168212940127742,
+        "low_volatility": 0.17507925108707167
+      },
+      "total_return": -0.553574,
+      "max_drawdown": 0.6744145452514279,
+      "success": "False"
+    },
+    {
+      "iteration": 17,
+      "params": {
+        "alpha_weight": 0.4880331824789894,
+        "beta_weight": 0.2684580751375977,
+        "volume_weight": 0.15725698816032974,
+        "low_volatility": 0.08625175422308302
+      },
+      "total_return": -0.260565,
+      "max_drawdown": 0.4929138655607635,
+      "success": "False"
+    },
+    {
+      "iteration": 18,
+      "params": {
+        "alpha_weight": 0.48413167192883466,
+        "beta_weight": 0.31551570032782905,
+        "volume_weight": 0.03649320681089811,
+        "low_volatility": 0.16385942093243808
+      },
+      "total_return": -0.390016,
+      "max_drawdown": 0.589258775412454,
+      "success": "False"
+    },
+    {
+      "iteration": 19,
+      "params": {
+        "alpha_weight": 0.5410008046187214,
+        "beta_weight": 0.20292297974427234,
+        "volume_weight": 0.1781752430718842,
+        "low_volatility": 0.07790097256512207
+      },
+      "total_return": -0.318507,
+      "max_drawdown": 0.47777295148785265,
+      "success": "False"
+    },
+    {
+      "iteration": 20,
+      "params": {
+        "alpha_weight": 0.3849381695920939,
+        "beta_weight": 0.38591912257548605,
+        "volume_weight": 0.15829895346734887,
+        "low_volatility": 0.07084375436507113
+      },
+      "total_return": -0.501696,
+      "max_drawdown": 0.6375012620562086,
+      "success": "False"
+    },
+    {
+      "iteration": 21,
+      "params": {
+        "alpha_weight": 0.3050918442726294,
+        "beta_weight": 0.3989230527090153,
+        "volume_weight": 0.2421750602555549,
+        "low_volatility": 0.053810042762800415
+      },
+      "total_return": -0.304856,
+      "max_drawdown": 0.5358513417753323,
+      "success": "False"
+    },
+    {
+      "iteration": 22,
+      "params": {
+        "alpha_weight": 0.24923566417855852,
+        "beta_weight": 0.33408966035918797,
+        "volume_weight": 0.20095607942336083,
+        "low_volatility": 0.2157185960388927
+      },
+      "total_return": -0.398685,
+      "max_drawdown": 0.6206003233409298,
+      "success": "False"
+    },
+    {
+      "iteration": 23,
+      "params": {
+        "alpha_weight": 0.33553100236430206,
+        "beta_weight": 0.4174219448960159,
+        "volume_weight": 0.12655404995441685,
+        "low_volatility": 0.12049300278526516
+      },
+      "total_return": -0.485508,
+      "max_drawdown": 0.601698506669459,
+      "success": "False"
+    },
+    {
+      "iteration": 24,
+      "params": {
+        "alpha_weight": 0.4110383280650422,
+        "beta_weight": 0.4338864682665909,
+        "volume_weight": 0.06057584015154239,
+        "low_volatility": 0.09449936351682449
+      },
+      "total_return": -0.340706,
+      "max_drawdown": 0.6108090102183356,
+      "success": "False"
+    },
+    {
+      "iteration": 25,
+      "params": {
+        "alpha_weight": 0.211974115588532,
+        "beta_weight": 0.4159214723407026,
+        "volume_weight": 0.3132107393517475,
+        "low_volatility": 0.058893672719017895
+      },
+      "total_return": -0.23951,
+      "max_drawdown": 0.5087346094896072,
+      "success": "False"
+    },
+    {
+      "iteration": 26,
+      "params": {
+        "alpha_weight": 0.1619534708200664,
+        "beta_weight": 0.5447743224108514,
+        "volume_weight": 0.204724933626915,
+        "low_volatility": 0.08854727314216712
+      },
+      "total_return": -0.496397,
+      "max_drawdown": 0.6593028518029964,
+      "success": "False"
+    },
+    {
+      "iteration": 27,
+      "params": {
+        "alpha_weight": 0.45950416733360533,
+        "beta_weight": 0.11974130515275026,
+        "volume_weight": 0.18274829795312894,
+        "low_volatility": 0.23800622956051543
+      },
+      "total_return": -0.212705,
+      "max_drawdown": 0.5031831375354905,
+      "success": "False"
+    },
+    {
+      "iteration": 28,
+      "params": {
+        "alpha_weight": 0.25359042501620677,
+        "beta_weight": 0.31777146465424166,
+        "volume_weight": 0.2907730900868505,
+        "low_volatility": 0.13786502024270106
+      },
+      "total_return": -0.236651,
+      "max_drawdown": 0.4946484859991829,
+      "success": "False"
+    },
+    {
+      "iteration": 29,
+      "params": {
+        "alpha_weight": 0.4087389814116486,
+        "beta_weight": 0.36215015255031247,
+        "volume_weight": 0.06330998085710053,
+        "low_volatility": 0.1658008851809383
+      },
+      "total_return": -0.337488,
+      "max_drawdown": 0.617212128492735,
+      "success": "False"
+    },
+    {
+      "iteration": 30,
+      "params": {
+        "alpha_weight": 0.29662325068774603,
+        "beta_weight": 0.2524393827885663,
+        "volume_weight": 0.357975950668634,
+        "low_volatility": 0.09296141585505353
+      },
+      "total_return": -0.276518,
+      "max_drawdown": 0.5365904371936129,
+      "success": "False"
+    },
+    {
+      "iteration": 31,
+      "params": {
+        "alpha_weight": 0.5639146285882802,
+        "beta_weight": 0.20968207243382783,
+        "volume_weight": 0.21968834118934907,
+        "low_volatility": 0.006714957788542852
+      },
+      "total_return": -0.390395,
+      "max_drawdown": 0.519937,
+      "success": "False"
+    },
+    {
+      "iteration": 32,
+      "params": {
+        "alpha_weight": 0.5076906565921812,
+        "beta_weight": 0.13688313221768322,
+        "volume_weight": 0.13267706099133145,
+        "low_volatility": 0.22274915019880417
+      },
+      "total_return": -0.333758,
+      "max_drawdown": 0.4612855045737876,
+      "success": "False"
+    },
+    {
+      "iteration": 33,
+      "params": {
+        "alpha_weight": 0.5741188253995204,
+        "beta_weight": 0.19846415104976803,
+        "volume_weight": 0.09131893531226624,
+        "low_volatility": 0.13609808823844538
+      },
+      "total_return": -0.472724,
+      "max_drawdown": 0.5786413375024682,
+      "success": "False"
+    },
+    {
+      "iteration": 34,
+      "params": {
+        "alpha_weight": 0.24445435299460666,
+        "beta_weight": 0.2493333211989986,
+        "volume_weight": 0.22763326909431067,
+        "low_volatility": 0.2785790567120839
+      },
+      "total_return": -0.413044,
+      "max_drawdown": 0.6141229361455994,
+      "success": "False"
+    },
+    {
+      "iteration": 35,
+      "params": {
+        "alpha_weight": 0.18762104970677107,
+        "beta_weight": 0.4190161965887986,
+        "volume_weight": 0.2579805266750933,
+        "low_volatility": 0.13538222702933708
+      },
+      "total_return": -0.45949,
+      "max_drawdown": 0.6140364324872106,
+      "success": "False"
+    },
+    {
+      "iteration": 36,
+      "params": {
+        "alpha_weight": 0.37620153634079395,
+        "beta_weight": 0.36373023441048663,
+        "volume_weight": 0.19537395954333472,
+        "low_volatility": 0.06469426970538462
+      },
+      "total_return": -0.414794,
+      "max_drawdown": 0.5921674805491673,
+      "success": "False"
+    },
+    {
+      "iteration": 37,
+      "params": {
+        "alpha_weight": 0.4502250198137851,
+        "beta_weight": 0.32380413147987414,
+        "volume_weight": 0.1242959267534892,
+        "low_volatility": 0.10167492195285165
+      },
+      "total_return": -0.303036,
+      "max_drawdown": 0.5805883627429739,
+      "success": "False"
+    },
+    {
+      "iteration": 38,
+      "params": {
+        "alpha_weight": 0.4300463336499286,
+        "beta_weight": 0.3420390670192886,
+        "volume_weight": 0.08490100492603621,
+        "low_volatility": 0.1430135944047465
+      },
+      "total_return": -0.330283,
+      "max_drawdown": 0.5668066646027193,
+      "success": "False"
+    },
+    {
+      "iteration": 39,
+      "params": {
+        "alpha_weight": 0.4416978042346172,
+        "beta_weight": 0.2532618909868074,
+        "volume_weight": 0.28060578018978893,
+        "low_volatility": 0.02443452458878656
+      },
+      "total_return": -0.260163,
+      "max_drawdown": 0.48180654168406895,
+      "success": "False"
+    },
+    {
+      "iteration": 40,
+      "params": {
+        "alpha_weight": 0.44959915708494924,
+        "beta_weight": 0.2737896024420795,
+        "volume_weight": 0.10531841688485223,
+        "low_volatility": 0.17129282358811904
+      },
+      "total_return": -0.435269,
+      "max_drawdown": 0.6089495177345273,
+      "success": "False"
+    },
+    {
+      "iteration": 41,
+      "params": {
+        "alpha_weight": 0.3519372881171163,
+        "beta_weight": 0.14837395782464474,
+        "volume_weight": 0.29376493735411435,
+        "low_volatility": 0.20592381670412466
+      },
+      "total_return": -0.184544,
+      "max_drawdown": 0.46892469323781427,
+      "success": "False"
+    },
+    {
+      "iteration": 42,
+      "params": {
+        "alpha_weight": 0.3141200581877869,
+        "beta_weight": 0.20766253041504526,
+        "volume_weight": 0.2697435177568377,
+        "low_volatility": 0.2084738936403302
+      },
+      "total_return": -0.21158,
+      "max_drawdown": 0.48750329585568286,
+      "success": "False"
+    },
+    {
+      "iteration": 43,
+      "params": {
+        "alpha_weight": 0.43702908330730034,
+        "beta_weight": 0.20618273120761382,
+        "volume_weight": 0.22268704513736765,
+        "low_volatility": 0.13410114034771825
+      },
+      "total_return": -0.347666,
+      "max_drawdown": 0.5327533551316186,
+      "success": "False"
+    },
+    {
+      "iteration": 44,
+      "params": {
+        "alpha_weight": 0.4995238458004732,
+        "beta_weight": 0.308513896996347,
+        "volume_weight": 0.16911312164632558,
+        "low_volatility": 0.022849135556854246
+      },
+      "total_return": -0.364523,
+      "max_drawdown": 0.5657543844456734,
+      "success": "False"
+    },
+    {
+      "iteration": 45,
+      "params": {
+        "alpha_weight": 0.5208586327585994,
+        "beta_weight": 0.38618740993677764,
+        "volume_weight": 0.035026408792779955,
+        "low_volatility": 0.0579275485118431
+      },
+      "total_return": -0.352367,
+      "max_drawdown": 0.5715618835643297,
+      "success": "False"
+    },
+    {
+      "iteration": 46,
+      "params": {
+        "alpha_weight": 0.2748328082662232,
+        "beta_weight": 0.43572969302091547,
+        "volume_weight": 0.1578171987498878,
+        "low_volatility": 0.13162029996297359
+      },
+      "total_return": -0.51392,
+      "max_drawdown": 0.676723,
+      "success": "False"
+    },
+    {
+      "iteration": 47,
+      "params": {
+        "alpha_weight": 0.4195271005241964,
+        "beta_weight": 0.393537678583275,
+        "volume_weight": 0.025392362231777498,
+        "low_volatility": 0.1615428586607511
+      },
+      "total_return": -0.489105,
+      "max_drawdown": 0.6287047966413484,
+      "success": "False"
+    },
+    {
+      "iteration": 48,
+      "params": {
+        "alpha_weight": 0.3016373356841379,
+        "beta_weight": 0.373503135856456,
+        "volume_weight": 0.08187388993296718,
+        "low_volatility": 0.2429856385264388
+      },
+      "total_return": -0.480003,
+      "max_drawdown": 0.6258870796582479,
+      "success": "False"
+    },
+    {
+      "iteration": 49,
+      "params": {
+        "alpha_weight": 0.4557213991418526,
+        "beta_weight": 0.44461406896256606,
+        "volume_weight": 0.04570391242481366,
+        "low_volatility": 0.0539606194707676
+      },
+      "total_return": -0.417127,
+      "max_drawdown": 0.6111738458763655,
+      "success": "False"
+    },
+    {
+      "iteration": 50,
+      "params": {
+        "alpha_weight": 0.6149028953391477,
+        "beta_weight": 0.18980049318924666,
+        "volume_weight": 0.1172013940096869,
+        "low_volatility": 0.07809521746191883
+      },
+      "total_return": -0.46397,
+      "max_drawdown": 0.5409645349392983,
+      "success": "False"
+    }
+  ]
+}

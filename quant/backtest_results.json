@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-02-21T13:53:39.734647",
+  "round": 16,
+  "best": {
+    "iteration": 16,
+    "params": {
+      "n": 6.0,
+      "sl": 0.02158532772530145,
+      "pos": 0.26256538370556726,
+      "alpha_w": 0.5324476943547013,
+      "beta_w": 0.3351450633157803,
+      "quality_w": 0.1324072423295184
+    },
+    "total_return": 0.102277,
+    "max_drawdown": 0.05233425613447383,
+    "success": true
+  },
+  "summary": {
+    "total": 50,
+    "success_count": 45,
+    "best_success_return": 0.102277
+  }
+}

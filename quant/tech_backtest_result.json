@@ -1,0 +1,85 @@
+{
+  "strategy": "VQM_Tech_Backtest",
+  "year": "2025",
+  "best_params": {
+    "position": 0.6,
+    "stop_loss": 0.08,
+    "rebalance": 15,
+    "return": 8.755309849999998,
+    "drawdown": 0.045341266449943476
+  },
+  "return": 8.755309849999998,
+  "drawdown": 0.045341266449943476,
+  "all_results": [
+    {
+      "position": 0.6,
+      "stop_loss": 0.08,
+      "rebalance": 15,
+      "return": 8.755309849999998,
+      "drawdown": 0.045341266449943476
+    },
+    {
+      "position": 0.6,
+      "stop_loss": 0.05,
+      "rebalance": 15,
+      "return": 8.734145239999998,
+      "drawdown": 0.03207272469365474
+    },
+    {
+      "position": 0.6,
+      "stop_loss": 0.1,
+      "rebalance": 15,
+      "return": 8.714394089999999,
+      "drawdown": 0.04852902868157951
+    },
+    {
+      "position": 0.5,
+      "stop_loss": 0.08,
+      "rebalance": 15,
+      "return": 7.296608469999996,
+      "drawdown": 0.03778053571682504
+    },
+    {
+      "position": 0.5,
+      "stop_loss": 0.05,
+      "rebalance": 15,
+      "return": 7.278897989999998,
+      "drawdown": 0.02876528729370472
+    },
+    {
+      "position": 0.5,
+      "stop_loss": 0.1,
+      "rebalance": 15,
+      "return": 7.262514559999995,
+      "drawdown": 0.04043711949310407
+    },
+    {
+      "position": 0.6,
+      "stop_loss": 0.05,
+      "rebalance": 20,
+      "return": 6.730573770000001,
+      "drawdown": 0.0559294917572452
+    },
+    {
+      "position": 0.6,
+      "stop_loss": 0.1,
+      "rebalance": 20,
+      "return": 6.67565583,
+      "drawdown": 0.056158826908228245
+    },
+    {
+      "position": 0.6,
+      "stop_loss": 0.08,
+      "rebalance": 20,
+      "return": 6.633639089999998,
+      "drawdown": 0.056158826908228245
+    },
+    {
+      "position": 0.4,
+      "stop_loss": 0.08,
+      "rebalance": 15,
+      "return": 5.836385489999999,
+      "drawdown": 0.03022722139022439
+    }
+  ]
+}
