@@ -1,66 +1,49 @@
 # HEARTBEAT.md - 豆奶投资策略系统心跳任务
 
-## 心跳执行步骤 (每次收到心跳时)
+## 每次Heartbeat必须执行的三件事
 
-### 1. 运行Heartbeat任务调度器
-```bash
-python3 /root/.openclaw/workspace/tools/heartbeat_scheduler.py
-```
+### 1. 模拟盘跟踪
+- 检查持仓状态
+- 生成交易信号
+- 汇报持仓变化
 
-### 2. 定时任务 (精确时间窗口)
+### 2. 汇报进行中任务状态
+检查以下任务是否有更新，有则同步：
+- **数据采集**: 股票数量是否增加
+- **策略优化器**: 是否有新的优化结果
+- **定时任务**: 美股/A+H/收盘报告是否完成
 
-| 任务 | 时间 | 功能 |
-|------|------|------|
-| 美股分析 | 08:30 每日 | 美股隔夜总结 (08:30-08:35) |
-| A+H开盘 | 09:15 每日 | A+H开盘前瞻 (09:15-09:20) |
-| 每日汇报 | 15:00 每日 | 收盘汇报 (15:00-15:05) |
-
-### 3. 24小时连续任务 (异步汇报机制)
-
-| 任务 | 间隔 | 汇报机制 |
-|------|------|----------|
-| **策略优化器** | 每15分钟运行 | 每轮迭代写入文件，heartbeat检测新报告并汇报 |
-| **全市场数据采集** | 每小时1次 | 后台运行，每小时更新因子数据 |
-| **模拟盘跟踪** | 每次heartbeat | 监控持仓并生成交易信号 |
-
-### 4. Git同步检查
-每次心跳自动同步脚本/配置/学习资料到远程git
+### 3. Git同步
+- 同步新增的数据文件
+- 同步报告文件
+- 同步配置文件
 
 ---
 
-## 异步汇报机制说明
+## 定时任务触发点（自然语言）
 
-### 策略优化器异步汇报流程
+| 时间 | 任务 | 说明 |
+|------|------|------|
+| 08:30 | 美股隔夜总结 | 读取美股报告并发送 |
+| 09:15 | A+H开盘前瞻 | 发送开盘策略 |
+| 15:00 | 收盘深度报告 | 生成并发送完整报告 |
+| 每小时 | 数据采集 | 全市场因子采集 |
+| 每15分钟 | 策略优化器 | 参数优化迭代 |
 
-```
-策略优化器 (后台24小时运行)
-    ↓
-每轮参数迭代完成 → 写入 latest_report.txt
-    ↓
-Heartbeat检测到文件更新 → 读取内容
-    ↓
-发送汇报到Feishu
-```
+---
 
-### 报告文件位置
+## 状态追踪
 
-- **策略优化器报告**: `quant/optimizer/latest_report.txt`
-- **迭代日志**: `quant/optimizer/iteration_log.txt`
-- **Heartbeat记录上次发送时间**，避免重复发送相同报告
-
-### 数据采集频率
-
-- **目标**: A股全市场5000+只股票
-- **频率**: 每小时1次
-- **采集内容**: 日K线 + 技术指标因子
-- **脚本**: `tools/fetch_all_stocks_factors.py`
+Heartbeat会记录：
+- `heartbeat_state.json` - 任务执行状态
+- `quant/optimizer/latest_report.txt` - 最新优化结果
+- `data/daily_report_YYYYMMDD.md` - 每日收盘报告
 
 ---
 
 ## 核心文件
 
-- `tools/heartbeat_scheduler.py` - 任务调度器 (带报告检测功能)
-- `quant/optimizer/smart_optimizer_v23_async.py` - 异步优化器
-- `tools/fetch_all_stocks_factors.py` - 全市场数据采集
+- `tools/heartbeat_scheduler.py` - 心跳任务调度器
 - `tools/sim_portfolio_tracker.py` - 模拟盘跟踪
-- `heartbeat_tasks.json` - 任务配置
+- `tools/daily_market_report.py` - 收盘深度报告
+- `tools/fetch_all_stocks_factors.py` - 多数据源采集

@@ -1,46 +1,55 @@
 #!/usr/bin/env python3
 """
-全市场股票因子采集器
-采集A股全市场5000+只股票的因子数据
+全市场股票数据采集器 - 使用腾讯API
+直接调用腾讯API，不依赖第三方库
 """
 import sqlite3
 import pandas as pd
-import numpy as np
+import requests
 from datetime import datetime, timedelta
-import akshare as ak
+import time
 import sys
+import os
 
 DB_PATH = '/root/.openclaw/workspace/data/historical/historical.db'
+LOG_FILE = '/root/.openclaw/workspace/data/fetch_tencent.log'
 
-def get_all_stock_codes():
-    """获取全市场所有A股代码"""
-    try:
-        # 使用akshare获取全市场股票
-        df = ak.stock_zh_a_spot_em()
-        codes = []
-        for _, row in df.iterrows():
-            code = row['代码']
-            # 统一格式
-            if code.startswith('6'):
-                codes.append(f"{code}.SH")
-            else:
-                codes.append(f"{code}.SZ")
-        print(f"获取到 {len(codes)} 只A股")
-        return codes
-    except Exception as e:
-        print(f"获取股票列表失败: {e}")
-        return []
+def log(msg):
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    print(f"[{timestamp}] {msg}")
+    with open(LOG_FILE, 'a') as f:
+        f.write(f"[{timestamp}] {msg}\n")
 
-def fetch_stock_data(code):
-    """获取单只股票的日K数据"""
+def get_stock_data_tencent(code):
+    """使用腾讯API获取单只股票历史数据"""
     try:
-        clean_code = code.replace('.SH', '').replace('.SZ', '')
-        df = ak.stock_zh_a_hist(symbol=clean_code, period="daily", 
-                                 start_date="20240101", end_date="20250224", adjust="qfq")
-        return df
+        clean_code = code.replace('.SH', '').replace('.SZ', '').replace('.BJ', '')
+        
+        if code.startswith('6'):
+            symbol = f"sh{clean_code}"
+        elif code.startswith('4') or code.startswith('8'):
+            symbol = f"bj{clean_code}"
+        else:
+            symbol = f"sz{clean_code}"
+        
+        url = f"https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param={symbol},day,,,320,qfuquan"
+        response = requests.get(url, timeout=5)
+        data = response.json()
+        
+        if data.get('data') and data['data'].get(symbol):
+            klines = data['data'][symbol].get('qfqday', []) or data['data'][symbol].get('day', [])
+            if klines and len(klines) >= 60:
+                # 过滤掉列数不对的数据
+                valid_data = [row for row in klines if len(row) == 6]
+                if len(valid_data) >= 60:
+                    df = pd.DataFrame(valid_data, columns=['date', 'open', 'close', 'low', 'high', 'volume'])
+                    df['date'] = pd.to_datetime(df['date'])
+                    for col in ['open', 'close', 'low', 'high', 'volume']:
+                        df[col] = pd.to_numeric(df[col], errors='coerce')
+                    return df
     except Exception as e:
-        print(f"  获取{code}数据失败: {e}")
-        return None
+        pass
+    return None
 
 def calculate_factors(df):
     """计算技术指标因子"""
@@ -48,60 +57,68 @@ def calculate_factors(df):
         return None
     
     df = df.copy()
-    df.columns = [c.lower() for c in df.columns]
+    df = df.sort_values('date')
     
-    # 确保必要列存在
-    required_cols = ['close', 'open', 'high', 'low', 'volume']
-    for col in required_cols:
-        if col not in df.columns:
-            return None
-    
-    # 计算技术指标
-    # 1. 收益率
-    df['ret_5'] = df['close'].pct_change(5)
+    # 计算收益率
     df['ret_20'] = df['close'].pct_change(20)
     df['ret_60'] = df['close'].pct_change(60)
+    df['ret_120'] = df['close'].pct_change(120)
     
-    # 2. 波动率
+    # 波动率
     df['vol_20'] = df['close'].rolling(20).std() / df['close'].rolling(20).mean()
     
-    # 3. 均线
-    df['ma_5'] = df['close'].rolling(5).mean()
+    # 均线
     df['ma_20'] = df['close'].rolling(20).mean()
     df['ma_60'] = df['close'].rolling(60).mean()
     
-    # 4. 趋势位置
-    df['price_pos_20'] = (df['close'] - df['low'].rolling(20).min()) / (df['high'].rolling(20).max() - df['low'].rolling(20).min())
-    df['price_pos_60'] = (df['close'] - df['low'].rolling(60).min()) / (df['high'].rolling(60).max() - df['low'].rolling(60).min())
+    # 趋势位置
+    df['price_pos_20'] = (df['close'] - df['low'].rolling(20).min()) / (df['high'].rolling(20).max() - df['low'].rolling(20).min() + 0.001)
+    df['price_pos_60'] = (df['close'] - df['low'].rolling(60).min()) / (df['high'].rolling(60).max() - df['low'].rolling(60).min() + 0.001)
+    df['price_pos_high'] = (df['close'] - df['high'].rolling(120).max()) / df['close']
     
-    # 5. 资金流向 (简化版)
+    # 量比
+    df['vol_ratio'] = df['volume'] / df['volume'].rolling(20).mean()
+    df['vol_ratio_amt'] = df['vol_ratio']  # 兼容旧字段
+    
+    # 资金流向
+    import numpy as np
     df['money_flow'] = np.where(df['close'] > df['open'], df['volume'], -df['volume'])
     df['money_flow'] = df['money_flow'].rolling(20).sum()
     
-    # 6. 动量加速
+    # 相对强度
+    df['rel_strength'] = (df['close'] - df['ma_20']) / df['ma_20']
+    
+    # 动量加速
     df['mom_accel'] = df['ret_20'] - df['ret_20'].shift(20)
     
-    # 7. 相对强度 (vs 20日均线)
-    df['rel_strength'] = (df['close'] - df['ma_20']) / df['ma_20']
+    # 收益动量
+    df['profit_mom'] = df['ret_20'].rolling(20).mean()
     
     return df
 
 def save_to_database(code, df):
     """保存数据到数据库"""
     try:
+        import numpy as np
         conn = sqlite3.connect(DB_PATH)
         
-        # 准备数据
         df['ts_code'] = code
-        df['trade_date'] = df['日期'].str.replace('-', '') if '日期' in df.columns else df.index.strftime('%Y%m%d')
+        df['trade_date'] = df['date'].dt.strftime('%Y%m%d')
         
-        # 选择需要的列
-        columns = ['ts_code', 'trade_date', 'close', 'open', 'high', 'low', 'volume',
-                   'ret_5', 'ret_20', 'ret_60', 'vol_20', 'ma_5', 'ma_20', 'ma_60',
-                   'price_pos_20', 'price_pos_60', 'money_flow', 'mom_accel', 'rel_strength']
+        # 只保存数据库表结构支持的列
+        columns = ['ts_code', 'trade_date', 'ret_20', 'ret_60', 'ret_120', 'vol_20', 
+                   'vol_ratio', 'vol_ratio_amt', 'ma_20', 'ma_60', 'price_pos_20', 
+                   'price_pos_60', 'price_pos_high', 'money_flow', 'rel_strength', 
+                   'mom_accel', 'profit_mom']
         
         available_cols = [c for c in columns if c in df.columns]
         df_to_save = df[available_cols].copy()
+        
+        # 删除NaN值
+        df_to_save = df_to_save.dropna()
+        
+        if len(df_to_save) == 0:
+            return False
         
         # 删除旧数据
         cursor = conn.cursor()
@@ -114,30 +131,56 @@ def save_to_database(code, df):
         conn.close()
         return True
     except Exception as e:
-        print(f"  保存{code}数据失败: {e}")
+        log(f"保存{code}失败: {e}")
         return False
 
+def generate_stock_codes():
+    """生成A股股票代码列表"""
+    codes = []
+    
+    # 000001-009999 (深市主板)
+    for i in range(1, 10000):
+        codes.append(f"{i:06d}.SZ")
+    
+    # 300000-309999 (创业板)
+    for i in range(300000, 310000):
+        codes.append(f"{i}.SZ")
+    
+    # 600000-609999 (沪市主板)
+    for i in range(600000, 610000):
+        codes.append(f"{i}.SH")
+    
+    # 688000-689999 (科创板)
+    for i in range(688000, 690000):
+        codes.append(f"{i}.SH")
+    
+    # 430000-439999 (北交所)
+    for i in range(430000, 440000):
+        codes.append(f"{i}.BJ")
+    
+    import random
+    random.shuffle(codes)
+    
+    return codes
+
 def main():
-    print("="*60)
-    print("📊 全市场股票因子采集")
-    print("="*60)
+    log("="*60)
+    log("📊 全市场数据采集 - 腾讯API")
+    log("="*60)
     
-    # 获取所有股票代码
-    codes = get_all_stock_codes()
-    if not codes:
-        print("❌ 获取股票列表失败")
-        return
-    
-    print(f"\n开始采集 {len(codes)} 只股票的因子数据...")
+    codes = generate_stock_codes()
+    log(f"股票代码池: {len(codes)} 只")
     
     success_count = 0
     fail_count = 0
     
     for i, code in enumerate(codes, 1):
-        print(f"\n[{i}/{len(codes)}] 处理 {code}...")
+        if i % 100 == 0:
+            log(f"进度: {i}/{len(codes)} | 成功: {success_count} | 失败: {fail_count}")
         
         # 获取数据
-        df = fetch_stock_data(code)
+        df = get_stock_data_tencent(code)
+        
         if df is None:
             fail_count += 1
             continue
@@ -145,27 +188,27 @@ def main():
         # 计算因子
         df = calculate_factors(df)
         if df is None:
-            print(f"  数据不足，跳过")
             fail_count += 1
             continue
         
         # 保存
         if save_to_database(code, df):
-            print(f"  ✅ 成功")
             success_count += 1
         else:
             fail_count += 1
         
-        # 每100只显示进度
-        if i % 100 == 0:
-            print(f"\n📈 进度: {i}/{len(codes)} | 成功: {success_count} | 失败: {fail_count}")
+        # 限速
+        if i % 50 == 0:
+            time.sleep(0.5)
+        if i % 500 == 0:
+            time.sleep(2)
     
-    print(f"\n{'='*60}")
-    print(f"✅ 采集完成")
-    print(f"   总计: {len(codes)}")
-    print(f"   成功: {success_count}")
-    print(f"   失败: {fail_count}")
-    print(f"{'='*60}")
+    log(f"\n{'='*60}")
+    log(f"✅ 采集完成")
+    log(f"   总计: {len(codes)}")
+    log(f"   成功: {success_count}")
+    log(f"   失败: {fail_count}")
+    log(f"{'='*60}")
 
 if __name__ == "__main__":
     main()
