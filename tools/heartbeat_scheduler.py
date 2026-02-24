@@ -373,8 +373,15 @@ def check_and_run_tasks():
     # 获取数据库股票数量
     db_stock_count = get_db_stock_count()
     
+    # 检查优化器报告文件
+    optimizer_report = check_optimizer_report(state)
+    
     # 生成全量汇报
     report = generate_full_report(now, tasks, optimizer, data_collection, portfolio_status, db_stock_count, executed)
+    
+    # 合并优化器报告（如果有）
+    if optimizer_report:
+        report += f"\n\n📈 **策略优化器最新报告**:\n{optimizer_report}"
     
     # 发送汇报
     try:
@@ -387,6 +394,39 @@ def check_and_run_tasks():
         print(f"发送汇报失败: {e}")
     
     return executed
+
+def check_optimizer_report(state):
+    """检查优化器是否有新报告"""
+    optimizer = state.get('optimizer', {})
+    report_file = optimizer.get('report_file', '/root/.openclaw/workspace/quant/optimizer/latest_report.txt')
+    last_sent = optimizer.get('last_report_sent')
+    
+    if not os.path.exists(report_file):
+        return None
+    
+    # 检查文件修改时间
+    mtime = os.path.getmtime(report_file)
+    mtime_dt = datetime.fromtimestamp(mtime)
+    
+    # 如果上次发送时间存在且文件未更新，则不发送
+    if last_sent:
+        last_sent_dt = datetime.fromisoformat(last_sent)
+        if mtime_dt <= last_sent_dt:
+            return None
+    
+    # 读取报告内容
+    try:
+        with open(report_file, 'r') as f:
+            content = f.read().strip()
+        
+        # 更新已发送时间
+        optimizer['last_report_sent'] = datetime.now().isoformat()
+        save_state(state)
+        
+        return content
+    except Exception as e:
+        print(f"读取优化器报告失败: {e}")
+        return None
 
 def get_portfolio_status():
     """获取模拟盘状态"""
