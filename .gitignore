@@ -34,3 +34,9 @@ Thumbs.db
 
 # Skill 打包文件（已打包的 .skill 文件）
 *.skill
+
+
+# 敏感配置
+.tushare.env
+.longbridge.env
+
