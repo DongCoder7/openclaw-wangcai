@@ -1,0 +1,25 @@
+{
+  "note": "定时任务已迁移到heartbeat_scheduler.py中，使用自然语言时间触发",
+  "tasks": {
+    "us-market-summary": {
+      "schedule": "08:30",
+      "description": "美股隔夜总结 - 由heartbeat在08:30触发"
+    },
+    "ah-preopen": {
+      "schedule": "09:15",
+      "description": "A+H开盘前瞻 - 由heartbeat在09:15触发"
+    },
+    "daily-report": {
+      "schedule": "15:00",
+      "description": "收盘深度报告 - 由heartbeat在15:00触发"
+    }
+  },
+  "data_collection": {
+    "interval_minutes": 60,
+    "description": "数据采集 - 由heartbeat每小时整点触发"
+  },
+  "optimizer": {
+    "interval_minutes": 15,
+    "description": "策略优化器 - 由heartbeat每15分钟触发"
+  }
+}
