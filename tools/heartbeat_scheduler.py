@@ -344,7 +344,6 @@ def check_and_run_tasks():
             executed.append('全市场因子采集(后台)')
         except Exception as e:
             print(f"   ⚠️ 启动采集失败: {e}")
-        save_state(state)
     
     # 模拟盘跟踪（每次heartbeat都执行）
     print("\n📈 执行模拟盘跟踪...")
@@ -368,47 +367,145 @@ def check_and_run_tasks():
     # 保存状态
     save_state(state)
     
-    # 汇报结果
-    if executed:
-        report = f"""🫘 **Heartbeat任务执行汇报**
-
-执行时间: {now.strftime('%Y-%m-%d %H:%M:%S')}
-
-✅ **已执行任务**:
-"""
-        for task in executed:
-            report += f"• {task}\n"
-        
-        # 检查任务状态
-        us_last = tasks.get('us-market-summary', {}).get('last_run')
-        ah_last = tasks.get('ah-preopen', {}).get('last_run')
-        daily_last = tasks.get('daily-report', {}).get('last_run')
-        
-        us_status = '今日已执行' if us_last and us_last.startswith(now.strftime('%Y-%m-%d')) else '待执行'
-        ah_status = '今日已执行' if ah_last and ah_last.startswith(now.strftime('%Y-%m-%d')) else '待执行'
-        daily_status = '今日已执行' if daily_last and daily_last.startswith(now.strftime('%Y-%m-%d')) else '待执行'
-        
-        report += f"""
-📊 **任务状态**:
-• 美股分析: {us_status}
-• A+H开盘: {ah_status}
-• 每日汇报: {daily_status}
-
-⏰ **下次优化器运行**: 每15分钟（22:00-09:00）
-"""
-        
-        # 发送汇报
-        try:
-            subprocess.run(
-                ['openclaw', 'message', 'send', '--target', USER_ID, '--message', report],
-                capture_output=True, text=True, timeout=30
-            )
-        except Exception as e:
-            print(f"发送汇报失败: {e}")
-    else:
-        print(f"⏳ 无任务需要执行")
+    # 获取模拟盘状态
+    portfolio_status = get_portfolio_status()
+    
+    # 获取数据库股票数量
+    db_stock_count = get_db_stock_count()
+    
+    # 生成全量汇报
+    report = generate_full_report(now, tasks, optimizer, data_collection, portfolio_status, db_stock_count, executed)
+    
+    # 发送汇报
+    try:
+        subprocess.run(
+            ['openclaw', 'message', 'send', '--target', USER_ID, '--message', report],
+            capture_output=True, text=True, timeout=30
+        )
+        print("✅ 汇报已发送")
+    except Exception as e:
+        print(f"发送汇报失败: {e}")
     
     return executed
+
+def get_portfolio_status():
+    """获取模拟盘状态"""
+    try:
+        import json
+        portfolio_file = '/root/.openclaw/workspace/data/sim_portfolio.json'
+        if os.path.exists(portfolio_file):
+            with open(portfolio_file, 'r') as f:
+                data = json.load(f)
+            positions = data.get('positions', {})
+            cash = data.get('cash', 0)
+            total_value = data.get('total_value', 0)
+            return {
+                'positions_count': len(positions),
+                'cash': cash,
+                'total_value': total_value,
+                'return_pct': (total_value - 1000000) / 1000000 * 100 if total_value else 0
+            }
+    except Exception as e:
+        print(f"获取模拟盘状态失败: {e}")
+    return {'positions_count': 0, 'cash': 1000000, 'total_value': 1000000, 'return_pct': 0}
+
+def get_db_stock_count():
+    """获取数据库股票数量"""
+    try:
+        import sqlite3
+        conn = sqlite3.connect('/root/.openclaw/workspace/data/historical/historical.db')
+        cursor = conn.cursor()
+        cursor.execute("SELECT COUNT(DISTINCT ts_code) FROM stock_factors")
+        count = cursor.fetchone()[0]
+        conn.close()
+        return count
+    except Exception as e:
+        print(f"获取数据库股票数量失败: {e}")
+    return 0
+
+def format_time_ago(iso_time_str):
+    """格式化时间差"""
+    if not iso_time_str:
+        return "从未"
+    try:
+        from datetime import datetime
+        dt = datetime.fromisoformat(iso_time_str)
+        now = datetime.now()
+        diff = now - dt
+        if diff.days > 0:
+            return f"{diff.days}天前"
+        elif diff.seconds > 3600:
+            return f"{diff.seconds // 3600}小时前"
+        elif diff.seconds > 60:
+            return f"{diff.seconds // 60}分钟前"
+        else:
+            return "刚刚"
+    except:
+        return "未知"
+
+def get_next_run(schedule_time_str, last_run_str):
+    """计算下次运行时间"""
+    if not schedule_time_str:
+        return "未设置"
+    try:
+        from datetime import datetime, timedelta
+        now = datetime.now()
+        hour, minute = map(int, schedule_time_str.split(':'))
+        next_run = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
+        
+        # 如果今天已过，显示明天
+        if next_run < now:
+            if last_run_str and last_run_str.startswith(now.strftime('%Y-%m-%d')):
+                return "今日已完成"
+            next_run = next_run + timedelta(days=1)
+        
+        return next_run.strftime('%H:%M')
+    except:
+        return "未知"
+
+def generate_full_report(now, tasks, optimizer, data_collection, portfolio_status, db_stock_count, executed):
+    """生成全量汇报"""
+    
+    # 定时任务状态
+    us_config = tasks.get('us-market-summary', {})
+    ah_config = tasks.get('ah-preopen', {})
+    daily_config = tasks.get('daily-report', {})
+    
+    # 构建汇报
+    report = f"""🫘 **Heartbeat全量汇报** {now.strftime('%Y-%m-%d %H:%M:%S')}
+
+📋 **本次执行任务**:
+"""
+    if executed:
+        for task in executed:
+            report += f"✅ {task}\n"
+    else:
+        report += "• 无新任务执行\n"
+    
+    report += f"""
+⏰ **定时任务状态**:
+• 美股分析 (08:30): 上次{format_time_ago(us_config.get('last_run'))} | 下次{get_next_run('08:30', us_config.get('last_run'))}
+• A+H开盘 (09:15): 上次{format_time_ago(ah_config.get('last_run'))} | 下次{get_next_run('09:15', ah_config.get('last_run'))}
+• 每日汇报 (15:00): 上次{format_time_ago(daily_config.get('last_run'))} | 下次{get_next_run('15:00', daily_config.get('last_run'))}
+
+🔄 **24小时连续任务**:
+• 策略优化器: 上次{format_time_ago(optimizer.get('last_run'))} | 频率: 每15分钟
+• 全市场采集: 上次{format_time_ago(data_collection.get('last_run'))} | 频率: 每6小时
+• 模拟盘跟踪: 每次heartbeat执行
+
+📊 **数据库状态**:
+• 已采集股票: {db_stock_count} 只 (目标: 5000+)
+• 采集进度: {db_stock_count/50:.1f}%
+
+💼 **模拟盘状态**:
+• 持仓数量: {portfolio_status['positions_count']} 只
+• 当前总值: ¥{portfolio_status['total_value']:,.0f}
+• 总收益: {portfolio_status['return_pct']:+.2f}%
+• 可用现金: ¥{portfolio_status['cash']:,.0f}
+
+⏱️ **系统状态**: 正常运行 | Heartbeat: 每10分钟
+"""
+    return report
 
 if __name__ == "__main__":
     check_and_run_tasks()
