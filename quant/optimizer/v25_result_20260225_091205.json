@@ -1,0 +1,80 @@
+{
+  "params": {
+    "p": 1.0,
+    "s": 0.05,
+    "n": 8,
+    "rebal": 10
+  },
+  "factor_weights": {
+    "price_pos_high": 0.1,
+    "sharpe_like": 0.2,
+    "vol_20": 0.1,
+    "low_vol_score": 0.1,
+    "vol_120": 0.1,
+    "downside_vol": 0.1,
+    "max_drawdown_120": 0.1,
+    "price_pos_60": 0.1
+  },
+  "top_factors": [
+    {
+      "factor": "price_pos_high",
+      "score": 30.780995499999968
+    },
+    {
+      "factor": "sharpe_like",
+      "score": 14.465928499999992
+    },
+    {
+      "factor": "vol_20",
+      "score": 7.582295250000009
+    },
+    {
+      "factor": "low_vol_score",
+      "score": 5.542078499999992
+    },
+    {
+      "factor": "vol_120",
+      "score": 0.6723804999999909
+    },
+    {
+      "factor": "downside_vol",
+      "score": -0.8634605000000011
+    },
+    {
+      "factor": "max_drawdown_120",
+      "score": -1.2147140000000156
+    },
+    {
+      "factor": "price_pos_60",
+      "score": -13.009760500000006
+    },
+    {
+      "factor": "mom_accel",
+      "score": -15.575799999999996
+    },
+    {
+      "factor": "ret_120",
+      "score": -17.899848749999997
+    }
+  ],
+  "yearly_returns": [
+    {
+      "year": "2018",
+      "return": 0.04334475
+    },
+    {
+      "year": "2019",
+      "return": 0.10132600000000047
+    },
+    {
+      "year": "2020",
+      "return": 0.2483754099999999
+    },
+    {
+      "year": "2021",
+      "return": 0.49288464000000015
+    }
+  ],
+  "avg_return": 22.148270000000014,
+  "timestamp": "20260225_091205"
+}

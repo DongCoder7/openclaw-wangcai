@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-02-25 08:20:57",
+  "database": {
+    "stock_factors": {
+      "stocks": 5177,
+      "factors": 14
+    },
+    "stock_defensive_factors": {
+      "stocks": 5166,
+      "factors": 5
+    },
+    "stock_fina": {
+      "stocks": 3772,
+      "factors": 7
+    },
+    "total_factors": 26
+  },
+  "optimizer": {
+    "version": "v23",
+    "used_factors": 6,
+    "total_factors": 26,
+    "utilization": 23.1,
+    "top_factors": []
+  },
+  "recommendations": [
+    {
+      "type": "warning",
+      "message": "因子利用率仅23.1%，建议运行v25增强优化器以利用全部26个因子"
+    }
+  ]
+}
