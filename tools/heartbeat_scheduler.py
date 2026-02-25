@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 """
-Heartbeat任务调度器 - 每10分钟强制汇报
-不管有没有变化，每次都汇报当前状态
+Heartbeat任务调度器 - 整点策略效果汇报
+使用新的汇报格式：策略组合 + 因子使用 + 后续优化点
 """
 import json
 import os
 import subprocess
 import sqlite3
-from datetime import datetime, timedelta
+from datetime import datetime
 import sys
 
 WORKSPACE = '/root/.openclaw/workspace'
 DB_PATH = f'{WORKSPACE}/data/historical/historical.db'
+OPT_PATH = f'{WORKSPACE}/quant/optimizer'
 USER_ID = 'ou_efbad805767f4572e8f93ebafa8d5402'
-STATE_FILE = f'{WORKSPACE}/heartbeat_state.json'
 
 def send_message(message):
     """发送消息到Feishu"""
@@ -27,138 +27,149 @@ def send_message(message):
         print(f"发送失败: {e}")
         return False
 
-def get_current_status():
-    """获取当前所有状态"""
-    status = {}
+def get_latest_strategy():
+    """获取最新策略结果"""
+    # 查找增强优化器结果
+    enhanced_files = []
+    for f in os.listdir(OPT_PATH):
+        if f.startswith('enhanced_optimizer_v') and f.endswith('.json'):
+            enhanced_files.append(f)
     
-    # 1. 数据库股票数量
-    try:
-        conn = sqlite3.connect(DB_PATH)
-        cursor = conn.cursor()
-        cursor.execute("SELECT COUNT(DISTINCT ts_code) FROM stock_factors")
-        status['stock_count'] = cursor.fetchone()[0]
-        conn.close()
-    except:
-        status['stock_count'] = 0
+    if enhanced_files:
+        enhanced_files.sort(reverse=True)
+        with open(f'{OPT_PATH}/{enhanced_files[0]}', 'r') as f:
+            data = json.load(f)
+        return {
+            'version': enhanced_files[0].split('_')[2],
+            'params': data.get('params', {}),
+            'yearly': data.get('yearly_returns', []),
+            'avg_return': data.get('avg_return', 0),
+            'top_factors': data.get('top_factors', [])[:3],
+            'factor_weights': data.get('factor_weights', {}),
+        }
     
-    # 2. 检查优化器进程
-    try:
-        result = subprocess.run(
-            ['pgrep', '-f', 'smart_optimizer'],
-            capture_output=True, text=True
-        )
-        status['optimizer_running'] = len(result.stdout.strip().split('\n')) if result.stdout.strip() else 0
-    except:
-        status['optimizer_running'] = 0
+    # 查找v25结果
+    v25_files = [f for f in os.listdir(OPT_PATH) if f.startswith('v25_result_') and f.endswith('.json')]
+    if v25_files:
+        v25_files.sort(reverse=True)
+        with open(f'{OPT_PATH}/{v25_files[0]}', 'r') as f:
+            data = json.load(f)
+        return {
+            'version': 'v25',
+            'params': data.get('params', {}),
+            'yearly': data.get('yearly_returns', []),
+            'avg_return': data.get('avg_return', 0),
+            'top_factors': data.get('top_factors', [])[:3],
+            'factor_weights': data.get('factor_weights', {}),
+        }
     
-    # 3. 检查数据采集进程
-    try:
-        result = subprocess.run(
-            ['pgrep', '-f', 'fetch_all_stocks'],
-            capture_output=True, text=True
-        )
-        status['data_fetch_running'] = len(result.stdout.strip().split('\n')) if result.stdout.strip() else 0
-    except:
-        status['data_fetch_running'] = 0
-    
-    # 4. 检查锁文件
-    status['lock_exists'] = os.path.exists(f'{WORKSPACE}/quant/optimizer/optimizer.lock')
-    
-    # 5. 模拟盘状态
-    try:
-        with open(f'{WORKSPACE}/data/sim_portfolio.json', 'r') as f:
-            portfolio = json.load(f)
-        status['portfolio_positions'] = len(portfolio.get('positions', {}))
-        status['portfolio_value'] = portfolio.get('total_value', 0)
-    except:
-        status['portfolio_positions'] = 0
-        status['portfolio_value'] = 0
-    
-    return status
+    return None
 
-def generate_report(status):
-    """生成状态报告"""
-    now = datetime.now().strftime('%H:%M:%S')
+def get_factor_usage():
+    """获取因子使用情况"""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
     
-    report = f"📊 **Heartbeat状态汇报** {now}\n\n"
+    cursor.execute('SELECT COUNT(DISTINCT ts_code) FROM stock_factors WHERE trade_date >= "20250101"')
+    sf = cursor.fetchone()[0]
     
-    report += f"**数据库**: {status['stock_count']} 只股票\n"
-    report += f"**优化器**: {'🟢运行中' if status['optimizer_running'] > 0 else '🔴未运行'} ({status['optimizer_running']}进程)\n"
-    report += f"**数据采集**: {'🟢运行中' if status['data_fetch_running'] > 0 else '🔴未运行'}\n"
-    report += f"**锁文件**: {'🔴存在' if status['lock_exists'] else '✅无'}\n"
-    report += f"**模拟盘**: {status['portfolio_positions']}只持仓, ¥{status['portfolio_value']:,.0f}\n"
+    cursor.execute('SELECT COUNT(DISTINCT ts_code) FROM stock_defensive_factors WHERE trade_date >= "20250101"')
+    sdf = cursor.fetchone()[0]
     
-    # 问题提示
-    issues = []
-    if status['optimizer_running'] == 0:
-        issues.append("优化器未运行")
-    if status['data_fetch_running'] == 0:
-        issues.append("数据采集未运行")
-    if status['lock_exists'] and status['optimizer_running'] == 0:
-        issues.append("僵尸锁文件")
+    cursor.execute('SELECT COUNT(DISTINCT ts_code) FROM stock_fina')
+    fina = cursor.fetchone()[0]
     
-    if issues:
-        report += f"\n⚠️ **需要处理**: {', '.join(issues)}"
-    else:
-        report += "\n✅ 所有系统正常运行"
+    conn.close()
     
-    return report
+    return {'tech': sf, 'def': sdf, 'fina': fina, 'total': 26}
 
-def fix_issues(status):
-    """自动修复问题"""
-    fixes = []
+def generate_strategy_report():
+    """生成策略效果报告（新格式）"""
+    strategy = get_latest_strategy()
+    factors = get_factor_usage()
+    now = datetime.now().strftime('%H:%M')
     
-    # 清理僵尸锁
-    if status['lock_exists'] and status['optimizer_running'] == 0:
-        os.remove(f'{WORKSPACE}/quant/optimizer/optimizer.lock')
-        fixes.append("清理僵尸锁")
+    report_lines = [f"📊 **策略状态汇报** ({now})", ""]
     
-    # 启动优化器
-    if status['optimizer_running'] == 0:
-        subprocess.Popen(
-            ['python3', f'{WORKSPACE}/quant/optimizer/smart_optimizer_v23_async.py'],
-            cwd=f'{WORKSPACE}/quant/optimizer',
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL
-        )
-        fixes.append("启动优化器")
+    if not strategy:
+        # 无策略数据的情况
+        report_lines.append("【当前策略组合】")
+        report_lines.append("- 状态: 暂无策略数据 ⚠️")
+        report_lines.append("- 建议: 运行 auto_optimizer.py 生成首份策略")
+        report_lines.append("")
+        report_lines.append("【因子使用】")
+        report_lines.append(f"- 已使用: 0/{factors['total']} 个因子 (0%)")
+        report_lines.append(f"- 数据覆盖: 技术{factors['tech']}/防御{factors['def']}/财务{factors['fina']} ✅")
+        report_lines.append("")
+        report_lines.append("【后续优化点】")
+        report_lines.append("- 立即执行: tools/auto_optimizer.py 生成策略")
+        return "\n".join(report_lines)
     
-    # 启动数据采集
-    if status['data_fetch_running'] == 0:
-        subprocess.Popen(
-            ['python3', f'{WORKSPACE}/tools/fetch_all_stocks_factors.py'],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL
-        )
-        fixes.append("启动数据采集")
+    # 当前策略组合
+    p = strategy['params']
+    report_lines.append("【当前策略组合】")
+    report_lines.append(f"- 仓位: {p.get('p', 0)*100:.0f}% | 止损: {p.get('s', 0)*100:.0f}% | 持仓: {p.get('n', 0)}只 | 调仓: {p.get('rebal', 10)}天")
     
-    return fixes
+    # 回测表现
+    yearly_strs = []
+    for y in strategy['yearly']:
+        yearly_strs.append(f"{y['year']}:{y['return']*100:+.0f}%")
+    report_lines.append(f"- 回测表现: {' | '.join(yearly_strs)}")
+    report_lines.append(f"- 平均年化: {strategy['avg_return']:+.1f}% {'✅' if strategy['avg_return'] > 0 else '⚠️'}")
+    
+    # 因子使用
+    used = len(strategy['factor_weights']) if strategy['factor_weights'] else 6
+    report_lines.append("")
+    report_lines.append("【因子使用】")
+    report_lines.append(f"- 已使用: {used}/{factors['total']} 个因子 ({used/factors['total']*100:.0f}%)")
+    
+    if strategy['top_factors']:
+        top_names = [f['factor'] for f in strategy['top_factors']]
+        report_lines.append(f"- Top 3: {' | '.join(top_names)}")
+    
+    report_lines.append(f"- 数据覆盖: 技术{factors['tech']}/防御{factors['def']}/财务{factors['fina']} ✅")
+    
+    # 后续优化点
+    report_lines.append("")
+    report_lines.append("【后续优化点】")
+    
+    suggestions = []
+    if used < 26:
+        suggestions.append(f"建议升级到v25，可解锁{26-used}个未使用因子")
+    
+    if strategy['avg_return'] < 10:
+        suggestions.append("当前收益偏低，建议调整止损参数或增加防御因子权重")
+    
+    if not suggestions:
+        suggestions.append("状态良好，继续执行当前策略")
+    
+    for s in suggestions:
+        report_lines.append(f"- {s}")
+    
+    return "\n".join(report_lines)
 
 def git_sync():
-    """同步git变更"""
+    """同步git变更 - 使用简单快速的方式"""
     try:
-        # 检查是否有变更
+        # 快速检查
         result = subprocess.run(
             ['git', 'status', '--porcelain'],
             cwd=WORKSPACE,
-            capture_output=True, text=True, timeout=10
+            capture_output=True, text=True, timeout=5
         )
         
         if not result.stdout.strip():
-            return None  # 无变更
+            return None
         
-        # 添加所有变更
-        subprocess.run(['git', 'add', '.'], cwd=WORKSPACE, capture_output=True, timeout=10)
-        
-        # 提交
-        commit_msg = f"heartbeat: auto sync {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+        # 提交并推送
+        subprocess.run(['git', 'add', '-A'], cwd=WORKSPACE, capture_output=True, timeout=5)
+        commit_msg = f"🫘 {datetime.now().strftime('%H:%M')} Heartbeat"
         subprocess.run(
             ['git', 'commit', '-m', commit_msg],
-            cwd=WORKSPACE,
-            capture_output=True, timeout=10
+            cwd=WORKSPACE, capture_output=True, timeout=5
         )
         
-        # 推送 (后台执行)
+        # 异步推送
         subprocess.Popen(
             ['git', 'push'],
             cwd=WORKSPACE,
@@ -168,40 +179,102 @@ def git_sync():
         
         return "已同步"
     except Exception as e:
-        return f"失败: {e}"
+        return f"失败: {str(e)[:50]}"
 
 def is_hour_start():
-    """检查是否为整点（0分）"""
+    """检查是否为整点"""
     return datetime.now().minute == 0
+
+def run_optimizer_if_needed():
+    """检查并运行优化器 - 持续寻找最佳组合"""
+    # 检查是否已有优化器在运行
+    try:
+        result = subprocess.run(
+            ['pgrep', '-f', 'enhanced_optimizer|smart_optimizer'],
+            capture_output=True, text=True, timeout=5
+        )
+        if result.stdout.strip():
+            print("⏭️ 优化器已在运行，跳过")
+            return "已在运行"
+    except:
+        pass
+    
+    # 检查最新结果时间
+    try:
+        latest_time = None
+        for f in os.listdir(OPT_PATH):
+            if f.endswith('.json') and ('result' in f or 'enhanced' in f):
+                # 从文件名提取时间
+                import re
+                match = re.search(r'\d{8}_\d{6}', f)
+                if match:
+                    ts = match.group()
+                    if latest_time is None or ts > latest_time:
+                        latest_time = ts
+        
+        if latest_time:
+            from datetime import datetime, timedelta
+            last_dt = datetime.strptime(latest_time, '%Y%m%d_%H%M%S')
+            hours_passed = (datetime.now() - last_dt).total_seconds() / 3600
+            
+            # 每4小时运行一次优化
+            if hours_passed < 4:
+                print(f"⏭️ 上次优化距今{hours_passed:.1f}小时，跳过")
+                return f"{hours_passed:.1f}小时前已优化"
+    except Exception as e:
+        print(f"检查时间失败: {e}")
+    
+    # 启动优化器（后台运行）
+    print("🚀 启动优化器...")
+    try:
+        # 自动发现最新优化器
+        enhanced = [f for f in os.listdir(OPT_PATH) 
+                   if f.startswith('enhanced_optimizer_v') and f.endswith('.py')]
+        if enhanced:
+            enhanced.sort(reverse=True)
+            optimizer = f'{OPT_PATH}/{enhanced[0]}'
+        else:
+            # 回退到smart_optimizer
+            smart = [f for f in os.listdir(OPT_PATH) 
+                    if f.startswith('smart_optimizer_v') and f.endswith('.py')]
+            smart.sort(reverse=True)
+            optimizer = f'{OPT_PATH}/{smart[0]}' if smart else None
+        
+        if optimizer:
+            subprocess.Popen(
+                ['python3', optimizer],
+                cwd=OPT_PATH,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL
+            )
+            return f"已启动 {os.path.basename(optimizer)}"
+    except Exception as e:
+        return f"启动失败: {e}"
+    
+    return "未找到优化器"
 
 def main():
     now = datetime.now()
-    print(f"🫘 Heartbeat检查 - {now.strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"🫘 Heartbeat检查 - {now.strftime('%H:%M:%S')}")
     
-    # 判断是否为整点
+    # 每15分钟检查是否需要运行优化器
+    if now.minute % 15 == 0:
+        print("🔍 检查优化器状态...")
+        opt_status = run_optimizer_if_needed()
+        if opt_status and "已启动" in opt_status:
+            send_message(f"🤖 **自动启动优化器**: {opt_status}")
+    
+    # 非整点跳过汇报
     if not is_hour_start():
-        print(f"⏱️ 非整点({now.minute}分)，跳过状态汇报")
-        print("✅ Heartbeat完成")
+        print(f"⏱️ 非整点({now.minute}分)，跳过汇报")
         return
     
     print(f"🕐 整点汇报 - {now.hour}:00")
     
-    # 获取状态
-    status = get_current_status()
-    
-    # 生成报告
-    report = generate_report(status)
+    # 生成并发送策略报告（新格式）
+    report = generate_strategy_report()
     print(report)
-    
-    # 发送报告（整点才发送）
     send_message(report)
-    
-    # 自动修复问题
-    fixes = fix_issues(status)
-    if fixes:
-        fix_msg = f"🔧 **自动修复**: {', '.join(fixes)}"
-        print(fix_msg)
-        send_message(fix_msg)
     
     # Git同步
     git_result = git_sync()

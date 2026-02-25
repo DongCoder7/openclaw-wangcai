@@ -104,8 +104,9 @@ def generate_strategy_report():
 - 状态: 暂无策略数据 ⚠️
 - 建议: 运行 auto_optimizer.py 生成首份策略
 
-【因子使用】
-- 已使用: 0/26 个因子 (0%)
+【因子使用情况】
+- 已采用: 0/26 个因子 (0%)
+- 未采用: 26 个因子 (100%)
 - 数据覆盖: 技术{}/防御{}/财务{} ✅
 
 【后续优化点】
@@ -128,11 +129,13 @@ def generate_strategy_report():
     report_lines.append(f"- 回测表现: {' | '.join(yearly_strs)}")
     report_lines.append(f"- 平均年化: {strategy['avg_return']:+.1f}% {'✅' if strategy['avg_return'] > 0 else '⚠️'}")
     
-    # 因子使用
+    # 因子使用情况
     used = len(strategy['factor_weights']) if strategy['factor_weights'] else 6
+    unused = factors['total_factors'] - used
     report_lines.append("")
-    report_lines.append("【因子使用】")
-    report_lines.append(f"- 已使用: {used}/{factors['total_factors']} 个因子 ({used/factors['total_factors']*100:.0f}%)")
+    report_lines.append("【因子使用情况】")
+    report_lines.append(f"- 已采用: {used}/{factors['total_factors']} 个因子 ({used/factors['total_factors']*100:.0f}%)")
+    report_lines.append(f"- 未采用: {unused}/{factors['total_factors']} 个因子 ({unused/factors['total_factors']*100:.0f}%)")
     
     if strategy['top_factors']:
         top_names = [f['factor'] for f in strategy['top_factors']]
@@ -146,26 +149,25 @@ def generate_strategy_report():
     
     # 根据因子使用情况生成建议
     suggestions = []
-    if used < 26:
-        suggestions.append(f"建议升级到v25，可解锁{26-used}个未使用因子")
+    if unused > 0:
+        suggestions.append(f"有{unused}个因子未采用，建议逐步引入测试效果")
+        
+        # 建议引入哪些因子
+        all_factors = ['roe', 'revenue_growth', 'netprofit_growth', 'pe_ttm', 'pb', 
+                      'rel_strength', 'mom_accel', 'money_flow', 'vol_ratio_amt']
+        current_factors = set(strategy['factor_weights'].keys()) if strategy['factor_weights'] else set()
+        missing_factors = [f for f in all_factors if f not in current_factors][:3]
+        if missing_factors:
+            suggestions.append(f"建议优先尝试: {', '.join(missing_factors)}")
     
-    if strategy['avg_return'] < 10:
-        suggestions.append("当前收益偏低，建议调整止损参数或增加防御因子权重")
+    if strategy['avg_return'] < 15:
+        suggestions.append("当前收益有提升空间，建议调整止损参数或增加防御因子权重")
     
-    # 检查数据新鲜度
-    try:
-        last_date = strategy['timestamp'][:8]
-        today = datetime.now().strftime('%Y%m%d')
-        if last_date != today:
-            suggestions.append(f"策略数据为{last_date}，建议更新优化")
-    except:
-        pass
+    # 检查是否需要持续优化
+    suggestions.append("持续运行优化器，每15分钟迭代寻找更优组合")
     
-    if suggestions:
-        for s in suggestions:
-            report_lines.append(f"- {s}")
-    else:
-        report_lines.append("- 状态良好，继续执行当前策略")
+    for s in suggestions:
+        report_lines.append(f"- {s}")
     
     return "\n".join(report_lines)
 

@@ -1,0 +1,66 @@
+{
+  "version": "v26",
+  "params": {
+    "p": 0.5,
+    "s": 0.05,
+    "n": 3,
+    "rebal": 10
+  },
+  "yearly_returns": [
+    {
+      "year": "2018",
+      "return": 0.0
+    },
+    {
+      "year": "2019",
+      "return": 0.0
+    },
+    {
+      "year": "2020",
+      "return": 0.0
+    },
+    {
+      "year": "2021",
+      "return": 0.0
+    }
+  ],
+  "avg_return": 0.0,
+  "factor_count": 8,
+  "factors_used": [
+    "sharpe_like",
+    "vol_120",
+    "low_vol_score",
+    "downside_vol",
+    "pe_ttm",
+    "pb",
+    "roe",
+    "revenue_growth"
+  ],
+  "all_factors_ranked": [
+    "sharpe_like",
+    "vol_120",
+    "low_vol_score",
+    "downside_vol",
+    "pe_ttm",
+    "pb",
+    "roe",
+    "revenue_growth",
+    "netprofit_growth",
+    "debt_ratio",
+    "dividend_yield",
+    "vol_20",
+    "max_drawdown_120",
+    "ret_120",
+    "ret_60",
+    "price_pos_high",
+    "price_pos_60",
+    "profit_mom",
+    "price_pos_20",
+    "ret_20",
+    "rel_strength",
+    "money_flow",
+    "vol_ratio",
+    "mom_accel"
+  ],
+  "timestamp": "20260225_112635"
+}
