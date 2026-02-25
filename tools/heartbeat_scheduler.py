@@ -29,6 +29,24 @@ def send_message(message):
 
 def get_latest_strategy():
     """获取最新策略结果"""
+    
+    # 首先查找v26结果
+    v26_files = [f for f in os.listdir(OPT_PATH) if f.startswith('v26_result_') and f.endswith('.json')]
+    if v26_files:
+        v26_files.sort(reverse=True)
+        with open(f'{OPT_PATH}/{v26_files[0]}', 'r') as f:
+            data = json.load(f)
+        factor_count = data.get('factor_count', len(data.get('factors_used', [])))
+        return {
+            'version': 'v26',
+            'params': data.get('params', {}),
+            'yearly': data.get('yearly_returns', []),
+            'avg_return': data.get('avg_return', 0),
+            'top_factors': [{'factor': f} for f in data.get('factors_used', [])][:3],
+            'factor_weights': {f: 1.0 for f in data.get('factors_used', [])},
+            'factor_count': factor_count
+        }
+    
     # 查找增强优化器结果
     enhanced_files = []
     for f in os.listdir(OPT_PATH):
@@ -117,11 +135,13 @@ def generate_strategy_report():
     report_lines.append(f"- 回测表现: {' | '.join(yearly_strs)}")
     report_lines.append(f"- 平均年化: {strategy['avg_return']:+.1f}% {'✅' if strategy['avg_return'] > 0 else '⚠️'}")
     
-    # 因子使用
-    used = len(strategy['factor_weights']) if strategy['factor_weights'] else 6
+    # 因子使用情况
+    used = strategy.get('factor_count', len(strategy['factor_weights']) if strategy['factor_weights'] else 6)
+    unused = factors['total'] - used
     report_lines.append("")
-    report_lines.append("【因子使用】")
-    report_lines.append(f"- 已使用: {used}/{factors['total']} 个因子 ({used/factors['total']*100:.0f}%)")
+    report_lines.append("【因子使用情况】")
+    report_lines.append(f"- 已采用: {used}/{factors['total']} 个因子 ({used/factors['total']*100:.0f}%)")
+    report_lines.append(f"- 未采用: {unused}/{factors['total']} 个因子 ({unused/factors['total']*100:.0f}%)")
     
     if strategy['top_factors']:
         top_names = [f['factor'] for f in strategy['top_factors']]
@@ -134,14 +154,14 @@ def generate_strategy_report():
     report_lines.append("【后续优化点】")
     
     suggestions = []
-    if used < 26:
-        suggestions.append(f"建议升级到v25，可解锁{26-used}个未使用因子")
+    if unused > 0:
+        suggestions.append(f"有{unused}个因子未采用，建议逐步引入测试效果")
     
-    if strategy['avg_return'] < 10:
-        suggestions.append("当前收益偏低，建议调整止损参数或增加防御因子权重")
+    if strategy['avg_return'] < 15:
+        suggestions.append("当前收益有提升空间，建议调整止损参数或增加防御因子权重")
     
-    if not suggestions:
-        suggestions.append("状态良好，继续执行当前策略")
+    # 检查是否需要持续优化
+    suggestions.append("持续运行优化器，每15分钟迭代寻找更优组合")
     
     for s in suggestions:
         report_lines.append(f"- {s}")

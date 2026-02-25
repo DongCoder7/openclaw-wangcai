@@ -14,7 +14,26 @@ OPT = '/root/.openclaw/workspace/quant/optimizer'
 def get_latest_strategy():
     """获取最新策略结果"""
     
-    # 首先查找增强优化器结果 (enhanced_optimizer_v*_result_*.json)
+    # 首先查找v26结果
+    v26_files = [f for f in os.listdir(OPT) if f.startswith('v26_result_') and f.endswith('.json')]
+    if v26_files:
+        v26_files.sort(reverse=True)
+        with open(f'{OPT}/{v26_files[0]}', 'r') as f:
+            data = json.load(f)
+        # 使用factor_count字段，如果不存在则使用factors_used长度
+        factor_count = data.get('factor_count', len(data.get('factors_used', [])))
+        return {
+            'version': 'v26',
+            'params': data.get('params', {}),
+            'yearly': data.get('yearly_returns', []),
+            'avg_return': data.get('avg_return', 0),
+            'top_factors': [{'factor': f} for f in data.get('factors_used', [])][:3],
+            'factor_weights': {f: 1.0 for f in data.get('factors_used', [])},
+            'timestamp': data.get('timestamp', ''),
+            'factor_count': factor_count
+        }
+    
+    # 然后查找增强优化器结果
     enhanced_files = []
     for f in os.listdir(OPT):
         if f.startswith('enhanced_optimizer_v') and f.endswith('.json'):
@@ -24,7 +43,7 @@ def get_latest_strategy():
         enhanced_files.sort(reverse=True)
         with open(f'{OPT}/{enhanced_files[0]}', 'r') as f:
             data = json.load(f)
-        version = enhanced_files[0].split('_')[2]  # v25, v26, etc
+        version = enhanced_files[0].split('_')[2]
         return {
             'version': version,
             'params': data.get('params', {}),
@@ -35,7 +54,7 @@ def get_latest_strategy():
             'timestamp': data.get('timestamp', '')
         }
     
-    # 然后查找v25结果
+    # 查找v25结果
     v25_files = [f for f in os.listdir(OPT) if f.startswith('v25_result_') and f.endswith('.json')]
     if v25_files:
         v25_files.sort(reverse=True)
@@ -48,22 +67,6 @@ def get_latest_strategy():
             'avg_return': data.get('avg_return', 0),
             'top_factors': data.get('top_factors', [])[:3],
             'factor_weights': data.get('factor_weights', {}),
-            'timestamp': data.get('timestamp', '')
-        }
-    
-    # 查找旧版本结果
-    old_files = [f for f in os.listdir(OPT) if f.startswith('result_') and f.endswith('.json')]
-    if old_files:
-        old_files.sort(reverse=True)
-        with open(f'{OPT}/{old_files[0]}', 'r') as f:
-            data = json.load(f)
-        return {
-            'version': 'v23',
-            'params': data.get('params', {}),
-            'yearly': data.get('yearly_returns', []),
-            'avg_return': data.get('avg_return', 0),
-            'top_factors': [],
-            'factor_weights': {},
             'timestamp': data.get('timestamp', '')
         }
     
@@ -130,7 +133,7 @@ def generate_strategy_report():
     report_lines.append(f"- 平均年化: {strategy['avg_return']:+.1f}% {'✅' if strategy['avg_return'] > 0 else '⚠️'}")
     
     # 因子使用情况
-    used = len(strategy['factor_weights']) if strategy['factor_weights'] else 6
+    used = strategy.get('factor_count', len(strategy['factor_weights']) if strategy['factor_weights'] else 6)
     unused = factors['total_factors'] - used
     report_lines.append("")
     report_lines.append("【因子使用情况】")
