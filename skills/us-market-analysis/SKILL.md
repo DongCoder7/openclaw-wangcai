@@ -32,15 +32,25 @@ description: |
 
 ## 使用方法
 
-### 定时任务
+### 定时任务 (长桥API版 - 推荐)
 ```bash
 # 每日8:30自动运行
-30 8 * * * python3 ~/.openclaw/workspace/skills/us-market-analysis/scripts/generate_report.py
+30 8 * * * cd ~/.openclaw/workspace && source .longbridge.env && python3 skills/us-market-analysis/scripts/generate_report_longbridge.py
 ```
 
-### 手动触发
+### 手动触发 (长桥API版)
 ```bash
-python3 ~/.openclaw/workspace/skills/us-market-analysis/scripts/generate_report.py
+cd ~/.openclaw/workspace
+source .longbridge.env
+python3 skills/us-market-analysis/scripts/generate_report_longbridge.py
+```
+
+### 环境变量配置
+长桥API密钥已配置在 `~/.openclaw/workspace/.longbridge.env`
+```
+LONGPORT_APP_KEY=xxx
+LONGPORT_APP_SECRET=xxx
+LONGPORT_ACCESS_TOKEN=xxx
 ```
 
 ### 用户指令

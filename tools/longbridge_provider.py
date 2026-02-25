@@ -35,7 +35,7 @@ class LongbridgeConfig:
     app_key: str
     app_secret: str
     access_token: Optional[str] = None
-    base_url: str = "https://openapi.longbridge.com"
+    base_url: str = "https://openapi.longbridgeapp.com"
     
     @classmethod
     def from_env(cls) -> 'LongbridgeConfig':
