@@ -10,7 +10,8 @@ from datetime import datetime
 
 # 配置
 GROUP_ID = "28855458518111"
-TOKEN = "26FC1241-0A1A-42BF-87B9-BE97A4A42AB1_2ECB6A0A4CD9622F"
+# 完整的cookies (包含sensorsdata、abtest_env和token)
+COOKIES = "sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22421882554581888%22%2C%22first_id%22%3A%2219957298c826cb-08f4b144c21fe3-1f525631-1484784-19957298c83903%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%AB%99%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fopen.weixin.qq.com%2F%22%7D%2C%22identities%22%3A%22eyIkaWRlbnRpdHlfY29va2llX2lkIjoiMTk5NTcyOThjODI2Y2ItMDhmNGIxNDRjMjFmZTMtMWY1MjU2MzEtMTQ4NDc4NC0xOTk1NzI5OGM4MzkwMyIsIiRpZGVudGl0eV9sb2dpbl9pZCI6IjQyMTg4MjU1NDU4MTg4OCJ9%22%2C%22history_login_id%22%3A%7B%22name%22%3A%22%24identity_login_id%22%2C%22value%22%3A%22421882554581888%22%7D%2C%22%24device_id%22%3A%2219957298c826cb-08f4b144c21fe3-1f525631-1484784-19957298c83903%22%7D; abtest_env=product; zsxq_access_token=26FC1241-0A1A-42BF-87B9-BE97A4A42AB1_2ECB6A0A4CD9622F"
 BASE_URL = "https://api.zsxq.com/v2"
 
 def get_topics(count=20, keyword=None):
@@ -26,7 +27,7 @@ def get_topics(count=20, keyword=None):
     url = f"{BASE_URL}/groups/{GROUP_ID}/topics?count={count}"
     
     headers = {
-        "Cookie": f"zsxq_access_token={TOKEN}",
+        "Cookie": COOKIES,
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
         "Accept": "application/json"
     }
