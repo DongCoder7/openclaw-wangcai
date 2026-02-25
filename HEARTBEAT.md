@@ -23,8 +23,8 @@
 
 | 时间 | 任务 | 说明 |
 |------|------|------|
-| 08:30 | 美股隔夜总结 | 执行 `skills/us-market-analysis/scripts/generate_report_longbridge.py` (长桥API) |
-| 09:15 | A+H开盘前瞻 | 执行 `skills/ah-market-preopen/scripts/generate_report_longbridge.py` (长桥API) |
+| 08:30 | 美股隔夜总结 | 执行 `skills/dounai-investment-system` 美股报告模块 |
+| 09:15 | A+H开盘前瞻 | 执行 `skills/dounai-investment-system` A+H开盘模块 |
 | 15:00 | 收盘深度报告 | 生成并发送完整报告 |
 | 每小时 | 数据采集 | 全市场因子采集 |
 | 每2小时 | 知识星球信息 | 获取调研纪要最新内容 |
