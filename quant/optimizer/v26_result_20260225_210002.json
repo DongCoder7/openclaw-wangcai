@@ -1,0 +1,37 @@
+{
+  "version": "v26",
+  "params": {
+    "p": 0.7,
+    "s": 0.08,
+    "n": 5,
+    "rebal": 10
+  },
+  "yearly_returns": [
+    {
+      "year": "2018",
+      "return": 0.06479182061354333
+    },
+    {
+      "year": "2019",
+      "return": 0.15118091476493442
+    },
+    {
+      "year": "2020",
+      "return": 0.23757000891632557
+    },
+    {
+      "year": "2021",
+      "return": 0.19437546184062998
+    }
+  ],
+  "avg_return": 21.597273537847776,
+  "factor_count": 26,
+  "factors_used": [
+    "ret_20",
+    "vol_20",
+    "price_pos_20",
+    "sharpe_like",
+    "vol_120"
+  ],
+  "timestamp": "20260225_210002"
+}
