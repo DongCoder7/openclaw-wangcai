@@ -1,15 +1,35 @@
 #!/usr/bin/env python3
 """
 美股市场分析报告生成器 (长桥API版)
-每日生成美股隔夜分析报告
+每日生成美股隔夜分析报告，自动推送到飞书
 """
 import sys
 import os
+import json
 from datetime import datetime, timedelta
 
 # 添加路径
 sys.path.insert(0, '/root/.openclaw/workspace/tools')
 from longbridge_api import get_longbridge_api
+
+# 飞书推送函数
+def send_feishu_message(content: str, title: str = "美股报告"):
+    """发送飞书消息"""
+    try:
+        # 使用OpenClaw的消息工具
+        import subprocess
+        result = subprocess.run([
+            'openclaw', 'message', 'send',
+            '--channel', 'feishu',
+            '--message', f"## {title}\n\n{content[:3000]}"  # 限制长度
+        ], capture_output=True, text=True)
+        
+        if result.returncode == 0:
+            print("✅ 飞书消息已发送")
+        else:
+            print(f"⚠️ 飞书发送失败: {result.stderr}")
+    except Exception as e:
+        print(f"⚠️ 飞书发送异常: {e}")
 
 def get_us_market_quotes():
     """获取美股核心指数和个股行情"""
@@ -182,6 +202,10 @@ def generate_report():
     print(f"✅ 报告已生成: {report_file}")
     print("\n" + "="*80)
     print(report)
+    
+    # 发送到飞书
+    print("\n📤 正在发送到飞书...")
+    send_feishu_message(report, "📊 美股市场隔夜分析报告")
     
     return report
 
