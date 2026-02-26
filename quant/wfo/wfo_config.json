@@ -1,0 +1,67 @@
+{
+  "wfo": {
+    "train_window_years": 2,
+    "test_window_years": 1,
+    "roll_step_years": 1,
+    "start_year": 2018,
+    "end_year": 2026
+  },
+  "optimization": {
+    "method": "genetic",
+    "population_size": 50,
+    "generations": 30,
+    "mutation_rate": 0.1,
+    "crossover_rate": 0.8,
+    "early_stopping": {
+      "enabled": true,
+      "patience": 10,
+      "min_improvement": 0.001
+    }
+  },
+  "param_space": {
+    "position_pct": {"type": "float", "min": 0.5, "max": 0.95, "step": 0.05},
+    "stop_loss": {"type": "float", "min": 0.05, "max": 0.15, "step": 0.01},
+    "max_holding": {"type": "int", "min": 3, "max": 15, "step": 1},
+    "rebalance_days": {"type": "int", "min": 5, "max": 30, "step": 5},
+    "factor_selection": {
+      "type": "subset",
+      "available_factors": [
+        "ret_5", "ret_10", "ret_20", "ret_60", "ret_120",
+        "vol_5", "vol_10", "vol_20", "vol_60", "vol_120",
+        "price_pos_5", "price_pos_20", "price_pos_60", "price_pos_120",
+        "sharpe_like", "max_dd_20", "max_dd_60",
+        "turnover_20", "turnover_60",
+        "pe_ttm", "pb", "ps_ttm",
+        "roe", "roa", "gross_margin", "netprofit_growth", "revenue_growth"
+      ],
+      "min_factors": 5,
+      "max_factors": 20
+    },
+    "factor_weights_method": {"type": "choice", "options": ["equal", "sharpe", "volatility", "custom"]}
+  },
+  "constraints": {
+    "max_drawdown": {
+      "hard_limit": -0.15,
+      "soft_limit": -0.12,
+      "penalty_weight": 2.0
+    },
+    "min_annual_return": {
+      "target": 0.10,
+      "penalty_weight": 1.0
+    },
+    "min_sharpe": {
+      "target": 0.8,
+      "penalty_weight": 0.5
+    }
+  },
+  "evaluation": {
+    "primary_metric": "risk_adjusted_return",
+    "secondary_metrics": ["annual_return", "max_drawdown", "sharpe_ratio", "calmar_ratio", "win_rate"],
+    "risk_adjusted_formula": "annual_return * 0.5 - max_drawdown * 1.5 + sharpe_ratio * 0.3"
+  },
+  "output": {
+    "save_intermediate": true,
+    "generate_charts": true,
+    "report_format": "markdown"
+  }
+}
