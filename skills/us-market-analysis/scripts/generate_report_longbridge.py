@@ -21,6 +21,7 @@ def send_feishu_message(content: str, title: str = "美股报告"):
         result = subprocess.run([
             'openclaw', 'message', 'send',
             '--channel', 'feishu',
+            '--target', 'ou_efbad805767f4572e8f93ebafa8d5402',
             '--message', f"## {title}\n\n{content[:3000]}"  # 限制长度
         ], capture_output=True, text=True)
         

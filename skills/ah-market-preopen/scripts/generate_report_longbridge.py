@@ -8,6 +8,15 @@ import os
 import json
 from datetime import datetime
 
+# 加载环境变量
+env_file = '/root/.openclaw/workspace/.longbridge.env'
+if os.path.exists(env_file):
+    with open(env_file, 'r') as f:
+        for line in f:
+            if '=' in line and not line.startswith('#'):
+                key, value = line.strip().split('=', 1)
+                os.environ[key] = value.strip('"')
+
 # 添加路径
 sys.path.insert(0, '/root/.openclaw/workspace/tools')
 from longbridge_api import get_longbridge_api
@@ -21,6 +30,7 @@ def send_feishu_message(content: str, title: str = "A+H开盘报告"):
         result = subprocess.run([
             'openclaw', 'message', 'send',
             '--channel', 'feishu',
+            '--target', 'ou_efbad805767f4572e8f93ebafa8d5402',
             '--message', f"## {title}\n\n{content[:3000]}"  # 限制长度
         ], capture_output=True, text=True)
         

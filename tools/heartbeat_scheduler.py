@@ -205,6 +205,43 @@ def is_hour_start():
     """检查是否为整点"""
     return datetime.now().minute == 0
 
+
+def run_us_market_report():
+    """执行美股报告任务 - 08:30"""
+    try:
+        print("🌙 执行美股报告任务...")
+        script = f'{WORKSPACE}/skills/us-market-analysis/scripts/generate_report_longbridge.py'
+        result = subprocess.run(
+            ['python3', script],
+            cwd=WORKSPACE,
+            capture_output=True, text=True, timeout=120
+        )
+        if result.returncode == 0:
+            return "✅ 美股报告已生成并发送"
+        else:
+            return f"❌ 美股报告失败: {result.stderr[:100]}"
+    except Exception as e:
+        return f"❌ 美股报告异常: {str(e)[:100]}"
+
+
+def run_ah_preopen_report():
+    """执行A+H开盘前瞻任务 - 09:15"""
+    try:
+        print("🌅 执行A+H开盘前瞻任务...")
+        script = f'{WORKSPACE}/skills/ah-market-preopen/scripts/generate_report_longbridge.py'
+        result = subprocess.run(
+            ['python3', script],
+            cwd=WORKSPACE,
+            capture_output=True, text=True, timeout=120
+        )
+        if result.returncode == 0:
+            return "✅ A+H开盘前瞻已生成并发送"
+        else:
+            return f"❌ A+H开盘前瞻失败: {result.stderr[:100]}"
+    except Exception as e:
+        return f"❌ A+H开盘前瞻异常: {str(e)[:100]}"
+
+
 def run_optimizer_if_needed():
     """检查并运行优化器 - 持续寻找最佳组合"""
     # 检查是否已有优化器在运行
@@ -276,6 +313,18 @@ def run_optimizer_if_needed():
 def main():
     now = datetime.now()
     print(f"🫘 Heartbeat检查 - {now.strftime('%H:%M:%S')}")
+    
+    # 08:30 美股报告
+    if now.hour == 8 and now.minute == 30:
+        print("🌙 08:30 执行美股报告...")
+        us_status = run_us_market_report()
+        send_message(f"📊 **美股报告执行**: {us_status}")
+    
+    # 09:15 A+H开盘前瞻
+    if now.hour == 9 and now.minute == 15:
+        print("🌅 09:15 执行A+H开盘前瞻...")
+        ah_status = run_ah_preopen_report()
+        send_message(f"📊 **A+H开盘前瞻执行**: {ah_status}")
     
     # 每15分钟检查是否需要运行优化器
     if now.minute % 15 == 0:
