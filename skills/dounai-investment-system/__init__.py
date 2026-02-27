@@ -10,9 +10,15 @@ from datetime import datetime
 
 # 添加路径
 sys.path.insert(0, '/root/.openclaw/workspace/tools')
+sys.path.insert(0, '/root/.openclaw/workspace')
 
 from longbridge_api import get_longbridge_api, LongbridgeAPI
 from zsxq_fetcher import search_industry_info, get_latest
+try:
+    from skills.a_sector_analysis import SectorRotationAnalyzer
+    SECTOR_ANALYSIS_AVAILABLE = True
+except ImportError:
+    SECTOR_ANALYSIS_AVAILABLE = False
 
 class DounaiSystem:
     """豆奶投资策略系统主类"""
@@ -20,6 +26,7 @@ class DounaiSystem:
     def __init__(self):
         """初始化系统"""
         self.longbridge = None
+        self.sector_analyzer = None
         self._init_environment()
         self._init_apis()
     
@@ -42,6 +49,14 @@ class DounaiSystem:
             print("✅ 长桥API已连接")
         except Exception as e:
             print(f"⚠️ 长桥API连接失败: {e}")
+        
+        # 初始化板块分析器
+        if SECTOR_ANALYSIS_AVAILABLE:
+            try:
+                self.sector_analyzer = SectorRotationAnalyzer()
+                print("✅ 板块分析器已初始化")
+            except Exception as e:
+                print(f"⚠️ 板块分析器初始化失败: {e}")
     
     def analyze_industry(self, industry: str, 
                         include_zsxq: bool = True,
@@ -149,6 +164,124 @@ class DounaiSystem:
         print("\n📚 获取知识星球最新内容...")
         topics = get_latest(5)
         return f"获取到 {len(topics)} 条最新内容"
+
+    # ========== 板块分析接口 ==========
+    def analyze_sector(self, sector: str) -> Dict:
+        """
+        板块分析入口
+        
+        Args:
+            sector: 板块名称 (如: AI算力、半导体设备)
+            
+        Returns:
+            板块分析报告
+        """
+        if not self.sector_analyzer:
+            print("❌ 板块分析器未初始化")
+            return {}
+        
+        print(f"\n📊 分析板块: {sector}")
+        result = self.sector_analyzer.analyze_sector(sector)
+        print(self.sector_analyzer.format_report(result))
+        return result
+
+    def compare_sectors(self, sectors: List[str]) -> Dict:
+        """
+        板块对比分析
+        
+        Args:
+            sectors: 板块名称列表
+            
+        Returns:
+            对比分析结果
+        """
+        if not self.sector_analyzer:
+            print("❌ 板块分析器未初始化")
+            return {}
+        
+        print(f"\n📊 对比 {len(sectors)} 个板块: {', '.join(sectors)}")
+        result = self.sector_analyzer.compare_sectors(sectors)
+        
+        # 打印排序结果
+        print("\n【板块强弱排序】")
+        for i, sector_data in enumerate(result['sectors'], 1):
+            score = sector_data['score']
+            print(f"{i}. {score['rating']} {sector_data['sector']} - {score['total_score']}分")
+        
+        if result['top_pick']:
+            print(f"\n🏆 最强板块: {result['top_pick']['sector']}")
+        
+        return result
+
+    def get_sector_rotation_signals(self) -> List[Dict]:
+        """
+        获取板块轮动信号
+        
+        Returns:
+            轮动信号列表
+        """
+        if not self.sector_analyzer:
+            print("❌ 板块分析器未初始化")
+            return []
+        
+        print("\n📊 扫描全市场轮动信号...")
+        signals = self.sector_analyzer.get_rotation_signals()
+        
+        print(f"\n发现 {len(signals)} 个轮动信号:")
+        for s in signals:
+            emoji = "🟢" if s['signal'] == 'buy' else "🔴"
+            print(f"  {emoji} {s['sector']}: {s['type']} 强度{s['strength']:.1f}")
+        
+        return signals
+
+    def detect_market_style(self) -> Dict:
+        """
+        判断市场风格
+        
+        Returns:
+            风格判断结果
+        """
+        if not self.sector_analyzer:
+            print("❌ 板块分析器未初始化")
+            return {}
+        
+        print("\n📊 判断市场风格...")
+        style = self.sector_analyzer.detect_market_style()
+        
+        print(f"\n当前风格: {style['description']}")
+        print(f"成长板块评分: {style['growth_score']}")
+        print(f"价值板块评分: {style['value_score']}")
+        print(f"配置建议: {style['suggestion']}")
+        
+        return style
+
+    def generate_sector_portfolio(self, risk_level: str = 'medium') -> Dict:
+        """
+        生成板块配置方案
+        
+        Args:
+            risk_level: 风险等级 (low/medium/high)
+            
+        Returns:
+            板块配置方案
+        """
+        if not self.sector_analyzer:
+            print("❌ 板块分析器未初始化")
+            return {}
+        
+        print(f"\n📊 生成{risk_level}风险等级板块配置...")
+        portfolio = self.sector_analyzer.generate_portfolio_config(risk_level)
+        
+        print(f"\n分级配置: T0={portfolio['tier_allocation']['T0']}%, "
+              f"T1={portfolio['tier_allocation']['T1']}%, "
+              f"T2={portfolio['tier_allocation']['T2']}%, "
+              f"T3={portfolio['tier_allocation']['T3']}%")
+        
+        print("\n板块权重TOP5:")
+        for s in portfolio['sector_weights'][:5]:
+            print(f"  - {s['sector']} ({s['tier']}): {s['weight']}%")
+        
+        return portfolio
     
     def _get_industry_stocks(self, industry: str) -> List[str]:
         """获取行业股票列表"""
