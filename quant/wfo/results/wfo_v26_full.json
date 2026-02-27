@@ -1,0 +1,99 @@
+{
+  "timestamp": "2026-02-26T11:38:45.695405",
+  "results": [
+    {
+      "period": 1,
+      "window": {
+        "train_start": "20251201",
+        "train_end": "20260131",
+        "test_start": "20260201",
+        "test_end": "20260213"
+      },
+      "v26_optimal_factors": [
+        "debt_ratio",
+        "low_vol_score",
+        "pb",
+        "price_pos_high",
+        "revenue_growth"
+      ],
+      "train_info": {
+        "factor_count": 5,
+        "expected_return": 1.0,
+        "all_tested": [
+          {
+            "count": 5,
+            "factors": [
+              "debt_ratio",
+              "low_vol_score",
+              "pb",
+              "price_pos_high",
+              "revenue_growth"
+            ],
+            "score": 1.0
+          },
+          {
+            "count": 8,
+            "factors": [
+              "pe_ttm",
+              "mom_accel",
+              "netprofit_growth",
+              "price_pos_20",
+              "downside_vol",
+              "price_pos_high",
+              "ret_60",
+              "pb"
+            ],
+            "score": 1.0
+          },
+          {
+            "count": 10,
+            "factors": [
+              "roe",
+              "sharpe_like",
+              "profit_mom",
+              "ret_20",
+              "ret_60",
+              "netprofit_growth",
+              "vol_20",
+              "price_pos_20",
+              "debt_ratio",
+              "pb"
+            ],
+            "score": 1.0
+          },
+          {
+            "count": 15,
+            "factors": [
+              "roe",
+              "mom_accel",
+              "vol_ratio",
+              "price_pos_60",
+              "vol_20",
+              "price_pos_high",
+              "revenue_growth",
+              "pb",
+              "profit_mom",
+              "low_vol_score",
+              "rel_strength",
+              "ret_120",
+              "ret_20",
+              "sharpe_like",
+              "max_drawdown_120"
+            ],
+            "score": 1.0
+          }
+        ]
+      },
+      "test_result": {
+        "annual_return": 0,
+        "max_drawdown": 0,
+        "sharpe": 0,
+        "total_return": 0
+      },
+      "stability": {
+        "return_decay": 1.0,
+        "robust": true
+      }
+    }
+  ]
+}

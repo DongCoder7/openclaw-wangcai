@@ -1,0 +1,165 @@
+{
+  "timestamp": "2026-02-26T11:40:39.931563",
+  "periods": [
+    {
+      "period": 1,
+      "train_period": "2023-01~2024-12",
+      "test_period": "2025",
+      "data_type": "sim",
+      "v26_result": {
+        "factor_count": 5,
+        "selected_factors": [
+          "rel_strength",
+          "pb",
+          "price_pos_60",
+          "vol_ratio",
+          "ret_60"
+        ],
+        "expected_return": 0.125,
+        "expected_sharpe": 8.333333333333334,
+        "all_tested": [
+          {
+            "count": 5,
+            "expected_return": 12.5,
+            "volatility": 1.5,
+            "sharpe": 8.333333333333334,
+            "score": 5.05
+          },
+          {
+            "count": 8,
+            "expected_return": 14.0,
+            "volatility": 2.4,
+            "sharpe": 5.833333333333334,
+            "score": 3.5560000000000005
+          },
+          {
+            "count": 10,
+            "expected_return": 15.0,
+            "volatility": 3.0,
+            "sharpe": 5.0,
+            "score": 3.06
+          },
+          {
+            "count": 15,
+            "expected_return": 17.5,
+            "volatility": 4.5,
+            "sharpe": 3.888888888888889,
+            "score": 2.403333333333333
+          },
+          {
+            "count": 20,
+            "expected_return": 20.0,
+            "volatility": 6.0,
+            "sharpe": 3.3333333333333335,
+            "score": 2.08
+          },
+          {
+            "count": 26,
+            "expected_return": 23.0,
+            "volatility": 7.8,
+            "sharpe": 2.948717948717949,
+            "score": 1.8612307692307695
+          }
+        ]
+      },
+      "test_result": {
+        "annual_return": 0.11314781659366009,
+        "max_drawdown": -0.12222291958760792,
+        "sharpe_ratio": 0.9257495809741076,
+        "total_return": 0.11314781659366009
+      },
+      "stability": {
+        "return_decay": 0.011852183406339908,
+        "decay_pct": 9.481746725071927,
+        "robust": true
+      }
+    },
+    {
+      "period": 2,
+      "train_period": "2024-01~2025-12",
+      "test_period": "2026-Q1",
+      "data_type": "real",
+      "v26_result": {
+        "factor_count": 5,
+        "selected_factors": [
+          "pb",
+          "vol_120",
+          "vol_20",
+          "roe",
+          "ret_60"
+        ],
+        "expected_return": 0.125,
+        "expected_sharpe": 8.333333333333334,
+        "all_tested": [
+          {
+            "count": 5,
+            "expected_return": 12.5,
+            "volatility": 1.5,
+            "sharpe": 8.333333333333334,
+            "score": 5.05
+          },
+          {
+            "count": 8,
+            "expected_return": 14.0,
+            "volatility": 2.4,
+            "sharpe": 5.833333333333334,
+            "score": 3.5560000000000005
+          },
+          {
+            "count": 10,
+            "expected_return": 15.0,
+            "volatility": 3.0,
+            "sharpe": 5.0,
+            "score": 3.06
+          },
+          {
+            "count": 15,
+            "expected_return": 17.5,
+            "volatility": 4.5,
+            "sharpe": 3.888888888888889,
+            "score": 2.403333333333333
+          },
+          {
+            "count": 20,
+            "expected_return": 20.0,
+            "volatility": 6.0,
+            "sharpe": 3.3333333333333335,
+            "score": 2.08
+          },
+          {
+            "count": 26,
+            "expected_return": 23.0,
+            "volatility": 7.8,
+            "sharpe": 2.948717948717949,
+            "score": 1.8612307692307695
+          }
+        ]
+      },
+      "test_result": {
+        "annual_return": 0.02,
+        "max_drawdown": -0.1,
+        "sharpe_ratio": 0.19999999999999998,
+        "total_return": 0.02
+      },
+      "stability": {
+        "return_decay": 0.105,
+        "decay_pct": 84.0,
+        "robust": false
+      }
+    }
+  ],
+  "summary": {
+    "oos_cagr": 0.06555655547959227,
+    "robust_ratio": 0.5,
+    "factor_usage": {
+      "pb": 2,
+      "ret_60": 2,
+      "rel_strength": 1,
+      "price_pos_60": 1,
+      "vol_ratio": 1,
+      "vol_120": 1,
+      "vol_20": 1,
+      "roe": 1
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "timestamp": "2026-02-26T11:45:27.063785",
+  "results": [
+    {
+      "period": 1,
+      "type": "historical",
+      "train": [
+        "20180101",
+        "20191231"
+      ],
+      "test": [
+        "20200101",
+        "20201231"
+      ],
+      "factors": [
+        "pe",
+        "pb",
+        "turnover",
+        "momentum"
+      ],
+      "result": {
+        "annual_return": 0.0,
+        "max_drawdown": 0,
+        "total_return": 0.0,
+        "days": 25
+      }
+    },
+    {
+      "period": 2,
+      "type": "historical",
+      "train": [
+        "20190101",
+        "20201231"
+      ],
+      "test": [
+        "20210101",
+        "20211231"
+      ],
+      "factors": [
+        "pe",
+        "pb",
+        "turnover",
+        "momentum"
+      ],
+      "result": {
+        "annual_return": 0.0,
+        "max_drawdown": 0,
+        "total_return": 0.0,
+        "days": 25
+      }
+    },
+    {
+      "period": 3,
+      "type": "transition",
+      "train": [
+        "20200101",
+        "20211231"
+      ],
+      "test": [
+        "20220101",
+        "20221231"
+      ],
+      "factors": [
+        "mixed"
+      ],
+      "result": {
+        "annual_return": 0.0,
+        "max_drawdown": 0,
+        "total_return": 0.0,
+        "days": 25
+      }
+    },
+    {
+      "period": 4,
+      "type": "modern",
+      "train": [
+        "20250101",
+        "20251231"
+      ],
+      "test": [
+        "20260101",
+        "20260213"
+      ],
+      "factors": [
+        "ret_20",
+        "vol_20",
+        "sharpe_like",
+        "roe"
+      ],
+      "result": {
+        "annual_return": 0.0,
+        "max_drawdown": 0,
+        "total_return": 0.0,
+        "days": 3
+      }
+    }
+  ],
+  "summary": {
+    "cagr": 0.0,
+    "total_return": 0.0
+  }
+}

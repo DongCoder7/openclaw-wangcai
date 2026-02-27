@@ -1,0 +1,70 @@
+{
+  "period": 6,
+  "window": {
+    "period": 6,
+    "train_start": "20230101",
+    "train_end": "20241231",
+    "test_start": "20250101",
+    "test_end": "20251231"
+  },
+  "train": {
+    "params": {
+      "position_pct": 0.7,
+      "stop_loss": 0.05,
+      "max_holding": 14,
+      "rebalance_days": 5,
+      "selected_factors": [
+        "vol_5",
+        "roe",
+        "turnover_60",
+        "price_pos_120",
+        "sharpe_like",
+        "pe_ttm",
+        "gross_margin",
+        "turnover_20",
+        "vol_20",
+        "max_dd_20",
+        "ret_20",
+        "netprofit_growth",
+        "vol_60",
+        "ret_120",
+        "vol_120",
+        "ret_10",
+        "price_pos_5",
+        "pb",
+        "ps_ttm",
+        "price_pos_60"
+      ],
+      "factor_weights_method": "custom"
+    },
+    "result": {
+      "annual_return": 0.20947851396511563,
+      "max_drawdown": -0.1533867652269115,
+      "sharpe_ratio": 1.3965234264341042,
+      "calmar_ratio": 0.0,
+      "win_rate": 0.0,
+      "total_trades": 0,
+      "profit_factor": 0.0,
+      "volatility": 0.0,
+      "equity_curve": []
+    }
+  },
+  "test": {
+    "result": {
+      "annual_return": 0.23480187917314668,
+      "max_drawdown": -0.11029345811853032,
+      "sharpe_ratio": 1.6771562798081905,
+      "calmar_ratio": 0.0,
+      "win_rate": 0.0,
+      "total_trades": 0,
+      "profit_factor": 0.0,
+      "volatility": 0.0,
+      "equity_curve": []
+    }
+  },
+  "stability": {
+    "return_decay": -0.02532336520803105,
+    "drawdown_worsening": 0.043093307108381176,
+    "robust": true
+  }
+}

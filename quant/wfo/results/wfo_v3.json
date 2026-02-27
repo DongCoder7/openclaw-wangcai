@@ -1,0 +1,17 @@
+{
+  "results": [
+    {
+      "period": 1,
+      "result": 0.0
+    },
+    {
+      "period": 2,
+      "result": 0.0
+    },
+    {
+      "period": 3,
+      "result": -0.1394
+    }
+  ],
+  "cagr": -0.048810354631042996
+}

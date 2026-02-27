@@ -472,14 +472,7 @@ def main():
     
     print(f"🕐 整点汇报 - {now.hour}:00")
     
-    # 生成并发送WFO详细报告（整点发送）
-    print("📊 生成WFO报告...")
-    wfo_report = generate_wfo_report()
-    if wfo_report and not wfo_report.startswith("⚠️"):
-        send_message(wfo_report)
-        print("   WFO报告已发送")
-    
-    # 生成并发送策略报告（新格式）
+    # 生成并发送策略报告（使用正确的WFO v5路径）
     print("📊 生成策略效果报告...")
     report = generate_strategy_report()
     print(report)

@@ -1,0 +1,44 @@
+{
+  "timestamp": "20260226_221340",
+  "version": "v5_advanced",
+  "best_params": {
+    "ret_20_w": 1.2,
+    "ret_60_w": 0.5,
+    "vol_20_w": -1.0,
+    "sharpe_w": 1.0,
+    "low_vol_w": 0.7,
+    "mom_accel_w": 0.2,
+    "bull_ret_threshold": 0.025,
+    "bull_up_ratio": 0.6,
+    "bear_ret_threshold": -0.05,
+    "bear_down_ratio": 0.25,
+    "volatile_vol_threshold": 0.07,
+    "bull_position": 0.85,
+    "bear_position": 0.2,
+    "volatile_position": 0.5,
+    "neutral_position": 0.6,
+    "stop_loss": -0.06,
+    "max_holding_days": 10,
+    "rebalance_days": 10
+  },
+  "best_score": 1.7758692618998424,
+  "result": {
+    "cagr": 0.07035120146572815,
+    "max_dd": 0.23851835102679278,
+    "win_rate": 0.6666666666666666,
+    "score": 1.7758692618998424,
+    "yearly_returns": [
+      0.083762,
+      0.254495,
+      -0.235614,
+      0.081497,
+      -0.078869,
+      0.452431
+    ]
+  },
+  "summary": {
+    "cagr": "7.04%",
+    "max_drawdown": "23.9%",
+    "win_rate": "67%"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-02-26T11:47:47.625135",
+  "results": [
+    {
+      "period": "2019",
+      "train": "20180101-20181231",
+      "test": "20190101-20191231",
+      "result": {
+        "annual_return": -0.27464832125187666,
+        "total_return": -0.031353,
+        "final_value": 968647.0
+      }
+    },
+    {
+      "period": "2020",
+      "train": "20190101-20191231",
+      "test": "20200101-20201231",
+      "result": {
+        "annual_return": -0.952016432845102,
+        "total_return": -0.260129,
+        "final_value": 739871.0
+      }
+    },
+    {
+      "period": "2021",
+      "train": "20200101-20201231",
+      "test": "20210101-20211231",
+      "result": {
+        "annual_return": -0.7380568778722969,
+        "total_return": -0.124447,
+        "final_value": 875553.0
+      }
+    },
+    {
+      "period": "2022",
+      "train": "20210101-20211231",
+      "test": "20220101-20221231",
+      "result": {
+        "annual_return": 0,
+        "total_return": 0
+      }
+    }
+  ],
+  "summary": {
+    "cagr": -0.10997747961809712
+  }
+}
