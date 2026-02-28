@@ -60,19 +60,22 @@ class DounaiSystem:
     
     def analyze_industry(self, industry: str, 
                         include_zsxq: bool = True,
+                        include_exa: bool = True,
                         include_quotes: bool = True,
                         generate_report: bool = True) -> Dict:
         """产业链深度分析
         
         一键完成:
-        1. 知识星球信息获取
-        2. 相关股票实时行情
-        3. 产业链逻辑分析
-        4. 投资组合建议
+        1. Exa全网新闻搜索（高优先级）
+        2. 知识星球信息获取
+        3. 相关股票实时行情
+        4. 产业链逻辑分析
+        5. 投资组合建议
         
         Args:
             industry: 行业名称 (存储芯片/PCB/半导体)
             include_zsxq: 是否包含知识星球
+            include_exa: 是否包含Exa全网搜索
             include_quotes: 是否包含实时行情
             generate_report: 是否生成报告
             
@@ -85,26 +88,38 @@ class DounaiSystem:
         result = {
             'industry': industry,
             'timestamp': datetime.now().isoformat(),
-            'zsxq_info': None,
+            'exa_news': None,  # Exa全网新闻
+            'zsxq_info': None,  # 知识星球
             'quotes': [],
             'analysis': {},
             'portfolio': [],
             'report': None
         }
         
-        # 1. 获取知识星球信息
+        # 1. Exa全网新闻搜索 (P1高优先级)
+        if include_exa:
+            print("\n🔥 [P1] Exa全网新闻搜索...")
+            try:
+                from skills.industry_chain_analysis.scripts.exa_news_search import search_industry_news
+                exa_news = search_industry_news(industry)
+                result['exa_news'] = exa_news
+                print(f"✅ 获取到 {len(exa_news)} 条全网新闻")
+            except Exception as e:
+                print(f"⚠️ Exa搜索失败: {e}")
+        
+        # 2. 获取知识星球信息 (P2)
         if include_zsxq:
-            print("\n📚 获取知识星球调研信息...")
+            print("\n📚 [P2] 获取知识星球调研信息...")
             try:
                 topics = search_industry_info(industry, count=10)
                 result['zsxq_info'] = topics
-                print(f"✅ 获取到 {len(topics) if topics else 0} 条信息")
+                print(f"✅ 获取到 {len(topics) if topics else 0} 条调研纪要")
             except Exception as e:
                 print(f"⚠️ 知识星球获取失败: {e}")
         
-        # 2. 获取实时行情
+        # 3. 获取实时行情 (P3)
         if include_quotes and self.longbridge:
-            print("\n📊 获取实时行情...")
+            print("\n📊 [P3] 获取实时行情...")
             stocks = self._get_industry_stocks(industry)
             try:
                 quotes = self.longbridge.get_quotes(stocks)
@@ -113,13 +128,15 @@ class DounaiSystem:
             except Exception as e:
                 print(f"⚠️ 行情获取失败: {e}")
         
-        # 3. 生成分析
+        # 4. 生成分析 (P4)
+        print("\n🧠 [P4] 生成产业链分析...")
         result['analysis'] = self._analyze_industry_logic(industry, result['quotes'])
         
-        # 4. 生成组合建议
+        # 5. 生成组合建议 (P5)
+        print("\n🎯 [P5] 生成投资组合建议...")
         result['portfolio'] = self._generate_portfolio(industry, result['quotes'])
         
-        # 5. 生成报告
+        # 6. 生成报告
         if generate_report:
             result['report'] = self._format_report(result)
             print("\n" + result['report'])
@@ -158,6 +175,87 @@ class DounaiSystem:
     def search_zsxq(self, keyword: str, count: int = 10) -> List[Dict]:
         """搜索知识星球"""
         return search_industry_info(keyword, count)
+    
+    def analyze_stock(self, symbol: str, stock_name: str = None) -> Dict:
+        """
+        个股深度分析
+        
+        分析流程:
+        1. Exa全网新闻搜索 (个股最新消息/公告/研报)
+        2. 知识星球调研纪要
+        3. 实时行情数据
+        4. v26因子评分
+        5. 建仓建议
+        
+        Args:
+            symbol: 股票代码 (如: 002371.SZ)
+            stock_name: 股票名称 (如: 北方华创)
+            
+        Returns:
+            Dict: 个股分析报告
+        """
+        print(f"\n🔍 开始分析个股: {symbol} {stock_name or ''}")
+        print("="*80)
+        
+        result = {
+            'symbol': symbol,
+            'stock_name': stock_name,
+            'timestamp': datetime.now().isoformat(),
+            'exa_news': None,
+            'zsxq_info': None,
+            'quote': None,
+            'recommendation': None
+        }
+        
+        # 1. Exa全网新闻搜索 (P1)
+        print("\n🔥 [P1] Exa全网搜索个股新闻...")
+        try:
+            from skills.dounai_investment_system.scripts.stock_news_search import get_stock_news
+            search_name = stock_name or symbol
+            exa_news = get_stock_news(search_name, symbol)
+            result['exa_news'] = exa_news
+            print(f"✅ 获取到 {len(exa_news)} 条个股新闻")
+        except Exception as e:
+            print(f"⚠️ Exa搜索失败: {e}")
+        
+        # 2. 知识星球搜索 (P2)
+        print("\n📚 [P2] 搜索知识星球调研纪要...")
+        try:
+            search_keyword = stock_name or symbol
+            topics = search_industry_info(search_keyword, count=5)
+            result['zsxq_info'] = topics
+            print(f"✅ 获取到 {len(topics) if topics else 0} 条调研信息")
+        except Exception as e:
+            print(f"⚠️ 知识星球搜索失败: {e}")
+        
+        # 3. 实时行情 (P3)
+        print("\n📊 [P3] 获取实时行情...")
+        if self.longbridge:
+            try:
+                quotes = self.longbridge.get_quotes([symbol])
+                if quotes:
+                    result['quote'] = quotes[0]
+                    print(f"✅ 当前价格: {quotes[0]['price']:.2f} ({quotes[0]['change']:+.2f}%)")
+            except Exception as e:
+                print(f"⚠️ 行情获取失败: {e}")
+        
+        # 4. 生成建议 (P4)
+        print("\n🎯 [P4] 生成建仓建议...")
+        quote = result.get('quote')
+        if quote:
+            change = quote.get('change', 0)
+            if change > 8:
+                rec = {'action': '等回调', 'position': '5%', 'reason': '涨幅过大，等待回调'}
+            elif change > 3:
+                rec = {'action': '分批建仓', 'position': '8%', 'reason': '温和上涨，可分批介入'}
+            elif change > -3:
+                rec = {'action': '立即建仓', 'position': '10%', 'reason': '价格合理，适合建仓'}
+            else:
+                rec = {'action': '抄底买入', 'position': '12%', 'reason': '回调较深，可以抄底'}
+            result['recommendation'] = rec
+            print(f"✅ 建议: {rec['action']} {rec['position']} - {rec['reason']}")
+        
+        return result
     
     def fetch_zsxq(self) -> str:
         """获取最新知识星球内容"""
@@ -357,8 +455,30 @@ class DounaiSystem:
             "",
             f"生成时间: {result['timestamp']}",
             "",
-            "【核心逻辑】",
+            "【🔥 Exa全网最新动态】",
         ]
+        
+        # Exa新闻
+        exa_news = result.get('exa_news', [])
+        if exa_news:
+            for i, news in enumerate(exa_news[:5], 1):
+                title = news.get('title', '')[:60]
+                lines.append(f"{i}. {title}...")
+        else:
+            lines.append("暂无相关新闻")
+        
+        lines.extend(["", "【📚 知识星球调研纪要】"])
+        
+        # 知识星球
+        zsxq_info = result.get('zsxq_info', [])
+        if zsxq_info:
+            for i, topic in enumerate(zsxq_info[:3], 1):
+                title = topic.get('title', '')[:60]
+                lines.append(f"{i}. {title}...")
+        else:
+            lines.append("暂无调研纪要")
+        
+        lines.extend(["", "【核心逻辑】"])
         
         analysis = result.get('analysis', {})
         if analysis:
