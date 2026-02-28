@@ -40,12 +40,38 @@ class MultiSourceNewsSearcher:
         print(f"\n🔍 启动多源新闻搜索: {keyword}")
         print("="*60)
         
-        # P1: Exa全网搜索
+        # 构建完整搜索关键词列表
+        search_keywords = [keyword]
+        
+        # 增加公司事件关键词（重要！避免遗漏收购/并购/公告）
+        if stock_name:
+            event_keywords = [
+                f"{stock_name} 收购 并购",
+                f"{stock_name} 公告 减持 增持",
+                f"{stock_name} 定增 重组",
+                f"{stock_name} 股权激励 回购",
+                f"{stock_name} 业绩 财报",
+            ]
+            search_keywords.extend(event_keywords)
+            print(f"   扩展关键词: {len(search_keywords)} 组")
+        
+        # P1: Exa全网搜索（所有关键词）
         print("\n🔥 [P1] Exa全网语义搜索...")
-        exa_news = self._search_exa(keyword)
-        self.all_news.extend(exa_news)
-        self.sources_stats['Exa全网'] = len(exa_news)
-        print(f"   ✅ 获取 {len(exa_news)} 条")
+        exa_news = []
+        for kw in search_keywords[:3]:  # 限制前3个关键词避免过多
+            news = self._search_exa(kw, 5)
+            exa_news.extend(news)
+        # 去重
+        seen_titles = set()
+        unique_exa = []
+        for n in exa_news:
+            title = n.get('title', '')[:30]
+            if title not in seen_titles:
+                seen_titles.add(title)
+                unique_exa.append(n)
+        self.all_news.extend(unique_exa)
+        self.sources_stats['Exa全网'] = len(unique_exa)
+        print(f"   ✅ 获取 {len(unique_exa)} 条（去重后）")
         
         # P2: 知识星球调研纪要
         if stock_code or stock_name:
@@ -55,12 +81,23 @@ class MultiSourceNewsSearcher:
             self.sources_stats['知识星球'] = len(zsxq_news)
             print(f"   ✅ 获取 {len(zsxq_news)} 条")
         
-        # P3: 新浪财经
+        # P3: 新浪财经（所有关键词）
         print("\n📰 [P3] 新浪财经...")
-        sina_news = self._search_sina(keyword)
-        self.all_news.extend(sina_news)
-        self.sources_stats['新浪财经'] = len(sina_news)
-        print(f"   ✅ 获取 {len(sina_news)} 条")
+        sina_news = []
+        for kw in search_keywords[:2]:  # 前2个关键词
+            news = self._search_sina(kw)
+            sina_news.extend(news)
+        # 去重
+        seen_titles = set()
+        unique_sina = []
+        for n in sina_news:
+            title = n.get('title', '')[:30]
+            if title not in seen_titles:
+                seen_titles.add(title)
+                unique_sina.append(n)
+        self.all_news.extend(unique_sina)
+        self.sources_stats['新浪财经'] = len(unique_sina)
+        print(f"   ✅ 获取 {len(unique_sina)} 条（去重后）")
         
         # P4: 华尔街见闻
         print("\n📰 [P4] 华尔街见闻...")
@@ -69,7 +106,7 @@ class MultiSourceNewsSearcher:
         self.sources_stats['华尔街见闻'] = len(ws_news)
         print(f"   ✅ 获取 {len(ws_news)} 条")
         
-        # 去重
+        # 最终去重
         print("\n🔄 合并去重...")
         unique_news = self._deduplicate(self.all_news)
         print(f"   去重前: {len(self.all_news)} 条 → 去重后: {len(unique_news)} 条")
