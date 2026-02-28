@@ -19,33 +19,32 @@ class StockAnalyzer:
     """个股深度分析器 - 10环节标准流程"""
     
     def __init__(self):
-        self.tushare_available = self._check_tushare()
-        self.longbridge_available = self._check_longbridge()
+        self.tushare_api = None
+        self.longbridge_api = None
         self.stock_name = ""
         self.stock_code = ""
         self.industry = ""
+        self._init_apis()
         
-    def _check_tushare(self) -> bool:
-        """检查Tushare是否可用"""
+    def _init_apis(self):
+        """初始化所有API"""
+        # 初始化Tushare API（使用新的封装模块，自动加载token）
         try:
-            import tushare as ts
-            token = os.getenv('TUSHARE_TOKEN')
-            if token:
-                ts.set_token(token)
-                self.pro = ts.pro_api()
-                return True
-            return False
-        except:
-            return False
-    
-    def _check_longbridge(self) -> bool:
-        """检查长桥API是否可用"""
+            from tushare_api import get_tushare_api
+            self.tushare_api = get_tushare_api()
+            self.tushare_available = True
+        except Exception as e:
+            print(f"⚠️ Tushare API initialization failed: {e}")
+            self.tushare_available = False
+        
+        # 初始化长桥API
         try:
             from longbridge_api import get_longbridge_api
-            self.lb_api = get_longbridge_api()
-            return True
-        except:
-            return False
+            self.longbridge_api = get_longbridge_api()
+            self.longbridge_available = True
+        except Exception as e:
+            print(f"⚠️ Longbridge API initialization failed: {e}")
+            self.longbridge_available = False
     
     def analyze(self, stock_code: str, stock_name: str = "") -> str:
         """
