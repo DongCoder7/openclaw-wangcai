@@ -176,25 +176,29 @@ class DounaiSystem:
         """搜索知识星球"""
         return search_industry_info(keyword, count)
     
-    def analyze_stock(self, symbol: str, stock_name: str = None) -> Dict:
+    def analyze_stock(self, symbol: str, stock_name: str = None, comprehensive: bool = True) -> str:
         """
-        个股深度分析
-        
-        分析流程:
-        1. Exa全网新闻搜索 (个股最新消息/公告/研报)
-        2. 知识星球调研纪要
-        3. 实时行情数据
-        4. v26因子评分
-        5. 建仓建议
+        个股深度分析 - 10环节标准流程
         
         Args:
             symbol: 股票代码 (如: 002371.SZ)
             stock_name: 股票名称 (如: 北方华创)
+            comprehensive: 是否使用完整10环节分析 (默认True)
             
         Returns:
-            Dict: 个股分析报告
+            str: 完整分析报告 (Markdown格式)
         """
-        print(f"\n🔍 开始分析个股: {symbol} {stock_name or ''}")
+        if comprehensive:
+            # 使用完整的10环节分析器
+            from skills.dounai_investment_system.scripts.comprehensive_stock_analyzer import analyze_stock
+            return analyze_stock(symbol, stock_name or "")
+        else:
+            # 使用简化版（保留旧逻辑用于快速查询）
+            return self._analyze_stock_quick(symbol, stock_name)
+    
+    def _analyze_stock_quick(self, symbol: str, stock_name: str = None) -> Dict:
+        """简化版个股分析（用于快速查询）"""
+        print(f"\n🔍 快速分析个股: {symbol} {stock_name or ''}")
         print("="*80)
         
         result = {
@@ -202,12 +206,11 @@ class DounaiSystem:
             'stock_name': stock_name,
             'timestamp': datetime.now().isoformat(),
             'exa_news': None,
-            'zsxq_info': None,
             'quote': None,
             'recommendation': None
         }
         
-        # 1. Exa全网新闻搜索 (P1)
+        # 1. Exa全网新闻搜索
         print("\n🔥 [P1] Exa全网搜索个股新闻...")
         try:
             from skills.dounai_investment_system.scripts.stock_news_search import get_stock_news
@@ -218,18 +221,8 @@ class DounaiSystem:
         except Exception as e:
             print(f"⚠️ Exa搜索失败: {e}")
         
-        # 2. 知识星球搜索 (P2)
-        print("\n📚 [P2] 搜索知识星球调研纪要...")
-        try:
-            search_keyword = stock_name or symbol
-            topics = search_industry_info(search_keyword, count=5)
-            result['zsxq_info'] = topics
-            print(f"✅ 获取到 {len(topics) if topics else 0} 条调研信息")
-        except Exception as e:
-            print(f"⚠️ 知识星球搜索失败: {e}")
-        
-        # 3. 实时行情 (P3)
-        print("\n📊 [P3] 获取实时行情...")
+        # 2. 实时行情
+        print("\n📊 [P2] 获取实时行情...")
         if self.longbridge:
             try:
                 quotes = self.longbridge.get_quotes([symbol])
@@ -239,8 +232,8 @@ class DounaiSystem:
             except Exception as e:
                 print(f"⚠️ 行情获取失败: {e}")
         
-        # 4. 生成建议 (P4)
-        print("\n🎯 [P4] 生成建仓建议...")
+        # 3. 生成建议
+        print("\n🎯 [P3] 生成建仓建议...")
         quote = result.get('quote')
         if quote:
             change = quote.get('change', 0)
