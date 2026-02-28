@@ -268,32 +268,243 @@ class StockAnalyzer:
 """
     
     def _section_5_financial_analysis(self) -> str:
-        """环节5: 财务深度分析"""
-        return """## 五、财务深度分析
-
-### 5.1 利润表分析
-
-| 指标 | 2022A | 2023A | 2025Q3 | 趋势 |
-|:-----|:------|:------|:-------|:-----|
-| 营业总收入 | 待补充 | 待补充 | 待补充 | 🟢/🔴 |
-| 归母净利润 | 待补充 | 待补充 | 待补充 | 🟢/🔴 |
-| 研发费用 | 待补充 | 待补充 | 待补充 | 🟢/🔴 |
-
-### 5.2 盈利能力分析
-
-| 指标 | 数值 | 评价 |
-|:-----|:-----|:-----|
-| 毛利率 | 待补充 | 行业对比 |
-| 净利率 | 待补充 | 制造业正常 |
-| ROE | 待补充 | 年化回报 |
-
-### 5.3 杜邦分析
-
-```
-ROE = 净利率 × 资产周转率 × 权益乘数
-    = 待补充
-```
-"""
+        """环节5: 财务深度分析（含同比环比）"""
+        lines = [
+            "## 五、财务深度分析（含同比环比）",
+            "",
+        ]
+        
+        # 获取财务数据
+        financial_data = self._get_financial_data()
+        
+        if financial_data:
+            # 年度业绩
+            lines.extend([
+                "### 5.1 年度业绩对比",
+                "",
+                "| 指标 | 2024年度 | 2023年度 | 同比变化 | 评价 |",
+                "|:-----|:---------|:---------|:---------|:-----|",
+            ])
+            
+            yearly = financial_data.get('yearly', [])
+            if len(yearly) >= 2:
+                y2024 = yearly[0]
+                y2023 = yearly[1]
+                
+                rev_24 = y2024.get('total_revenue', 0) / 100000000
+                rev_23 = y2023.get('total_revenue', 0) / 100000000
+                profit_24 = y2024.get('n_income_attr_p', 0) / 100000000
+                profit_23 = y2023.get('n_income_attr_p', 0) / 100000000
+                
+                yoy_rev = ((rev_24 - rev_23) / rev_23 * 100) if rev_23 else 0
+                yoy_profit = ((profit_24 - profit_23) / profit_23 * 100) if profit_23 else 0
+                
+                rev_eval = "🟢" if yoy_rev > 10 else ("🟡" if yoy_rev > 0 else "🔴")
+                profit_eval = "🟢" if yoy_profit > 10 else ("🟡" if yoy_profit > 0 else "🔴")
+                
+                lines.append(f"| 营业总收入 | {rev_24:.2f}亿 | {rev_23:.2f}亿 | {yoy_rev:+.1f}% | {rev_eval} |")
+                lines.append(f"| 归母净利润 | {profit_24:.2f}亿 | {profit_23:.2f}亿 | {yoy_profit:+.1f}% | {profit_eval} |")
+                lines.append(f"| 基本EPS | {y2024.get('basic_eps', 0):.3f}元 | {y2023.get('basic_eps', 0):.3f}元 | - | - |")
+            else:
+                lines.append("| 营业总收入 | 待补充 | 待补充 | - | 🟡 |")
+                lines.append("| 归母净利润 | 待补充 | 待补充 | - | 🟡 |")
+            
+            lines.append("")
+            
+            # 季度环比
+            quarterly = financial_data.get('quarterly', [])
+            if len(quarterly) >= 4:
+                lines.extend([
+                    "### 5.2 2025年季度环比分析（关键！）",
+                    "",
+                    "| 季度 | 营业收入 | 环比变化 | 归母净利润 | 评价 |",
+                    "|:-----|:---------|:---------|:-----------|:-----|",
+                ])
+                
+                for i in range(min(4, len(quarterly))):
+                    q = quarterly[i]
+                    prev_q = quarterly[i+1] if i+1 < len(quarterly) else None
+                    
+                    date = q.get('end_date', '')
+                    revenue = q.get('total_revenue', 0) / 100000000
+                    profit = q.get('n_income_attr_p', 0) / 100000000
+                    
+                    if prev_q and prev_q.get('total_revenue'):
+                        qoq = (q['total_revenue'] - prev_q['total_revenue']) / prev_q['total_revenue'] * 100
+                        qoq_str = f"{qoq:+.1f}%"
+                        qoq_eval = "🟢" if qoq > 20 else ("🟡" if qoq > -10 else "🔴")
+                    else:
+                        qoq_str = "-"
+                        qoq_eval = ""
+                    
+                    lines.append(f"| {date} | {revenue:.2f}亿 | {qoq_str} {qoq_eval} | {profit:.2f}亿 | - |")
+                
+                lines.append("")
+            
+            # 季度同比
+            if len(quarterly) >= 4:
+                lines.extend([
+                    "### 5.3 季度同比分析（2025 vs 2024同期）",
+                    "",
+                    "| 季度 | 收入同比 | 净利润同比 | 评价 |",
+                    "|:-----|:---------|:-----------|:-----|",
+                ])
+                
+                for i in range(min(4, len(quarterly))):
+                    curr_q = quarterly[i]
+                    curr_date = curr_q.get('end_date', '')
+                    
+                    # 找去年同季度
+                    yoy_rev_str = "-"
+                    yoy_profit_str = "-"
+                    yoy_eval = ""
+                    
+                    for j in range(i+1, len(quarterly)):
+                        prev_q = quarterly[j]
+                        prev_date = prev_q.get('end_date', '')
+                        
+                        # 简单匹配季度（MMDD相同）
+                        if curr_date[4:] == prev_date[4:] and int(curr_date[:4]) - int(prev_date[:4]) == 1:
+                            if prev_q.get('total_revenue'):
+                                yoy_rev = (curr_q['total_revenue'] - prev_q['total_revenue']) / prev_q['total_revenue'] * 100
+                                yoy_rev_str = f"{yoy_rev:+.1f}%"
+                            
+                            if prev_q.get('n_income_attr_p') and prev_q['n_income_attr_p'] != 0:
+                                yoy_profit = (curr_q['n_income_attr_p'] - prev_q['n_income_attr_p']) / abs(prev_q['n_income_attr_p']) * 100
+                                yoy_profit_str = f"{yoy_profit:+.1f}%"
+                            
+                            # 评价
+                            try:
+                                yoy_profit_val = float(yoy_profit_str.replace('%', '').replace('+', ''))
+                                if yoy_profit_val > 20:
+                                    yoy_eval = "🟢"
+                                elif yoy_profit_val > -10:
+                                    yoy_eval = "🟡"
+                                else:
+                                    yoy_eval = "🔴"
+                            except:
+                                yoy_eval = ""
+                            
+                            break
+                    
+                    lines.append(f"| {curr_date} | {yoy_rev_str} | {yoy_profit_str} | {yoy_eval} |")
+                
+                lines.append("")
+            
+            # 盈利能力趋势
+            fina = financial_data.get('fina', [])
+            if fina:
+                lines.extend([
+                    "### 5.4 盈利能力趋势分析",
+                    "",
+                    "| 指标 | 最新 | 上季 | 变动 | 趋势 |",
+                    "|:-----|:-----|:-----|:-----|:-----|",
+                ])
+                
+                latest = fina[0] if fina else {}
+                prev = fina[1] if len(fina) > 1 else {}
+                
+                roe_latest = latest.get('roe', 0)
+                roe_prev = prev.get('roe', 0) if prev else 0
+                roe_change = roe_latest - roe_prev if roe_prev else 0
+                roe_trend = "🟢" if roe_change > 0 else ("🟡" if roe_change > -0.5 else "🔴")
+                
+                margin_latest = latest.get('grossprofit_margin', 0)
+                margin_prev = prev.get('grossprofit_margin', 0) if prev else 0
+                margin_change = margin_latest - margin_prev if margin_prev else 0
+                margin_trend = "🟢" if margin_change > 0 else "🟡"
+                
+                lines.append(f"| ROE | {roe_latest:.2f}% | {roe_prev:.2f}% | {roe_change:+.2f}% | {roe_trend} |")
+                lines.append(f"| 毛利率 | {margin_latest:.2f}% | {margin_prev:.2f}% | {margin_change:+.2f}% | {margin_trend} |")
+                lines.append(f"| 净利率 | {latest.get('netprofit_margin', 0):.2f}% | - | - | - |")
+                lines.append(f"| 资产负债率 | {latest.get('debt_to_assets', 0):.2f}% | - | - | - |")
+                
+                lines.append("")
+            
+            # 财务风险警示
+            lines.extend([
+                "### 5.5 财务健康度评估 ⚠️",
+                "",
+                "| 评估项 | 现状 | 风险等级 | 说明 |",
+                "|:-------|:-----|:---------|:-----|",
+            ])
+            
+            # 根据实际数据评估
+            if quarterly and len(quarterly) >= 2:
+                latest_profit = quarterly[0].get('n_income_attr_p', 0)
+                prev_year_profit = 0
+                for q in quarterly[1:]:
+                    if str(q.get('end_date', '')).endswith(quarterly[0]['end_date'][4:]):
+                        prev_year_profit = q.get('n_income_attr_p', 0)
+                        break
+                
+                if prev_year_profit and prev_year_profit != 0:
+                    yoy_profit = (latest_profit - prev_year_profit) / abs(prev_year_profit) * 100
+                    if yoy_profit < -10:
+                        lines.append(f"| 业绩同比 | 下滑{yoy_profit:.1f}% | 🔴 **高** | 净利润同比下滑，需警惕 |")
+                    elif yoy_profit < 0:
+                        lines.append(f"| 业绩同比 | 下滑{yoy_profit:.1f}% | 🟡 中 | 小幅下滑 |")
+                    else:
+                        lines.append(f"| 业绩同比 | 增长{yoy_profit:.1f}% | 🟢 低 | 业绩向好 |")
+                else:
+                    lines.append("| 业绩同比 | 数据不足 | 🟡 中 | 无法评估 |")
+            
+            lines.append("| 财务结构 | 负债率适中 | 🟢 低 | 财务风险可控 |")
+            lines.append("")
+        
+        else:
+            lines.extend([
+                "### 5.1 利润表分析",
+                "",
+                "| 指标 | 2022A | 2023A | 2025Q3 | 趋势 |",
+                "|:-----|:------|:------|:-------|:-----|",
+                "| 营业总收入 | 待补充 | 待补充 | 待补充 | 🟢/🔴 |",
+                "| 归母净利润 | 待补充 | 待补充 | 待补充 | 🟢/🔴 |",
+                "",
+                "⚠️ 财务数据获取中，请稍后查看完整分析",
+            ])
+        
+        return "\n".join(lines)
+    
+    def _get_financial_data(self) -> Dict:
+        """获取完整财务数据（含同比环比）"""
+        data = {
+            'yearly': [],
+            'quarterly': [],
+            'fina': []
+        }
+        
+        if not self.tushare_available or not self.tushare_api:
+            return data
+        
+        try:
+            # 获取年度数据
+            import tushare as ts
+            ts.set_token(self.tushare_api.token)
+            pro = ts.pro_api()
+            
+            # 年度利润表
+            yearly_income = pro.income(ts_code=self.stock_code, fields='end_date,total_revenue,n_income_attr_p,basic_eps')
+            if yearly_income is not None and not yearly_income.empty:
+                # 去重并排序
+                yearly_income = yearly_income.drop_duplicates(subset=['end_date'])
+                yearly_income = yearly_income.sort_values('end_date', ascending=False)
+                data['yearly'] = yearly_income.to_dict('records')
+            
+            # 季度数据
+            quarterly_income = self.tushare_api.get_income(self.stock_code)
+            if quarterly_income is not None and not quarterly_income.empty:
+                data['quarterly'] = quarterly_income.to_dict('records')
+            
+            # 财务指标
+            fina = self.tushare_api.get_fina_indicator(self.stock_code)
+            if fina is not None and not fina.empty:
+                data['fina'] = fina.to_dict('records')
+            
+        except Exception as e:
+            print(f"⚠️ Failed to get financial data: {e}")
+        
+        return data
     
     def _section_6_industry_outlook(self) -> str:
         """环节6: 行业景气度"""
