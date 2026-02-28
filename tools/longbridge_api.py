@@ -60,9 +60,10 @@ class LongbridgeAPI:
         results = []
         try:
             resp = self.ctx.quote(symbols)
-            for i, q in enumerate(resp):
+            for q in resp:
+                # 直接使用API返回的symbol，确保数据对应正确
                 results.append({
-                    'symbol': symbols[i],
+                    'symbol': str(q.symbol),
                     'price': float(q.last_done),
                     'prev_close': float(q.prev_close),
                     'change': (float(q.last_done) - float(q.prev_close)) / float(q.prev_close) * 100,

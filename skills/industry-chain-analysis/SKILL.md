@@ -10,6 +10,7 @@ description: |
   3. 业绩验证体系（预增数据、产能扩张、订单情况）
   4. v26全因子评分（26个因子综合评估）
   5. Tier分级投资建议（高确定性/高弹性/主题催化）
+  6. Exa全网新闻搜索（行业动态、政策变化、突发事件）
   
   触发条件：用户要求分析产业链、构建投资组合、行业比较、周期性行业投资
 ---
@@ -203,14 +204,37 @@ description: |
 | `scripts/price_cycle_tracker.py` | 价格周期数据追踪 | 行业协会+咨询机构 |
 | `scripts/v26_industry_scorer.py` | 行业v26全因子评分 | 数据库 |
 | `scripts/tier_allocator.py` | Tier分级仓位分配 | 综合评估 |
+| `tools/exa_news_search.py` | Exa全网新闻搜索 | Exa MCP全网语义搜索 |
 
 ## 信息源配置
 
-### 知识星球 - 调研纪要
+### 1. 知识星球 - 调研纪要
 - **配置**: `config/zsxq_source.md`
 - **获取工具**: `tools/zsxq_fetcher.py`
 - **更新频率**: 每2小时自动获取
 - **用途**: 行业深度调研、产业链数据、投资逻辑验证
+
+### 2. Exa全网新闻搜索
+- **配置**: 已集成到mcporter (`~/.mcporter/mcporter.json`)
+- **调用方式**: `mcporter call 'exa.web_search_exa({"query": "行业关键词", "numResults": 10})'`
+- **搜索优先级**: P1（最高优先级）
+- **用途**: 
+  - 行业最新动态
+  - 政策变化追踪
+  - 突发事件监控
+  - 产业链上下游新闻
+
+**行业分析新闻搜索示例**:
+```bash
+# 存储芯片行业新闻
+mcporter call 'exa.web_search_exa({"query": "存储芯片 DRAM NAND 涨价", "numResults": 10})'
+
+# PCB行业新闻
+mcporter call 'exa.web_search_exa({"query": "PCB 覆铜板 涨价 产能", "numResults": 10})'
+
+# 半导体设备新闻
+mcporter call 'exa.web_search_exa({"query": "半导体设备 光刻机 国产替代", "numResults": 10})'
+```
 
 ## 参考案例
 

@@ -21,15 +21,18 @@
 
 ## 定时任务触发点（自然语言）
 
-| 时间 | 任务 | 说明 |
-|------|------|------|
-| 08:30 | 美股隔夜总结 | 执行 `skills/dounai-investment-system` 美股报告模块 |
-| 09:15 | A+H开盘前瞻 | 执行 `skills/dounai-investment-system` A+H开盘模块 |
-| 15:00 | 收盘深度报告 | 生成并发送完整报告 |
-| 每小时 | 数据采集 | 全市场因子采集 |
-| 每2小时 | 知识星球信息 | 获取调研纪要最新内容 |
-| 每15分钟 | 策略自动优化 | 直接执行优化器，更新结果报告 |
-| 整点 | 策略效果汇报 | 汇报最新策略参数和回测表现 |
+| 时间 | 任务 | 执行脚本路径 |
+|------|------|-------------|
+| 08:30 | 美股隔夜总结 | `skills/us-market-analysis/scripts/generate_report_longbridge.py` |
+| 09:15 | A+H开盘前瞻 | `skills/ah-market-preopen/scripts/generate_report_longbridge.py` |
+| 15:00 | 收盘深度报告 | `tools/daily_market_report.py` |
+| 15:30 | 模拟盘交易 | `skills/quant-data-system/scripts/sim_portfolio.py` |
+| 每小时 | 数据采集 | `tools/fetch_all_stocks_factors.py` |
+| 每2小时 | 知识星球信息 | `tools/zsxq_fetcher.py` |
+| 每15分钟 | 策略自动优化 | `tools/heartbeat_wfo_optimizer.py` |
+| 整点 | 策略效果汇报 | `tools/heartbeat_scheduler.py` (自身汇报) |
+| 每周日 | 数据补充 | `skills/quant-data-system/scripts/supplement_data.py` |
+| 每月初 | WFO回测 | `skills/quant-data-system/scripts/wfo_backtest.py` |
 
 ---
 

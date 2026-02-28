@@ -291,10 +291,23 @@ def run_ah_preopen_report():
     try:
         print("🌅 执行A+H开盘前瞻任务...")
         script = f'{WORKSPACE}/skills/ah-market-preopen/scripts/generate_report_longbridge.py'
+        
+        # 加载长桥API环境变量（和美股报告保持一致）
+        env = os.environ.copy()
+        env_file = f'{WORKSPACE}/.longbridge.env'
+        if os.path.exists(env_file):
+            with open(env_file, 'r') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and '=' in line and not line.startswith('#'):
+                        key, value = line.split('=', 1)
+                        env[key] = value
+        
         result = subprocess.run(
             ['python3', script],
             cwd=WORKSPACE,
-            capture_output=True, text=True, timeout=120
+            capture_output=True, text=True, timeout=120,
+            env=env
         )
         if result.returncode == 0:
             return "✅ A+H开盘前瞻已生成并发送"
@@ -459,6 +472,12 @@ def main():
         print("🌅 09:15 执行A+H开盘前瞻...")
         ah_status = run_ah_preopen_report()
         send_message(f"📊 **A+H开盘前瞻执行**: {ah_status}")
+    
+    # 15:30 模拟盘
+    if now.hour == 15 and now.minute == 30:
+        print("💼 15:30 执行模拟盘...")
+        sim_status = run_sim_portfolio()
+        send_message(f"📊 **模拟盘执行**: {sim_status}")
     
     # === 每次Heartbeat都运行WFO优化器（后台） ===
     print("🚀 检查WFO优化器状态...")
