@@ -27,6 +27,7 @@
 | 09:15 | A+H开盘前瞻 | `skills/ah-market-preopen/scripts/generate_report_longbridge.py` |
 | 15:00 | 收盘深度报告 | `tools/daily_market_report.py` |
 | 15:30 | 模拟盘交易 | `skills/quant-data-system/scripts/sim_portfolio.py` |
+| 23:30 | 知识星球日终抓取 | `tools/zsxq_fetcher_prod.py` |
 | 每小时 | 数据采集 | `tools/fetch_all_stocks_factors.py` |
 | 每2小时 | 知识星球信息 | `tools/zsxq_fetcher.py` |
 | 每15分钟 | 策略自动优化 | `tools/heartbeat_wfo_optimizer.py` |

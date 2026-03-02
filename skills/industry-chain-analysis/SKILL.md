@@ -14,6 +14,88 @@ description: |
   
   触发条件：用户要求分析产业链、构建投资组合、行业比较、周期性行业投资、板块深度分析
 
+# ⚠️ 前置检查清单（必须执行！）
+
+## 分析前自检（防止出错）
+
+### 1. 知识星球搜索工具检查
+- [ ] **必须使用** `multi_source_news_v2.py`（优化版）
+- [ ] **必须调用** `search_industry_chain_news()` 函数
+- [ ] **禁止**使用旧版 `zsxq_fetcher.py`
+
+### 2. 产业链搜索代码模板
+```python
+import sys
+sys.path.insert(0, '/root/.openclaw/workspace/skills/dounai-investment-system/scripts')
+
+from multi_source_news_v2 import search_industry_chain_news
+
+# 产业链上下游搜索（必须使用）
+news = search_industry_chain_news(
+    industry="半导体",           # 行业名称
+    upstream="硅片 光刻胶 靶材",  # 上游关键词
+    downstream="芯片设计 封测"     # 下游关键词
+)
+```
+
+### 3. 历史数据调用（景气度分析必备）
+```python
+from pathlib import Path
+import json
+from datetime import datetime, timedelta
+
+def analyze_industry_with_zsxq_history(industry_keywords, days=30):
+    '''使用知识星球历史数据分析行业景气度'''
+    raw_dir = Path('/root/.openclaw/workspace/data/zsxq/raw')
+    
+    all_topics = []
+    for i in range(days):
+        date = (datetime.now() - timedelta(days=i)).strftime("%Y-%m-%d")
+        file_path = raw_dir / f"{date}.json"
+        if file_path.exists():
+            with open(file_path, 'r', encoding='utf-8') as f:
+                all_topics.extend(json.load(f))
+    
+    # 统计行业提及次数
+    mentions = []
+    for topic in all_topics:
+        content = topic.get('content', '') + topic.get('title', '')
+        for kw in industry_keywords:
+            if kw in content:
+                mentions.append(topic)
+                break
+    
+    return {
+        'total_topics': len(all_topics),
+        'industry_mentions': len(mentions),
+        'mention_rate': len(mentions) / len(all_topics) if all_topics else 0,
+        'details': mentions[:10]
+    }
+```
+
+### 4. 多源搜索优先级
+| 优先级 | 搜索方式 | 必须调用 |
+|:---:|:---|:---:|
+| P1 | Exa全网搜索 | ✅ 必须 |
+| **P2** | **知识星球v2.0** | **✅ 必须** |
+| P3 | 新浪财经 | ✅ 必须 |
+| P4 | 华尔街见闻 | 可选 |
+
+### 5. 10环节检查清单
+- [ ] 0️⃣ 板块投资摘要
+- [ ] 1️⃣ 板块基本画像
+- [ ] 2️⃣ 产业链结构拆解
+- [ ] 3️⃣ 价格周期分析
+- [ ] 4️⃣ 业绩验证体系
+- [ ] 5️⃣ v26全因子评分
+- [ ] 6️⃣ 竞争格局分析
+- [ ] 7️⃣ 景气度验证
+- [ ] 8️⃣ 标的筛选与分级
+- [ ] 9️⃣ 风险提示
+- [ ] 🔟 投资组合建议
+
+---
+
 # 产业链深度分析Skill v3.0 - 板块分析10环节SOP
 
 ## 核心方法论：板块分析10环节标准流程
@@ -463,7 +545,7 @@ description: |
 |:---:|:---|:---|:---|:---|
 | **P1** | Exa全网搜索 | AI语义搜索 | `mcporter call exa.web_search_exa()` | 行业最新动态、政策、订单 |
 | **P2** | 新浪财经API | 新浪财经 | `curl https://feed.mix.sina.com.cn/...` | 板块新闻、公司公告 |
-| **P3** | 知识星球 | 调研纪要 | `python3 tools/zsxq_fetcher.py` | 产业链调研、专家观点 |
+| **P3** | **知识星球v2.0** | 调研纪要 | `multi_source_news_v2.py` | 产业链调研、专家观点、供需变化 |
 | **P4** | 华尔街见闻 | 财经媒体 | API调用 | 深度分析、券商观点 |
 | **P5** | 第一财经 | 财经媒体 | API调用 | 政策解读、行业数据 |
 
