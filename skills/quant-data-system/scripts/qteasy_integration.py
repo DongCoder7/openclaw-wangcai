@@ -59,13 +59,12 @@ class QteasyIntegration:
         
         # 内置策略映射
         self.builtin_strategies = {
-            'sma_cross': qt.SMA,           # 双均线策略
-            'ema_cross': qt.EMA,           # 指数均线策略
-            'macd': qt.MACD,               # MACD策略
-            'rsi': qt.RSI,                 # RSI策略
-            'boll': qt.BBAND,              # 布林带策略
-            'momentum': qt.MOMENTUM,       # 动量策略
-            'crossline': qt.CROSSLINE,     # 均线交叉
+            'sma_cross': self.qt.built_in.CROSSLINE,  # 均线交叉策略
+            'macd': self.qt.built_in.MACD,             # MACD策略
+            'rsi': self.qt.built_in.RSI,               # RSI策略
+            'boll': self.qt.built_in.BBand,            # 布林带策略
+            'cci': self.qt.built_in.CCI,               # CCI策略
+            'adx': self.qt.built_in.ADX,               # ADX策略
         }
     
     def _configure_datasource(self):
@@ -250,13 +249,10 @@ class QteasyIntegration:
             return self._execute_simulator(signals)
         else:
             # 实盘执行 (需要配置券商API)
-            # qt.configure(
-                mode='live',
-                broker=broker,
-                **broker_config
-            )
-            # 执行交易
-            return qt.execute_trade(signals)
+            # TODO: 配置实盘交易
+            # qt.configure(mode='live', broker=broker, **broker_config)
+            # return qt.execute_trade(signals)
+            raise NotImplementedError("实盘交易需要配置券商API")
     
     def _execute_simulator(self, signals: pd.DataFrame) -> Dict:
         """模拟盘执行"""
