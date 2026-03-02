@@ -42,11 +42,10 @@ Thumbs.db
 .zsxq.env
 *.env
 
-# 包含token的抓取脚本（生产环境使用）
-tools/zsxq_fetcher.py
-tools/zsxq_fetcher_prod.py
-tools/zsxq_api_fetcher.py
-tools/zsxq_selenium.py
+# 包含敏感信息的配置文件（token存放在这些文件中，不提交）
+.zsxq.env
+*_token*.txt
+secrets/
 
 # 认证配置文件
 *auth*.json
