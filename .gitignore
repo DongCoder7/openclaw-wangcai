@@ -53,3 +53,7 @@ secrets/
 *secret*
 *password*
 *credential*
+
+# 报告输出目录（不提交git，只保留本地）
+/reports/*.md
+/reports/sector_report_*.md
