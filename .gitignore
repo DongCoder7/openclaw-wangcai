@@ -39,5 +39,18 @@ Thumbs.db
 # 敏感配置
 .tushare.env
 .longbridge.env
+.zsxq.env
+*.env
 
-data/
+# 包含token的抓取脚本（生产环境使用）
+tools/zsxq_fetcher.py
+tools/zsxq_fetcher_prod.py
+tools/zsxq_api_fetcher.py
+tools/zsxq_selenium.py
+
+# 认证配置文件
+*auth*.json
+*token*.json
+*secret*
+*password*
+*credential*
