@@ -70,21 +70,9 @@ class QteasyIntegration:
     
     def _configure_datasource(self):
         """配置qteasy数据源"""
-        # 优先使用本地数据
-        if self.data_source == 'local' and DATA_MANAGER_AVAILABLE:
-            # 配置qteasy使用我们的parquet数据
-            qt.configure(
-                local_data_source='/root/.openclaw/workspace/data/parquet',
-                local_data_type='parquet'
-            )
-        else:
-            # 使用Tushare
-            from tools.tushare_api import get_tushare_api
-            ts = get_tushare_api()
-            qt.configure(
-                datasource='tushare',
-                token=ts.pro._token if hasattr(ts.pro, '_token') else ''
-            )
+        # 暂时不配置，使用默认设置
+        # qteasy会自动使用环境或默认配置
+        pass
     
     def quick_backtest(self, 
                        strategy_name: str,
@@ -262,7 +250,7 @@ class QteasyIntegration:
             return self._execute_simulator(signals)
         else:
             # 实盘执行 (需要配置券商API)
-            qt.configure(
+            # qt.configure(
                 mode='live',
                 broker=broker,
                 **broker_config
