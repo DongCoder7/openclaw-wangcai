@@ -14,6 +14,40 @@ description: |
   
   触发条件：用户要求分析产业链、构建投资组合、行业比较、周期性行业投资、板块深度分析
 
+# ⚠️ 运行环境要求
+
+## 使用venv虚拟环境运行
+
+本Skill建议在venv中运行：
+
+```bash
+# 1. 激活虚拟环境
+source /root/.openclaw/workspace/venv_activate.sh
+
+# 2. 运行Python脚本
+python3 your_script.py
+```
+
+## 在Python代码中指定解释器
+
+```python
+#!/root/.openclaw/workspace/venv/bin/python3
+import sys
+sys.path.insert(0, '/root/.openclaw/workspace/skills/industry-chain-analysis/scripts')
+
+# 你的代码...
+```
+
+## 检查Python版本
+
+```bash
+# 确保使用venv中的Python
+which python3
+# 应该输出: /root/.openclaw/workspace/venv/bin/python3
+```
+
+---
+
 # ⚠️ 前置检查清单（必须执行！）
 
 ## 分析前自检（防止出错）

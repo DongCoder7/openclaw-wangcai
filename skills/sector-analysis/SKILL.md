@@ -16,6 +16,45 @@ description: |
   
   触发条件: 用户要求分析板块投资、比较板块、选择标的、生成投资策略
 
+# ⚠️ 运行环境要求
+
+## 使用venv虚拟环境运行
+
+本Skill依赖qteasy库，必须在venv中运行：
+
+```bash
+# 1. 激活虚拟环境
+source /root/.openclaw/workspace/venv_activate.sh
+
+# 2. 运行Python脚本
+python3 your_script.py
+```
+
+## 在Python代码中指定解释器
+
+```python
+#!/root/.openclaw/workspace/venv/bin/python3
+import sys
+sys.path.insert(0, '/root/.openclaw/workspace/skills/sector-analysis/scripts')
+from sector_analyzer import analyze_sector
+
+# 你的代码...
+```
+
+## 检查Python版本
+
+```bash
+# 确保使用venv中的Python
+which python3
+# 应该输出: /root/.openclaw/workspace/venv/bin/python3
+
+# 检查版本
+python3 --version
+# Python 3.12.3
+```
+
+---
+
 # 板块投资分析 Skill v1.0
 
 ## 🎯 核心特点
@@ -48,7 +87,7 @@ print(report)  # 输出完整分析报告
 ```
 
 ### 2. 分析多个板块
-
+n
 ```python
 from skills.sector_analysis.scripts.sector_analyzer import analyze_multiple_sectors
 
