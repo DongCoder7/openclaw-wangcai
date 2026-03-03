@@ -4,23 +4,17 @@
 
 ---
 
-> **核心原则：所有任务由Heartbeat机制控制，不再使用Cron。**
-> 
-> **重要说明：Heartbeat机制由OpenClaw系统自动调用，无需手动启动或保持 `heartbeat_scheduler.py` 运行。**
-
----
-
 ## 机制说明
 
-**Heartbeat执行方式**（由系统自动管理）：
-- OpenClaw系统**每分钟自动调用** `tools/heartbeat_scheduler.py`
-- **无需手动启动**，不需要 `nohup` 或后台运行
-- 系统会自动保持Heartbeat持续执行
+**外层Cron** (每10分钟触发):
+- 任务ID: `heartbeat-scheduler`
+- 执行: `tools/heartbeat_scheduler.py`
+- 方式: AgentTurn (isolated session)
 
-**Heartbeat每分钟执行**：
-1. **定时任务触发** - 在指定时间（精确到分钟）触发任务执行
-2. **任务状态监控** - 检查任务是否完成，发送完成汇报
-3. **整点汇总汇报** - 整点（HH:00）发送所有状态报告
+**Heartbeat内部逻辑**:
+1. **每次执行** (每10分钟) → 生成执行日志 → 保存到 `logs/heartbeat/`
+2. **整点汇报** (HH:00) → 汇总最近6个日志 → 生成综合报告 → 发送并保存
+3. **Git同步** → 每次执行后自动同步变更
 
 ---
 
@@ -40,22 +34,22 @@
 ## 任务执行流程
 
 ```
-Heartbeat (每分钟)
+Cron触发 (每10分钟)
     ↓
-检查当前时间
+执行 heartbeat_scheduler.py
     ↓
-如果是指定时间 → 触发任务 → 即时汇报结果
+生成执行日志 → logs/heartbeat/heartbeat_YYYYMMDD_HHMM.log
     ↓
-如果是整点 → 发送汇总汇报
+如果是整点(HH:00) → 汇总最近6个日志 → 生成综合报告
     ↓
-持续监控WFO优化器
+发送报告 + 保存到 reports/heartbeat_latest.md
+    ↓
+Git同步变更
 ```
 
-**关键改进**：
-- ✅ 任务触发后立即汇报执行结果
-- ✅ 后台任务完成后整点汇报
-- ✅ 所有状态统一由Heartbeat监控
-- ❌ 不再依赖Cron（jobs.json已清空）
+**文件保留策略**:
+- 日志文件: 保留最近 **6个** (约1小时)
+- 整点报告: 只保留最新 **1份** (覆盖旧文件)
 
 ---
 
@@ -64,29 +58,46 @@ Heartbeat (每分钟)
 ```
 📊 **Heartbeat整点汇报** (HH:00)
 
-【定时任务状态】
-- 今日已执行: 美股隔夜总结、A+H开盘前瞻...
-- 下次任务: 15:00 收盘深度报告
-
 【数据回补进度】
-- 2018年: XX/5000只 (XX%)
-- 2019年: XX/5000只 (XX%)
-- 2020年: XX/5000只 (XX%)
-- 2021年: XX/5000只 (XX%)
-- 2022年: XX/5000只 (XX%)
+- 2018年: XX/3354只 (XX%)
+- 2019年: XX/3556只 (XX%)
+- 2020年: XX/3700只 (XX%)
+- 2021年: XX/3900只 (XX%)
+- 2022年: XX/4100只 (XX%)
 - 2023年: ✅ 完成
 - 2024年: ✅ 完成
-- 2025年: 🟢 89.5%
+- 2025年: 🟢 进行中
 
-【当日数据更新】
+【当日数据更新】(16:00后)
 - daily_basic: 20260303, 5485只股票 ✅
+- daily_price: 20260303, 5485只股票 ✅
 - 状态: 当日更新完成
 
 【策略效果】
 - 版本: WFO v5
 - 年化收益: XX%
 - Top3因子: price_pos_high | sharpe_like | vol_20
+
+【最近执行记录】
+- 20260303_2230: 任务执行摘要...
+- 20260303_2220: 任务执行摘要...
+...
 ```
+
+---
+
+## 产出文件路径
+
+| 类型 | 路径 | 保留策略 |
+|:---|:---|:---|
+| 执行日志 | `logs/heartbeat/heartbeat_YYYYMMDD_HHMM.log` | 保留6个 |
+| 整点报告 | `reports/heartbeat_latest.md` | 保留1份 |
+| 美股报告 | `data/us_market_daily_YYYYMMDD.md` | 永久保留 |
+| AH股报告 | `data/ah_market_preopen_YYYYMMDD.md` | 永久保留 |
+| 收盘报告 | `data/daily_report_YYYYMMDD.md` | 永久保留 |
+| 模拟盘数据 | `data/sim_portfolio.json` | 最新1份 |
+| 数据回补日志 | `reports/supplement_batch_v3.log` | 当前任务 |
+| 数据回补状态 | `data/supplement_v3_state.json` | 当前状态 |
 
 ---
 
@@ -94,11 +105,11 @@ Heartbeat (每分钟)
 
 | 文件 | 用途 |
 |:---|:---|
-| `heartbeat_state.json` | Heartbeat执行状态 |
-| `data/supplement_state.json` | 数据回补状态 |
-| `reports/supplement_progress.json` | 数据回补进度报告 |
-| `quant/optimizer/latest_report.txt` | 最新优化结果 |
-| `data/daily_report_YYYYMMDD.md` | 每日收盘报告 |
+| `~/.openclaw/cron/jobs.json` | Cron任务配置 |
+| `data/supplement_v3_state.json` | 数据回补状态 |
+| `logs/heartbeat/heartbeat_*.log` | Heartbeat执行日志 |
+| `reports/heartbeat_latest.md` | 最新整点报告 |
+| `quant/optimizer/wfo_v5_optimized_*.json` | WFO优化结果 |
 
 ---
 
@@ -109,30 +120,53 @@ Heartbeat (每分钟)
   - `check_supplement_progress()` - 数据回补监控
   - `check_daily_data_update()` - 当日数据更新监控
   - `generate_strategy_report()` - 策略效果汇报
-  - `run_task()` - 任务执行封装
-  - `run_optimizer_if_needed()` - WFO优化器监控
+  - `get_recent_logs_summary()` - 汇总最近日志
+  - `cleanup_old_logs()` - 清理旧日志
+  - `git_sync()` - Git同步
 - `tools/daily_market_report.py` - 收盘深度报告
 - `HEARTBEAT.md` - 本配置文件
+
+---
+
+## Git同步要求
+
+**每次Heartbeat执行后必须进行Git同步**:
+1. 检查工作区变更 (`git status --porcelain`)
+2. 添加所有变更 (`git add -A`)
+3. 提交变更 (`git commit -m "HH:MM Heartbeat"`)
+4. 推送到远程 (`git push`)
+
+**同步内容包括**:
+- 数据回补进度
+- Heartbeat日志
+- 整点报告
+- 策略优化结果
 
 ---
 
 ## 手动检查命令
 
 ```bash
+# 检查Cron状态
+openclaw cron status
+
 # 检查数据回补进程
-ps aux | grep supplement_batch_v2
+ps aux | grep supplement_batch
 
 # 查看数据回补进度
-cat reports/supplement_progress.json
+cat data/supplement_v3_state.json | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'已处理: {len(d[\"processed_stocks\"])}只')"
 
 # 数据库统计
 sqlite3 data/historical/historical.db "SELECT substr(period,1,4) as year, COUNT(*) as records, COUNT(DISTINCT ts_code) as stocks FROM fina_tushare GROUP BY year ORDER BY year;"
 
 # 查看最新Heartbeat日志
-tail -f /root/.openclaw/workspace/logs/heartbeat_*.log
+tail -f logs/heartbeat/heartbeat_*.log
+
+# 查看最新整点报告
+cat reports/heartbeat_latest.md
 ```
 
 ---
 
-*版本: v2.0 - 移除Cron，统一Heartbeat控制*
+*版本: v3.0 - 优化日志管理，增加Git同步*
 *更新: 2026-03-03*
