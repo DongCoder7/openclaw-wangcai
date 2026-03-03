@@ -1,0 +1,34 @@
+# 数据回补定时任务配置
+# 添加到crontab: crontab -e
+
+# 每2小时检查数据回补进度并汇报
+0 */2 * * * cd /root/.openclaw/workspace && source venv_activate.sh && python3 -c "
+import json
+import sqlite3
+from datetime import datetime
+
+# 读取进度
+with open('reports/supplement_progress.json') as f:
+    progress = json.load(f)
+
+# 查询数据库
+conn = sqlite3.connect('data/historical/historical.db')
+cursor = conn.cursor()
+
+print('='*60)
+print('📊 数据回补进度报告')
+print('='*60)
+
+for year in ['2018', '2019', '2020', '2021', '2022']:
+    data = progress['years'].get(year, {})
+    print(f'{year}年: {data.get(\"records\", 0)}条 / {data.get(\"stocks\", 0)}只')
+
+print('='*60)
+conn.close()
+" >> logs/supplement_cron.log 2>&1
+
+# 每日凌晨3点自动启动守护进程（如未运行）
+0 3 * * * cd /root/.openclaw/workspace && pgrep -f supplement_daemon.py || (source venv_activate.sh && source .tushare.env && nohup python3 tools/supplement_daemon.py > logs/supplement_daemon.out 2>&1 &)
+
+# 每周日完整数据质量检查
+0 6 * * 0 cd /root/.openclaw/workspace && source venv_activate.sh && python3 tools/data_quality_check.py >> logs/data_quality_weekly.log 2>&1
