@@ -240,6 +240,90 @@ def check_supplement_progress():
         return f"⚠️ 数据回补进度检查失败: {str(e)[:100]}"
 
 
+def check_daily_data_update():
+    """检查当日数据更新状态 - 用于16:00后的数据更新监控"""
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        
+        # 1. 获取最近交易日
+        from datetime import datetime
+        today = datetime.now().strftime('%Y%m%d')
+        
+        # 2. 检查 daily_basic 最新数据
+        cursor.execute("SELECT MAX(trade_date) FROM daily_basic")
+        latest_daily_basic = cursor.fetchone()[0]
+        
+        cursor.execute("SELECT COUNT(*), COUNT(DISTINCT ts_code) FROM daily_basic WHERE trade_date=?", (latest_daily_basic,))
+        daily_basic_count, daily_basic_stocks = cursor.fetchone()
+        
+        # 3. 检查 daily_price 最新数据
+        cursor.execute("SELECT MAX(trade_date) FROM daily_price")
+        latest_daily_price = cursor.fetchone()[0]
+        
+        cursor.execute("SELECT COUNT(*), COUNT(DISTINCT ts_code) FROM daily_price WHERE trade_date=?", (latest_daily_price,))
+        daily_price_count, daily_price_stocks = cursor.fetchone()
+        
+        # 4. 检查技术指标最新数据
+        cursor.execute("SELECT MAX(trade_date) FROM stock_technical_factors")
+        latest_tech = cursor.fetchone()[0]
+        
+        cursor.execute("SELECT COUNT(*), COUNT(DISTINCT ts_code) FROM stock_technical_factors WHERE trade_date=?", (latest_tech,))
+        tech_count, tech_stocks = cursor.fetchone()
+        
+        # 5. 检查数据更新进程状态
+        result = subprocess.run(
+            ['pgrep', '-f', 'update_daily_basic'],
+            capture_output=True, text=True, timeout=5
+        )
+        is_running = result.returncode == 0 and result.stdout.strip()
+        
+        conn.close()
+        
+        # 6. 判断是否完成
+        is_complete = daily_basic_stocks >= 5000  # 假设5000+只股票为完整
+        
+        # 7. 构建汇报
+        lines = []
+        if is_complete and latest_daily_basic == today:
+            lines.append("✅ **当日数据更新完成**")
+        elif is_running:
+            lines.append("🔄 **当日数据更新进行中**")
+        else:
+            lines.append("⏸️ **当日数据更新待启动**")
+        
+        lines.append("")
+        lines.append(f"【估值数据 (daily_basic)】")
+        lines.append(f"  最新日期: {latest_daily_basic}")
+        lines.append(f"  股票数量: {daily_basic_stocks}只")
+        lines.append(f"  记录数量: {daily_basic_count}条")
+        lines.append(f"  状态: {'✅ 当日完成' if latest_daily_basic == today else '⚠️ 需更新'}")
+        
+        lines.append("")
+        lines.append(f"【行情数据 (daily_price)】")
+        lines.append(f"  最新日期: {latest_daily_price}")
+        lines.append(f"  股票数量: {daily_price_stocks}只")
+        
+        lines.append("")
+        lines.append(f"【技术指标】")
+        lines.append(f"  最新日期: {latest_tech}")
+        lines.append(f"  股票数量: {tech_stocks}只")
+        
+        if is_running:
+            lines.append("")
+            lines.append(f"【进程状态】")
+            lines.append(f"  update_daily_basic: 🟢 运行中")
+        
+        if is_complete and latest_daily_basic == today:
+            lines.append("")
+            lines.append("✅ **当日所有数据已更新完成！**")
+        
+        return "\n".join(lines)
+        
+    except Exception as e:
+        return f"⚠️ 当日数据更新检查失败: {str(e)[:100]}"
+
+
 def generate_strategy_report():
     """生成策略效果报告 - 使用get_latest_strategy()读取正确路径"""
     from datetime import datetime
@@ -626,6 +710,13 @@ def main():
     supplement_report = check_supplement_progress()
     print(supplement_report)
     send_message(supplement_report)
+    
+    # 生成并发送当日数据更新报告（16:00后）
+    if now.hour >= 16:
+        print("📊 检查当日数据更新...")
+        daily_update_report = check_daily_data_update()
+        print(daily_update_report)
+        send_message(daily_update_report)
     
     # 生成并发送策略报告（使用正确的WFO v5路径）
     print("📊 生成策略效果报告...")
