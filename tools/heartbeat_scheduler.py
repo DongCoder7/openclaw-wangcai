@@ -7,13 +7,63 @@ import json
 import os
 import subprocess
 import sqlite3
-from datetime import datetime
+import glob
+from datetime import datetime, timedelta
 import sys
 
 WORKSPACE = '/root/.openclaw/workspace'
 DB_PATH = f'{WORKSPACE}/data/historical/historical.db'
 OPT_PATH = f'{WORKSPACE}/quant/optimizer'
+LOG_DIR = f'{WORKSPACE}/logs/heartbeat'
 USER_ID = 'ou_efbad805767f4572e8f93ebafa8d5402'
+
+# 创建日志目录
+os.makedirs(LOG_DIR, exist_ok=True)
+
+# 生成当前日志文件（带时间戳）
+CURRENT_LOG = f'{LOG_DIR}/heartbeat_{datetime.now().strftime("%Y%m%d_%H%M")}.log'
+
+def log(msg):
+    """记录日志到当前文件和stdout"""
+    timestamp = datetime.now().strftime('%H:%M:%S')
+    line = f"[{timestamp}] {msg}"
+    print(line, flush=True)
+    with open(CURRENT_LOG, 'a') as f:
+        f.write(line + '\n')
+
+def cleanup_old_logs():
+    """清理1小时前的日志，只保留最近6个"""
+    try:
+        # 获取所有日志文件
+        log_files = glob.glob(f'{LOG_DIR}/heartbeat_*.log')
+        log_files.sort(reverse=True)  # 最新的在前
+        
+        # 保留最近6个，删除其余的
+        if len(log_files) > 6:
+            for old_file in log_files[6:]:
+                try:
+                    os.remove(old_file)
+                    log(f"🗑️ 删除旧日志: {os.path.basename(old_file)}")
+                except Exception as e:
+                    log(f"⚠️ 删除日志失败: {e}")
+        
+        log(f"📁 日志管理: 保留最近{min(len(log_files), 6)}个日志文件")
+    except Exception as e:
+        log(f"⚠️ 清理日志失败: {e}")
+
+def get_latest_log_content(lines=50):
+    """获取最近日志文件的内容"""
+    try:
+        log_files = glob.glob(f'{LOG_DIR}/heartbeat_*.log')
+        if not log_files:
+            return "无日志文件"
+        log_files.sort(reverse=True)
+        latest_file = log_files[0]
+        with open(latest_file, 'r') as f:
+            content = f.readlines()
+        return ''.join(content[-lines:])
+    except Exception as e:
+        return f"读取日志失败: {e}"
 
 def send_message(message):
     """发送消息到Feishu"""
@@ -24,7 +74,7 @@ def send_message(message):
         )
         return result.returncode == 0
     except Exception as e:
-        print(f"发送失败: {e}")
+        log(f"发送失败: {e}")
         return False
 
 def get_latest_strategy():
@@ -667,7 +717,7 @@ def run_optimizer_if_needed():
 
 def main():
     now = datetime.now()
-    print(f"🫘 Heartbeat检查 - {now.strftime('%H:%M:%S')}")
+    log(f"🫘 Heartbeat检查 - {now.strftime('%H:%M:%S')}")
     
     # 08:30 美股报告
     if now.hour == 8 and now.minute == 30:
@@ -801,7 +851,7 @@ def check_and_run_tasks(now):
 def main():
     """主函数 - Heartbeat机制控制所有任务"""
     now = datetime.now()
-    print(f"🫘 Heartbeat检查 - {now.strftime('%H:%M:%S')}")
+    log(f"🫘 Heartbeat检查 - {now.strftime('%H:%M:%S')}")
     
     # === 每分钟检查并执行定时任务 ===
     print("⏰ 检查定时任务...")
@@ -819,10 +869,10 @@ def main():
         print(f"⏱️ 非整点({now.minute}分)，跳过整点汇报")
         return
     
-    print(f"🕐 整点汇报 - {now.hour}:00")
+    log(f"🕐 整点汇报 - {now.hour}:00")
     
     # 生成并发送数据回补进度报告
-    print("📊 检查数据回补进度...")
+    log("📊 检查数据回补进度...")
     supplement_report = check_supplement_progress()
     print(supplement_report)
     send_message(supplement_report)
@@ -835,7 +885,7 @@ def main():
         send_message(daily_update_report)
     
     # 生成并发送策略报告
-    print("📊 生成策略效果报告...")
+    log("📊 生成策略效果报告...")
     report = generate_strategy_report()
     print(report)
     send_message(report)
@@ -847,7 +897,10 @@ def main():
         print(git_msg)
         send_message(git_msg)
     
-    print("✅ Heartbeat完成")
+    log("✅ Heartbeat完成")
+    
+    # 清理旧日志
+    cleanup_old_logs()
 
 if __name__ == "__main__":
     main()
