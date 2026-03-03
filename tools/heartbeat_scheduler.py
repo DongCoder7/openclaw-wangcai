@@ -698,9 +698,125 @@ def main():
     wfo_status = run_optimizer_if_needed()  # 改为检查/启动模式，避免重复运行
     print(f"   优化器状态: {wfo_status}")
     
-    # 非整点跳过所有汇报
+def run_task(task_name, script_path, timeout=300):
+    """运行指定任务脚本"""
+    try:
+        result = subprocess.run(
+            ['python3', script_path],
+            capture_output=True, text=True, timeout=timeout,
+            cwd='/root/.openclaw/workspace'
+        )
+        success = result.returncode == 0
+        return {
+            'success': success,
+            'stdout': result.stdout[-500:] if result.stdout else '',
+            'stderr': result.stderr[-200:] if result.stderr else ''
+        }
+    except subprocess.TimeoutExpired:
+        return {'success': False, 'stderr': '执行超时'}
+    except Exception as e:
+        return {'success': False, 'stderr': str(e)[:100]}
+
+
+def check_and_run_tasks(now):
+    """检查并执行定时任务 - 所有任务由Heartbeat控制"""
+    tasks_run = []
+    
+    # 08:30 美股隔夜总结
+    if now.hour == 8 and now.minute == 30:
+        print("🌙 08:30 触发美股隔夜总结...")
+        result = run_task(
+            'us-market-overview',
+            'skills/us-market-analysis/scripts/generate_report_longbridge.py',
+            timeout=600
+        )
+        status = "✅ 成功" if result['success'] else f"❌ 失败: {result.get('stderr', '')}"
+        send_message(f"📊 **美股隔夜总结** (08:30)\n{status}")
+        tasks_run.append('us-market-overview')
+    
+    # 09:20 A+H开盘前瞻
+    if now.hour == 9 and now.minute == 20:
+        print("🌅 09:20 触发A+H开盘前瞻...")
+        result = run_task(
+            'ah-market-preopen',
+            'skills/ah-market-preopen/scripts/generate_report_longbridge.py',
+            timeout=600
+        )
+        status = "✅ 成功" if result['success'] else f"❌ 失败: {result.get('stderr', '')}"
+        send_message(f"📊 **A+H开盘前瞻** (09:20)\n{status}")
+        tasks_run.append('ah-market-preopen')
+    
+    # 15:00 收盘深度报告
+    if now.hour == 15 and now.minute == 0:
+        print("📈 15:00 触发收盘深度报告...")
+        result = run_task(
+            'daily-market-report',
+            'tools/daily_market_report.py',
+            timeout=300
+        )
+        status = "✅ 成功" if result['success'] else f"❌ 失败: {result.get('stderr', '')}"
+        send_message(f"📊 **收盘深度报告** (15:00)\n{status}")
+        tasks_run.append('daily-market-report')
+    
+    # 15:30 模拟盘交易
+    if now.hour == 15 and now.minute == 30:
+        print("💼 15:30 触发模拟盘交易...")
+        result = run_task(
+            'sim-portfolio',
+            'skills/quant-data-system/scripts/sim_portfolio.py',
+            timeout=300
+        )
+        status = "✅ 成功" if result['success'] else f"❌ 失败: {result.get('stderr', '')}"
+        send_message(f"📊 **模拟盘交易** (15:30)\n{status}")
+        tasks_run.append('sim-portfolio')
+    
+    # 16:00 当日数据更新
+    if now.hour == 16 and now.minute == 0:
+        print("🔄 16:00 触发当日数据更新...")
+        # 后台启动数据更新
+        subprocess.Popen(
+            ['nohup', 'python3', 'tools/update_daily_basic.py'],
+            stdout=open('/root/.openclaw/workspace/logs/update_daily_basic.log', 'a'),
+            stderr=subprocess.STDOUT,
+            cwd='/root/.openclaw/workspace'
+        )
+        send_message("🔄 **当日数据更新已启动** (16:00)\n后台运行中，完成后将自动汇报...")
+        tasks_run.append('daily-data-update')
+    
+    # 23:30 知识星球日终抓取
+    if now.hour == 23 and now.minute == 30:
+        print("📚 23:30 触发知识星球抓取...")
+        result = run_task(
+            'zsxq-daily-fetch',
+            'tools/zsxq_fetcher_prod.py',
+            timeout=600
+        )
+        status = "✅ 成功" if result['success'] else f"❌ 失败: {result.get('stderr', '')}"
+        send_message(f"📚 **知识星球日终抓取** (23:30)\n{status}")
+        tasks_run.append('zsxq-daily-fetch')
+    
+    return tasks_run
+
+
+def main():
+    """主函数 - Heartbeat机制控制所有任务"""
+    now = datetime.now()
+    print(f"🫘 Heartbeat检查 - {now.strftime('%H:%M:%S')}")
+    
+    # === 每分钟检查并执行定时任务 ===
+    print("⏰ 检查定时任务...")
+    tasks_run = check_and_run_tasks(now)
+    if tasks_run:
+        print(f"   执行任务: {tasks_run}")
+    
+    # === 持续运行WFO优化器 ===
+    print("🚀 检查WFO优化器状态...")
+    wfo_status = run_optimizer_if_needed()
+    print(f"   优化器状态: {wfo_status}")
+    
+    # === 整点汇报（HH:00）===
     if not is_hour_start():
-        print(f"⏱️ 非整点({now.minute}分)，跳过汇报")
+        print(f"⏱️ 非整点({now.minute}分)，跳过整点汇报")
         return
     
     print(f"🕐 整点汇报 - {now.hour}:00")
@@ -718,7 +834,7 @@ def main():
         print(daily_update_report)
         send_message(daily_update_report)
     
-    # 生成并发送策略报告（使用正确的WFO v5路径）
+    # 生成并发送策略报告
     print("📊 生成策略效果报告...")
     report = generate_strategy_report()
     print(report)

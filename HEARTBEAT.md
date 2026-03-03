@@ -1,77 +1,127 @@
-# HEARTBEAT.md - 豆奶投资策略系统心跳任务
+# HEARTBEAT.md - 心跳机制任务调度
 
-## 每次Heartbeat必须执行的三件事
-
-### 1. 整点状态汇报
-- **只在整点(0分)执行**
-- 汇报任务状态、数据库股票数(分年度)、策略状态(文件后半部分有参考样式)
-- 自动修复问题
-
-### 2. 模拟盘跟踪
-- 检查持仓状态
-- 生成交易信号
-- 汇报持仓变化
-
-### 3. Git同步
-- 同步新增的数据文件
-- 同步报告文件
-- 同步配置文件
+> **核心原则：所有任务由Heartbeat机制控制，不再使用Cron。**
 
 ---
 
-## 定时任务触发点（自然语言）
+## 机制说明
 
-| 时间 | 任务 | 执行脚本路径 |
-|------|------|-------------|
-## 核心定时任务
+Heartbeat每分钟执行一次，完成以下工作：
+1. **定时任务触发** - 在指定时间（精确到分钟）触发任务执行
+2. **任务状态监控** - 检查任务是否完成，发送完成汇报
+3. **整点汇总汇报** - 整点（HH:00）发送所有状态报告
 
-| 时间 | 任务 | 执行脚本 |
-|:---:|:---|:---|
-| 08:30 | 美股隔夜总结 | `skills/us-market-analysis/scripts/generate_report_longbridge.py` |
-| 09:20 | A+H开盘前瞻 | `skills/ah-market-preopen/scripts/generate_report_longbridge.py` |
-| 15:00 | 收盘深度报告 | `tools/daily_market_report.py` |
-| 15:30 | 模拟盘交易 | `skills/quant-data-system/scripts/sim_portfolio.py` |
-| 16:00 | 当日数据库补充 | `tools/update_daily_basic.py` + `tools/fetch_all_stocks_factors.py` |
-| 18:00 | 当日数据更新汇报 | 查询并汇报各表最新数据量 |
-| 23:30 | 知识星球日终抓取并总结 | `tools/zsxq_fetcher_prod.py` |
+---
+
+## 定时任务配置
+
+| 时间 | 任务名称 | 执行脚本 | 超时时间 | 汇报方式 |
+|:---:|:---|:---|:---:|:---|
+| 08:30 | 美股隔夜总结 | `skills/us-market-analysis/scripts/generate_report_longbridge.py` | 10分钟 | 即时发送结果 |
+| 09:20 | A+H开盘前瞻 | `skills/ah-market-preopen/scripts/generate_report_longbridge.py` | 10分钟 | 即时发送结果 |
+| 15:00 | 收盘深度报告 | `tools/daily_market_report.py` | 5分钟 | 即时发送结果 |
+| 15:30 | 模拟盘交易 | `skills/quant-data-system/scripts/sim_portfolio.py` | 5分钟 | 即时发送结果 |
+| 16:00 | 当日数据更新 | `tools/update_daily_basic.py` | 后台运行 | 完成后整点汇报 |
+| 23:30 | 知识星球日终抓取 | `tools/zsxq_fetcher_prod.py` | 10分钟 | 即时发送结果 |
+
+---
+
+## 任务执行流程
+
+```
+Heartbeat (每分钟)
+    ↓
+检查当前时间
+    ↓
+如果是指定时间 → 触发任务 → 即时汇报结果
+    ↓
+如果是整点 → 发送汇总汇报
+    ↓
+持续监控WFO优化器
+```
+
+**关键改进**：
+- ✅ 任务触发后立即汇报执行结果
+- ✅ 后台任务完成后整点汇报
+- ✅ 所有状态统一由Heartbeat监控
+- ❌ 不再依赖Cron（jobs.json已清空）
+
+---
+
+## 整点汇报内容（HH:00）
+
+```
+📊 **Heartbeat整点汇报** (HH:00)
+
+【定时任务状态】
+- 今日已执行: 美股隔夜总结、A+H开盘前瞻...
+- 下次任务: 15:00 收盘深度报告
+
+【数据回补进度】
+- 2018年: XX/5000只 (XX%)
+- 2019年: XX/5000只 (XX%)
+- 2020年: XX/5000只 (XX%)
+- 2021年: XX/5000只 (XX%)
+- 2022年: XX/5000只 (XX%)
+- 2023年: ✅ 完成
+- 2024年: ✅ 完成
+- 2025年: 🟢 89.5%
+
+【当日数据更新】
+- daily_basic: 20260303, 5485只股票 ✅
+- 状态: 当日更新完成
+
+【策略效果】
+- 版本: WFO v5
+- 年化收益: XX%
+- Top3因子: price_pos_high | sharpe_like | vol_20
+```
 
 ---
 
 ## 状态追踪文件
 
-- `heartbeat_state.json` - 任务执行状态
-- `quant/optimizer/latest_report.txt` - 最新优化结果
-- `data/daily_report_YYYYMMDD.md` - 每日收盘报告
-- `data/supplement_state.json` - 数据回补状态
-- `reports/supplement_progress.json` - 数据回补进度报告
-
----
-
-## 数据回补监控
-
-### 整点自动汇报
-Heartbeat每小时自动汇报：
-- 数据回补进程状态
-- 各年度数据进度（2018-2025）
-- 入库率统计
-
-### 手动检查命令
-```bash
-# 检查进程
-ps aux | grep supplement_batch_v2
-
-# 查看进度
-cat reports/supplement_progress.json
-
-# 数据库统计
-sqlite3 data/historical/historical.db "SELECT substr(period,1,4) as year, COUNT(*) as records, COUNT(DISTINCT ts_code) as stocks FROM fina_tushare GROUP BY year ORDER BY year;"
-```
+| 文件 | 用途 |
+|:---|:---|
+| `heartbeat_state.json` | Heartbeat执行状态 |
+| `data/supplement_state.json` | 数据回补状态 |
+| `reports/supplement_progress.json` | 数据回补进度报告 |
+| `quant/optimizer/latest_report.txt` | 最新优化结果 |
+| `data/daily_report_YYYYMMDD.md` | 每日收盘报告 |
 
 ---
 
 ## 核心文件
 
-- `tools/heartbeat_scheduler.py` - 心跳任务调度器
+- `tools/heartbeat_scheduler.py` - 心跳调度主程序
+  - `check_and_run_tasks()` - 定时任务触发
+  - `check_supplement_progress()` - 数据回补监控
+  - `check_daily_data_update()` - 当日数据更新监控
+  - `generate_strategy_report()` - 策略效果汇报
+  - `run_task()` - 任务执行封装
+  - `run_optimizer_if_needed()` - WFO优化器监控
 - `tools/daily_market_report.py` - 收盘深度报告
-- `tools/sim_portfolio_tracker.py` - 模拟盘跟踪
-- `~/.openclaw/cron/jobs.json` - Cron任务配置
+- `HEARTBEAT.md` - 本配置文件
+
+---
+
+## 手动检查命令
+
+```bash
+# 检查数据回补进程
+ps aux | grep supplement_batch_v2
+
+# 查看数据回补进度
+cat reports/supplement_progress.json
+
+# 数据库统计
+sqlite3 data/historical/historical.db "SELECT substr(period,1,4) as year, COUNT(*) as records, COUNT(DISTINCT ts_code) as stocks FROM fina_tushare GROUP BY year ORDER BY year;"
+
+# 查看最新Heartbeat日志
+tail -f /root/.openclaw/workspace/logs/heartbeat_*.log
+```
+
+---
+
+*版本: v2.0 - 移除Cron，统一Heartbeat控制*
+*更新: 2026-03-03*
