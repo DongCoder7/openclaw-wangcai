@@ -44,6 +44,72 @@ Heartbeat会记录：
 - `quant/optimizer/latest_report.txt` - 最新优化结果
 - `data/daily_report_YYYYMMDD.md` - 每日收盘报告
 - `quant/optimizer/factor_usage_report.json` - 因子使用情况报告
+- `data/supplement_state.json` - 数据回补状态（新增）
+- `reports/supplement_progress.json` - 数据回补进度报告（新增）
+
+---
+
+## 数据回补监控（新增）
+
+### 守护进程状态检查
+
+每次Heartbeat检查数据回补守护进程：
+
+```bash
+# 检查进程是否运行
+ps aux | grep supplement_daemon.py
+
+# 读取进度报告
+cat reports/supplement_progress.json
+
+# 检查数据库状态
+sqlite3 data/historical/historical.db "SELECT substr(period,1,4) as year, COUNT(*) as records, COUNT(DISTINCT ts_code) as stocks FROM fina_tushare GROUP BY substr(period,1,4) ORDER BY year;"
+```
+
+### 汇报格式
+
+```
+📊 **数据回补进度**
+
+【守护进程状态】
+- 状态: 运行中/未运行
+- PID: XXXX
+- 运行时长: XX小时
+
+【年度数据进度】
+- 2018年: XXXX条 / 5000只 (XX%)
+- 2019年: XXXX条 / 5000只 (XX%)
+- 2020年: XXXX条 / 5000只 (XX%)
+- 2021年: XXXX条 / 5000只 (XX%)
+- 2022年: XXXX条 / 5000只 (XX%)
+
+【本批次进度】
+- 当前年度: 20XX年
+- 已处理: XXX只
+- 本批次入库: XXX条
+- 总入库: XXXXX条
+
+【预计完成时间】
+- 当前年度: XX小时
+- 全部完成: XX小时
+```
+
+### 自动处理
+
+- **进程未运行**: 自动启动 `nohup python3 tools/supplement_daemon.py > logs/supplement_daemon.out 2>&1 &`
+- **进度异常**: 检查入库率，<50%则报警
+- **完成通知**: 全部完成后发送通知
+
+### 启动命令
+
+```bash
+# 后台启动守护进程
+cd /root/.openclaw/workspace
+source venv_activate.sh
+source .tushare.env
+nohup python3 tools/supplement_daemon.py > logs/supplement_daemon.out 2>&1 &
+echo $! > logs/supplement_daemon.pid
+```
 
 ---
 
