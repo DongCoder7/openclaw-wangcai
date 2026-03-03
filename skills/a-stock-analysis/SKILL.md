@@ -1,3 +1,25 @@
+---
+name: a-stock-analysis
+description: |
+  A股个股深度分析Skill v4.0。
+  适用于个股深度研究、10环节SOP分析、投资决策支持。
+  
+  触发条件：用户要求分析个股、深度研究、10环节分析
+---
+
+# ⚠️ 前置检查（强制）
+
+执行本Skill前，必须先：
+
+1. **读取AGENTS.md** — 执行其中的方法论和原则
+2. **概念分类判断** — 区分个股分析 vs 概念分析 vs 产业链分析
+   - 如果是单一股票深度分析 → 继续使用本Skill
+   - 如果是新技术/概念 → 使用 concept-analysis Skill
+   - 如果是产业链/行业 → 使用 industry-chain-analysis Skill
+3. **完成自查清单** — AGENTS.md中的7项检查
+
+---
+
 # A股个股深度分析 Skill v4.0 - 完整SOP
 
 ---
