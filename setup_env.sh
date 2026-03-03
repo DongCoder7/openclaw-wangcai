@@ -20,6 +20,14 @@ if [ -f "$WORKSPACE/.tushare.env" ]; then
     echo "✅ Tushare配置已加载"
 fi
 
+# 加载知识星球配置
+if [ -f "$WORKSPACE/.zsxq.env" ]; then
+    export $(grep -v '^#' $WORKSPACE/.zsxq.env | xargs)
+    echo "✅ 知识星球配置已加载"
+else
+    echo "⚠️ 知识星球配置未找到: $WORKSPACE/.zsxq.env"
+fi
+
 # 设置Python路径
 export PYTHONPATH="$WORKSPACE/tools:$PYTHONPATH"
 

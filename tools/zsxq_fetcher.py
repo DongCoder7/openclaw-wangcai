@@ -27,6 +27,9 @@ if not COOKIES:
     raise ValueError("未找到ZSXQ_COOKIES，请设置环境变量或创建.zsxq.env文件")
 
 BASE_URL = "https://api.zsxq.com/v2"
+
+def get_topics(count=5, keyword=None):
+    """获取文章列表
     
     Args:
         count: 获取文章数量 (注意: API限制，单次最多约15条)
