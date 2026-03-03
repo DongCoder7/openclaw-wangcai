@@ -154,6 +154,92 @@ def get_factor_usage():
     
     return {'tech': sf, 'def': sdf, 'fina': fina, 'total': 26}
 
+def check_supplement_progress():
+    """检查数据回补进度 - 整点汇报"""
+    try:
+        # 1. 检查回补进程状态
+        result = subprocess.run(
+            ['pgrep', '-f', 'supplement_batch_v2|supplement_daemon'],
+            capture_output=True, text=True, timeout=5
+        )
+        is_running = result.returncode == 0 and result.stdout.strip()
+        
+        # 2. 查询数据库获取各年度数据量
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        
+        yearly_data = {}
+        for year in [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]:
+            cursor.execute("""
+                SELECT COUNT(*), COUNT(DISTINCT ts_code) 
+                FROM fina_tushare 
+                WHERE period LIKE ?
+            """, (f'{year}%',))
+            records, stocks = cursor.fetchone()
+            yearly_data[str(year)] = {'records': records, 'stocks': stocks}
+        
+        conn.close()
+        
+        # 3. 计算总体进度
+        total_stocks = sum(d['stocks'] for d in yearly_data.values())
+        total_records = sum(d['records'] for d in yearly_data.values())
+        
+        # 4. 构建汇报消息
+        lines = []
+        lines.append("📊 **数据回补进度**")
+        lines.append("")
+        
+        # 进程状态
+        status_emoji = "🟢" if is_running else "🔴"
+        lines.append(f"【守护进程状态】")
+        lines.append(f"  状态: {status_emoji} {'运行中' if is_running else '已停止'}")
+        if is_running:
+            pid = result.stdout.strip().split('\n')[0]
+            lines.append(f"  PID: {pid}")
+        lines.append("")
+        
+        # 年度进度
+        lines.append("【年度数据进度】")
+        target_stocks = 5000
+        for year in ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025']:
+            data = yearly_data[year]
+            stocks = data['stocks']
+            records = data['records']
+            percent = (stocks / target_stocks) * 100 if target_stocks > 0 else 0
+            
+            # 进度条
+            filled = int(percent / 10)
+            bar = '█' * filled + '░' * (10 - filled)
+            
+            # 状态判断
+            if percent >= 100:
+                status = "✅"
+            elif percent >= 50:
+                status = "🟢"
+            elif percent >= 20:
+                status = "🟡"
+            else:
+                status = "🔴"
+            
+            lines.append(f"  {year}: {bar} {stocks}/{target_stocks} ({percent:.1f}%) {status} | {records}条")
+        
+        lines.append("")
+        lines.append(f"【总体统计】")
+        lines.append(f"  总计股票: {total_stocks}只")
+        lines.append(f"  总计记录: {total_records}条")
+        
+        # 如果进程未运行，添加警告
+        if not is_running:
+            lines.append("")
+            lines.append("⚠️ **警告**: 数据回补进程已停止")
+            lines.append("  建议重启: `python3 tools/supplement_batch_v2.py`")
+        
+        return "\n".join(lines)
+        
+    except Exception as e:
+        return f"⚠️ 数据回补进度检查失败: {str(e)[:100]}"
+
+
 def generate_strategy_report():
     """生成策略效果报告 - 使用get_latest_strategy()读取正确路径"""
     from datetime import datetime
@@ -534,6 +620,12 @@ def main():
         return
     
     print(f"🕐 整点汇报 - {now.hour}:00")
+    
+    # 生成并发送数据回补进度报告
+    print("📊 检查数据回补进度...")
+    supplement_report = check_supplement_progress()
+    print(supplement_report)
+    send_message(supplement_report)
     
     # 生成并发送策略报告（使用正确的WFO v5路径）
     print("📊 生成策略效果报告...")
