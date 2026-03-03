@@ -1,12 +1,19 @@
 # HEARTBEAT.md - 心跳机制任务调度
 
 > **核心原则：所有任务由Heartbeat机制控制，不再使用Cron。**
+> 
+> **重要说明：Heartbeat机制由OpenClaw系统自动调用，无需手动启动或保持 `heartbeat_scheduler.py` 运行。**
 
 ---
 
 ## 机制说明
 
-Heartbeat每分钟执行一次，完成以下工作：
+**Heartbeat执行方式**（由系统自动管理）：
+- OpenClaw系统**每分钟自动调用** `tools/heartbeat_scheduler.py`
+- **无需手动启动**，不需要 `nohup` 或后台运行
+- 系统会自动保持Heartbeat持续执行
+
+**Heartbeat每分钟执行**：
 1. **定时任务触发** - 在指定时间（精确到分钟）触发任务执行
 2. **任务状态监控** - 检查任务是否完成，发送完成汇报
 3. **整点汇总汇报** - 整点（HH:00）发送所有状态报告
