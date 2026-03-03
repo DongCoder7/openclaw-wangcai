@@ -1,5 +1,9 @@
 # HEARTBEAT.md - 心跳机制任务调度
 
+> **前置要求：执行本Skill前，必须先读取 `SOUL.md` 确认身份和行为准则。**
+
+---
+
 > **核心原则：所有任务由Heartbeat机制控制，不再使用Cron。**
 > 
 > **重要说明：Heartbeat机制由OpenClaw系统自动调用，无需手动启动或保持 `heartbeat_scheduler.py` 运行。**
