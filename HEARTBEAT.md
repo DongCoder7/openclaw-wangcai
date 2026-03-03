@@ -32,6 +32,7 @@
 | 15:00 | 收盘深度报告 | `tools/daily_market_report.py` |
 | 15:30 | 模拟盘交易 | `skills/quant-data-system/scripts/sim_portfolio.py` |
 | 16:00 | 当日数据库补充 | `tools/update_daily_basic.py` + `tools/fetch_all_stocks_factors.py` |
+| 18:00 | 当日数据更新汇报 | 查询并汇报各表最新数据量 |
 | 23:30 | 知识星球日终抓取并总结 | `tools/zsxq_fetcher_prod.py` |
 
 ---
