@@ -152,11 +152,16 @@ def supplement_year(pro, year, stocks):
                     total_inserted += 1
                 
                 # 频率控制
-                time.sleep(0.35)
+                time.sleep(0.31)  # 严格频控：200次/分钟
                 
             except Exception as e:
-                log(f"    ⚠️ {ts_code} {period} 错误: {str(e)[:50]}")
-                time.sleep(1)
+                error_msg = str(e)
+                if '最多访问' in error_msg or '200次' in error_msg:
+                    log(f"    ⏸️ 触发限流，等待60秒...")
+                    time.sleep(60)  # 遇到限流等待60秒
+                else:
+                    log(f"    ⚠️ {ts_code} {period} 错误: {error_msg[:50]}")
+                    time.sleep(1)
         
         # 每10只提交一次
         if i % 10 == 0:
