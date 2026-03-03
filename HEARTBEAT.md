@@ -24,7 +24,7 @@
 | 时间 | 任务 | 执行脚本路径 |
 |------|------|-------------|
 | 08:30 | 美股隔夜总结 | `skills/us-market-analysis/scripts/generate_report_longbridge.py` |
-| 09:15 | A+H开盘前瞻 | `skills/ah-market-preopen/scripts/generate_report_longbridge.py` |
+| 09:20 | A+H开盘前瞻 | `skills/ah-market-preopen/scripts/generate_report_longbridge.py` |
 | 15:00 | 收盘深度报告 | `tools/daily_market_report.py` |
 | 15:30 | 模拟盘交易 | `skills/quant-data-system/scripts/sim_portfolio.py` |
 | 23:30 | 知识星球日终抓取 | `tools/zsxq_fetcher_prod.py` |

@@ -287,7 +287,7 @@ def run_us_market_report():
 
 
 def run_ah_preopen_report():
-    """执行A+H开盘前瞻任务 - 09:15"""
+    """执行A+H开盘前瞻任务 - 09:20"""
     try:
         print("🌅 执行A+H开盘前瞻任务...")
         script = f'{WORKSPACE}/skills/ah-market-preopen/scripts/generate_report_longbridge.py'
@@ -315,6 +315,44 @@ def run_ah_preopen_report():
             return f"❌ A+H开盘前瞻失败: {result.stderr[:100]}"
     except Exception as e:
         return f"❌ A+H开盘前瞻异常: {str(e)[:100]}"
+
+
+def run_zsxq_fetcher():
+    """执行知识星球日终抓取任务 - 23:30"""
+    try:
+        print("📚 执行知识星球日终抓取任务...")
+        script = f'{WORKSPACE}/tools/zsxq_fetcher_prod.py'
+        
+        result = subprocess.run(
+            ['python3', script],
+            cwd=WORKSPACE,
+            capture_output=True, text=True, timeout=300
+        )
+        if result.returncode == 0:
+            return "✅ 知识星球日终抓取已完成"
+        else:
+            return f"❌ 知识星球抓取失败: {result.stderr[:100]}"
+    except Exception as e:
+        return f"❌ 知识星球抓取异常: {str(e)[:100]}"
+
+
+def run_sim_portfolio():
+    """执行模拟盘交易任务 - 15:30"""
+    try:
+        print("💼 执行模拟盘交易任务...")
+        script = f'{WORKSPACE}/skills/quant-data-system/scripts/sim_portfolio.py'
+        
+        result = subprocess.run(
+            ['python3', script],
+            cwd=WORKSPACE,
+            capture_output=True, text=True, timeout=120
+        )
+        if result.returncode == 0:
+            return "✅ 模拟盘交易已执行"
+        else:
+            return f"❌ 模拟盘交易失败: {result.stderr[:100]}"
+    except Exception as e:
+        return f"❌ 模拟盘交易异常: {str(e)[:100]}"
 
 
 def run_wfo_optimizer():
@@ -467,11 +505,17 @@ def main():
         us_status = run_us_market_report()
         send_message(f"📊 **美股报告执行**: {us_status}")
     
-    # 09:15 A+H开盘前瞻
-    if now.hour == 9 and now.minute == 15:
-        print("🌅 09:15 执行A+H开盘前瞻...")
+    # 09:20 A+H开盘前瞻
+    if now.hour == 9 and now.minute == 20:
+        print("🌅 09:20 执行A+H开盘前瞻...")
         ah_status = run_ah_preopen_report()
         send_message(f"📊 **A+H开盘前瞻执行**: {ah_status}")
+    
+    # 23:30 知识星球日终抓取
+    if now.hour == 23 and now.minute == 30:
+        print("📚 23:30 执行知识星球日终抓取...")
+        zsxq_status = run_zsxq_fetcher()
+        send_message(f"📚 **知识星球日终抓取**: {zsxq_status}")
     
     # 15:30 模拟盘
     if now.hour == 15 and now.minute == 30:
