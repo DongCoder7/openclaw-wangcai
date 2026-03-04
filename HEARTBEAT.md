@@ -23,7 +23,7 @@
 | 时间 | 任务名称 | 执行脚本 | 超时时间 | 汇报方式 |
 |:---:|:---|:---|:---:|:---|
 | 08:30 | 美股隔夜总结 | `skills/us-market-analysis/scripts/generate_report_longbridge.py` | 10分钟 | 即时发送结果 |
-| 09:20 | A+H开盘前瞻 | `skills/ah-market-preopen/scripts/generate_report_longbridge.py` | 10分钟 | 即时发送结果 |
+| 09:30 | A+H开盘前瞻 | `skills/ah-market-preopen/scripts/generate_report_longbridge.py` | 10分钟 | 即时发送结果 |
 | 15:00 | 收盘深度报告 | `tools/daily_market_report.py` | 5分钟 | 即时发送结果 |
 | 15:30 | 模拟盘交易 | `skills/quant-data-system/scripts/sim_portfolio.py` | 5分钟 | 即时发送结果 |
 | 16:00 | 当日数据更新 | `tools/update_daily_basic.py` | 后台运行 | 完成后整点汇报 |
