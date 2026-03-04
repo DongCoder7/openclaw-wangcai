@@ -507,7 +507,7 @@ def run_us_market_report():
 
 
 def run_ah_preopen_report():
-    """执行A+H开盘前瞻任务 - 09:20"""
+    """执行A+H开盘前瞻任务 - 09:30"""
     try:
         print("🌅 执行A+H开盘前瞻任务...")
         script = f'{WORKSPACE}/skills/ah-market-preopen/scripts/generate_report_longbridge.py'
@@ -725,9 +725,9 @@ def main():
         us_status = run_us_market_report()
         send_message(f"📊 **美股报告执行**: {us_status}")
     
-    # 09:20 A+H开盘前瞻
-    if now.hour == 9 and now.minute == 20:
-        print("🌅 09:20 执行A+H开盘前瞻...")
+    # 09:30 A+H开盘前瞻
+    if now.hour == 9 and now.minute == 30:
+        print("🌅 09:30 执行A+H开盘前瞻...")
         ah_status = run_ah_preopen_report()
         send_message(f"📊 **A+H开盘前瞻执行**: {ah_status}")
     
@@ -784,16 +784,16 @@ def check_and_run_tasks(now):
         send_message(f"📊 **美股隔夜总结** (08:30)\n{status}")
         tasks_run.append('us-market-overview')
     
-    # 09:20 A+H开盘前瞻
-    if now.hour == 9 and now.minute == 20:
-        print("🌅 09:20 触发A+H开盘前瞻...")
+    # 09:30 A+H开盘前瞻
+    if now.hour == 9 and now.minute == 30:
+        print("🌅 09:30 触发A+H开盘前瞻...")
         result = run_task(
             'ah-market-preopen',
             'skills/ah-market-preopen/scripts/generate_report_longbridge.py',
             timeout=600
         )
         status = "✅ 成功" if result['success'] else f"❌ 失败: {result.get('stderr', '')}"
-        send_message(f"📊 **A+H开盘前瞻** (09:20)\n{status}")
+        send_message(f"📊 **A+H开盘前瞻** (09:30)\n{status}")
         tasks_run.append('ah-market-preopen')
     
     # 15:00 收盘深度报告

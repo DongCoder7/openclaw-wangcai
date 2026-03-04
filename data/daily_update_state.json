@@ -1,0 +1,366 @@
+{
+  "timestamp": "2026-03-04T11:40:15.252262",
+  "mode": "history",
+  "results": [
+    {
+      "trade_date": "20250303",
+      "price_count": 5381,
+      "basic_count": 5381,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250228",
+      "price_count": 5383,
+      "basic_count": 5383,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250227",
+      "price_count": 5383,
+      "basic_count": 5383,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250226",
+      "price_count": 5385,
+      "basic_count": 5385,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250225",
+      "price_count": 5384,
+      "basic_count": 5384,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250224",
+      "price_count": 5386,
+      "basic_count": 5386,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250221",
+      "price_count": 5389,
+      "basic_count": 5389,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250220",
+      "price_count": 5387,
+      "basic_count": 5387,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250219",
+      "price_count": 5388,
+      "basic_count": 5388,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250218",
+      "price_count": 5388,
+      "basic_count": 5388,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250217",
+      "price_count": 5389,
+      "basic_count": 5389,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250214",
+      "price_count": 5386,
+      "basic_count": 5386,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250213",
+      "price_count": 5387,
+      "basic_count": 5387,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250212",
+      "price_count": 5386,
+      "basic_count": 5386,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250211",
+      "price_count": 5386,
+      "basic_count": 5386,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250210",
+      "price_count": 5387,
+      "basic_count": 5387,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250207",
+      "price_count": 5386,
+      "basic_count": 5386,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250206",
+      "price_count": 5385,
+      "basic_count": 5385,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250205",
+      "price_count": 5384,
+      "basic_count": 5384,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250127",
+      "price_count": 5382,
+      "basic_count": 5382,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250124",
+      "price_count": 5381,
+      "basic_count": 5381,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250123",
+      "price_count": 5384,
+      "basic_count": 5384,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250122",
+      "price_count": 5383,
+      "basic_count": 5383,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250121",
+      "price_count": 5379,
+      "basic_count": 5379,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250120",
+      "price_count": 5377,
+      "basic_count": 5377,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250117",
+      "price_count": 5378,
+      "basic_count": 5378,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250116",
+      "price_count": 5379,
+      "basic_count": 5379,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250115",
+      "price_count": 5379,
+      "basic_count": 5379,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250114",
+      "price_count": 5377,
+      "basic_count": 5377,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250113",
+      "price_count": 5374,
+      "basic_count": 5374,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250110",
+      "price_count": 5375,
+      "basic_count": 5375,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250109",
+      "price_count": 5374,
+      "basic_count": 5374,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250108",
+      "price_count": 5373,
+      "basic_count": 5373,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250107",
+      "price_count": 5373,
+      "basic_count": 5373,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250106",
+      "price_count": 5370,
+      "basic_count": 5370,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250103",
+      "price_count": 5372,
+      "basic_count": 5372,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20250102",
+      "price_count": 5369,
+      "basic_count": 5369,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241231",
+      "price_count": 5370,
+      "basic_count": 5370,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241230",
+      "price_count": 5367,
+      "basic_count": 5367,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241227",
+      "price_count": 5370,
+      "basic_count": 5370,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241226",
+      "price_count": 5372,
+      "basic_count": 5372,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241225",
+      "price_count": 5368,
+      "basic_count": 5368,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241224",
+      "price_count": 5371,
+      "basic_count": 5371,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241223",
+      "price_count": 5371,
+      "basic_count": 5371,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241220",
+      "price_count": 5373,
+      "basic_count": 5373,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241219",
+      "price_count": 5368,
+      "basic_count": 5368,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241218",
+      "price_count": 5369,
+      "basic_count": 5369,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241217",
+      "price_count": 5367,
+      "basic_count": 5367,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241216",
+      "price_count": 5370,
+      "basic_count": 5370,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241213",
+      "price_count": 5366,
+      "basic_count": 5366,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241212",
+      "price_count": 5367,
+      "basic_count": 5367,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241211",
+      "price_count": 5366,
+      "basic_count": 5366,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241210",
+      "price_count": 5365,
+      "basic_count": 5365,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241209",
+      "price_count": 5362,
+      "basic_count": 5362,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241206",
+      "price_count": 5364,
+      "basic_count": 5364,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241205",
+      "price_count": 5366,
+      "basic_count": 5366,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241204",
+      "price_count": 5362,
+      "basic_count": 5362,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241203",
+      "price_count": 5362,
+      "basic_count": 5362,
+      "tech_count": 0
+    },
+    {
+      "trade_date": "20241202",
+      "price_count": 5362,
+      "basic_count": 5362,
+      "tech_count": 0
+    }
+  ],
+  "summary": {
+    "total_price": 317187,
+    "total_basic": 317187,
+    "total_tech": 0,
+    "days": 59
+  }
+}
