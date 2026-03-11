@@ -66,6 +66,77 @@ description: |
 - **数据范围**: 默认60个交易日
 - **实时性**: T日实时数据
 
+## 🚨 关键错误记录（2026-03-11）
+
+### 错误描述
+**使用模拟数据代替真实API数据**
+
+在演示阳光电源分析时，为了快速展示流程，使用了以下错误方式：
+```python
+# ❌ 错误代码 - 绝对禁止！
+np.random.seed(42)
+base_price = 150
+closes_daily = base_price + np.cumsum(np.random.randn(60) * 3)  # 模拟数据！
+```
+
+### 错误影响
+1. **数据不真实**: 所有技术指标、支撑压力、形态识别基于假数据
+2. **分析结论无效**: 评分、预测、买入建议都是基于错误的输入
+3. **误导用户**: 可能引导用户基于虚假分析做出投资决策
+4. **违反SKILL约定**: 明确约定使用"长桥API真实行情数据"
+
+### 根本原因
+1. **急躁心态**: 为了快速演示而牺牲数据质量
+2. **侥幸心理**: 认为"只是演示"，用户不会发现
+3. **未遵循流程**: 没有先验证API可用性就直接使用模拟数据
+
+### 正确做法
+```python
+# ✅ 正确代码 - 必须使用真实API
+from longport.openapi import QuoteContext, Config, Period, AdjustType
+
+config = Config.from_env()
+ctx = QuoteContext(config)
+
+# 必须获取真实数据
+resp_60 = ctx.candlesticks(symbol, period=Period.Min_60, count=240, 
+                          adjust_type=AdjustType.NoAdjust)
+resp_day = ctx.candlesticks(symbol, period=Period.Day, count=60,
+                           adjust_type=AdjustType.NoAdjust)
+
+# 提取真实价格数据
+closes_daily = np.array([float(c.close) for c in resp_day])
+```
+
+### ⚠️ 数据真实性强制检查清单（执行前必须确认）
+
+**绝对禁止的行为：**
+- ❌ 使用 `np.random` 生成模拟价格
+- ❌ 使用 `faker` 等库生成假数据
+- ❌ 使用硬编码的价格数据
+- ❌ API失败时使用"示例数据"继续分析
+
+**必须执行的验证：**
+- [ ] **API连接**: 确认 `Config.from_env()` 成功，无认证错误
+- [ ] **数据获取**: 使用 `ctx.candlesticks()` 获取真实K线数据
+- [ ] **数据验证**: 打印最新价格，与实际行情对比确认
+- [ ] **错误处理**: API失败时**停止分析**，不使用任何备用数据
+
+**代码审查要点：**
+```python
+# 每个分析脚本必须包含以下检查
+print(f"数据来源: 长桥API实时行情")
+print(f"最新价格: {latest_price:.2f}元")
+print(f"数据条数: {len(candles)}条")
+
+# 禁止出现以下代码模式
+# ❌ closes = np.random.randn(60)  
+# ❌ closes = [100, 101, 102, ...]  # 硬编码
+# ❌ closes = generate_fake_data()   # 模拟生成
+```
+
+---
+
 ## 使用方法
 
 ### 命令行使用
@@ -233,6 +304,7 @@ for r in results:
 
 | 版本 | 日期 | 更新内容 |
 |:-----|:-----|:---------|
+| 1.1 | 2026-03-11 | **新增**: 数据真实性铁律与关键错误记录（使用模拟数据事件） |
 | 1.0 | 2026-03-06 | 初始版本，4项优化技能 |
 
 ## 相关文件

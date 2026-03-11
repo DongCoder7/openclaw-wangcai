@@ -1,0 +1,124 @@
+[
+  {
+    "symbol": "600938.SH",
+    "price": 41.76,
+    "support": 37.99,
+    "resistance": 44.54,
+    "touch_count": 5,
+    "bounce_rate": 0.4,
+    "patterns": [
+      "W底"
+    ],
+    "poc": 41.406875,
+    "score": 2.5,
+    "factors": [
+      "日线上涨(+1)",
+      "有支撑(+0.5)",
+      "W底(+1)"
+    ],
+    "outlook": "强烈看涨",
+    "expected_return": "+15~25%"
+  },
+  {
+    "symbol": "300308.SZ",
+    "price": 554.68,
+    "support": 507.0,
+    "resistance": 599.0,
+    "touch_count": 3,
+    "bounce_rate": 0.0,
+    "patterns": [],
+    "poc": 611.0393750000001,
+    "score": 1.5,
+    "factors": [
+      "日线上涨(+1)",
+      "有支撑(+0.5)"
+    ],
+    "outlook": "看涨",
+    "expected_return": "+5~15%"
+  },
+  {
+    "symbol": "600011.SH",
+    "price": 7.71,
+    "support": 7.2,
+    "resistance": 7.72,
+    "touch_count": 20,
+    "bounce_rate": 0.45,
+    "patterns": [
+      "W底"
+    ],
+    "poc": 7.376250000000001,
+    "score": 1.5,
+    "factors": [
+      "日线上涨(+1)",
+      "RSI超买(-0.5)",
+      "有支撑(+0.5)",
+      "W底(+1)",
+      "高位(-0.5)"
+    ],
+    "outlook": "看涨",
+    "expected_return": "+5~15%"
+  },
+  {
+    "symbol": "601985.SH",
+    "price": 9.06,
+    "support": 8.48,
+    "resistance": 9.07,
+    "touch_count": 28,
+    "bounce_rate": 0.32142857142857145,
+    "patterns": [
+      "W底",
+      "M顶"
+    ],
+    "poc": 8.970624999999998,
+    "score": 0.5,
+    "factors": [
+      "日线上涨(+1)",
+      "RSI超买(-0.5)",
+      "有支撑(+0.5)",
+      "W底(+1)",
+      "M顶(-1)",
+      "高位(-0.5)"
+    ],
+    "outlook": "震荡",
+    "expected_return": "-5~5%"
+  },
+  {
+    "symbol": "600900.SH",
+    "price": 27.3,
+    "support": 26.12,
+    "resistance": 27.62,
+    "touch_count": 27,
+    "bounce_rate": 0.48148148148148145,
+    "patterns": [
+      "M顶"
+    ],
+    "poc": 26.108125,
+    "score": 0.0,
+    "factors": [
+      "日线上涨(+1)",
+      "有支撑(+0.5)",
+      "M顶(-1)",
+      "高位(-0.5)"
+    ],
+    "outlook": "震荡",
+    "expected_return": "-5~5%"
+  },
+  {
+    "symbol": "688981.SH",
+    "price": 107.1,
+    "support": 101.68,
+    "resistance": 114.73,
+    "touch_count": 3,
+    "bounce_rate": 0.0,
+    "patterns": [],
+    "poc": 124.264375,
+    "score": 0.0,
+    "factors": [
+      "日线下跌(-1)",
+      "RSI超卖(+0.5)",
+      "有支撑(+0.5)"
+    ],
+    "outlook": "震荡",
+    "expected_return": "-5~5%"
+  }
+]

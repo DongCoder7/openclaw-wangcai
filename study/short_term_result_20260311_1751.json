@@ -1,0 +1,20 @@
+[
+  {
+    "symbol": "300274.SZ",
+    "price": 170.92,
+    "support": 142.08,
+    "resistance": 175.65,
+    "touch_count": 6,
+    "bounce_rate": 0.6666666666666666,
+    "patterns": [],
+    "poc": 149.485,
+    "score": 1.5,
+    "factors": [
+      "日线上涨(+1)",
+      "强支撑(+1)",
+      "高位(-0.5)"
+    ],
+    "outlook": "看涨",
+    "expected_return": "+5~15%"
+  }
+]

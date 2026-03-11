@@ -28,8 +28,8 @@ MAX_MSG_LENGTH = 3500
 
 GROUP_CONFIG = {
     "group1": {"id": "51122188845424", "name": "调研纪要"},
-    "group2": {"id": "51111818455824", "name": "投资交流"},
-    "group3": {"id": "88512145458842", "name": "行业研究"},
+    "group2": {"id": "51111818455824", "name": "测会员海森堡"},
+    "group3": {"id": "88512145458842", "name": "truth and justice"},
 }
 
 DATA_DIR = Path("/root/.openclaw/workspace/data/zsxq/raw")
@@ -63,15 +63,23 @@ def save_sent_ids(group_id: str, sent_ids: set):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
-def send_feishu_message(message: str, user_id: str = None) -> bool:
+def send_feishu_message(message: str, target_id: str = None) -> bool:
     """通过OpenClaw CLI发送Feishu消息"""
-    if not user_id:
-        user_id = TARGET_USER_ID
+    if not target_id:
+        target_id = TARGET_USER_ID
+    
+    # 判断是发送到user还是chat
+    if target_id.startswith("chat:"):
+        target = target_id  # 已经是 chat:xxx 格式
+    elif target_id.startswith("user:"):
+        target = target_id  # 已经是 user:xxx 格式
+    else:
+        target = f"user:{target_id}"  # 默认是user_id
     
     cmd = [
         "openclaw", "message", "send",
         "--channel", "feishu",
-        "--target", f"user:{user_id}",
+        "--target", target,
         "--message", message
     ]
     

@@ -1,0 +1,383 @@
+[
+  {
+    "symbol": "300308.SZ",
+    "price": 554.68,
+    "support": 507.0,
+    "resistance": 599.0,
+    "touch_count": 3,
+    "bounce_rate": 0.0,
+    "patterns": [],
+    "poc": 611.0393750000001,
+    "score": 1.5,
+    "factors": [
+      "日线上涨(+1)",
+      "有支撑(+0.5)"
+    ],
+    "outlook": "看涨",
+    "expected_return": "+5~15%"
+  },
+  {
+    "symbol": "300394.SZ",
+    "price": 331.0,
+    "support": 292.03,
+    "resistance": 388.88,
+    "touch_count": 3,
+    "bounce_rate": 0.3333333333333333,
+    "patterns": [],
+    "poc": 195.305,
+    "score": 1.5,
+    "factors": [
+      "日线上涨(+1)",
+      "有支撑(+0.5)"
+    ],
+    "outlook": "看涨",
+    "expected_return": "+5~15%"
+  },
+  {
+    "symbol": "600438.SH",
+    "price": 18.62,
+    "support": 18.16,
+    "resistance": 19.14,
+    "touch_count": 56,
+    "bounce_rate": 0.07142857142857142,
+    "patterns": [],
+    "poc": 18.633125,
+    "score": 1.5,
+    "factors": [
+      "日线上涨(+1)",
+      "有支撑(+0.5)"
+    ],
+    "outlook": "看涨",
+    "expected_return": "+5~15%"
+  },
+  {
+    "symbol": "300274.SZ",
+    "price": 170.92,
+    "support": 142.08,
+    "resistance": 175.65,
+    "touch_count": 6,
+    "bounce_rate": 0.6666666666666666,
+    "patterns": [],
+    "poc": 149.485,
+    "score": 1.5,
+    "factors": [
+      "日线上涨(+1)",
+      "强支撑(+1)",
+      "高位(-0.5)"
+    ],
+    "outlook": "看涨",
+    "expected_return": "+5~15%"
+  },
+  {
+    "symbol": "600011.SH",
+    "price": 7.71,
+    "support": 7.2,
+    "resistance": 7.72,
+    "touch_count": 20,
+    "bounce_rate": 0.45,
+    "patterns": [
+      "W底"
+    ],
+    "poc": 7.376250000000001,
+    "score": 1.5,
+    "factors": [
+      "日线上涨(+1)",
+      "RSI超买(-0.5)",
+      "有支撑(+0.5)",
+      "W底(+1)",
+      "高位(-0.5)"
+    ],
+    "outlook": "看涨",
+    "expected_return": "+5~15%"
+  },
+  {
+    "symbol": "300750.SZ",
+    "price": 396.8,
+    "support": 334.22,
+    "resistance": 403.27,
+    "touch_count": 10,
+    "bounce_rate": 0.3,
+    "patterns": [],
+    "poc": 346.18375000000003,
+    "score": 1.0,
+    "factors": [
+      "日线上涨(+1)",
+      "有支撑(+0.5)",
+      "高位(-0.5)"
+    ],
+    "outlook": "看涨",
+    "expected_return": "+5~15%"
+  },
+  {
+    "symbol": "601012.SH",
+    "price": 18.79,
+    "support": 17.6,
+    "resistance": 18.94,
+    "touch_count": 16,
+    "bounce_rate": 0.3125,
+    "patterns": [
+      "W底",
+      "W底",
+      "M顶"
+    ],
+    "poc": 18.746875,
+    "score": 1.0,
+    "factors": [
+      "日线上涨(+1)",
+      "有支撑(+0.5)",
+      "W底(+1)",
+      "M顶(-1)",
+      "高位(-0.5)"
+    ],
+    "outlook": "看涨",
+    "expected_return": "+5~15%"
+  },
+  {
+    "symbol": "600886.SH",
+    "price": 14.65,
+    "support": 13.11,
+    "resistance": 14.67,
+    "touch_count": 23,
+    "bounce_rate": 0.6086956521739131,
+    "patterns": [
+      "W底",
+      "W底",
+      "M顶",
+      "M顶"
+    ],
+    "poc": 13.0775,
+    "score": 1.0,
+    "factors": [
+      "日线上涨(+1)",
+      "RSI超买(-0.5)",
+      "强支撑(+1)",
+      "W底(+1)",
+      "M顶(-1)",
+      "高位(-0.5)"
+    ],
+    "outlook": "看涨",
+    "expected_return": "+5~15%"
+  },
+  {
+    "symbol": "688012.SH",
+    "price": 320.3,
+    "support": 315.04,
+    "resistance": 366.6,
+    "touch_count": 7,
+    "bounce_rate": 0.2857142857142857,
+    "patterns": [
+      "W底"
+    ],
+    "poc": 358.1625,
+    "score": 1.0,
+    "factors": [
+      "日线下跌(-1)",
+      "有支撑(+0.5)",
+      "W底(+1)",
+      "低位(+0.5)"
+    ],
+    "outlook": "看涨",
+    "expected_return": "+5~15%"
+  },
+  {
+    "symbol": "300502.SZ",
+    "price": 393.23,
+    "support": 347.7,
+    "resistance": 422.48,
+    "touch_count": 2,
+    "bounce_rate": 0.0,
+    "patterns": [
+      "M顶"
+    ],
+    "poc": 386.440625,
+    "score": 0.5,
+    "factors": [
+      "日线上涨(+1)",
+      "有支撑(+0.5)",
+      "M顶(-1)"
+    ],
+    "outlook": "震荡",
+    "expected_return": "-5~5%"
+  },
+  {
+    "symbol": "601985.SH",
+    "price": 9.06,
+    "support": 8.48,
+    "resistance": 9.07,
+    "touch_count": 28,
+    "bounce_rate": 0.32142857142857145,
+    "patterns": [
+      "W底",
+      "M顶"
+    ],
+    "poc": 8.970624999999998,
+    "score": 0.5,
+    "factors": [
+      "日线上涨(+1)",
+      "RSI超买(-0.5)",
+      "有支撑(+0.5)",
+      "W底(+1)",
+      "M顶(-1)",
+      "高位(-0.5)"
+    ],
+    "outlook": "震荡",
+    "expected_return": "-5~5%"
+  },
+  {
+    "symbol": "600900.SH",
+    "price": 27.3,
+    "support": 26.12,
+    "resistance": 27.62,
+    "touch_count": 27,
+    "bounce_rate": 0.48148148148148145,
+    "patterns": [
+      "M顶"
+    ],
+    "poc": 26.108125,
+    "score": 0.0,
+    "factors": [
+      "日线上涨(+1)",
+      "有支撑(+0.5)",
+      "M顶(-1)",
+      "高位(-0.5)"
+    ],
+    "outlook": "震荡",
+    "expected_return": "-5~5%"
+  },
+  {
+    "symbol": "688981.SH",
+    "price": 107.1,
+    "support": 101.68,
+    "resistance": 114.73,
+    "touch_count": 3,
+    "bounce_rate": 0.0,
+    "patterns": [],
+    "poc": 124.264375,
+    "score": 0.0,
+    "factors": [
+      "日线下跌(-1)",
+      "RSI超卖(+0.5)",
+      "有支撑(+0.5)"
+    ],
+    "outlook": "震荡",
+    "expected_return": "-5~5%"
+  },
+  {
+    "symbol": "603501.SH",
+    "price": 114.3,
+    "support": 110.6,
+    "resistance": 121.72,
+    "touch_count": 5,
+    "bounce_rate": 0.2,
+    "patterns": [],
+    "poc": 130.60375,
+    "score": -0.5,
+    "factors": [
+      "日线下跌(-1)",
+      "有支撑(+0.5)"
+    ],
+    "outlook": "震荡",
+    "expected_return": "-5~5%"
+  },
+  {
+    "symbol": "603986.SH",
+    "price": 281.53,
+    "support": 264.02,
+    "resistance": 299.11,
+    "touch_count": 3,
+    "bounce_rate": 0.0,
+    "patterns": [],
+    "poc": 294.0,
+    "score": -0.5,
+    "factors": [
+      "日线下跌(-1)",
+      "有支撑(+0.5)"
+    ],
+    "outlook": "震荡",
+    "expected_return": "-5~5%"
+  },
+  {
+    "symbol": "688256.SH",
+    "price": 1099.0,
+    "support": 1093.0,
+    "resistance": 1208.0,
+    "touch_count": 20,
+    "bounce_rate": 0.45,
+    "patterns": [
+      "M顶"
+    ],
+    "poc": 1116.181875,
+    "score": -1.0,
+    "factors": [
+      "日线下跌(-1)",
+      "有支撑(+0.5)",
+      "M顶(-1)",
+      "低位(+0.5)"
+    ],
+    "outlook": "震荡",
+    "expected_return": "-5~5%"
+  },
+  {
+    "symbol": "002129.SZ",
+    "price": 10.17,
+    "support": 9.53,
+    "resistance": 10.44,
+    "touch_count": 7,
+    "bounce_rate": 0.2857142857142857,
+    "patterns": [
+      "W底",
+      "W底",
+      "M顶",
+      "M顶"
+    ],
+    "poc": 10.309999999999999,
+    "score": -1.0,
+    "factors": [
+      "日线下跌(-1)",
+      "有支撑(+0.5)",
+      "W底(+1)",
+      "M顶(-1)",
+      "高位(-0.5)"
+    ],
+    "outlook": "震荡",
+    "expected_return": "-5~5%"
+  },
+  {
+    "symbol": "002371.SZ",
+    "price": 461.99,
+    "support": 435.5,
+    "resistance": 472.0,
+    "touch_count": 4,
+    "bounce_rate": 0.25,
+    "patterns": [],
+    "poc": 502.875,
+    "score": -1.0,
+    "factors": [
+      "日线下跌(-1)",
+      "有支撑(+0.5)",
+      "高位(-0.5)"
+    ],
+    "outlook": "震荡",
+    "expected_return": "-5~5%"
+  },
+  {
+    "symbol": "688041.SH",
+    "price": 244.2,
+    "support": 226.32,
+    "resistance": 264.88,
+    "touch_count": 3,
+    "bounce_rate": 0.0,
+    "patterns": [
+      "M顶"
+    ],
+    "poc": 244.67374999999998,
+    "score": -1.5,
+    "factors": [
+      "日线下跌(-1)",
+      "有支撑(+0.5)",
+      "M顶(-1)"
+    ],
+    "outlook": "看跌",
+    "expected_return": "-15~-5%"
+  }
+]
