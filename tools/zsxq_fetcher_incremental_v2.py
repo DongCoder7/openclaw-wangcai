@@ -24,8 +24,8 @@ ZSXQ_COOKIE = os.getenv("ZSXQ_COOKIE", "")
 BASE_URL = "https://api.zsxq.com/v2"
 
 # 重试配置
-MAX_RETRIES = 3
-BASE_WAIT = 10  # 基础等待时间(秒)
+MAX_RETRIES = 5
+BASE_WAIT = 20  # 基础等待时间(秒)
 
 # 数据目录
 DATA_DIR = Path("/root/.openclaw/workspace/data/zsxq")
