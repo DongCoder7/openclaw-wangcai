@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 A股行业平均PE查询工具 - 通用实现版
 基于Tushare Pro API，但支持缓存和批量优化

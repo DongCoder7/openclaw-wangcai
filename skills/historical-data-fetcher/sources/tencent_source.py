@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 腾讯API数据源实现
 优点: 无需认证，实时数据，批量查询

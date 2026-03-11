@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 长桥API集成测试脚本
 用于验证环境配置和数据获取功能

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 Tushare Pro 财务数据补充 - 杜邦分析等
 """

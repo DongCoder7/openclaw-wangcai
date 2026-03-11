@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 Heartbeat WFO优化器 v4.1 - 2年训练期版
 默认配置：训练期2年 + 测试期1年

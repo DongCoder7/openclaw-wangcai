@@ -51,7 +51,30 @@
 - 文件名是否符合规范？（任务ID前缀）
 - 产出是否写到了正确的目录？
 
-### 铁律四：发现问题必须行动
+### 铁律四：必须使用venv运行Python（绝对！）
+
+**⚠️ 这是硬性要求，不得违反！**
+
+**每次运行Python代码前，必须：**
+1. ✅ 检查脚本第一行是否是 `#!/root/.openclaw/workspace/venv/bin/python3`
+2. ✅ 如果不是，立即修复或改用 `./venv_runner.sh`
+3. ✅ 如果需要长桥API，先加载 `export $(grep -v '^#' .longbridge.env | xargs)`
+
+**允许的运行方式（按优先级）：**
+1. `./venv_runner.sh script.py` （最推荐，自动处理一切）
+2. `/root/.openclaw/workspace/venv/bin/python3 script.py`
+3. `source venv/bin/activate && python3 script.py`
+
+**绝对禁止：**
+- ❌ `python3 script.py` （直接使用系统Python）
+- ❌ `/usr/bin/python3 script.py` （明确使用系统Python）
+
+**记忆锚点：**
+- venv路径: `/root/.openclaw/workspace/venv/bin/python3`
+- runner脚本: `./venv_runner.sh`
+- 环境变量: `.longbridge.env`
+
+### 铁律五：发现问题必须行动
 
 - 代码报错 → 在该 agent 的 state 文件写 directive："C07_stock_boom_detector.py 运行报错: [具体错误]，请修复"
 - 发现假数据 → directive："V04 使用了 np.random 模拟数据，违反共享约定，必须改为读取真实 parquet"

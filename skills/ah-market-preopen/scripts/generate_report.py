@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 A+H股开盘前瞻报告 - 长桥API版本
 每日9:15前执行，生成开盘策略报告

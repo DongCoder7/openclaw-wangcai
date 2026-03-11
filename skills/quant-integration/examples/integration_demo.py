@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 qteasy集成示例 - 演示如何与现有量化系统协同工作
 """

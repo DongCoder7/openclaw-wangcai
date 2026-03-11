@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 Exa全网新闻搜索工具 - 产业链分析专用
 集成到 industry-chain-analysis skill

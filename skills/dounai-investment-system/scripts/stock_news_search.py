@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 个股分析 - Exa全网新闻搜索工具
 用于个股/标的的实时新闻、公告、研报搜索

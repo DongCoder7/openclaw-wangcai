@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 获取全市场因子数据
 用于构建多因子模型所需的数据

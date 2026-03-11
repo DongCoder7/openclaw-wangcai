@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 VQM策略交易监控脚本 - 长桥API版本
 每10分钟执行一次，检查是否需要交易

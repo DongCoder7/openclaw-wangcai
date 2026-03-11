@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 本地数据库数据源
 优点: 快速，离线可用，已清洗

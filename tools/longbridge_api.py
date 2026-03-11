@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 长桥API统一调用模块
 用于获取美股、A股、港股实时行情

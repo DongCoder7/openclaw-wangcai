@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 A股行业平均PE查询工具 - 最佳实践封装
 基于Tushare Pro + stock_basic行业分类 + daily_basic逐个计算

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 模拟盘跟踪系统 v3 - 全市场5000+股票，实时数据
 策略: v23优化成果 (仓位100%, 止损5%, 持仓3只)

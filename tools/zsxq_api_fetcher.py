@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 知识星球API爬虫 - 调研纪要频道最近一周信息抓取
 参考: https://cloud.tencent.com/developer/article/2627228

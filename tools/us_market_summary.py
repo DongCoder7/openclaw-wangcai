@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 美股市场深度分析 - 专业版
 每日8:30运行，生成完整的美股板块分析报告

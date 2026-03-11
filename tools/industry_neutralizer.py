@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 行业分类与中性化模块
 使用市值分组作为行业代理（简化实现）

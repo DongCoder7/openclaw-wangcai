@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 量化数据系统 - 全量数据补充脚本
 补充2018-2024年完整数据用于WFO回测

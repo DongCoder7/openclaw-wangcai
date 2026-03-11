@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 豆奶多因子模型 - 事件驱动回测引擎
 支持多因子策略的完整回测

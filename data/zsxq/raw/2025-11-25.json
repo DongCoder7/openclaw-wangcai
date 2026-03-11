@@ -1,0 +1,67 @@
+[
+  {
+    "topic_id": 82811854822152412,
+    "date": "2025-11-25",
+    "create_time": "2025-11-25T22:34:40.544+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "中文名翻译不准，csp的pcb方案用料会慢于nv，基本是在nv用过，一段时间没问题，csp才会开始验证，所以小作文超过nv方案的用料组合，都不属实，说的都不是明年的事",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 55188124155515454,
+    "date": "2025-11-25",
+    "create_time": "2025-11-25T22:15:25.430+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "阿里业绩会\n<e type=\"web\" href=\"https%3A%2F%2Fshare.note.youdao.com%2Fynoteshare%2Findex.html%3Fid%3D501f68685ba1cbb6f6c7b76df1e97f7a%26type%3Dnote%26_time%3D1764078113010%23%2F\" title=\"https%3A%2F%2Fshare.note.youdao.com%2Fynoteshare%2Findex.htm...\" />",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 45811842858115848,
+    "date": "2025-11-25",
+    "create_time": "2025-11-25T21:55:58.289+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "有说到阿里，云和ai基建大超预期，主业有些拉跨",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 22811854551411551,
+    "date": "2025-11-25",
+    "create_time": "2025-11-25T16:47:11.915+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "昨天详细了解了一下技术，光谱仪很难明确地对应到产能，所以只能是横向比个大概，因为检测的器件种类、规格、速率，都会影响到使用时长，所以很难说一定对应多少产能，但万一出现广告很多扩产，这里没动静，那总是有问题，横向比个大概就行",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 14588521228114122,
+    "date": "2025-11-25",
+    "create_time": "2025-11-25T16:39:05.975+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "修正更新一下：剑桥10月下单10台光谱仪，4、5、7月总计75，一共新增85台",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  }
+]

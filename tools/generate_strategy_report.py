@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 策略结果报告生成器 - 生成简洁的策略效果报告
 供heartbeat整点汇报使用

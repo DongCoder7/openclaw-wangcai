@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 量化数据系统 - 主入口
 整合数据补充、WFO回测、模拟盘功能

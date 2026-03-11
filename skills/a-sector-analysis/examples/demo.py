@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 板块分析示例脚本
 演示如何使用 a_sector_analysis skill

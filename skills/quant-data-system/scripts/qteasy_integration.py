@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 qteasy集成模块 - 与现有量化系统的桥接层
 提供快速回测验证、基准对照、实盘执行能力

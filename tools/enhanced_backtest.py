@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 动态风控模块
 整合市场择时、仓位管理、止损止盈

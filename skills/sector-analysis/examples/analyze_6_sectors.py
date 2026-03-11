@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 6大板块投资分析示例
 液冷、PCB、燃气轮机、半导体设备、光芯片、AI电源

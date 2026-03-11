@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 A+H股开盘前瞻报告生成器 v2.0 (深度版)
 每日9:15前生成开盘策略分析，结合美股报告+A股/港股板块分析+新闻驱动

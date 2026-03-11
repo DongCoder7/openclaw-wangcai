@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 美股市场深度分析 - 长桥API版 (v2.0)
 每日生成美股板块、个股行情报告

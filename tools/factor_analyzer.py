@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 豆奶多因子模型 - 单因子检验
 IC分析、IR分析、分层回测

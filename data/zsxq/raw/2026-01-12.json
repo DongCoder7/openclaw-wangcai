@@ -1,0 +1,54 @@
+[
+  {
+    "topic_id": 82811252218582422,
+    "date": "2026-01-12",
+    "create_time": "2026-01-12T14:52:40.601+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "Meta 今天在索尔思审厂，测试流程应该算走到比较靠后的阶段了。之前的份额预期是 10%，实际看后续什么情况。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 82811252241242482,
+    "date": "2026-01-12",
+    "create_time": "2026-01-12T13:43:48.956+0800",
+    "author": "研报早读(学习委员)",
+    "author_id": 28518822251551,
+    "channels": [],
+    "title": "",
+    "content": "再补充下，AI广告在经济没有复苏的情况下，业绩是不会有显著增长的",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 45811545524222218,
+    "date": "2026-01-12",
+    "create_time": "2026-01-12T11:44:10.333+0800",
+    "author": "研报早读(学习委员)",
+    "author_id": 28518822251551,
+    "channels": [],
+    "title": "",
+    "content": "AI广告行业也能分上中下游。\n\n上游: SDK数据公司（个推，极光等）， DMP公司（个推 等）\n\n中游: DSP公司（蓝标，易点，汇量等）\n\n下游: 甲方客户(比如AI短剧…)\n\n今天下午给大家好好讲下AI广告 我的王者领域",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 45811545524858558,
+    "date": "2026-01-12",
+    "create_time": "2026-01-12T11:25:45.308+0800",
+    "author": "研报早读(学习委员)",
+    "author_id": 28518822251551,
+    "channels": [],
+    "title": "",
+    "content": "第二梯队AI应用是非常依赖三方数据的，广告投放过程中获得的只有用户在广告上的数据，其他兴趣爱好行为数据是获取不到的。所以非常多广告公司是与SDK公司合作的，我国头部SDK公司，综合类:每日互动，极光。游戏类SDK: mob。\n\n可以理解成AI广告的上游",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  }
+]

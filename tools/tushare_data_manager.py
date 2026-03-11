@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 Tushare历史数据本地化模块
 下载2018-2025年各行业1000只股票的日度数据

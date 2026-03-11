@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 历史数据本地化下载器
 优先级：腾讯API → AKShare（免费，无需Token）

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 获取全市场实时估值数据（腾讯API）
 用于补充PE/PB等估值因子

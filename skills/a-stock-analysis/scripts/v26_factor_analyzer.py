@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 A股个股分析 - v26全因子升级版
 使用26个因子进行深度分析
@@ -38,11 +38,10 @@ def get_stock_factor_score(ts_code, trade_date=None):
     
     factor_scores = {}
     
-    # 1. 获取技术指标因子
+    # 1. 获取技术指标因子（根据实际数据库结构）
     cursor.execute('''
-        SELECT ret_20, ret_60, ret_120, vol_20, vol_ratio, mom_accel, 
-               rel_strength, profit_mom, price_pos_20, price_pos_60,
-               money_flow, ma_20, ma_60
+        SELECT ret_20, ret_60, vol_20, ma_20, ma_60, 
+               price_pos_20, money_flow, rel_strength, rsi_14, macd
         FROM stock_factors 
         WHERE ts_code = ? AND trade_date <= ?
         ORDER BY trade_date DESC LIMIT 1
@@ -50,42 +49,47 @@ def get_stock_factor_score(ts_code, trade_date=None):
     
     row = cursor.fetchone()
     if row:
-        cols = ['ret_20', 'ret_60', 'ret_120', 'vol_20', 'vol_ratio', 'mom_accel',
-                'rel_strength', 'profit_mom', 'price_pos_20', 'price_pos_60',
-                'money_flow', 'ma_20', 'ma_60']
+        cols = ['ret_20', 'ret_60', 'vol_20', 'ma_20', 'ma_60',
+                'price_pos_20', 'money_flow', 'rel_strength', 'rsi_14', 'macd']
         for i, col in enumerate(cols):
             if row[i] is not None:
                 factor_scores[col] = row[i]
     
     # 2. 获取防御因子
-    cursor.execute('''
-        SELECT vol_120, max_drawdown_120, downside_vol, sharpe_like, low_vol_score
-        FROM stock_defensive_factors 
-        WHERE ts_code = ? AND trade_date <= ?
-        ORDER BY trade_date DESC LIMIT 1
-    ''', (ts_code, trade_date))
-    
-    row = cursor.fetchone()
-    if row:
-        cols = ['vol_120', 'max_drawdown_120', 'downside_vol', 'sharpe_like', 'low_vol_score']
-        for i, col in enumerate(cols):
-            if row[i] is not None:
-                factor_scores[col] = row[i]
+    try:
+        cursor.execute('''
+            SELECT vol_120, max_drawdown_120, downside_vol, sharpe_like, low_vol_score
+            FROM stock_defensive_factors 
+            WHERE ts_code = ? AND trade_date <= ?
+            ORDER BY trade_date DESC LIMIT 1
+        ''', (ts_code, trade_date))
+        
+        row = cursor.fetchone()
+        if row:
+            cols = ['vol_120', 'max_drawdown_120', 'downside_vol', 'sharpe_like', 'low_vol_score']
+            for i, col in enumerate(cols):
+                if row[i] is not None:
+                    factor_scores[col] = row[i]
+    except Exception as e:
+        print(f"[WARN] 防御因子获取失败: {e}")
     
     # 3. 获取财务因子
-    cursor.execute('''
-        SELECT pe_ttm, pb, roe, revenue_growth, netprofit_growth, debt_ratio
-        FROM stock_fina 
-        WHERE ts_code = ?
-        ORDER BY report_date DESC LIMIT 1
-    ''', (ts_code,))
-    
-    row = cursor.fetchone()
-    if row:
-        cols = ['pe_ttm', 'pb', 'roe', 'revenue_growth', 'netprofit_growth', 'debt_ratio']
-        for i, col in enumerate(cols):
-            if row[i] is not None:
-                factor_scores[col] = row[i]
+    try:
+        cursor.execute('''
+            SELECT pe_ttm, pb, roe, revenue_growth, netprofit_growth, debt_ratio
+            FROM stock_fina 
+            WHERE ts_code = ?
+            ORDER BY report_date DESC LIMIT 1
+        ''', (ts_code,))
+        
+        row = cursor.fetchone()
+        if row:
+            cols = ['pe_ttm', 'pb', 'roe', 'revenue_growth', 'netprofit_growth', 'debt_ratio']
+            for i, col in enumerate(cols):
+                if row[i] is not None:
+                    factor_scores[col] = row[i]
+    except Exception as e:
+        print(f"[WARN] 财务因子获取失败: {e}")
     
     conn.close()
     
@@ -94,13 +98,10 @@ def get_stock_factor_score(ts_code, trade_date=None):
     valid_factors = 0
     
     # 正向因子：值越大越好
-    positive_factors = ['ret_20', 'ret_60', 'ret_120', 'mom_accel', 'profit_mom', 
-                       'rel_strength', 'sharpe_like', 'roe', 'revenue_growth', 
-                       'netprofit_growth', 'money_flow', 'low_vol_score']
+    positive_factors = ['ret_20', 'ret_60', 'rel_strength', 'money_flow', 'rsi_14', 'sharpe_like', 'low_vol_score']
     
     # 负向因子：值越小越好
-    negative_factors = ['vol_20', 'vol_ratio', 'vol_120', 'downside_vol', 
-                       'max_drawdown_120', 'pe_ttm', 'pb', 'debt_ratio']
+    negative_factors = ['vol_20', 'macd', 'vol_120', 'max_drawdown_120', 'downside_vol']
     
     for factor, value in factor_scores.items():
         if factor in positive_factors:

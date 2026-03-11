@@ -1,0 +1,41 @@
+[
+  {
+    "topic_id": 55188152512252444,
+    "date": "2025-12-09",
+    "create_time": "2025-12-09T10:07:11.960+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "券商、险资的流动性提高，对市场估值是会有影响的，且更多影响核心资产，因为核心有限，所以会有“抢筹”的效应，无非是不同风险偏好抢不同赛道的核心资产",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 22811825254881411,
+    "date": "2025-12-09",
+    "create_time": "2025-12-09T09:57:57.790+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "H200 八卡机通常配备 8 张 NVIDIA ConnectX-7 智能网卡（SmartNIC），每张网卡直接对应一颗 H200 GPU，实现 1:1 的连接，以支持 GPUDirect RDMA 技术，每张 ConnectX-7 网卡的物理端口速率为 400Gb/s\n虽然 H200 服务器端的接口是 400G，但在 H200 集群的交换机端（Switch），经常会使用 800G 的光模块，就如同目前北美的800G网络在某些核心交换区域会用少量1.6t。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 82811825812512242,
+    "date": "2025-12-09",
+    "create_time": "2025-12-09T02:16:24.048+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "美国开放h200的信息得到了进一步确认，nv跳涨",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  }
+]

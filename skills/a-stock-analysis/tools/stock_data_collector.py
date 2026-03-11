@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 个股数据收集器 - A股深度分析专用
 整合Tushare Pro + 新浪财经 + 因子重新计算

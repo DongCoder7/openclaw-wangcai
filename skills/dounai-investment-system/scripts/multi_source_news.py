@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 多源新闻聚合搜索模块
 同时搜索Exa、知识星球、新浪财经等多个数据源

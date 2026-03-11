@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 豆奶多因子模型 v2.0 - 多因子评分模型
 整合技术因子 + 估值因子 (PE/PB/市值)

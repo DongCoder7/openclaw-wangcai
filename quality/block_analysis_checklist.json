@@ -1,0 +1,46 @@
+{
+  "industry": "铂科新材(300811)个股分析",
+  "created_at": "2026-03-07T17:20:55.655087",
+  "status": "in_progress",
+  "steps": {
+    "p1_exa_search": {
+      "name": "P1 Exa全网搜索",
+      "status": "completed",
+      "required": true,
+      "keywords": [],
+      "executed_at": "2026-03-07T17:24:15.128624",
+      "note": "搜索了铂科新材业绩、业务、客户、竞争格局等信息"
+    },
+    "p2_zsxq_search": {
+      "name": "P2 知识星球搜索",
+      "status": "completed",
+      "required": true,
+      "keywords": [],
+      "executed_at": "2026-03-07T17:24:15.184113",
+      "note": "知识星球近期无铂科新材专题，主要聚焦AI/半导体"
+    },
+    "p3_sina_api": {
+      "name": "P3 新浪财经API",
+      "status": "completed",
+      "required": true,
+      "executed_at": "2026-03-07T17:24:15.237191",
+      "note": "通过腾讯/新浪财经获取了年报数据"
+    },
+    "data_acquisition": {
+      "name": "数据获取",
+      "status": "completed",
+      "required": true,
+      "note": "获取了股价、K线、技术指标、财务数据",
+      "executed_at": "2026-03-07T17:24:15.293151"
+    },
+    "cross_validation": {
+      "name": "新闻交叉验证",
+      "status": "completed",
+      "required": true,
+      "note": "多个来源验证了年报数据（财联社、新浪财经、东方财富、界面新闻）",
+      "executed_at": "2026-03-07T17:24:19.981797"
+    }
+  },
+  "can_proceed": true,
+  "blockers": []
+}

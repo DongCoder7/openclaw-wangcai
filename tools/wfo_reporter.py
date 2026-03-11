@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 WFO结果汇报器 - 固定读取路径
 支持: v5_advanced, v5_simple, heartbeat_wfo 结果

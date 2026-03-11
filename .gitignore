@@ -61,3 +61,7 @@ secrets/
 # 报告输出目录（不提交git）
 reports/*.md
 reports/sector_report_*.md
+
+# 大型数据库文件（超过100MB，GitHub限制）
+data/historical/*.db
+*.db

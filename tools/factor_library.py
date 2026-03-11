@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 豆奶多因子模型 - 完整因子库
 包含6大类30+因子的定义和计算

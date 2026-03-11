@@ -1,0 +1,20 @@
+[2026-03-04 13:57:04,684] ======================================================================
+[2026-03-04 13:57:04,684] 2026年因子计算 - 后台任务
+[2026-03-04 13:57:04,684] ======================================================================
+[2026-03-04 13:57:07,397] 共35个交易日需要计算因子
+[2026-03-04 13:57:07,398] 已存在因子: 0天
+[2026-03-04 13:57:07,398] 待计算: 35天
+[2026-03-04 13:57:07,398] 
+批次 [1/7]: 20260302 ~ 20260224
+[2026-03-04 13:57:07,398] 读取原始数据: 20251017 ~ 20260302
+[2026-03-04 13:57:08,849] 原始数据: 484998条, 89天
+[2026-03-04 13:57:11,179] 📊 计算因子: 20260302
+Traceback (most recent call last):
+  File "/root/.openclaw/workspace/tools/calc_factors_2026_bg.py", line 213, in <module>
+    main()
+  File "/root/.openclaw/workspace/tools/calc_factors_2026_bg.py", line 203, in main
+    count = calc_all_factors(conn, batch)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.openclaw/workspace/tools/calc_factors_2026_bg.py", line 153, in calc_all_factors
+    c.executemany('INSERT OR REPLACE INTO stock_factors VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)', tech_records)
+sqlite3.OperationalError: table stock_factors has 10 columns but 14 values were supplied

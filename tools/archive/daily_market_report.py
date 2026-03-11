@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 每日收盘报告 - 完整版
 包含市场全景、板块分析、个股表现、策略建议

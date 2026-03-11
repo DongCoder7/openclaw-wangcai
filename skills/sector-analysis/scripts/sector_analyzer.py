@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 板块投资分析系统 - Sector Analysis System v1.0
 基于方法论：零硬编码，全自动发现标的

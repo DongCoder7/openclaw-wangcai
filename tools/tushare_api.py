@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 Tushare API 统一封装模块
 自动加载配置，确保token不会遗漏

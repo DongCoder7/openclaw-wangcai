@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 每日股票估值数据更新脚本
 更新daily_basic数据（PE、PB、市值等）到本地数据库

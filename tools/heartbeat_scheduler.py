@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 Heartbeat任务调度器 - 整点策略效果汇报
 使用新的汇报格式：策略组合 + 因子使用 + 后续优化点
@@ -769,44 +769,78 @@ def run_task(task_name, script_path, timeout=300):
 
 
 def check_and_run_tasks(now):
-    """检查并执行定时任务 - 所有任务由Heartbeat控制"""
+    """检查并执行定时任务 - Heartbeat只负责发送报告"""
     tasks_run = []
     
-    # 08:30 美股隔夜总结
+    # 08:35 发送美股报告
+    if now.hour == 8 and now.minute == 35:
+        print("📤 08:35 发送美股隔夜报告...")
+        report_file = f'{WORKSPACE}/data/us_market_daily_{now.strftime("%Y%m%d")}.md'
+        if os.path.exists(report_file):
+            try:
+                with open(report_file, 'r') as f:
+                    content = f.read()
+                summary = content[:3000] + "\n\n...(完整报告已保存)"
+                send_message(f"📊 **美股隔夜报告** ({now.strftime('%Y-%m-%d')})\n\n{summary}")
+                log(f"✅ 美股报告已发送: {report_file}")
+                tasks_run.append('us-market-send')
+            except Exception as e:
+                log(f"❌ 发送美股报告失败: {e}")
+                send_message(f"❌ **美股报告发送失败**\n{e}")
+        else:
+            log(f"⚠️ 美股报告文件不存在: {report_file}")
+            send_message(f"⚠️ **美股报告文件未找到**\n请检查 08:30 是否成功生成报告")
+    
+    # 08:30 美股隔夜总结 - 已改为Linux Cron执行，此处仅记录
     if now.hour == 8 and now.minute == 30:
-        print("🌙 08:30 触发美股隔夜总结...")
-        result = run_task(
-            'us-market-overview',
-            'skills/us-market-analysis/scripts/generate_report_longbridge.py',
-            timeout=600
-        )
-        status = "✅ 成功" if result['success'] else f"❌ 失败: {result.get('stderr', '')}"
-        send_message(f"📊 **美股隔夜总结** (08:30)\n{status}")
-        tasks_run.append('us-market-overview')
+        log("📝 08:30 美股隔夜总结报告由 Linux Cron 执行")
     
-    # 09:30 A+H开盘前瞻
+    # 09:35 发送A+H报告
+    if now.hour == 9 and now.minute == 35:
+        print("📤 09:35 发送A+H开盘前瞻报告...")
+        report_file = f'{WORKSPACE}/data/ah_market_preopen_{now.strftime("%Y%m%d")}.md'
+        if os.path.exists(report_file):
+            try:
+                with open(report_file, 'r') as f:
+                    content = f.read()
+                summary = content[:3000] + "\n\n...(完整报告已保存)"
+                send_message(f"📊 **A+H开盘前瞻** ({now.strftime('%Y-%m-%d')})\n\n{summary}")
+                log(f"✅ A+H报告已发送: {report_file}")
+                tasks_run.append('ah-market-send')
+            except Exception as e:
+                log(f"❌ 发送A+H报告失败: {e}")
+                send_message(f"❌ **A+H报告发送失败**\n{e}")
+        else:
+            log(f"⚠️ A+H报告文件不存在: {report_file}")
+            send_message(f"⚠️ **A+H报告文件未找到**\n请检查 09:30 是否成功生成报告")
+    
+    # 09:30 A+H开盘前瞻 - 已改为Linux Cron执行，此处仅记录
     if now.hour == 9 and now.minute == 30:
-        print("🌅 09:30 触发A+H开盘前瞻...")
-        result = run_task(
-            'ah-market-preopen',
-            'skills/ah-market-preopen/scripts/generate_report_longbridge.py',
-            timeout=600
-        )
-        status = "✅ 成功" if result['success'] else f"❌ 失败: {result.get('stderr', '')}"
-        send_message(f"📊 **A+H开盘前瞻** (09:30)\n{status}")
-        tasks_run.append('ah-market-preopen')
+        log("📝 09:30 A+H开盘前瞻报告由 Linux Cron 执行")
     
-    # 15:00 收盘深度报告
-    if now.hour == 15 and now.minute == 0:
-        print("📈 15:00 触发收盘深度报告...")
-        result = run_task(
-            'daily-market-report',
-            'tools/daily_market_report.py',
-            timeout=300
-        )
-        status = "✅ 成功" if result['success'] else f"❌ 失败: {result.get('stderr', '')}"
-        send_message(f"📊 **收盘深度报告** (15:00)\n{status}")
-        tasks_run.append('daily-market-report')
+    # 15:05 收盘深度报告 - 已改为Linux Cron执行，此处仅记录
+    if now.hour == 15 and now.minute == 5:
+        log("📝 15:05 收盘深度报告由 Linux Cron 执行")
+    
+    # 15:10 发送收盘报告（读取已生成的报告文件）
+    if now.hour == 15 and now.minute == 10:
+        print("📤 15:10 发送收盘报告...")
+        report_file = f'{WORKSPACE}/data/daily_report_{now.strftime("%Y%m%d")}.md'
+        if os.path.exists(report_file):
+            try:
+                with open(report_file, 'r') as f:
+                    content = f.read()
+                # 发送报告摘要（前3000字符）
+                summary = content[:3000] + "\n\n...(完整报告已保存)"
+                send_message(f"📊 **收盘深度报告** ({now.strftime('%Y-%m-%d')})\n\n{summary}")
+                log(f"✅ 收盘报告已发送: {report_file}")
+                tasks_run.append('daily-report-send')
+            except Exception as e:
+                log(f"❌ 发送报告失败: {e}")
+                send_message(f"❌ **收盘报告发送失败**\n{e}")
+        else:
+            log(f"⚠️ 报告文件不存在: {report_file}")
+            send_message(f"⚠️ **收盘报告文件未找到**\n请检查 15:05 是否成功生成报告")
     
     # 15:30 模拟盘交易
     if now.hour == 15 and now.minute == 30:
@@ -833,17 +867,28 @@ def check_and_run_tasks(now):
         send_message("🔄 **当日数据更新已启动** (16:00)\n后台运行中，完成后将自动汇报...")
         tasks_run.append('daily-data-update')
     
-    # 23:30 知识星球日终抓取
+    # 23:35 发送知识星球汇总
+    if now.hour == 23 and now.minute == 35:
+        print("📤 23:35 发送知识星球日终汇总...")
+        summary_file = f'{WORKSPACE}/data/zsxq/summary_{now.strftime("%Y-%m-%d")}.md'
+        if os.path.exists(summary_file):
+            try:
+                with open(summary_file, 'r') as f:
+                    content = f.read()
+                summary = content[:3000] + "\n\n...(完整汇总已保存)"
+                send_message(f"📚 **知识星球日终汇总** ({now.strftime('%Y-%m-%d')})\n\n{summary}")
+                log(f"✅ 知识星球汇总已发送: {summary_file}")
+                tasks_run.append('zsxq-send')
+            except Exception as e:
+                log(f"❌ 发送知识星球汇总失败: {e}")
+                send_message(f"❌ **知识星球汇总发送失败**\n{e}")
+        else:
+            log(f"⚠️ 知识星球汇总文件不存在: {summary_file}")
+            send_message(f"⚠️ **知识星球汇总文件未找到**\n请检查 23:30 是否成功抓取")
+    
+    # 23:30 知识星球日终抓取 - 已改为Linux Cron执行，此处仅记录
     if now.hour == 23 and now.minute == 30:
-        print("📚 23:30 触发知识星球抓取...")
-        result = run_task(
-            'zsxq-daily-fetch',
-            'tools/zsxq_fetcher_prod.py',
-            timeout=600
-        )
-        status = "✅ 成功" if result['success'] else f"❌ 失败: {result.get('stderr', '')}"
-        send_message(f"📚 **知识星球日终抓取** (23:30)\n{status}")
-        tasks_run.append('zsxq-daily-fetch')
+        log("📝 23:30 知识星球抓取由 Linux Cron 执行")
     
     return tasks_run
 

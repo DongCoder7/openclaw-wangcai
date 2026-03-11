@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 qteasy与量化系统集成封装
 提供快速验证、基准对比、实盘交易功能

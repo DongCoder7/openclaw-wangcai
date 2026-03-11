@@ -1,0 +1,41 @@
+[
+  {
+    "topic_id": 82811858511221442,
+    "date": "2025-11-18",
+    "create_time": "2025-11-18T20:31:28.977+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "<e type=\"text_bold\" title=\"gemini%203.0%20benchmark%E6%B3%84%E9%9C%B2\" />\n<e type=\"text_bold\" title=\"%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE%EF%BC%9A%20\" />Gemini 3 Pro采用 谷歌的张量处理单元（TPU）进行训练。TPU专为处理大型语言模型训练所\n需的海量计算而设计，相比传统CPU能显著提升训练效率。其配备的大容量高带宽内存，可支持训练过程\n中处理大型模型和批量数据，从而获得更优的模型质量。 TPU Pod（TPU集群）则为应对大型基础模型日\n益增长的复杂性提供了可扩展解决方案。训练过程可分布式到多个 TPU 设备上，实现更快更高效的处\n理。\n-----------------\n分数如图\n----------\n<e type=\"text_bold\" title=\"%E9%A3%8E%E9%99%A9%E5%92%8C%E7%BC%93%E8%A7%A3%E6%8E%AA%E6%96%BD%EF%BC%9A%20\" />安全性和责",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 82811858511881252,
+    "date": "2025-11-18",
+    "create_time": "2025-11-18T20:18:12.497+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "benchmark可能是提前泄露的",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 22811855128451141,
+    "date": "2025-11-18",
+    "create_time": "2025-11-18T11:13:32.500+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "未确认的小作文：\n1.剑桥 思科(今天下午来苏州鼎芯审厂，顺利的话）永鼎 采购 协议 公告\n2.订单上修 从口径1个亿到 明年4-5亿 剑桥出钱后端扩产\n昨天广发在苏州鼎芯调研， 今天国金去永鼎调研\n===========\n如果是真，猜测是为了cw，不是eml",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  }
+]

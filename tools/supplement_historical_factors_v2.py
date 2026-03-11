@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 从历史日线价格计算并补充因子数据 - 改进版
 处理年份: 2018-2024

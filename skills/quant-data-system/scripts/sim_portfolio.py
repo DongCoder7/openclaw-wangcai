@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 模拟盘交易系统
 基于WFO最优参数生成每日持仓建议

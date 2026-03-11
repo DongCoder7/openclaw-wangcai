@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 豆奶投资策略系统 - 主控模块
 统一入口，整合所有功能

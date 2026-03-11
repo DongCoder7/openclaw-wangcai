@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 豆奶多因子模型 v3.0 - 多策略配置
 支持进攻型/防御型/平衡型策略

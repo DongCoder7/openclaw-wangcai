@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 财务数据增强分析模块
 提供完整的同比环比分析、趋势分析功能

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 SKILL使用示例 - 历史数据获取器
 展示如何使用historical-data-fetcher skill

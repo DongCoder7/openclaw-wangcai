@@ -1,0 +1,47 @@
+{
+  "industries": {
+    "memory": {
+      "name": "存储芯片",
+      "benchmarks": [
+        {"name": "SK海力士", "code": "000660.KS", "weight": 0.4},
+        {"name": "三星电子", "code": "005930.KS", "weight": 0.3},
+        {"name": "美光科技", "code": "MU.US", "weight": 0.3}
+      ],
+      "search_keywords": ["DRAM", "NAND", "HBM", "memory", "存储"],
+      "data_sources": ["Mirae Asset", "Macquarie", "KB Securities"]
+    },
+    "optical_communication": {
+      "name": "光通信",
+      "benchmarks": [
+        {"name": "天孚通信", "code": "300394.SZ", "weight": 0.25},
+        {"name": "中际旭创", "code": "300308.SZ", "weight": 0.25},
+        {"name": "Coherent", "code": "COHR.US", "weight": 0.25},
+        {"name": "Lumentum", "code": "LITE.US", "weight": 0.25}
+      ],
+      "search_keywords": ["光模块", "光器件", "800G", "CPO", "optical", "transceiver"],
+      "data_sources": ["中金公司", "中信证券", "华泰证券", "Morgan Stanley"]
+    },
+    "pcb": {
+      "name": "PCB/覆铜板",
+      "benchmarks": [
+        {"name": "生益科技", "code": "600183.SH", "weight": 0.3},
+        {"name": "沪电股份", "code": "002463.SZ", "weight": 0.3},
+        {"name": "深南电路", "code": "002916.SZ", "weight": 0.2},
+        {"name": "鹏鼎控股", "code": "002938.SZ", "weight": 0.2}
+      ],
+      "search_keywords": ["PCB", "覆铜板", "CCL", "AI服务器", "高多层"],
+      "data_sources": ["招商证券", "广发证券", "Citi", "Goldman Sachs"]
+    },
+    "semiconductor_equipment": {
+      "name": "半导体设备",
+      "benchmarks": [
+        {"name": "北方华创", "code": "002371.SZ", "weight": 0.3},
+        {"name": "中微公司", "code": "688012.SH", "weight": 0.3},
+        {"name": "Applied Materials", "code": "AMAT.US", "weight": 0.2},
+        {"name": "ASML", "code": "ASML.US", "weight": 0.2}
+      ],
+      "search_keywords": ["刻蚀机", "薄膜沉积", "光刻机", "semiconductor equipment"],
+      "data_sources": ["国信证券", "兴业证券", "JP Morgan", "Bank of America"]
+    }
+  }
+}

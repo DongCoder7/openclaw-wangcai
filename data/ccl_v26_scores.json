@@ -1,0 +1,82 @@
+[
+  {
+    "ts_code": "600183.SH",
+    "name": "生益科技",
+    "total_score": 12.5,
+    "ret_20": 8.2,
+    "ret_60": 25.3,
+    "net_profit_growth": 50.5,
+    "roe": 12.8,
+    "rank": 1
+  },
+  {
+    "ts_code": "002463.SZ",
+    "name": "沪电股份",
+    "total_score": 11.8,
+    "ret_20": 12.5,
+    "ret_60": 35.2,
+    "net_profit_growth": 45.2,
+    "roe": 15.2,
+    "rank": 2
+  },
+  {
+    "ts_code": "300476.SZ",
+    "name": "胜宏科技",
+    "total_score": 11.2,
+    "ret_20": 15.3,
+    "ret_60": 42.1,
+    "net_profit_growth": 38.5,
+    "roe": 14.5,
+    "rank": 3
+  },
+  {
+    "ts_code": "002636.SZ",
+    "name": "金安国纪",
+    "total_score": 9.8,
+    "ret_20": 18.5,
+    "ret_60": 48.2,
+    "net_profit_growth": 5500.0,
+    "roe": 8.2,
+    "rank": 4
+  },
+  {
+    "ts_code": "688519.SH",
+    "name": "南亚新材",
+    "total_score": 8.5,
+    "ret_20": 6.2,
+    "ret_60": 22.1,
+    "net_profit_growth": 125.3,
+    "roe": 10.5,
+    "rank": 5
+  },
+  {
+    "ts_code": "603186.SH",
+    "name": "华正新材",
+    "total_score": 7.2,
+    "ret_20": 4.5,
+    "ret_60": 18.2,
+    "net_profit_growth": 85.2,
+    "roe": 9.8,
+    "rank": 6
+  },
+  {
+    "ts_code": "002916.SZ",
+    "name": "深南电路",
+    "total_score": 6.8,
+    "ret_20": 3.2,
+    "ret_60": 15.5,
+    "net_profit_growth": 28.5,
+    "roe": 11.2,
+    "rank": 7
+  },
+  {
+    "ts_code": "603256.SH",
+    "name": "宏和科技",
+    "total_score": 5.5,
+    "ret_20": 8.5,
+    "ret_60": 28.2,
+    "net_profit_growth": 15.2,
+    "roe": 6.5,
+    "rank": 8
+  }
+]

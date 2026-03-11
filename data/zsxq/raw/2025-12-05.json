@@ -1,0 +1,41 @@
+[
+  {
+    "topic_id": 14588558422142512,
+    "date": "2025-12-05",
+    "create_time": "2025-12-05T13:40:02.367+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "目前海上正在大型演习",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 22811881255484821,
+    "date": "2025-12-05",
+    "create_time": "2025-12-05T13:38:28.373+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "AMD首席执行官苏姿丰表示，公司已获得向中国出口部分MI 308芯片的许可，如果出口这些芯片，公司准备向美国政府缴纳15%的税款。\n特朗普8月表示，其政府已与英伟达和AMD达成协议，二者可恢复向中国出口部分芯片，但需支付15%的费用。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 14588558422155582,
+    "date": "2025-12-05",
+    "create_time": "2025-12-05T13:36:55.512+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "ASIC：\nAWS Trainium 3：\n美国经纪商调查显示，AWS Trainium 3 家主要 PCB/CCL 供应商的收入将从 2026 年 3 月起大幅增长。\nCCL：EMC 约 70%，TUC 约 30%。\n\nGoogle TPU：\nCCL：EMC M8 份额上升至 30%（从 20% %) 。\nPCB：GCE份额从今年的0%增长到明年的30%。（对应低端需求）\n\nMeta：\n体积较小但规格最高（M8.5 CCL + 44 层 MLP，每芯片价值提高 30% 以上）。\nEMC 是 CCL 的唯一供应商；GCE 的份额从 <30% 上升到 >50%。\n\n．Nvidia VR200：\nM9芯片的应用日益普及；交换机托架很可能采用M9芯片。EMC是唯一合格的供应商。（暂时，这里有不确定性，生益有机会）\nCPO 开关 IC 载体于 2026 年 2 月开始出货，Unimicron 是其主要供应商。\n\n。材料：\n高/低端PCB原材料短缺→ CCL/PCB价格可能进一步上涨。\nT玻璃的交货周期超过40周，库存从2025年第二季度开始下降。Q玻璃（M9的核心材料）可能在2026年下半年部",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  }
+]

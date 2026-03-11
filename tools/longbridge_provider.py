@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 长桥API (Longbridge) 数据获取模块
 文档: https://open.longbridge.com/zh-CN/docs

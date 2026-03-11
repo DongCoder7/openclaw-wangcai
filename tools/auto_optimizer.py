@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 自动优化执行器 - 无需询问，直接执行，只汇报结果
 """

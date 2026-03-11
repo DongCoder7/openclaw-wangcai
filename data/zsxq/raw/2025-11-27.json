@@ -1,0 +1,67 @@
+[
+  {
+    "topic_id": 55188124841411584,
+    "date": "2025-11-27",
+    "create_time": "2025-11-27T21:11:05.686+0800",
+    "author": "研报早读(学习委员)",
+    "author_id": 28518822251551,
+    "channels": [],
+    "title": "",
+    "content": "未验证: 不过我看着没啥太大问题。胜宏拿到订单后应该就会出现了…等明年吧\n\nTPU 第 8 代（代號 Zebra / Sun Fish）的已確認規格，目前預計將提前推出，將於 2026 年下半年正式亮相。\n\n1. CCL（覆銅箔基板）：\n供應商：台光電（EMC，<e type=\"web\" href=\"http%3A%2F%2F2383.TT\" title=\"http%3A%2F%2F2383.TT\" />）、Panasonic\n材料等級：Zebra Fish 平台將採用 M8.5 等級材料（896K2），更正市場先前錯誤傳言稱使用 M9 的說法。\n\n2. 銅箔：\n供應商：三井金屬（Mitsui Mining，<e type=\"web\" href=\"http%3A%2F%2F5710.JP\" title=\"http%3A%2F%2F5710.JP\" />）、金居（Co-Tech，<e type=\"web\" href=\"http%3A%2F%2F8358.TT\" title=\"http%3A%2F%2F8358.TT\" />）\n\n3. 玻纖布：\n供應商：日東紡（Nittobo）、旭化成（A",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 82811854148454122,
+    "date": "2025-11-27",
+    "create_time": "2025-11-27T21:08:07.185+0800",
+    "author": "研报早读(学习委员)",
+    "author_id": 28518822251551,
+    "channels": [],
+    "title": "",
+    "content": "直播的时候大家要的GOV这里MEMS的各种课题",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 14588521484211882,
+    "date": "2025-11-27",
+    "create_time": "2025-11-27T08:49:18.595+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "转，实际影响就是这些\n关于彭博社报道美国防部建议将中际旭创和新易盛等公司纳入1260H清单的点评---Wilson\n\n1. 目前只是美国防部副部长建议纳入，并无实质影响；\n\n2. 10月7日的信件，在10月30日两国元首会晤之前，大概率是为了增加筹码，但目前中美关系较好，已无必要；\n\n3. 即便进了清单，仍然可以通过上诉打官司的途径，退出清单，比如小米；\n\n4. 1260H清单并不会直接限制企业正常运营，主要影响企业跟美国防部的合作，因此对旭创和新易盛基本没有影响；",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 22811854218125181,
+    "date": "2025-11-27",
+    "create_time": "2025-11-27T08:41:13.541+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "旭创新易盛实体清单这个，看下时间，10月，昨天的谷歌加单小作文也是子虚乌有，今天的实体清单也是莫名其妙",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 55188124581214224,
+    "date": "2025-11-27",
+    "create_time": "2025-11-27T07:54:44.593+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "节选\n但这种极度稀疏的架构设计对推理硬件提出了非常高的要求，因为在推理过程中，模型需要频繁地从海量参数中加载特定的“专家”模块，这对 HBM（高带宽内存）的容量和带宽构成了巨大挑战。\n对于大部分厂商而言，受限于 HBM 的高昂成本，难以经济地部署这类架构，但 Google 依靠自研的 TPU 和 OCS（光路交换）互联技术，构建了一套软硬高度耦合的系统 。这种架构使得 Google 能够在大规模稀疏模型的推理上，实现比传统 GPU 集群更具成本效益的解决方案。\n也有人提到一个视角是，所有头部 lab 中，只有 Google 的研究人员几乎从不需要为 infra 操心，也就是说 Google infra 非常稳定，使得研究员可以专注于算法本身，而在其他公司，研究员需要花大量时间去修 Bug、调 Infra。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  }
+]

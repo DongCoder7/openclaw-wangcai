@@ -1,0 +1,38 @@
+[
+  {
+    "category": "数据",
+    "issue": "股票代码准确性",
+    "severity": "中",
+    "solution": "人工核对股票名称与代码"
+  },
+  {
+    "category": "数据",
+    "issue": "数据周期短",
+    "severity": "中",
+    "solution": "获取更多历史数据(3年以上)"
+  },
+  {
+    "category": "模型",
+    "issue": "预测准确率偏低",
+    "severity": "高",
+    "solution": "增加特征维度，优化权重配置"
+  },
+  {
+    "category": "模型",
+    "issue": "缺乏波动率预测",
+    "severity": "中",
+    "solution": "增加GARCH或RV模型"
+  },
+  {
+    "category": "框架",
+    "issue": "单一时间框架",
+    "severity": "中",
+    "solution": "引入多时间周期分析(日线+60分钟+15分钟)"
+  },
+  {
+    "category": "框架",
+    "issue": "缺乏风控模块",
+    "severity": "高",
+    "solution": "增加止损逻辑和仓位管理"
+  }
+]

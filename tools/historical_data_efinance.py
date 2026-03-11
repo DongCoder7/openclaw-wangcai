@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 历史数据下载器 - 使用eFinance获取A股数据
 获取2018-2025年1000只股票每日收盘数据

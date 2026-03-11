@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 AKShare数据源实现
 优点: 免费，数据全面，A股专业

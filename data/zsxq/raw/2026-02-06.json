@@ -1,0 +1,80 @@
+[
+  {
+    "topic_id": 45811524445584858,
+    "date": "2026-02-06",
+    "create_time": "2026-02-06T22:51:31.118+0800",
+    "author": "反诈先锋",
+    "author_id": 815528244121122,
+    "channels": [],
+    "title": "",
+    "content": "为什么同样的思维，美股爆赚A股爆亏，气笑了",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 55188558881188584,
+    "date": "2026-02-06",
+    "create_time": "2026-02-06T15:14:26.737+0800",
+    "author": "研报早读(学习委员)",
+    "author_id": 28518822251551,
+    "channels": [],
+    "title": "",
+    "content": "转调研报告： 根据采购指引，胜宏一季度CCL采购量预计比2025年四季度增长约20%",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 55188558845128184,
+    "date": "2026-02-06",
+    "create_time": "2026-02-06T13:07:09.872+0800",
+    "author": "反诈先锋",
+    "author_id": 815528244121122,
+    "channels": [],
+    "title": "",
+    "content": "如果60F级别强势上涨，大概率就是拒绝周线死叉下的60F主涨段。亦可通过30F极强上涨至60F55线，稍作震荡后传递至60F极强，中途不破15F中轨。所以下午1F55不被跌破是至关重要的。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 22811221181411881,
+    "date": "2026-02-06",
+    "create_time": "2026-02-06T09:28:44.987+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "tower和nv合作的事，在两方面对模块厂都是逆风。\n概率稍小的：\nnv/mellanox设计硅光光模块芯片，tower流片\nnv/mellanox设计cpo光引擎pic，tower流片\n\n概率大的：无论哪种合作，在nv的地位下，产能挤压现有客户是存在的，只是时间不是现在，就看到有影响的时候来临时，硅光芯片fab产能是否还是供不应求状态。\n另外，绕开现有商业关系的前提下，硅光集成度的提高，对人力优势的企业都是价值量的转移。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 22811221184152541,
+    "date": "2026-02-06",
+    "create_time": "2026-02-06T09:01:38.546+0800",
+    "author": "反诈先锋",
+    "author_id": 815528244121122,
+    "channels": [],
+    "title": "",
+    "content": "如果再理解不了海外，就当做24年初量化那波杠杆踩踏就好了，只不过海外的杠杆有不少加在了黄金和比特币。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": 22811221151811581,
+    "date": "2026-02-06",
+    "create_time": "2026-02-06T00:45:05.014+0800",
+    "author": "饲养员薛定谔",
+    "author_id": 182222182228812,
+    "channels": [],
+    "title": "",
+    "content": "转的，写的挺好，观点很相近，其实也可以照这个思路去分类我们这边哪些是amd，哪些不是，在降风偏时，不同群体的选择也是会有优先级的。通常有做预案习惯的人会选择先减叙事、逻辑、估值不够坚实的，而大部分意识流投资者会选择先减跌的少的，留住跌的多的，而跌的多的之所以跌的多，就是因为陆续被前者减掉了。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  }
+]

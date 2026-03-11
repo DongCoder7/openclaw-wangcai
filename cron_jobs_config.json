@@ -1,0 +1,102 @@
+[
+  {
+    "id": "zsxq-fetcher-2330",
+    "agentId": "main",
+    "name": "知识星球日终抓取-2330",
+    "enabled": true,
+    "schedule": {
+      "kind": "cron",
+      "expr": "30 23 * * *",
+      "tz": "Asia/Shanghai"
+    },
+    "sessionTarget": "isolated",
+    "wakeMode": "immediate",
+    "payload": {
+      "kind": "agentTurn",
+      "task": "cd /root/.openclaw/workspace && ./venv_runner.sh tools/zsxq_fetcher_prod.py"
+    },
+    "delivery": {
+      "mode": "announce"
+    }
+  },
+  {
+    "id": "us-market-0830",
+    "agentId": "main",
+    "name": "美股隔夜总结-0830",
+    "enabled": true,
+    "schedule": {
+      "kind": "cron",
+      "expr": "30 8 * * *",
+      "tz": "Asia/Shanghai"
+    },
+    "sessionTarget": "isolated",
+    "wakeMode": "immediate",
+    "payload": {
+      "kind": "agentTurn",
+      "task": "cd /root/.openclaw/workspace && ./venv_runner.sh skills/us-market-analysis/scripts/generate_report_longbridge.py"
+    },
+    "delivery": {
+      "mode": "announce"
+    }
+  },
+  {
+    "id": "ah-market-0930",
+    "agentId": "main",
+    "name": "A+H开盘前瞻-0930",
+    "enabled": true,
+    "schedule": {
+      "kind": "cron",
+      "expr": "30 9 * * *",
+      "tz": "Asia/Shanghai"
+    },
+    "sessionTarget": "isolated",
+    "wakeMode": "immediate",
+    "payload": {
+      "kind": "agentTurn",
+      "task": "cd /root/.openclaw/workspace && ./venv_runner.sh skills/ah-market-preopen/scripts/generate_report_longbridge.py"
+    },
+    "delivery": {
+      "mode": "announce"
+    }
+  },
+  {
+    "id": "daily-report-1505",
+    "agentId": "main",
+    "name": "收盘深度报告-1505",
+    "enabled": true,
+    "schedule": {
+      "kind": "cron",
+      "expr": "5 15 * * *",
+      "tz": "Asia/Shanghai"
+    },
+    "sessionTarget": "isolated",
+    "wakeMode": "immediate",
+    "payload": {
+      "kind": "agentTurn",
+      "task": "cd /root/.openclaw/workspace && ./venv_runner.sh skills/daily-market-report/scripts/generate_report.py"
+    },
+    "delivery": {
+      "mode": "announce"
+    }
+  },
+  {
+    "id": "sim-portfolio-1530",
+    "agentId": "main",
+    "name": "模拟盘交易-1530",
+    "enabled": true,
+    "schedule": {
+      "kind": "cron",
+      "expr": "30 15 * * *",
+      "tz": "Asia/Shanghai"
+    },
+    "sessionTarget": "isolated",
+    "wakeMode": "immediate",
+    "payload": {
+      "kind": "agentTurn",
+      "task": "cd /root/.openclaw/workspace && ./venv_runner.sh skills/quant-data-system/scripts/sim_portfolio.py"
+    },
+    "delivery": {
+      "mode": "announce"
+    }
+  }
+]

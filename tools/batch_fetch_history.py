@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/root/.openclaw/workspace/venv/bin/python3
 """
 批量补充历史数据 (2018-2024)
 使用多数据源获取缺失的历史数据

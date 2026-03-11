@@ -11,9 +11,10 @@ If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out w
 Before doing anything else:
 
 1. Read `SOUL.md` — this is who you are
-2. Read `USER.md` — this is who you're helping
-3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+2. Read `MEMORY.md` — important decisions and venv rules
+3. Read `STARTUP_CHECKLIST.md` — quick reference for this session
+4. Read `USER.md` — this is who you're helping
+5. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
 
 Don't ask permission. Just do it.
 
@@ -36,7 +37,63 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - This is your curated memory — the distilled essence, not raw logs
 - Over time, review your daily files and update MEMORY.md with what's worth keeping
 
-### 📝 Write It Down - No "Mental Notes"!
+### 🐍 Python运行强制规范
+
+### **⚠️ 必须使用venv运行所有Python代码**
+
+**绝对禁止：** 直接使用 `python3 script.py` 或 `/usr/bin/python3`
+
+**必须使用以下方式之一：**
+
+#### 方式1: venv_runner.sh (推荐)
+```bash
+# 通用运行方式
+./venv_runner.sh tools/daily_market_report.py
+./venv_runner.sh skills/us-market-analysis/scripts/generate_report_longbridge.py
+
+# 带参数
+./venv_runner.sh tools/script.py --arg1 value1
+```
+
+#### 方式2: 直接指定venv路径
+```bash
+/root/.openclaw/workspace/venv/bin/python3 tools/script.py
+```
+
+#### 方式3: 激活venv后运行
+```bash
+source /root/.openclaw/workspace/venv/bin/activate
+python3 tools/script.py
+deactivate
+```
+
+#### 方式4: 脚本shebang (新脚本必须添加)
+```python
+#!/root/.openclaw/workspace/venv/bin/python3
+# 脚本第一行必须指定venv python
+```
+
+### 加载环境变量
+如果脚本需要长桥API，必须先加载环境变量：
+```bash
+export $(grep -v '^#' /root/.openclaw/workspace/.longbridge.env | xargs)
+./venv_runner.sh script.py
+```
+
+### 为什么要用venv？
+- 包含长桥SDK (`longport`)
+- 包含金融数据包 (`efinance`, `qteasy`, `tushare`)
+- 确保所有依赖一致性
+- 避免系统Python缺少包的错误
+
+### 检查清单（运行Python前）
+- [ ] 是否使用了venv的Python？
+- [ ] 是否需要加载.longbridge.env？
+- [ ] 脚本shebang是否正确？
+
+---
+
+## 📝 Write It Down - No "Mental Notes"!
 
 - **Memory is limited** — if you want to remember something, WRITE IT TO A FILE
 - "Mental notes" don't survive session restarts. Files do.
@@ -418,6 +475,36 @@ multi_source_search("概念下游 应用场景")
 - 每次任务后必须验证
 - SQL查询确认数据入库
 - 实事求是报告真实进度
+
+### 教训3：氮肥板块分析遗漏多源搜索（2026-03-07）
+
+**错误**：
+- **完全跳过多源新闻搜索**（Exa、知识星球、新浪财经）
+- 未识别伊朗战争对尿素供应的重大影响
+- 未量化国内外价差1100元+的关键信息
+- 标的推荐缺乏地缘逻辑支撑
+
+**原因**：
+- 遇到技术障碍（API接口变化）时心态急躁
+- **未执行产业链分析Skill的前置检查清单**
+- 违反"四步搜索法"强制流程
+- 追求快速回复而非质量保障
+
+**影响**：
+- 首版报告质量严重缺陷
+- 被用户连续追问两次
+- 需要重新输出完整报告
+
+**改进**（已固化）：
+1. **硬性流程**：多源搜索（P1-P3）未完成，禁止输出报告
+2. **检查清单工具**：使用 `./checklist_block_analysis.py` 强制检查
+3. **脚本辅助**：使用 `./analyze_block.sh` 启动分析，自动提示搜索步骤
+4. **心态纠正**：宁可报告"搜索完成，数据待补充"，也不出残缺报告
+
+**记忆锚点**：
+> "⚠️ 优先级只是搜索顺序，不是只用P1！所有方式都必须使用并综合。"
+> 
+> "⚠️ 未执行P1-P3，禁止输出报告！"
 
 ---
 
