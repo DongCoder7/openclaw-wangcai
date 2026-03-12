@@ -1,0 +1,69 @@
+{
+  "stock_name": "伟测科技",
+  "stock_code": "688372.SH",
+  "price_data": {
+    "stock_name": "伟测科技",
+    "stock_code": "688372.SH",
+    "current_price": 142.61,
+    "eps_ttm": 1.802320645499895,
+    "pe_ttm": 79.1257650829636,
+    "total_shares": 1.49053843,
+    "market_cap": 212.56568550230003,
+    "data_time": "2026-03-12 19:14:57",
+    "data_source": "长桥OpenAPI"
+  },
+  "company": {
+    "fullname": "上海伟测半导体科技股份有限公司",
+    "shortname": "伟测科技",
+    "industry": "半导体 - 集成电路测试服务",
+    "list_date": "2022-10-26",
+    "province": "上海市",
+    "main_business": "第三方集成电路测试服务",
+    "products": [
+      "晶圆测试（CP测试）",
+      "芯片成品测试（FT测试）",
+      "测试方案开发",
+      "老化测试（Burn-in）"
+    ],
+    "data_source": "公开资料整理"
+  },
+  "valuation": {
+    "current_price": 142.61,
+    "current_cap": 212.56568550230003,
+    "pe_ttm": 79.1257650829636,
+    "scenarios": [
+      {
+        "name": "保守",
+        "profit": 1.0,
+        "pe": 45,
+        "target_cap": 45.0,
+        "target_price": 30.190432594213622,
+        "upside": -78.83007321070498
+      },
+      {
+        "name": "中性",
+        "profit": 1.5,
+        "pe": 60,
+        "target_cap": 90.0,
+        "target_price": 60.380865188427244,
+        "upside": -57.660146421409976
+      },
+      {
+        "name": "乐观",
+        "profit": 2.2,
+        "pe": 80,
+        "target_cap": 176.0,
+        "target_price": 118.07813636847995,
+        "upside": -17.2020641129795
+      }
+    ]
+  },
+  "recommendation": {
+    "rating": "🔴 持有/观望",
+    "action": "等待回调",
+    "buy_zone": "¥24-54",
+    "stop_loss": 18.11425955652817,
+    "target": 60.380865188427244
+  },
+  "report_time": "2026-03-12 19:14:59"
+}
