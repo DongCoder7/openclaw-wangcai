@@ -162,13 +162,25 @@ def extract_topic(topic: dict) -> dict:
     }
 
 
-def save_to_file(topics: list, group_id: str):
-    """保存到按Group ID命名的文件"""
-    if not topics:
-        return 0
+def save_to_file(topics: list, group_id: str, all_raw_topics: list = None):
+    """保存到按Group ID命名的文件
     
+    修复: 即使没有新内容，也确保文件存在(包含当天API返回的所有数据)
+    """
     today = datetime.now().strftime("%Y-%m-%d")
     file_path = RAW_DIR / f"{today}_{group_id}.json"
+    
+    # 如果没有新内容但有原始数据，仍然处理所有原始数据
+    if not topics and all_raw_topics:
+        topics = [extract_topic(t) for t in all_raw_topics]
+        topics = [t for t in topics if t]  # 过滤None
+    
+    if not topics:
+        # 确保空文件存在，避免发送脚本报错
+        if not file_path.exists():
+            with open(file_path, 'w', encoding='utf-8') as f:
+                json.dump([], f, ensure_ascii=False, indent=2)
+        return 0
     
     # 读取已有数据
     existing = []
@@ -230,8 +242,8 @@ def main():
                 new_topics.append(extracted)
                 save_seen_id(topic_id)
     
-    # 保存
-    saved_count = save_to_file(new_topics, GROUP_ID)
+    # 保存 - 传入原始数据，确保文件始终存在
+    saved_count = save_to_file(new_topics, GROUP_ID, raw_topics)
     
     # 输出结果
     print(f"✅ 新内容: {len(new_topics)} 条")

@@ -98,45 +98,138 @@ def send_feishu(message):
 
 
 # ========================================
-# 缠论支撑压力计算
+# 缠论支撑压力计算 - V2 多周期扩展版
 # ========================================
 
-def calculate_zhongshu_sr(df, window=20):
-    """计算中枢支撑压力 (简化版)"""
-    if len(df) < window:
-        return {}
+def calculate_multi_ma_sr(df_dict):
+    """计算多周期均线支撑压力 (5,10,20,30,60,120)
     
-    recent = df.tail(window)
-    highs = recent['high'].values
-    lows = recent['low'].values
+    参数:
+        df_dict: 各周期DataFrame字典, 如 {'5min': df_5min, '30min': df_30min, 'day': df_day}
+    """
+    results = {}
+    all_ma_values = []
     
-    # 找价格密集区 (中枢)
-    price_range = np.linspace(lows.min(), highs.max(), 20)
-    time_at_level = []
+    for period_name, df in df_dict.items():
+        if df is None or len(df) < 5:
+            continue
+            
+        closes = df['close'].values
+        
+        # 根据数据长度计算不同周期MA
+        if period_name == '1min':
+            # 1分钟图计算短期MA
+            ma_windows = {'ma5': 5, 'ma10': 10, 'ma20': 20}
+        elif period_name == '5min':
+            ma_windows = {'ma5m_5': 5, 'ma5m_10': 10, 'ma5m_20': 20}
+        elif period_name == '30min':
+            ma_windows = {'ma30m_5': 5, 'ma30m_10': 10}
+        elif period_name == 'day':
+            # 日线计算标准MA
+            ma_windows = {}
+            if len(closes) >= 5:
+                ma_windows['ma5'] = 5
+            if len(closes) >= 10:
+                ma_windows['ma10'] = 10
+            if len(closes) >= 20:
+                ma_windows['ma20'] = 20
+            if len(closes) >= 30:
+                ma_windows['ma30'] = 30
+            if len(closes) >= 60:
+                ma_windows['ma60'] = 60
+        else:
+            continue
+            
+        for ma_name, window in ma_windows.items():
+            if len(closes) >= window:
+                ma_val = np.mean(closes[-window:])
+                results[ma_name] = float(ma_val)
+                all_ma_values.append(ma_val)
     
-    for level in price_range:
-        mask = (lows <= level) & (highs >= level)
-        time_at_level.append(mask.sum())
+    # 计算MA的包络区间 (作为中枢参考)
+    if all_ma_values:
+        results['ma_envelope_high'] = max(all_ma_values)
+        results['ma_envelope_low'] = min(all_ma_values)
+        results['ma_envelope_center'] = np.median(all_ma_values)
     
-    # 中枢中心 = 停留时间最长的价位
-    max_idx = np.argmax(time_at_level)
-    zhongshu_center = price_range[max_idx]
+    return results
+
+
+def calculate_zhongshu_sr_v2(df_dict, lookback_bars=60):
+    """计算缠论中枢 - V2扩展版
     
-    # 中枢上下轨 (±10%区间)
-    idx_low = max(0, max_idx - 2)
-    idx_high = min(len(price_range) - 1, max_idx + 2)
-    zhongshu_low = price_range[idx_low]
-    zhongshu_high = price_range[idx_high]
+    基于多周期价格重叠区域计算中枢，区间更大
     
-    return {
-        'zhongshu_high': float(zhongshu_high),
-        'zhongshu_center': float(zhongshu_center),
-        'zhongshu_low': float(zhongshu_low),
-    }
+    参数:
+        df_dict: 各周期DataFrame字典
+        lookback_bars: 回看K线数量 (默认60根)
+    """
+    results = {}
+    
+    # 1. 使用日线数据计算主要中枢
+    df_day = df_dict.get('day')
+    if df_day is not None and len(df_day) >= 20:
+        recent = df_day.tail(lookback_bars)
+        highs = recent['high'].values
+        lows = recent['low'].values
+        
+        # 方法1: 价格区间分档，找成交量密集区
+        # 扩大分档数量，更精细地找中枢
+        n_bins = 50  # 增加分档数量
+        price_range = np.linspace(lows.min(), highs.max(), n_bins)
+        
+        # 计算每个价格档位的"停留强度"
+        # 强度 = 穿过该价位的K线数量 × 该价位附近的成交量权重
+        strength_at_level = []
+        for level in price_range:
+            # K线穿过该价位的数量
+            mask = (lows <= level) & (highs >= level)
+            count = mask.sum()
+            
+            # 距离中心越近权重越高
+            center_price = (highs.max() + lows.min()) / 2
+            distance_factor = 1 - abs(level - center_price) / (highs.max() - lows.min() + 0.001)
+            
+            strength = count * distance_factor
+            strength_at_level.append(strength)
+        
+        # 找强度最高的区域作为中枢中心
+        sorted_indices = np.argsort(strength_at_level)[::-1]
+        
+        # 取前20%的分档作为中枢区间
+        top_n = max(5, n_bins // 5)  # 至少5个分档
+        top_indices = sorted_indices[:top_n]
+        
+        zhongshu_low = price_range[top_indices.min()]
+        zhongshu_high = price_range[top_indices.max()]
+        zhongshu_center = price_range[sorted_indices[0]]  # 最强点作为中心
+        
+        results['zhongshu_high'] = float(zhongshu_high)
+        results['zhongshu_low'] = float(zhongshu_low)
+        results['zhongshu_center'] = float(zhongshu_center)
+        results['zhongshu_width'] = float(zhongshu_high - zhongshu_low)
+        results['zhongshu_width_pct'] = float((zhongshu_high - zhongshu_low) / zhongshu_center * 100)
+    
+    # 2. 使用各周期的极值确定扩展中枢
+    all_period_highs = []
+    all_period_lows = []
+    
+    for period_name, df in df_dict.items():
+        if df is not None and len(df) >= 10:
+            recent = df.tail(min(lookback_bars, len(df)))
+            all_period_highs.append(recent['high'].max())
+            all_period_lows.append(recent['low'].min())
+    
+    if all_period_highs and all_period_lows:
+        results['extended_high'] = max(all_period_highs)
+        results['extended_low'] = min(all_period_lows)
+        results['extended_center'] = (results['extended_high'] + results['extended_low']) / 2
+    
+    return results
 
 
 def calculate_fenxing_sr(df):
-    """分型支撑压力"""
+    """分型支撑压力 - 保持不变"""
     if len(df) < 5:
         return {}
     
@@ -159,80 +252,47 @@ def calculate_fenxing_sr(df):
     
     result = {}
     if resistance_levels:
-        result['fenxing_resistance'] = float(max(resistance_levels[-3:]))  # 最近3个
+        result['fenxing_resistance'] = float(max(resistance_levels[-5:]))  # 最近5个
     if support_levels:
-        result['fenxing_support'] = float(min(support_levels[-3:]))
+        result['fenxing_support'] = float(min(support_levels[-5:]))
     
     return result
 
 
-def calculate_ma_sr(df):
-    """均线支撑压力"""
-    if len(df) < 60:
-        return {}
+def calculate_all_sr_v2(df_dict):
+    """综合计算所有支撑压力位 - V2多周期版
     
-    closes = df['close'].values
-    
-    return {
-        'ma5': float(np.mean(closes[-5:])),
-        'ma10': float(np.mean(closes[-10:])),
-        'ma20': float(np.mean(closes[-20:])),
-        'ma60': float(np.mean(closes[-60:])) if len(closes) >= 60 else float(closes.mean()),
-    }
-
-
-def calculate_pivot_sr(df):
-    """枢轴点支撑压力 (经典方法)"""
-    if len(df) < 2:
-        return {}
-    
-    prev = df.iloc[-2]
-    high = prev['high']
-    low = prev['low']
-    close = prev['close']
-    
-    pivot = (high + low + close) / 3
-    
-    r1 = 2 * pivot - low
-    r2 = pivot + (high - low)
-    s1 = 2 * pivot - high
-    s2 = pivot - (high - low)
-    
-    return {
-        'pivot': float(pivot),
-        'r1': float(r1),
-        'r2': float(r2),
-        's1': float(s1),
-        's2': float(s2),
-    }
-
-
-def calculate_all_sr(df_1min, df_5min, df_day):
-    """综合计算所有支撑压力位"""
+    参数:
+        df_dict: 各周期DataFrame字典, 如 {'1min': df_1min, '5min': df_5min, 'day': df_day}
+    """
     results = {}
     
-    # 各周期计算
-    if df_1min is not None and len(df_1min) >= 20:
-        results.update(calculate_zhongshu_sr(df_1min, 20))
-        results.update(calculate_fenxing_sr(df_1min))
-        results.update(calculate_ma_sr(df_1min))
+    # 1. 多周期MA
+    results.update(calculate_multi_ma_sr(df_dict))
     
-    if df_5min is not None and len(df_5min) >= 10:
-        sr_5m = calculate_zhongshu_sr(df_5min, 10)
-        results['zhongshu_high_5m'] = sr_5m.get('zhongshu_high')
-        results['zhongshu_low_5m'] = sr_5m.get('zhongshu_low')
+    # 2. 扩展中枢计算
+    results.update(calculate_zhongshu_sr_v2(df_dict))
     
-    if df_day is not None and len(df_day) >= 5:
-        results.update(calculate_pivot_sr(df_day))
+    # 3. 分型 (使用日线)
+    if 'day' in df_dict and df_dict['day'] is not None:
+        results.update(calculate_fenxing_sr(df_dict['day']))
     
-    # 综合最强支撑/压力 (多方法验证)
-    supports = [v for k, v in results.items() if 'support' in k.lower() or 'low' in k.lower() or 's1' in k or 's2' in k or 'ma' in k]
-    resistances = [v for k, v in results.items() if 'resistance' in k.lower() or 'high' in k.lower() or 'r1' in k or 'r2' in k]
+    # 4. 综合最强支撑/压力
+    supports = []
+    resistances = []
+    
+    for k, v in results.items():
+        if v is None:
+            continue
+        if 'low' in k.lower() or 'support' in k.lower():
+            supports.append(v)
+        if 'high' in k.lower() or 'resistance' in k.lower():
+            resistances.append(v)
     
     if supports:
-        results['strong_support'] = float(np.median([s for s in supports if s is not None]))
+        results['strong_support'] = float(np.percentile(supports, 25))  # 偏保守
     if resistances:
-        results['strong_resistance'] = float(np.median([r for r in resistances if r is not None]))
+        results['strong_resistance'] = float(np.percentile(resistances, 75))  # 偏保守
     
     return results
 
@@ -256,10 +316,12 @@ def analyze_stock_v4(ctx, symbol, info):
     
     print(f"\n  分析 {name} ({symbol})...")
     
-    # 获取多周期数据
+    # 获取多周期数据 (1, 5, 30, 60分钟 + 日线)
     df_1min = get_data(ctx, symbol, Period.Min_1, 240)
     df_5min = get_data(ctx, symbol, Period.Min_5, 48)
-    df_day = get_data(ctx, symbol, Period.Day, 20)
+    df_30min = get_data(ctx, symbol, Period.Min_30, 20)
+    df_60min = get_data(ctx, symbol, Period.Min_60, 20)
+    df_day = get_data(ctx, symbol, Period.Day, 60)
     
     if df_1min is None or len(df_1min) < 5:
         return None
@@ -287,8 +349,9 @@ def analyze_stock_v4(ctx, symbol, info):
     change_pct = (current - prev_close) / prev_close * 100
     today_change_pct = (current - today_open) / today_open * 100
     
-    # ===== 缠论支撑压力计算 =====
-    sr_levels = calculate_all_sr(df_1min, df_5min, df_day)
+    # ===== 缠论支撑压力计算 (多周期版) =====
+    df_dict = {'1min': df_1min, '5min': df_5min, '30min': df_30min, '60min': df_60min, 'day': df_day}
+    sr_levels = calculate_all_sr_v2(df_dict)
     
     # ===== 量能分析 =====
     recent_vol = df_1min.tail(20)['volume'].mean()
@@ -299,10 +362,8 @@ def analyze_stock_v4(ctx, symbol, info):
     sell_vol = today_data[today_data['close'] < today_data['open']]['volume'].sum()
     net_flow = buy_vol - sell_vol
     
-    # ===== 技术指标 =====
-    ma5 = df_1min['close'].tail(5).mean()
-    ma10 = df_1min['close'].tail(10).mean()
-    ma20 = df_1min['close'].tail(20).mean()
+    # ===== 多周期均线 =====
+    multi_ma = sr_levels
     
     # ===== 生成详细报告 =====
     report = []
@@ -326,6 +387,10 @@ def analyze_stock_v4(ctx, symbol, info):
     if 'zhongshu_center' in sr_levels:
         report.append(f"  中枢区间: [{sr_levels.get('zhongshu_low', 0):.2f}, {sr_levels.get('zhongshu_high', 0):.2f}]")
         report.append(f"  中枢中心: {sr_levels['zhongshu_center']:.2f}元")
+        if 'zhongshu_width_pct' in sr_levels:
+            report.append(f"  中枢宽度: {sr_levels['zhongshu_width']:.2f}元 ({sr_levels['zhongshu_width_pct']:.1f}%)")
+    if 'extended_low' in sr_levels:
+        report.append(f"  扩展区间: [{sr_levels['extended_low']:.2f}, {sr_levels['extended_high']:.2f}]")
     if 'fenxing_support' in sr_levels:
         report.append(f"  分型支撑: {sr_levels['fenxing_support']:.2f}元")
     if 'fenxing_resistance' in sr_levels:
@@ -336,11 +401,20 @@ def analyze_stock_v4(ctx, symbol, info):
         report.append(f"  ⚡ 强压力: {sr_levels['strong_resistance']:.2f}元 (多方法验证)")
     report.append("")
     
-    # 均线支撑压力
-    report.append("【均线支撑压力】")
-    report.append(f"  MA5:  {ma5:.2f}元 {'📈支撑' if current > ma5 else '📉压力'}")
-    report.append(f"  MA10: {ma10:.2f}元 {'📈支撑' if current > ma10 else '📉压力'}")
-    report.append(f"  MA20: {ma20:.2f}元 {'📈支撑' if current > ma20 else '📉压力'}")
+    # 多周期均线支撑压力
+    report.append("【多周期均线支撑压力】")
+    ma_fields = [
+        ('ma5', 'MA5日'), ('ma10', 'MA10日'), ('ma20', 'MA20日'),
+        ('ma30', 'MA30日'), ('ma60', 'MA60日'),
+        ('ma5m_5', 'MA5分5'), ('ma5m_10', 'MA5分10'),
+        ('ma30m_5', 'MA30分5'), ('ma30m_10', 'MA30分10'),
+        ('ma_envelope_low', 'MA包络低'), ('ma_envelope_high', 'MA包络高')
+    ]
+    for key, name in ma_fields:
+        if key in sr_levels:
+            val = sr_levels[key]
+            status = '📈支撑' if current > val else '📉压力' if current < val else '➡️平价'
+            report.append(f"  {name}: {val:.2f}元 {status}")
     report.append("")
     
     # 量能
@@ -416,6 +490,13 @@ def analyze_stock_v4(ctx, symbol, info):
     score = 0
     reasons = []
     
+    # 获取MA值
+    ma5 = multi_ma.get('ma5', current)
+    ma10 = multi_ma.get('ma10', current)
+    ma20 = multi_ma.get('ma20', current)
+    strong_support = sr_levels.get('strong_support', buy_below)
+    strong_resistance = sr_levels.get('strong_resistance', take_profit_1)
+    
     if current > ma5 > ma10:
         score += 1
         reasons.append("均线多头排列")
@@ -459,20 +540,20 @@ def analyze_stock_v4(ctx, symbol, info):
     elif score >= 1.5:
         action = "✅ 加仓/持有"
         detail = "技术面强势，可持有或逢低加仓"
-        next_steps = [f"1. 回踩{sr_levels.get('strong_support', ma10):.2f}元可加仓", 
-                     f"2. 突破{sr_levels.get('strong_resistance', take_profit_1):.2f}元继续加仓",
+        next_steps = [f"1. 回踩{strong_support:.2f}元可加仓", 
+                     f"2. 突破{strong_resistance:.2f}元继续加仓",
                      f"3. 跌破{stop_loss:.2f}元止损"]
     elif score >= 0.5:
         action = "➡️ 持有观望"
         detail = "趋势尚可，继续持有观察"
-        next_steps = [f"1. 关注能否突破{sr_levels.get('strong_resistance', 0):.2f}元",
-                     f"2. 跌破{sr_levels.get('strong_support', stop_loss):.2f}元减仓",
+        next_steps = [f"1. 关注能否突破{strong_resistance:.2f}元",
+                     f"2. 跌破{strong_support:.2f}元减仓",
                      f"3. 达到{take_profit_1:.2f}元减仓1/3"]
     elif score >= -0.5:
         action = "⏸️ 减仓观望"
         detail = "方向不明，建议减仓避险"
         next_steps = [f"1. 减仓1/3-1/2",
-                     f"2. 等待回调至{sr_levels.get('strong_support', buy_below):.2f}元",
+                     f"2. 等待回调至{strong_support:.2f}元",
                      f"3. 跌破{stop_loss:.2f}元清仓"]
     elif score >= -1.5:
         action = "⚠️ 减仓避险"
