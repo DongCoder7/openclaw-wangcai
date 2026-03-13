@@ -18,16 +18,60 @@ sys.path.insert(0, '/root/.openclaw/workspace')
 
 
 class ZsxqSearcher:
-    """知识星球搜索器（优化版）"""
+    """知识星球搜索器
     
-    def __init__(self):
-        self.cookie = 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22421882554581888%22%2C%22first_id%22%3A%2219957298c826cb-08f4b144c21fe3-1f525631-1484784-19957298c83903%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%AB%99%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fopen.weixin.qq.com%2F%22%7D%2C%22identities%22%3A%22eyIkaWRlbnRpdHlfY29va2llX2lkIjoiMTk5NTcyOThjODI2Y2ItMDhmNGIxNDRjMjFmZTMtMWY1MjU2MzEtMTQ4NDc4NC0xOTk1NzI5OGM4MzkwMyIsIiRpZGVudGl0eV9sb2dpbl9pZCI6IjQyMTg4MjU1NDU4MTg4OCJ9%22%2C%22history_login_id%22%3A%7B%22name%22%3A%22%24identity_login_id%22%2C%22value%22%3A%22421882554581888%22%7D%2C%22%24device_id%22%3A%2219957298c826cb-08f4b144c21fe3-1f525631-1484784-19957298c83903%22%7D; abtest_env=product; zsxq_access_token=26FC1241-0A1A-42BF-87B9-BE97A4A42AB1_2ECB6A0A4CD9622F'
+    Token配置（.zsxq_env）:
+    - ZSXQ_COOKIES_GROUP23: Group2(51111818455824) & Group3(88512145458842) 共用
+    - ZSXQ_COOKIES_DIAOYAN: 调研纪要(51122188845424) 单独使用
+    """
+    
+    def __init__(self, group_id: str = None):
+        import os
+        import re
+        from pathlib import Path
+        
+        self.group_id = group_id or '28855458518111'
+        
+        # 从 .zsxq_env 读取配置（注意是下划线，不是点）
+        env_file = Path('/root/.openclaw/workspace/.zsxq_env')
+        self.cookie = None
+        self.token = None
+        self.group_name = "默认"
+        
+        if env_file.exists():
+            with open(env_file, 'r') as f:
+                env_content = f.read()
+            
+            # Group2&3共用完整cookie
+            if group_id in ['51111818455824', '88512145458842']:
+                match = re.search(r'ZSXQ_COOKIES_GROUP23="([^"]+)"', env_content)
+                if match:
+                    self.cookie = match.group(1)
+                    # 从完整cookie中提取token
+                    if 'zsxq_access_token=' in self.cookie:
+                        self.token = self.cookie.split('zsxq_access_token=')[1].split(';')[0]
+                    self.group_name = "会员海森堡/truth"
+            
+            # 调研纪要单独token
+            elif group_id == '51122188845424':
+                match = re.search(r'ZSXQ_COOKIES_DIAOYAN="([^"]+)"', env_content)
+                if match:
+                    self.cookie = match.group(1)
+                    self.token = self.cookie.replace('zsxq_access_token=', '')
+                    self.group_name = "调研纪要"
+        
+        # 如果没找到，使用默认
+        if not self.cookie:
+            self.token = '26FC1241-0A1A-42BF-87B9-BE97A4A42AB1_2ECB6A0A4CD9622F'
+            self.cookie = f'zsxq_access_token={self.token}'
+        
+        print(f"   📁 Group {group_id} → {self.group_name}")
+        
         self.headers = {
             'Cookie': self.cookie,
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             'Accept': 'application/json'
         }
-        self.group_id = '28855458518111'
         self.last_query_time = None
     
     def _check_interval(self):
