@@ -1,22 +1,44 @@
 [
   {
+    "topic_id": "82811488115185182",
+    "date": "2026-03-17",
+    "create_time": "2026-03-17T03:58:02.809+0800",
+    "author": "饲养员薛定谔",
+    "title": "",
+    "content": "费曼也会又有光，又有铜，又有cpo，各种方案都会并存可选，cpo既有scale up，也有scale out",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "45811288114184148",
+    "date": "2026-03-17",
+    "create_time": "2026-03-17T03:55:06.299+0800",
+    "author": "饲养员薛定谔",
+    "title": "",
+    "content": "rubin，传统的oberon机柜里，也会有576节点，在节点内也能应用cpo，cpo光方案和铜方案会共存，都会有",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "45811288114184848",
+    "date": "2026-03-17",
+    "create_time": "2026-03-17T03:41:46.455+0800",
+    "author": "饲养员薛定谔",
+    "title": "",
+    "content": "正交背板",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
     "topic_id": "14588155142125842",
     "date": "2026-03-16",
     "create_time": "2026-03-16T17:41:15.327+0800",
     "author": "研报早读(学习委员)",
     "title": "",
     "content": "我的天，存货多是好事啊…这不是零食啊…别理解反了",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "22811488425282821",
-    "date": "2026-03-16",
-    "create_time": "2026-03-16T17:33:16.364+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "128套现货，直接有需求的私我",
     "type": "talk",
     "has_attachment": false,
     "image_count": 0
@@ -94,39 +116,6 @@
     "author": "研报早读(学习委员)",
     "title": "",
     "content": "这个就是前几天说的M10在测试",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "55188412181111584",
-    "date": "2026-03-11",
-    "create_time": "2026-03-11T23:52:15.642+0800",
-    "author": "饲养员薛定谔",
-    "title": "",
-    "content": "文章提到cowop只有三家：臻鼎，欣兴，景旺。不属实，nv分享了cowop的tech roadmap要求胜宏跟进，下周胜宏去美国汇报未来规划。",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "22811485818852151",
-    "date": "2026-03-11",
-    "create_time": "2026-03-11T23:49:35.227+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "关于今晚有片台湾的资讯，说什么Cowop只有鹏鼎，欣兴，景旺就别看了。刚才发的报告明确说了胜宏也在弄的。",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "82811485818852282",
-    "date": "2026-03-11",
-    "create_time": "2026-03-11T23:49:08.273+0800",
-    "author": "饲养员薛定谔",
-    "title": "",
-    "content": "tower这边有一部分羲和的交付受到战争影响延迟交付，旭创目前没有听说有影响，24条产线正常跑，目前交付的1.6t主要是NV，小部分meta，meta已开始采购小部分1.6t",
     "type": "talk",
     "has_attachment": false,
     "image_count": 0
