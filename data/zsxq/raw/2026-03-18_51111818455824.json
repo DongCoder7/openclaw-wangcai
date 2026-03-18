@@ -1,0 +1,101 @@
+[
+  {
+    "topic_id": "82811488115185182",
+    "date": "2026-03-17",
+    "create_time": "2026-03-17T03:58:02.809+0800",
+    "author": "饲养员薛定谔",
+    "title": "",
+    "content": "费曼也会又有光，又有铜，又有cpo，各种方案都会并存可选，cpo既有scale up，也有scale out",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "45811288114184148",
+    "date": "2026-03-17",
+    "create_time": "2026-03-17T03:55:06.299+0800",
+    "author": "饲养员薛定谔",
+    "title": "",
+    "content": "rubin，传统的oberon机柜里，也会有576节点，在节点内也能应用cpo，cpo光方案和铜方案会共存，都会有",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "45811288114184848",
+    "date": "2026-03-17",
+    "create_time": "2026-03-17T03:41:46.455+0800",
+    "author": "饲养员薛定谔",
+    "title": "",
+    "content": "正交背板",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "14588155142125842",
+    "date": "2026-03-16",
+    "create_time": "2026-03-16T17:41:15.327+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "我的天，存货多是好事啊…这不是零食啊…别理解反了",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "22811488484554241",
+    "date": "2026-03-16",
+    "create_time": "2026-03-16T16:14:29.204+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "【日本三井金属拟调涨半导体极薄铜箔价格】《<e type=\"web\" href=\"https%3A%2F%2Fwx.zsxq.com%2Fmweb%2Fviews%2Fweread%2Fsearch.html%3Fkeyword%3D%E7%A7%91%E5%88%9B%E6%9D%BF%E6%97%A5%E6%8A%A5\" title=\"%E7%A7%91%E5%88%9B%E6%9D%BF%E6%97%A5%E6%8A%A5\" style=\"book\" />》16日讯，三井金属(Mi­t­s­ui Ki­n­z­o­ku)日前宣布，已和客户展开价格谈判，拟调涨用于AI服务器等用途的半导体极薄铜箔Mi­c­r­o­T­h­in的价格，不过并未透露具体涨幅。三井金属表示，为了顺应客户旺盛的需求，已开始增产Mi­c­r­o­T­h­in，目标在2027年度将Mi­c­r­o­T­h­in月产能较现行提高6%至520万平方米，2029年度进一步扩产至560万平方米。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "22811488454214881",
+    "date": "2026-03-16",
+    "create_time": "2026-03-16T13:31:41.938+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "这个内容是独立SRAM非嵌入式，LPU用的嵌入式还是台积电和三星的天下。这个图里的公司跟着GTC大会名字大概率也会被广大网友多多提到，不过他们要进LPU SRAM供应链可能性几乎为0。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "22811488214551851",
+    "date": "2026-03-16",
+    "create_time": "2026-03-16T10:17:00.880+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "欧陆通谷歌这里测试结果还没出来，前两轮测试读已经通过，目前在最后一个环节，通过后如果能获得二供地位，会有相对可观的供货，三供就没有太可观了，供货这块和麦格米特竞争。\n\nMicro led CPO是市场错误描述，没有这样的产品，LED并不是用来做CPO里的光源。实际应用是光互联替代交换机里的铜线。\n\n除了天孚外，旭创和新易盛也在做ELSFP模组，2026年量少，主要出货为天孚。旭创新易盛2027年参与进入NV供应商名录概率都很大。源杰用于CPO的300mw CW激光器送样NV，但到批量使用大约还需要1~2年。旭创新易盛在NV里 CPO参与度后续其实会很高。另外，新易盛开始模块侧FAU研发，已经送测。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "55188411558442854",
+    "date": "2026-03-16",
+    "create_time": "2026-03-16T01:53:35.112+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "GEO是啥还要我来介绍的话其实也不用关注这条信息了… 因为以后也不用关注了…\n\n从来看不上GEO…从这个概念刚出来的时候我就把315晚会说的GEO的问题全部说了一遍了，纯劣币驱逐良币的东西，且这行业的利润率之低，令人发指，就是最low的AI应用",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "22811488282455251",
+    "date": "2026-03-15",
+    "create_time": "2026-03-15T21:20:18.252+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "GEO被315爆了…",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  }
+]
