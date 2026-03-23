@@ -250,7 +250,15 @@ class ZsxqFetcher:
             return [], None
     
     def extract_topic(self, topic: dict) -> Optional[dict]:
-        """提取主题信息 (入库口径: 有标题或正文即入库)"""
+        """提取主题信息 (入库口径: 有标题或正文即入库)
+        
+        修复v2.1: 完整提取所有相关字段
+        - talk.files (帖子内的附件)
+        - topic.files (顶层的附件)
+        - quoted (引用的原帖)
+        - comments (评论列表)
+        - likes_count/readers_count (互动数据)
+        """
         topic_id = topic.get("topic_id", "")
         
         # 去重检查
@@ -291,21 +299,113 @@ class ZsxqFetcher:
             title = question.get("title", "")
             content = question.get("text", "")
         
-        # 文件
-        files = topic.get("files", [])
-        if files and not content:
-            file_names = [f.get("name", "") for f in files]
+        # ========== 文件提取 (修复bug: 检查多个位置) ==========
+        all_files = []
+        
+        # 1. topic顶层files
+        topic_files = topic.get("files", [])
+        if topic_files:
+            all_files.extend(topic_files)
+        
+        # 2. talk内部files (这是之前的bug位置!)
+        talk_files = talk.get("files", []) if talk else []
+        if talk_files:
+            all_files.extend(talk_files)
+        
+        # 3. question内部files
+        if question:
+            question_files = question.get("files", [])
+            if question_files:
+                all_files.extend(question_files)
+        
+        # 去重(按file_id)
+        seen_file_ids = set()
+        unique_files = []
+        for f in all_files:
+            fid = f.get("file_id")
+            if fid and fid not in seen_file_ids:
+                seen_file_ids.add(fid)
+                unique_files.append({
+                    "file_id": f.get("file_id"),
+                    "name": f.get("name", ""),
+                    "size": f.get("size", 0),
+                    "download_count": f.get("download_count", 0),
+                    "create_time": f.get("create_time", "")
+                })
+        
+        if unique_files and not content:
+            file_names = [f.get("name", "") for f in unique_files]
             title = file_names[0] if file_names else ""
             content = f"[文件] {', '.join(file_names)}"
         
-        # 图片
-        images = topic.get("images", [])
-        if images and not content:
-            content = f"[图片] {len(images)}张"
+        # 图片 (同样检查多个位置)
+        all_images = []
+        topic_images = topic.get("images", [])
+        if topic_images:
+            all_images.extend(topic_images)
+        talk_images = talk.get("images", []) if talk else []
+        if talk_images:
+            all_images.extend(talk_images)
+        
+        if all_images and not content:
+            content = f"[图片] {len(all_images)}张"
         
         # 入库口径: 有标题或正文即入库
         if not title and not content:
             return None
+        
+        # ========== 提取引用内容 (quoted) ==========
+        quoted_data = None
+        quoted = topic.get("quoted")
+        if quoted:
+            quoted_talk = quoted.get("talk", {})
+            quoted_question = quoted.get("question", {})
+            
+            quoted_author = ""
+            quoted_content = ""
+            quoted_files = []
+            
+            if quoted_talk:
+                quoted_author = quoted_talk.get("owner", {}).get("name", "")
+                quoted_content = quoted_talk.get("text", "")
+                # 引用的文件
+                qf = quoted_talk.get("files", [])
+                if qf:
+                    quoted_files = [{"name": f.get("name"), "file_id": f.get("file_id")} for f in qf]
+            elif quoted_question:
+                quoted_author = quoted_question.get("owner", {}).get("name", "")
+                quoted_content = quoted_question.get("text", "")
+            
+            quoted_data = {
+                "topic_id": quoted.get("topic_id"),
+                "author": quoted_author,
+                "content": quoted_content[:500] if quoted_content else "",
+                "files": quoted_files,
+                "create_time": quoted.get("create_time")
+            }
+        
+        # ========== 提取评论 (comments) ==========
+        comments_data = []
+        comments = topic.get("comments", [])
+        if comments:
+            for c in comments:
+                comment_talk = c.get("talk", {})
+                comments_data.append({
+                    "comment_id": c.get("comment_id"),
+                    "author": comment_talk.get("owner", {}).get("name", ""),
+                    "content": comment_talk.get("text", "")[:300],
+                    "create_time": c.get("create_time"),
+                    "likes_count": c.get("likes_count", 0)
+                })
+        
+        # ========== 互动数据 ==========
+        likes_count = topic.get("likes_count", 0)
+        readers_count = topic.get("readers_count", 0)
+        comments_count = topic.get("comments_count", 0) or len(comments_data)
+        rewards_count = topic.get("rewards_count", 0)
+        
+        # 保存seen_id
+        self._save_seen_id(topic_id)
         
         return {
             "topic_id": topic_id,
@@ -315,10 +415,18 @@ class ZsxqFetcher:
             "author_id": author_id,
             "channels": channels,
             "title": title[:200] if title else "",
-            "content": content[:500] if content else "",  # 限制长度
+            "content": content[:1000] if content else "",  # 增加长度限制
             "type": topic.get("type", ""),
-            "has_attachment": bool(files),
-            "image_count": len(images)
+            "files": unique_files,  # 完整的文件列表
+            "has_attachment": bool(unique_files),
+            "images": [{"url": img.get("large", {}).get("url")} for img in all_images[:5]],  # 前5张图
+            "image_count": len(all_images),
+            "quoted": quoted_data,  # 引用的原帖
+            "comments": comments_data,  # 评论列表
+            "comments_count": comments_count,
+            "likes_count": likes_count,
+            "readers_count": readers_count,
+            "rewards_count": rewards_count
         }
     
     def save_to_daily_file(self, topics: List[dict], date: str):

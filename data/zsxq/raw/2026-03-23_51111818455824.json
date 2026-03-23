@@ -1,0 +1,123 @@
+[
+  {
+    "topic_id": "82811422588548142",
+    "date": "2026-03-23",
+    "create_time": "2026-03-23T00:50:16.794+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "中国船只通过海峡了，老美过不过管我们P事",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "14588144252811152",
+    "date": "2026-03-23",
+    "create_time": "2026-03-23T00:17:45.337+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "Marvell 认为3.2T 光模块生态可能要到2028年左右才成熟，因此NPO/XPO可能会收到客户的关注。\n2027年1.6T光模块出货数量达到7500W个。800G出货8500W个。 \n谷歌的DSP依旧为公司基本盘，份额70%左右。\n剑桥采购公司400.500W个DSP，其中400万个给思科(薛定谔上上周直播说过)  \n剑桥，索尔斯(东山)拿物料能力比较强。\n整个行业2027年光源等上游物料可能不再紧缺，DSP不会过剩。\n2026年谷歌这里实际有能力供货1.6T的只有旭创，新易盛，coherent ，lumentum 。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "55188451525545854",
+    "date": "2026-03-20",
+    "create_time": "2026-03-20T10:26:02.531+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "一直和大家在说的OFC大会OCS方案增量，终于[流泪] Google scale up使用OCS",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "14588145511452152",
+    "date": "2026-03-20",
+    "create_time": "2026-03-20T00:15:07.017+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "谷歌内部已经将内存池化方案作为最高优先级项目，计划2027年推出。\n\n谷歌接下去NPO方案里，NPO负责传输，OCS负责交换。NPO直连OCS取代OCS方案中的特制高价光模块。\n\n该方案2027年推出，TPU V9的scale up里使用。即NPO用于芯片间的互联。\n\n谷歌NPO方案目前几乎旭创独家供应。尽管其他厂家也在配合测试，但考虑到旭创在硅光的领先地位，预计后续也能占据70%的主要供应份额。\n\n目前英伟达Rubin ultra初期采用正交背板+NPO的可能性最大。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "14588142885815242",
+    "date": "2026-03-19",
+    "create_time": "2026-03-19T10:29:58.620+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "生益科技口径报告：\n\n深南，科翔，博敏三家有陶瓷PCB产线。深南同时有陶瓷和玻璃基板。 英伟达2025~2026提出陶瓷基板需求。\n兴森 深南 ABF载板水平相近。 鹏鼎，景旺，奥士康都在HDI和多高层板大量扩产。\n\n目前和英伟达有关联的新PCB厂家包括科翔和奥士康",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "82811425125414822",
+    "date": "2026-03-18",
+    "create_time": "2026-03-18T23:39:09.481+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "对了，OCS在OFC上是被提到的比较多，但大家一定要记住，OCS MEMS整机目前不是我们国内整机组装厂的主战场，Lumentum 他们才是。所以很多人问我的问题: 光库能拿到谷歌很多的订单么？答案自然而然就知道了。 至于MEMS芯片和棱镜透镜这种，我们参与度还是高的。\n\n硅光波导方案德科利小规模供货，根据官方说法应该在年2000台的需求，是否能供完看产能。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "82811488115185182",
+    "date": "2026-03-17",
+    "create_time": "2026-03-17T03:58:02.809+0800",
+    "author": "饲养员薛定谔",
+    "title": "",
+    "content": "费曼也会又有光，又有铜，又有cpo，各种方案都会并存可选，cpo既有scale up，也有scale out",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "45811288114184148",
+    "date": "2026-03-17",
+    "create_time": "2026-03-17T03:55:06.299+0800",
+    "author": "饲养员薛定谔",
+    "title": "",
+    "content": "rubin，传统的oberon机柜里，也会有576节点，在节点内也能应用cpo，cpo光方案和铜方案会共存，都会有",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "45811288114184848",
+    "date": "2026-03-17",
+    "create_time": "2026-03-17T03:41:46.455+0800",
+    "author": "饲养员薛定谔",
+    "title": "",
+    "content": "正交背板",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "14588155142125842",
+    "date": "2026-03-16",
+    "create_time": "2026-03-16T17:41:15.327+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "我的天，存货多是好事啊…这不是零食啊…别理解反了",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "22811488484554241",
+    "date": "2026-03-16",
+    "create_time": "2026-03-16T16:14:29.204+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "【日本三井金属拟调涨半导体极薄铜箔价格】《<e type=\"web\" href=\"https%3A%2F%2Fwx.zsxq.com%2Fmweb%2Fviews%2Fweread%2Fsearch.html%3Fkeyword%3D%E7%A7%91%E5%88%9B%E6%9D%BF%E6%97%A5%E6%8A%A5\" title=\"%E7%A7%91%E5%88%9B%E6%9D%BF%E6%97%A5%E6%8A%A5\" style=\"book\" />》16日讯，三井金属(Mi­t­s­ui Ki­n­z­o­ku)日前宣布，已和客户展开价格谈判，拟调涨用于AI服务器等用途的半导体极薄铜箔Mi­c­r­o­T­h­in的价格，不过并未透露具体涨幅。三井金属表示，为了顺应客户旺盛的需求，已开始增产Mi­c­r­o­T­h­in，目标在2027年度将Mi­c­r­o­T­h­in月产能较现行提高6%至520万平方米，2029年度进一步扩产至560万平方米。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  }
+]
