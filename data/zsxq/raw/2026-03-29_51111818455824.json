@@ -1,0 +1,90 @@
+[
+  {
+    "topic_id": "14588141814428852",
+    "date": "2026-03-27",
+    "create_time": "2026-03-27T12:41:42.451+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "看的时候可以搜索按时间节点去看看，分析下",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "45811252241422218",
+    "date": "2026-03-27",
+    "create_time": "2026-03-27T00:37:42.782+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "英伟达的蜻蜓网络架构会使用OCS来替代当前的胖树网络架构，时间预估在2028年开始。架构中第一层用CPO，第二层用OCS。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "82811424214145182",
+    "date": "2026-03-26",
+    "create_time": "2026-03-26T21:11:26.755+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "华工官方的海外客户说词来了，和薛定谔之前说的一样: 800G 一个月几万个，目前订单只有Arista的40万个，以后能到70.80万个。1.6T只有集成商，渠道订单，没有Arista的。\n\n重点，没有英伟达订单，只是最近准备去测试。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "82811424222182152",
+    "date": "2026-03-26",
+    "create_time": "2026-03-26T13:10:29.450+0800",
+    "author": "饲养员薛定谔",
+    "title": "",
+    "content": "网传会议纪要",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "14588141215542512",
+    "date": "2026-03-25",
+    "create_time": "2026-03-25T20:26:40.913+0800",
+    "author": "饲养员薛定谔",
+    "title": "",
+    "content": "萝卜公告的订单是aaoi的，不限于公告的数量。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "22811424581518481",
+    "date": "2026-03-25",
+    "create_time": "2026-03-25T15:07:33.800+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "运营商这里光纤急单允许大涨了，等不住了",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "45811252442815858",
+    "date": "2026-03-25",
+    "create_time": "2026-03-25T11:11:56.228+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "昨天一篇报告提到了英伟达想在Rubin ultra后期尝试使用CPC来解决信号衰减问题。我今天查了下，应该是GTC大会期间提到的。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "14588141221252422",
+    "date": "2026-03-25",
+    "create_time": "2026-03-25T10:52:36.928+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "然后也和大家说下我们为什么不和别的星球那样疯狂转发券商的各种打call文章，很简单，大部分都是滞后的信息。别人凭啥把刚获得的新的信息免费给到大家…在你看到这条信息前，机构客户早就知道了。所以不要再要求我们增加这类内容，不发这类是对大家好。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  }
+]
