@@ -1,5 +1,27 @@
 [
   {
+    "topic_id": "14588112541221112",
+    "date": "2026-04-01",
+    "create_time": "2026-04-01T02:21:47.314+0800",
+    "author": "饲养员薛定谔",
+    "title": "",
+    "content": "阳光电源\n毛利下降主要是：\n收入结构变化，逆变器比例下降，电站比例上升\n碳酸锂上涨",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "14588112542882282",
+    "date": "2026-04-01",
+    "create_time": "2026-04-01T00:43:47.345+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "结束了[微笑][傲慢][难过][惊讶][发呆]",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
     "topic_id": "82811445885252582",
     "date": "2026-03-31",
     "create_time": "2026-03-31T21:06:54.891+0800",
@@ -72,39 +94,6 @@
     "author": "研报早读(学习委员)",
     "title": "",
     "content": "看的时候可以搜索按时间节点去看看，分析下",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "45811252241422218",
-    "date": "2026-03-27",
-    "create_time": "2026-03-27T00:37:42.782+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "英伟达的蜻蜓网络架构会使用OCS来替代当前的胖树网络架构，时间预估在2028年开始。架构中第一层用CPO，第二层用OCS。",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "82811424214145182",
-    "date": "2026-03-26",
-    "create_time": "2026-03-26T21:11:26.755+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "华工官方的海外客户说词来了，和薛定谔之前说的一样: 800G 一个月几万个，目前订单只有Arista的40万个，以后能到70.80万个。1.6T只有集成商，渠道订单，没有Arista的。\n\n重点，没有英伟达订单，只是最近准备去测试。",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "82811424222182152",
-    "date": "2026-03-26",
-    "create_time": "2026-03-26T13:10:29.450+0800",
-    "author": "饲养员薛定谔",
-    "title": "",
-    "content": "网传会议纪要",
     "type": "talk",
     "has_attachment": false,
     "image_count": 0
