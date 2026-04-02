@@ -1,5 +1,27 @@
 [
   {
+    "topic_id": "45811224252252248",
+    "date": "2026-04-01",
+    "create_time": "2026-04-01T20:04:14.937+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "看到这个图别慌，看下单位。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "82811445482542282",
+    "date": "2026-04-01",
+    "create_time": "2026-04-01T15:23:57.413+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "目前来看，英伟达Dragonfly架构中scale up和scale out里都可能会使用OCS。英伟达scale up里OCS端口数应该不会像谷歌那么多，谷歌用288*288的。谷歌scale up里9000多个TPU，蜻蜓架构可能是1024个GPU。\n\n我的理解: 英伟达OCS端口数不用像谷歌用的那么多，但是如果相同数量芯片，OCS数量英伟达用的更多。至于具体多少OCS，架构怎么样的，目前还没有更多信息。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
     "topic_id": "14588112155822852",
     "date": "2026-04-01",
     "create_time": "2026-04-01T14:59:33.602+0800",
