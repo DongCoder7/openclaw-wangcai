@@ -17,8 +17,8 @@
 | 09:30 | A+H开盘前瞻 | `skills/ah-market-preopen/scripts/generate_report_longbridge.py` | 10分钟 | 即时发送结果 |
 | 15:05 | 收盘深度报告生成 | `skills/daily-market-report/scripts/generate_report.py` | 10分钟 | Linux Cron执行 |
 | 15:10 | 收盘报告发送 | Heartbeat读取并发送 | 5分钟 | 读取data/daily_report_YYYYMMDD.md发送 |
-| 22:30 | 知识星球日终抓取 | `读取并发送` | 10分钟 | 读取 最新的data/zswq/raw/YYYYMMDD_51111818455824和YYYYMMDD_88512145458842文件，并发给我，注意channel是feishu，user_id是：ou_efbad805767f4572e8f93ebafa8d5402
- |
+| 19:35 | 飞书多维表格URL提取 | `tools/daily_feishu_url_extractor.py` | 10分钟 | 提取表格所有记录中的URL，发送至feishu，user_id: ou_efbad805767f4572e8f93ebafa8d5402 |
+| 22:30 | 知识星球日终抓取 | `读取并发送` | 10分钟 | 读取 最新的data/zswq/raw/YYYYMMDD_51111818455824和YYYYMMDD_88512145458842文件，并发给我，注意channel是feishu，user_id是：ou_efbad805767f4572e8f93ebafa8d5402 |
 
 
 ## Git同步要求
@@ -32,5 +32,5 @@
 ---
 
 
-*版本: v3.0 - 优化日志管理，增加Git同步*
-*更新: 2026-03-03*
+*版本: v3.1 - 增加飞书多维表格URL提取任务*
+*更新: 2026-04-07*
