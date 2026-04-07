@@ -1,0 +1,101 @@
+[
+  {
+    "topic_id": "82255518425114482",
+    "date": "2026-04-06",
+    "create_time": "2026-04-06T23:55:36.783+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "相干光模块 旭创，新易盛，华工啥的也都做的",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "82255518521852152",
+    "date": "2026-04-03",
+    "create_time": "2026-04-03T17:21:46.110+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "英唐自身技术实力不强，如果要做代工，得靠桂林。 \n\nOCS MEMS芯片自己搞出来有希望的是菊花厂和军转民的，还得有钱。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "55522281258224514",
+    "date": "2026-04-03",
+    "create_time": "2026-04-03T17:01:42.351+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "福邦报告里HVLP4铜箔 2H开始缺货，我估计是6月，大家可以平时多关注什么时候开始涨价。2026.2027缺口都是45%左右，这个缺口和EML这种差不多。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "14422285258415822",
+    "date": "2026-04-03",
+    "create_time": "2026-04-03T13:32:30.016+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "OCS MEMS芯片国内上市的大部分只是单做设计，或者代工，或者贸易\n\n能够大规模量产且良率很好的没上市，MEMS芯片这块后续会持续更新。这块我们有T0级别的资源。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "14422285255151452",
+    "date": "2026-04-03",
+    "create_time": "2026-04-03T12:11:09.880+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "DCI",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "82255518558288552",
+    "date": "2026-04-03",
+    "create_time": "2026-04-03T09:21:47.989+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "经确认，博创是是英伟达光纤认证供应商是老信息，非最新通过认证。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "55522282828821584",
+    "date": "2026-04-02",
+    "create_time": "2026-04-02T12:40:20.762+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "存储电话会会议纪要: \n1. CSP overbooking 在减少，注意，是overbooking减少，并非需求变少。\n2.这两个月开始会有Dram 13万片/月，NAND 15万片/月产能陆续释放。 全球目前DRAM月产能180万片，NAND 200万片。\n3.预计到2026年三季度前，颗粒厂价格仍然保持环比上涨，但是涨幅变窄。三季度后涨幅乏力。2027年年中随着新增产能大规模释放，各家厂家可能会调整价格来抢占份额。\n4.通过近期颗粒厂开始愿意和CSP签订按照现在价格的锁价2-3年长协，可以判断存储的甲乙方关系开始出现了微妙的变化。\n5.谷歌的TurboQuant技术理论上可以减少存储使用量，但是目前CSP新增订单意愿没有产生影响。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "45811224252252248",
+    "date": "2026-04-01",
+    "create_time": "2026-04-01T20:04:14.937+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "看到这个图别慌，看下单位。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "82811445482542282",
+    "date": "2026-04-01",
+    "create_time": "2026-04-01T15:23:57.413+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "目前来看，英伟达Dragonfly架构中scale up和scale out里都可能会使用OCS。英伟达scale up里OCS端口数应该不会像谷歌那么多，谷歌用288*288的。谷歌scale up里9000多个TPU，蜻蜓架构可能是1024个GPU。\n\n我的理解: 英伟达OCS端口数不用像谷歌用的那么多，但是如果相同数量芯片，OCS数量英伟达用的更多。至于具体多少OCS，架构怎么样的，目前还没有更多信息。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  }
+]
