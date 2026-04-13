@@ -1,5 +1,49 @@
 [
   {
+    "topic_id": "45544412288111888",
+    "date": "2026-04-11",
+    "create_time": "2026-04-11T20:07:08.690+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "胜宏的会议纪要我放在IMA主播提到的材料文件夹里了，还没看过的自己可以去看，雪球上的就是这个",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "82255514451824812",
+    "date": "2026-04-11",
+    "create_time": "2026-04-11T17:34:17.527+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "星球不负责非常基础的科普解答，IMA里产业链科普材料里都有。然后IMA是可以提问的。然后点标注的数字可以看到原文内容。IMA是个非常好的工具，大家自己学会用。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "14422281128558512",
+    "date": "2026-04-11",
+    "create_time": "2026-04-11T17:28:03.407+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "胜宏这个电话会说的混压就是一块PCB比如22层，其中4层用M9，18层用M8，混合压成PCB，每一层CCL负责传输的信号不同，功能不同。如果部分层用M9，那相当于M9材料有一部分小增量在Rubin里。M9材料会用Q布和HVLP4铜箔(M9会用Q布和HVLP4铜箔这种基础的东西还联想不到的话多去看IMA科普文件夹学习)",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
+    "topic_id": "55522284425552844",
+    "date": "2026-04-11",
+    "create_time": "2026-04-11T13:52:50.656+0800",
+    "author": "研报早读(学习委员)",
+    "title": "",
+    "content": "胜宏专家口径: Rubin 的M8.5 CCL材料可能会是M8+M9材料混压的，根据设计，一块PCB版子的不同层用不同等级的CCL。如果真这样，Q布会在Rubin中被规模化用。",
+    "type": "talk",
+    "has_attachment": false,
+    "image_count": 0
+  },
+  {
     "topic_id": "82255514828124512",
     "date": "2026-04-10",
     "create_time": "2026-04-10T16:05:26.794+0800",
@@ -105,72 +149,6 @@
     "author": "研报早读(学习委员)",
     "title": "",
     "content": "宝德的专家认为从他们掌握的信息，谷歌CDU国内的液冷厂家拿不到份额",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "82255518425114482",
-    "date": "2026-04-06",
-    "create_time": "2026-04-06T23:55:36.783+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "相干光模块 旭创，新易盛，华工啥的也都做的",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "82255518521852152",
-    "date": "2026-04-03",
-    "create_time": "2026-04-03T17:21:46.110+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "英唐自身技术实力不强，如果要做代工，得靠桂林。 \n\nOCS MEMS芯片自己搞出来有希望的是菊花厂和军转民的，还得有钱。",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "55522281258224514",
-    "date": "2026-04-03",
-    "create_time": "2026-04-03T17:01:42.351+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "福邦报告里HVLP4铜箔 2H开始缺货，我估计是6月，大家可以平时多关注什么时候开始涨价。2026.2027缺口都是45%左右，这个缺口和EML这种差不多。",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "14422285258415822",
-    "date": "2026-04-03",
-    "create_time": "2026-04-03T13:32:30.016+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "OCS MEMS芯片国内上市的大部分只是单做设计，或者代工，或者贸易\n\n能够大规模量产且良率很好的没上市，MEMS芯片这块后续会持续更新。这块我们有T0级别的资源。",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "14422285255151452",
-    "date": "2026-04-03",
-    "create_time": "2026-04-03T12:11:09.880+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "DCI",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "82255518558288552",
-    "date": "2026-04-03",
-    "create_time": "2026-04-03T09:21:47.989+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "经确认，博创是是英伟达光纤认证供应商是老信息，非最新通过认证。",
     "type": "talk",
     "has_attachment": false,
     "image_count": 0
