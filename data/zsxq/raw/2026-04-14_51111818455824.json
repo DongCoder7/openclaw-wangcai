@@ -108,38 +108,5 @@
     "type": "talk",
     "has_attachment": false,
     "image_count": 0
-  },
-  {
-    "topic_id": "22255514851512411",
-    "date": "2026-04-10",
-    "create_time": "2026-04-10T11:59:45.415+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "胜宏电话会: HDI近乎无敌，其他家没产能竞争(除了深南)。 大族数控的激光钻孔设备测试的还不错。",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "22255514854888151",
-    "date": "2026-04-10",
-    "create_time": "2026-04-10T11:20:14.457+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "解释下，虽然还没最终确定，但是如果集采真的推迟一个季度或者更多时间，光纤厂家的营收会有很大的影响的，光纤厂家超过65%的业务是运营商的。 我认为运营商也在拿推迟集采这件事和光纤厂家做博弈，让光纤厂家选择是要利润还是收入。",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
-  },
-  {
-    "topic_id": "45544412845421848",
-    "date": "2026-04-10",
-    "create_time": "2026-04-10T10:37:54.269+0800",
-    "author": "研报早读(学习委员)",
-    "title": "",
-    "content": "光纤运营商可能会先做小批量应急集采，等价格稳定或者回落才开始集采。",
-    "type": "talk",
-    "has_attachment": false,
-    "image_count": 0
   }
 ]
