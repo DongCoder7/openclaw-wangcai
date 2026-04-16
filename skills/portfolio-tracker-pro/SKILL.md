@@ -9,7 +9,7 @@ description: |
   3. 关键价位清单 (买入/止损/止盈/关注)
   4. 实时分钟级数据
   
-  执行时间: 9:30/11:00/13:30/14:50
+  执行时间: 14:50 (仅尾盘)
   输出: 分批发送至个人飞书 (每只1条详细消息)
 ---
 
@@ -161,10 +161,7 @@ description: |
 
 ```bash
 # 手动执行
-./venv_runner.sh skills/portfolio-tracker-pro/scripts/portfolio_pro_v4.py morning   # 9:30
-./venv_runner.sh skills/portfolio-tracker-pro/scripts/portfolio_pro_v4.py noon      # 11:00
-./venv_runner.sh skills/portfolio-tracker-pro/scripts/portfolio_pro_v4.py afternoon # 13:30
-./venv_runner.sh skills/portfolio-tracker-pro/scripts/portfolio_pro_v4.py close     # 14:50
+./venv_runner.sh skills/portfolio-tracker-pro/scripts/portfolio_pro_v4.py close     # 14:50 尾盘分析
 ./venv_runner.sh skills/portfolio-tracker-pro/scripts/portfolio_pro_v4.py all       # 完整分析
 ```
 
@@ -173,18 +170,9 @@ description: |
 ## Linux Cron配置
 
 ```bash
-# 实盘跟踪Pro V4 - 缠论增强版 (每日4次)
+# 实盘跟踪Pro V4 - 缠论增强版 (每日14:50尾盘一次)
 
-# 9:30 早盘分析
-30 9 * * 1-5 cd /root/.openclaw/workspace && ./venv_runner.sh skills/portfolio-tracker-pro/scripts/portfolio_pro_v4.py morning >> /tmp/portfolio_v4_morning.log 2>&1
-
-# 11:00 午盘分析
-0 11 * * 1-5 cd /root/.openclaw/workspace && ./venv_runner.sh skills/portfolio-tracker-pro/scripts/portfolio_pro_v4.py noon >> /tmp/portfolio_v4_noon.log 2>&1
-
-# 13:30 下午分析
-30 13 * * 1-5 cd /root/.openclaw/workspace && ./venv_runner.sh skills/portfolio-tracker-pro/scripts/portfolio_pro_v4.py afternoon >> /tmp/portfolio_v4_afternoon.log 2>&1
-
-# 14:50 尾盘分析
+# 14:50 尾盘分析 - 缠论支撑压力 + 详细操作建议
 50 14 * * 1-5 cd /root/.openclaw/workspace && ./venv_runner.sh skills/portfolio-tracker-pro/scripts/portfolio_pro_v4.py close >> /tmp/portfolio_v4_close.log 2>&1
 ```
 
