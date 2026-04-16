@@ -559,3 +559,6 @@ if __name__ == "__main__":
     
     print("\n...")
     print("\n✅ 测试完成!")
+    
+# 添加search_stock_comprehensive方法到MultiSourceNewsSearcher类
+MultiSourceNewsSearcher.search_stock_comprehensive = search_stock_comprehensive
