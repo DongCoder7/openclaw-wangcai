@@ -15,21 +15,25 @@ def test_env():
     print("步骤1: 检查环境变量")
     print("=" * 60)
     
-    app_key = os.getenv('LONGBRIDGE_APP_KEY')
-    app_secret = os.getenv('LONGBRIDGE_APP_SECRET')
+    # 支持两种前缀：LONGBRIDGE_ 和 LONGPORT_
+    app_key = os.getenv('LONGBRIDGE_APP_KEY') or os.getenv('LONGPORT_APP_KEY')
+    app_secret = os.getenv('LONGBRIDGE_APP_SECRET') or os.getenv('LONGPORT_APP_SECRET')
     
     if not app_key:
-        print("❌ LONGBRIDGE_APP_KEY 未设置")
+        print("❌ LONGBRIDGE_APP_KEY / LONGPORT_APP_KEY 未设置")
         print("   请执行: export LONGBRIDGE_APP_KEY='your_key'")
+        print("   或:     export LONGPORT_APP_KEY='your_key'")
         return False
     
     if not app_secret:
-        print("❌ LONGBRIDGE_APP_SECRET 未设置")
+        print("❌ LONGBRIDGE_APP_SECRET / LONGPORT_APP_SECRET 未设置")
         print("   请执行: export LONGBRIDGE_APP_SECRET='your_secret'")
+        print("   或:     export LONGPORT_APP_SECRET='your_secret'")
         return False
     
-    print(f"✅ LONGBRIDGE_APP_KEY: {app_key[:8]}...")
-    print(f"✅ LONGBRIDGE_APP_SECRET: {app_secret[:8]}...")
+    prefix = 'LONGBRIDGE' if os.getenv('LONGBRIDGE_APP_KEY') else 'LONGPORT'
+    print(f"✅ {prefix}_APP_KEY: {app_key[:8]}...")
+    print(f"✅ {prefix}_APP_SECRET: {app_secret[:8]}...")
     return True
 
 

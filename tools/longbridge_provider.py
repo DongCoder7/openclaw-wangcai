@@ -40,10 +40,10 @@ class LongbridgeConfig:
     @classmethod
     def from_env(cls) -> 'LongbridgeConfig':
         """从环境变量或配置文件加载配置"""
-        # 首先尝试从环境变量读取
-        app_key = os.getenv('LONGBRIDGE_APP_KEY', '')
-        app_secret = os.getenv('LONGBRIDGE_APP_SECRET', '')
-        access_token = os.getenv('LONGBRIDGE_ACCESS_TOKEN', None)
+        # 首先尝试从环境变量读取（支持两种前缀：LONGBRIDGE_ 和 LONGPORT_）
+        app_key = os.getenv('LONGBRIDGE_APP_KEY', '') or os.getenv('LONGPORT_APP_KEY', '')
+        app_secret = os.getenv('LONGBRIDGE_APP_SECRET', '') or os.getenv('LONGPORT_APP_SECRET', '')
+        access_token = os.getenv('LONGBRIDGE_ACCESS_TOKEN', None) or os.getenv('LONGPORT_ACCESS_TOKEN', None)
         
         # 如果环境变量未设置，尝试从配置文件读取
         if not app_key or not app_secret:
@@ -63,16 +63,17 @@ class LongbridgeConfig:
                                 key = key.strip()
                                 value = value.strip().strip('"\'')  # 去除引号
                                 
-                                if key == 'LONGBRIDGE_APP_KEY':
+                                # 支持两种前缀：LONGBRIDGE_ 和 LONGPORT_
+                                if key in ('LONGBRIDGE_APP_KEY', 'LONGPORT_APP_KEY'):
                                     app_key = value
-                                elif key == 'LONGBRIDGE_APP_SECRET':
+                                elif key in ('LONGBRIDGE_APP_SECRET', 'LONGPORT_APP_SECRET'):
                                     app_secret = value
-                                elif key == 'LONGBRIDGE_ACCESS_TOKEN':
+                                elif key in ('LONGBRIDGE_ACCESS_TOKEN', 'LONGPORT_ACCESS_TOKEN'):
                                     access_token = value
                     break
         
         if not app_key or not app_secret:
-            raise ValueError("请设置 LONGBRIDGE_APP_KEY 和 LONGBRIDGE_APP_SECRET 环境变量或配置文件")
+            raise ValueError("请设置 LONGBRIDGE_APP_KEY / LONGPORT_APP_KEY 和对应 SECRET 环境变量或配置文件")
         
         return cls(app_key=app_key, app_secret=app_secret, access_token=access_token)
 
@@ -507,10 +508,13 @@ if __name__ == '__main__':
     print()
     
     # 检查环境变量
-    if not os.getenv('LONGBRIDGE_APP_KEY'):
+    if not (os.getenv('LONGBRIDGE_APP_KEY') or os.getenv('LONGPORT_APP_KEY')):
         print('⚠️ 请设置环境变量:')
         print('  export LONGBRIDGE_APP_KEY="your_app_key"')
         print('  export LONGBRIDGE_APP_SECRET="your_app_secret"')
+        print('  或:')
+        print('  export LONGPORT_APP_KEY="your_app_key"')
+        print('  export LONGPORT_APP_SECRET="your_app_secret"')
         print()
         print('注意：没有配置的情况下，部分功能可能不可用')
         print()
