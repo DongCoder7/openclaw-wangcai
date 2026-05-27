@@ -39,6 +39,21 @@ if os.path.exists(env_file):
 sys.path.insert(0, '/root/.openclaw/workspace/tools')
 from longbridge_api import get_longbridge_api
 
+# 尝试导入tushare作为备用数据源
+try:
+    import tushare as ts
+    TUSHARE_AVAILABLE = True
+except ImportError:
+    TUSHARE_AVAILABLE = False
+
+# Tushare token (从.tushare_token文件读取)
+TUSHARE_TOKEN = ''
+try:
+    with open('/root/.openclaw/workspace/.tushare_token', 'r') as f:
+        TUSHARE_TOKEN = f.read().strip()
+except:
+    pass
+
 # ============================================
 # 配置
 # ============================================
@@ -749,29 +764,87 @@ def generate_report():
     
     # 3. 获取A+H行情
     print("\n📈 获取A+H股行情...")
-    api = get_longbridge_api()
-    
-    all_a_symbols = []
-    for sector in A_SECTORS.values():
-        all_a_symbols.extend(sector['stocks'])
-    
-    all_h_symbols = []
-    for sector in H_SECTORS.values():
-        all_h_symbols.extend(sector['stocks'])
-    
-    all_symbols = list(set(all_a_symbols + all_h_symbols))
-    quotes = api.get_quotes(all_symbols)
-    quotes_dict = {q['symbol']: q for q in quotes}
-    print(f"  ✅ 获取到 {len(quotes)} 只股票行情")
-    
-    # 4. 分析板块
-    print("\n🔍 分析A股板块...")
-    a_sectors = analyze_a_sectors(quotes_dict)
-    print(f"  ✅ 分析完成，共 {len(a_sectors)} 个板块")
-    
-    print("\n🔍 分析港股板块...")
-    h_sectors = analyze_h_sectors(quotes_dict)
-    print(f"  ✅ 分析完成，共 {len(h_sectors)} 个板块")
+    try:
+        api = get_longbridge_api()
+        
+        all_a_symbols = []
+        for sector in A_SECTORS.values():
+            all_a_symbols.extend(sector['stocks'])
+        
+        all_h_symbols = []
+        for sector in H_SECTORS.values():
+            all_h_symbols.extend(sector['stocks'])
+        
+        all_symbols = list(set(all_a_symbols + all_h_symbols))
+        quotes = api.get_quotes(all_symbols)
+        quotes_dict = {q['symbol']: q for q in quotes}
+        print(f"  ✅ 获取到 {len(quotes)} 只股票行情")
+        
+        # 4. 分析板块
+        print("\n🔍 分析A股板块...")
+        a_sectors = analyze_a_sectors(quotes_dict)
+        print(f"  ✅ 分析完成，共 {len(a_sectors)} 个板块")
+        
+        print("\n🔍 分析港股板块...")
+        h_sectors = analyze_h_sectors(quotes_dict)
+        print(f"  ✅ 分析完成，共 {len(h_sectors)} 个板块")
+    except Exception as e:
+        print(f"  ⚠️ 长桥API连接失败: {e}")
+        print("  ⚠️ 使用备用数据源 (Tushare)...")
+        quotes_dict = {}
+        a_sectors = []
+        h_sectors = []
+        
+        # 尝试使用tushare获取数据
+        try:
+            if TUSHARE_AVAILABLE and TUSHARE_TOKEN:
+                pro = ts.pro_api(TUSHARE_TOKEN)
+                
+                # 获取所有股票代码
+                all_a_symbols = []
+                for sector in A_SECTORS.values():
+                    all_a_symbols.extend(sector['stocks'])
+                
+                all_h_symbols = []
+                for sector in H_SECTORS.values():
+                    all_h_symbols.extend(sector['stocks'])
+                
+                all_symbols = list(set(all_a_symbols + all_h_symbols))
+                
+                # 获取昨日行情数据 (因为今天还没开盘)
+                trade_date = (datetime.now() - timedelta(days=1)).strftime('%Y%m%d')
+                
+                for symbol in all_symbols:
+                    try:
+                        df = pro.daily(ts_code=symbol, trade_date=trade_date)
+                        if not df.empty:
+                            quotes_dict[symbol] = {
+                                'symbol': symbol,
+                                'price': float(df['close'].values[0]),
+                                'prev_close': float(df['pre_close'].values[0]),
+                                'change': float(df['pct_chg'].values[0]),
+                                'open': float(df['open'].values[0]),
+                                'high': float(df['high'].values[0]),
+                                'low': float(df['low'].values[0]),
+                                'volume': int(df['vol'].values[0]),
+                                'turnover': float(df['amount'].values[0]) if 'amount' in df.columns else 0
+                            }
+                    except Exception as te:
+                        pass
+                
+                if quotes_dict:
+                    print(f"  ✅ Tushare获取到 {len(quotes_dict)} 只股票行情")
+                    
+                    # 4. 分析板块
+                    print("\n🔍 分析A股板块...")
+                    a_sectors = analyze_a_sectors(quotes_dict)
+                    print(f"  ✅ 分析完成，共 {len(a_sectors)} 个板块")
+                    
+                    print("\n🔍 分析港股板块...")
+                    h_sectors = analyze_h_sectors(quotes_dict)
+                    print(f"  ✅ 分析完成，共 {len(h_sectors)} 个板块")
+        except Exception as e2:
+            print(f"  ⚠️ Tushare备用数据源也失败: {e2}")
     
     # 收集所有股票
     all_a_stocks = []
