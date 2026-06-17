@@ -41,31 +41,40 @@
 
 ---
 
-## 长桥API Token问题（2026-05-27 记录）
+## 长桥API Token问题（2026-06-15 修正）
 
 ### 问题
-- Token于 **2026-05-21** 过期
-- 错误码: `401003`（Token无效）
-- 影响: 所有依赖长桥API的报告降级为简化版
+**Token并未过期！** 之前的判断错误。
 
-### 受影响报告
-| 报告 | 时间 | 影响 |
-|:---|:---|:---|
-| A+H开盘前瞻 | 09:30 | 港股数据缺失 |
-| 收盘深度报告 | 15:05 | 全市场→15只样本股，缺板块/龙虎榜/个股 |
-| 美股隔夜 | 08:30 | 可能同样降级 |
+真正的问题是：
+- 脚本中手动加载 `.longbridge.env` 时保留了引号
+- `os.environ[key] = val` 中的 val = `"m_eyJhbGci..."`（带引号）
+- `Config.from_env()` 读取到带引号的Token → 401004
+- **错误码 401004 ≠ Token过期，而是Token格式错误**
+
+### 根因分析
+```
+venv_runner.sh 加载: LONGPORT_ACCESS_TOKEN=m_eyJhb... (正确，无引号) ✅
+脚本手动加载:     LONGPORT_ACCESS_TOKEN="m_eyJhb..." (错误，带引号) ❌
+```
 
 ### 修复方案
-1. 前往 https://open.longportapp.com 刷新 Access Token
-2. 更新 `.longbridge.env` 中的 `LONGPORT_ACCESS_TOKEN`
-3. 验证：运行 `python3 -c "from longport import ..."` 测试连接
+1. **脚本中去掉手动加载.env的代码**，或确保去掉引号：
+   ```python
+   val = val.strip().strip('"').strip("'")
+   os.environ[key] = val
+   ```
+2. 或者直接依赖 `venv_runner.sh` 已加载的环境变量
+3. symbol格式：使用 `000001.SH` 而非 `SH.000001`
 
-### 备用数据源
-- Tushare: A股历史数据 ✅（但不支持实时+港股）
-- 腾讯API: 指数数据 ✅（仅指数，无板块/个股深度）
-- 需要长桥Token才能恢复全功能
+### 验证
+- 2026-06-15 23:27 测试：`Config.from_env()` 成功获取实时数据
+- Token有效期至 2026-06-15 及以后
 
----
+### 教训
+- 401004 不一定是Token过期，先检查Token是否包含引号
+- 不要重复加载.env，venv_runner.sh已经处理好了
+- 实事求是：不确定时先验证，不要猜测
 
 ## 其他重要决策
 
