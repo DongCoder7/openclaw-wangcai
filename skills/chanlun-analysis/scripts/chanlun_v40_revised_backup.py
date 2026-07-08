@@ -9,36 +9,14 @@ from datetime import datetime, timedelta
 from longport.openapi import Config, QuoteContext, Period, AdjustType
 
 # =====================================================
-# 数据获取
+from data_fetcher import fetch_data
+
+
+
 # =====================================================
-
-def fetch_longbridge(symbol, period, count):
-    """从长桥获取K线"""
-    config = Config.from_env()
-    ctx = QuoteContext(config)
-    
-    period_map = {
-        '1m': Period.Min_1, '2m': Period.Min_2, '3m': Period.Min_3,
-        '5m': Period.Min_5, '10m': Period.Min_10, '15m': Period.Min_15,
-        '20m': Period.Min_20, '30m': Period.Min_30, '45m': Period.Min_45,
-        '60m': Period.Min_60, '120m': Period.Min_120, '180m': Period.Min_180,
-        '240m': Period.Min_240, '1d': Period.Day
-    }
-    p = period_map.get(period, Period.Day)
-    
-    resp = ctx.candlesticks(symbol, p, count, AdjustType.NoAdjust)
-    
-    data = []
-    for c in resp:
-        data.append({
-            'Date': pd.to_datetime(c.timestamp),
-            'Open': c.open, 'High': c.high, 'Low': c.low,
-            'Close': c.close, 'Volume': c.volume
-        })
-    return pd.DataFrame(data).sort_values('Date').reset_index(drop=True)
-
 # =====================================================
 # 级别合成
+# =====================================================
 # =====================================================
 
 def synthesize_kline(df, n):
@@ -50,7 +28,9 @@ def synthesize_kline(df, n):
     }).reset_index(drop=True)
 
 # =====================================================
+# =====================================================
 # 指标计算
+# =====================================================
 # =====================================================
 
 def ma(df, w): return df['Close'].rolling(window=w).mean()
@@ -68,7 +48,9 @@ def macd(df, f=12, s=26, sig=9):
     return {'dif': dif, 'dea': dea, 'macd': (dif - dea)*2}
 
 # =====================================================
+# =====================================================
 # v4.0: 段数分解（分型→笔→线段）
+# =====================================================
 # =====================================================
 
 def find_local_extrema(df, window=5):
@@ -184,7 +166,9 @@ def count_segments(df, level_name='15F'):
     }
 
 # =====================================================
+# =====================================================
 # v4.0: X段判定（3条件）
+# =====================================================
 # =====================================================
 
 def analyze_x_segment(df_current, df_upper, current_name='15F', upper_name='30F'):
@@ -235,7 +219,9 @@ def analyze_x_segment(df_current, df_upper, current_name='15F', upper_name='30F'
     }
 
 # =====================================================
+# =====================================================
 # v4.0: 主涨段判定
+# =====================================================
 # =====================================================
 
 def analyze_main_trend_segment(df, level_name='30F'):
@@ -257,7 +243,9 @@ def analyze_main_trend_segment(df, level_name='30F'):
         return {'is_main_trend': False, 'description': '55线下方X段', 'strength': 'x_segment'}
 
 # =====================================================
+# =====================================================
 # v4.0: 传导链分析
+# =====================================================
 # =====================================================
 
 def analyze_transmission_chain(levels_data):
@@ -319,7 +307,9 @@ def analyze_transmission_chain(levels_data):
     return ' → '.join(chain)
 
 # =====================================================
+# =====================================================
 # 时间窗口估算
+# =====================================================
 # =====================================================
 
 def estimate_time_window(df_daily, df_bid):
@@ -364,7 +354,9 @@ def estimate_time_window(df_daily, df_bid):
     return {'is_open': False, 'description': '日线MACD死叉中，时间窗口未开启'}
 
 # =====================================================
+# =====================================================
 # 主程序
+# =====================================================
 # =====================================================
 
 def main():
@@ -375,16 +367,16 @@ def main():
     print("\n📡 从长桥获取实时数据...")
     
     # 获取各级别数据
-    df_1m = fetch_longbridge('000001.SH', '1m', 1000)
-    df_2m = fetch_longbridge('000001.SH', '2m', 500)   # 用于3F合成
-    df_3m = fetch_longbridge('000001.SH', '3m', 334)   # 直接获取3F
-    df_5m = fetch_longbridge('000001.SH', '5m', 1000)
-    df_10m = fetch_longbridge('000001.SH', '10m', 500) # 用于15F合成
-    df_15m = fetch_longbridge('000001.SH', '15m', 334) # 直接获取15F
-    df_30m = fetch_longbridge('000001.SH', '30m', 167) # 直接获取30F
-    df_60m = fetch_longbridge('000001.SH', '60m', 84)  # 直接获取60F
-    df_120m_raw = fetch_longbridge('000001.SH', '120m', 100) # 多取一些，过滤部分K线
-    df_d = fetch_longbridge('000001.SH', '1d', 120)    # 日线
+    df_1m = fetch_data('000001.SH', '1m', 1000)
+    df_2m = fetch_data('000001.SH', '2m', 500)   # 用于3F合成
+    df_3m = fetch_data('000001.SH', '3m', 334)   # 直接获取3F
+    df_5m = fetch_data('000001.SH', '5m', 1000)
+    df_10m = fetch_data('000001.SH', '10m', 500) # 用于15F合成
+    df_15m = fetch_data('000001.SH', '15m', 334) # 直接获取15F
+    df_30m = fetch_data('000001.SH', '30m', 167) # 直接获取30F
+    df_60m = fetch_data('000001.SH', '60m', 84)  # 直接获取60F
+    df_120m_raw = fetch_data('000001.SH', '120m', 100) # 多取一些，过滤部分K线
+    df_d = fetch_data('000001.SH', '1d', 120)    # 日线
     
     # 修复120F：Longbridge返回3根/天（含15:00部分K线），标准应为2根/天
     # 过滤掉15:00的部分K线（只有几分钟数据，不是完整的120分钟）

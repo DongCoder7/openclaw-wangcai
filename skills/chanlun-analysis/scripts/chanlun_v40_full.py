@@ -13,6 +13,13 @@ from datetime import datetime
 
 from longport.openapi import Config, QuoteContext, Period, AdjustType
 
+# 多数据源获取（优先级：tdxrs > 长桥 > tushare > efinance）
+from data_fetcher import fetch_data
+
+# =====================================================
+# v4.0 基础函数保留（兼容旧调用）
+# =====================================================
+
 def fetch_longbridge(symbol, period, count):
     """从长桥获取K线 - 直接Config.from_env()"""
     config = Config.from_env()
@@ -87,9 +94,9 @@ def main():
     print("="*60)
     
     print("\n📡 从长桥获取实时数据...")
-    df_1m = fetch_longbridge('000001.SH', '1m', 1000)
-    df_5m = fetch_longbridge('000001.SH', '5m', 1000)
-    df_d = fetch_longbridge('000001.SH', '1d', 120)
+    df_1m = fetch_data('000001.SH', '1m', 1000)
+    df_5m = fetch_data('000001.SH', '5m', 1000)
+    df_d = fetch_data('000001.SH', '1d', 120)
     
     # 合成
     df_3m = synthesize_kline(df_1m, 3)

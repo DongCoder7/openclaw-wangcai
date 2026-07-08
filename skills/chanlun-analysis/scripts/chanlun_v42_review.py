@@ -32,53 +32,9 @@ from longport.openapi import Config, QuoteContext, Period, AdjustType
 # =====================================================
 # v4.0-v4.1 基础函数（保留）
 # =====================================================
-
-def fetch_longbridge(symbol, period, count):
-    """从长桥获取K线"""
-    config = Config.from_env()
-    ctx = QuoteContext(config)
-    
-    period_map = {
-        '1m': Period.Min_1, '2m': Period.Min_2, '3m': Period.Min_3,
-        '5m': Period.Min_5, '10m': Period.Min_10, '15m': Period.Min_15,
-        '20m': Period.Min_20, '30m': Period.Min_30, '45m': Period.Min_45,
-        '60m': Period.Min_60, '120m': Period.Min_120, '180m': Period.Min_180,
-        '240m': Period.Min_240, '1d': Period.Day
-    }
-    p = period_map.get(period, Period.Day)
-    
-    resp = ctx.candlesticks(symbol, p, count, AdjustType.NoAdjust)
-    
-    data = []
-    for c in resp:
-        data.append({
-            'Date': pd.to_datetime(c.timestamp),
-            'Open': c.open, 'High': c.high, 'Low': c.low,
-            'Close': c.close, 'Volume': c.volume
-        })
-    return pd.DataFrame(data).sort_values('Date').reset_index(drop=True)
-
-def synthesize_kline(df, n):
-    df = df.copy()
-    df['Group'] = df.index // n
-    return df.groupby('Group').agg({
-        'Date': 'last', 'Open': 'first', 'High': 'max',
-        'Low': 'min', 'Close': 'last', 'Volume': 'sum'
-    }).reset_index(drop=True)
-
-def ma(df, w): return df['Close'].rolling(window=w).mean()
-
-def boll(df, w=20):
-    m = df['Close'].rolling(window=w).mean()
-    s = df['Close'].rolling(window=w).std()
-    return {'upper': m + s*2, 'middle': m, 'lower': m - s*2}
-
-def macd(df, f=12, s=26, sig=9):
-    ef = df['Close'].ewm(span=f, adjust=False).mean()
-    es = df['Close'].ewm(span=s, adjust=False).mean()
-    dif = ef - es
-    dea = dif.ewm(span=sig, adjust=False).mean()
-    return {'dif': dif, 'dea': dea, 'macd': (dif - dea)*2}
+# 多数据源获取（优先级：tdxrs > 长桥 > tushare > efinance）
+from data_fetcher import fetch_data, fetch_longbridge
+# =====================================================
 
 # =====================================================
 # v4.1 基础函数（保留）
@@ -775,17 +731,17 @@ def main():
     print("缠论分析 v4.2 - 高手复盘优化版")
     print("="*70)
     
-    print("\n📡 从长桥获取实时数据...")
+    print("\n📡 从多数据源获取实时数据（优先级: tdxrs > 长桥 > tushare > efinance）...")
     
     # 获取数据
-    df_1m = fetch_longbridge('000001.SH', '1m', 1000)
-    df_3m = fetch_longbridge('000001.SH', '3m', 334)
-    df_5m = fetch_longbridge('000001.SH', '5m', 1000)
-    df_15m = fetch_longbridge('000001.SH', '15m', 334)
-    df_30m = fetch_longbridge('000001.SH', '30m', 167)
-    df_60m = fetch_longbridge('000001.SH', '60m', 84)
-    df_120m_raw = fetch_longbridge('000001.SH', '120m', 100)
-    df_d = fetch_longbridge('000001.SH', '1d', 120)
+    df_1m = fetch_data('000001.SH', '1m', 1000)
+    df_3m = fetch_data('000001.SH', '3m', 334)
+    df_5m = fetch_data('000001.SH', '5m', 1000)
+    df_15m = fetch_data('000001.SH', '15m', 334)
+    df_30m = fetch_data('000001.SH', '30m', 167)
+    df_60m = fetch_data('000001.SH', '60m', 84)
+    df_120m_raw = fetch_data('000001.SH', '120m', 100)
+    df_d = fetch_data('000001.SH', '1d', 120)
     
     # 修复120F
     from datetime import time as dt_time
