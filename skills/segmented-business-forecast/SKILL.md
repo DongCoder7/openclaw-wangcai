@@ -88,11 +88,11 @@
 ### 命令行
 
 ```bash
-# 基础用法
-./venv_runner.sh skills/segmented-business-forecast/scripts/segmented_forecaster.py 300308.SZ --name "中际旭创"
+# 基础用法（v4.0）
+./venv_runner.sh skills/segmented-business-forecast/scripts/segmented_forecaster.py 300223.SZ --name "北京君正"
 
-# 输出到文件
-./venv_runner.sh skills/segmented-business-forecast/scripts/segmented_forecaster.py 300308.SZ --name "中际旭创" -o report.md
+# 或Python直接调用
+python3 skills/segmented-business-forecast/scripts/segmented_forecaster.py 300223.SZ --name "北京君正"
 ```
 
 ### Python API
